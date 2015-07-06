@@ -11,6 +11,9 @@ This is the next revision of nolotiro.org, this time in Ruby On Rails.
 
 ### Automatic
 
+helloooooo
+helloo x2 con git
+
 Using Vagrant (VirtualBox or LXC), you need to install it:
 
     $ gem install vagrant
