@@ -48,7 +48,6 @@ gem 'capistrano-bundler'
 gem 'newrelic_rpm'                                  # monitoring
 gem 'actionpack-page_caching'                       # caching
 gem 'actionpack-action_caching'                     # caching
-gem 'unicorn'                                       # webserver
 gem 'mysql2'                                        # mysql
 gem 'thinking-sphinx'                               # sphinxsearch
 gem 'redis-rails'                                   # redis cache
@@ -60,6 +59,7 @@ gem 'slim'
 gem 'geoplanet'                                     # yahoo woeid geoplanet
 gem 'geoip'                                         # geolite city
 gem 'will_paginate', '~> 3.0'                       # pagination
+gem 'passenger'                                     # webserver
 gem 'devise'                                        # users
 gem 'devise-async', github: 'mhfs/devise-async'     # send mails async
 gem 'cancancan', '~> 1.10'                          # authorization# authorization# authorization

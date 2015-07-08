@@ -16,7 +16,7 @@ namespace :deploy do
   task :start do
     on roles(:app), in: :sequence, wait: 5 do
       within release_path do
-        run "RAILS_ENV=staging passenger start -p 5001 -d"
+        execute "cd #{release_path} ; RAILS_ENV=staging bundle exec passenger start -p 5001 -d"
       end
     end
   end
@@ -25,7 +25,9 @@ namespace :deploy do
   task :stop do
     on roles(:app), in: :sequence, wait: 5 do
       within release_path do
-        run "RAILS_ENV=staging passenger stop -p 5001"
+        with rails_env: fetch(:rails_env) do
+          run "RAILS_ENV=staging passenger stop -p 5001"
+        end
       end
     end
   end
@@ -34,8 +36,10 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       within release_path do
-        run "RAILS_ENV=staging passenger stop -p 5001"
-        run "RAILS_ENV=staging passenger start -p 5001 -d"
+        with rails_env: fetch(:rails_env) do
+          run "RAILS_ENV=staging passenger stop -p 5001"
+          run "RAILS_ENV=staging passenger start -p 5001 -d"
+        end
       end
     end
   end

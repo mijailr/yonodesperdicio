@@ -26,13 +26,6 @@ after  'deploy:finished',            'deploy:restart'
 
 namespace :deploy do
 
-  desc 'Restart services'
-  task :restart do 
-    on roles(:app) do
-      execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
-
   desc 'Perform migrations'
   task :migrations do
     on roles(:db) do
