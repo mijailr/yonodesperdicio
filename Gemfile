@@ -45,7 +45,6 @@ gem 'capistrano-rbenv'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 
-gem 'newrelic_rpm'                                  # monitoring
 gem 'actionpack-page_caching'                       # caching
 gem 'actionpack-action_caching'                     # caching
 gem 'mysql2'                                        # mysql
