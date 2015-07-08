@@ -79,14 +79,14 @@ NolotiroOrg::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # for devise
-  config.action_mailer.default_url_options = { :host => 'beta.nolotiro.org' }
+  config.action_mailer.default_url_options = { :host => 'beta.yonodesperdicio.org' }
 
   # for mailcatcher
   #config.action_mailer.delivery_method = :smtp
   #config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025 }
 
   # for images on mailer
-  config.action_controller.asset_host = 'http://beta.nolotiro.org'
+  config.action_controller.asset_host = 'http://beta.yonodesperdicio.org'
   config.action_mailer.asset_host = config.action_controller.asset_host
 
 end
