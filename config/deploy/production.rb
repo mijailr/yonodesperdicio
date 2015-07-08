@@ -1,8 +1,8 @@
-server 'nolotiro.org', user: 'ruby-data', roles: %w{db web app}
+server 'panel.alabs.org', user: 'yonodesperdicio', roles: %w{db web app}
 
 set :stage, :production
 set :rails_env, 'production' 
-set :deploy_to, '/var/www/nolotiro.org'
+set :deploy_to, '/rails/yonodesperdicio.org'
 set :branch, "production"
 
 set :rbenv_type, :user
