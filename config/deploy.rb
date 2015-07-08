@@ -1,5 +1,5 @@
-set :application, 'nolotiro.org'
-set :repo_url, 'git@github.com:alabs/nolotiro.org.git'
+set :application, 'yonodesperdicio.org'
+set :repo_url, 'git@bitbucket.org:yonodesperdicio/yonodesperdicio.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
@@ -15,7 +15,7 @@ set :deploy_via, :remote_cache
 set :ssh_options, { :forward_agent => true }
 
 set :linked_files, %w{config/database.yml config/secrets.yml config/newrelic.yml vendor/geolite/GeoLiteCity.dat}
-set :linked_dirs, %w{bin db/sphinx log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/legacy}
+set :linked_dirs, %w{bin db/sphinx log tmp/pids tmp/cache tmp/sockets tmp/cachedir vendor/bundle public/system public/legacy}
 
 set :keep_releases, 5
 
@@ -25,6 +25,13 @@ after  'deploy:finished',            'thinking_sphinx:restart'
 after  'deploy:finished',            'deploy:restart'
 
 namespace :deploy do
+
+  desc 'Restart services'
+  task :restart do 
+    on roles(:app) do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
+  end
 
   desc 'Perform migrations'
   task :migrations do
@@ -37,42 +44,6 @@ namespace :deploy do
     end
   end
 
-  desc 'Start application'
-  task :start do
-    on roles(:app), in: :sequence, wait: 5 do
-
-      # starting nginx / passenger
-      sudo "service nginx start"
-
-      # starting sidekiq / unicorn 
-      sudo "service god start"
-
-    end
-  end
-
-  desc 'Stop application'
-  task :stop do
-    on roles(:app), in: :sequence, wait: 5 do
-
-      # stoping nginx / passenger
-      sudo "service nginx stop"
-
-      # stoping sidekiq / unicorn 
-      sudo "service god stop"
-
-    end
-  end
-
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # restarting nginx / passenger
-      sudo "service nginx restart"
-
-      # restarting sidekiq / unicorn 
-      sudo "service god restart"
-    end
-  end
 
   before :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
