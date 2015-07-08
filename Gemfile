@@ -35,10 +35,6 @@ group :development, :test do
   gem 'bullet'                              # dev: n+1 query problem alert 
 end
 
-group :production do
-  gem 'newrelic_rpm'                        # prod: monitoring
-end
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
