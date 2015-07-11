@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module NolotiroOrg
+module Yonodesperdicio
   class Application < Rails::Application
     config.time_zone = 'UTC'
     config.i18n.default_locale = :es

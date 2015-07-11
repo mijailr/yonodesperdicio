@@ -1,6 +1,6 @@
 /* COMMON CODEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE STARTS HERE */
 
-@font-face 
+@font-face
   font-family: 'Schuss'
   src: url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
@@ -988,21 +988,6 @@ a#tab_active
 .container
   margin-top: 3px
   width: 90%
-
-$langs: <%= Rails.application.secrets["langs"] %>
-
-=flags-countries
-  @each $l in $langs
-    .flag-#{$l}
-      vertical-align: center
-      background-repeat: no-repeat
-      background-position: 0px 5px, center
-      background-image: image-url("flags/#{$l}.gif")
-      span
-        margin-left: 15px
-
-#select_language_box
-  +flags-countries
 
 #cookie-bar
   position: fixed
