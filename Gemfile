@@ -70,7 +70,6 @@ gem 'paranoia', '~> 2.0'                            # don't really delete a mode
 gem 'ipaddress'                                     # ip address validation
 gem 'rb-readline'                                   # fix rails console error
 gem 'localeapp'                                     # i18n interface
-gem 'blueprint-rails'                               # blueprint css framework
 
 # https://github.com/mailboxer/mailboxer/issues/316
 #gem 'mailboxer'                                     # messaging

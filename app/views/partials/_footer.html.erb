@@ -1,34 +1,35 @@
 <div id="footer">
-  <div class="span12">
-    <div id="info" class="innerWrap clearfix span8">
+  <div class="row col-md-12">
+    <div id="info" class="col-md-8 col-xs-12">
     <h2>Quiénes somos</h2>
     <p>Prosalus es una organización no gubernamental de cooperación al desarrollo (ONGD) cuya misión es promover el respeto, protección y garantía de los derechos humanos a la alimentación, a la salud y al agua y saneamiento. Una de las líneas de trabajo de Prosalus está relacionada con el reconocimiento del derecho a la alimentación y un aspecto importante es la disminución del desperdicio de alimentos. Siguiendo la filosofía colaborativa, ponemos en marcha esta red que facilita el intercambio y la reducción del desperdicio. Esta iniciativa cuenta con el apoyo de Territorios Solidarios de BBVA.</p>
   <p>E-mail de contacto: yonodesperdicio@prosalus.es</p>
-    </div>
-    <div class="span4">
+    </div><!--/info-->
+    <div class="col-md-4 col-xs-12">
       <h2>Síguenos</h2>
-      [logos RRSS]
-      <a href="http://prosalus.es/" target="_blank">
+      <p>[logos RRSS]</p>
+      <p><a href="http://prosalus.es/" target="_blank">
         <%= image_tag("logo-prosalus.png", :alt => "Prosalus logo", :height=> "100px") %>
       </a>
       <a href="http://bbva.es/" target="_blank">
         <%= image_tag("logo-bbva.png", :alt => "BBVA logo", :height => "40px") %>
-      </a>
+      </a></p>
     </div>
   </div>
 
-  <div class="links-left">
-    <%= link_to t('nlt.all_ads'), ads_listall_path(type: 'give') %> |
-    <%= link_to t('nlt.about'), about_path %> |
-    <%= link_to t('nlt.faqs'), faqs_path %> |
-    <%= link_to t('nlt.contact'), contact_path %> |
-    <%= link_to t('nlt.legal_notice'), legal_path %> |
-    <%= link_to t('nlt.privacy'), privacy_path %> |
-    <%= 'Mapa del sitio' %>
-  </div>
+  <div class="row col-md-12">
+    <div class="links-left col-md-8 col-sm-8">
+      <%= link_to t('nlt.about'), about_path %> |
+      <%= link_to t('nlt.faqs'), faqs_path %> |
+      <%= link_to t('nlt.contact'), contact_path %> |
+      <%= link_to t('nlt.legal_notice'), legal_path %> |
+      <%= link_to t('nlt.privacy'), privacy_path %> |
+      <%= 'Mapa del sitio' %>
+    </div>
 
-  <div class="links-right">
-    DISEÑO: <%= link_to "Estudio blg", "http://estudioblg.com/" , { :target => "_blank" } %> |
-    DESARROLLO: <%= link_to "Punto Abierto + Amaia", "http://puntoabierto.net/" , { :target => "_blank" } %>
-  </div>
-</div>
+    <div class="links-right col-md-4 col-sm-4">
+      DISEÑO: <%= link_to "Estudio blg", "http://estudioblg.com/" , { :target => "_blank" } %> |
+      DESARROLLO: <%= link_to "Punto Abierto + Amaia", "http://puntoabierto.net/" , { :target => "_blank" } %>
+    </div>
+  </div><!--/row-->
+</div><!--/footer-->

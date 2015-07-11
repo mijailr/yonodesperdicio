@@ -13,7 +13,6 @@
  * http://rails-assets.org
  *= require bootstrap
 
- *= require blueprint
  *= require jquery.cookiebar
  *= require_tree .
  */
