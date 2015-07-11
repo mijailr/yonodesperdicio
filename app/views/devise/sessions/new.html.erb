@@ -10,7 +10,7 @@
 
       <dt id="email-label">
       <label for="email" class="required">
-        <%= f.label t 'nlt.your_email' %>
+        <%= t('nlt.your_email') %>
       </label>
       </dt>
 
@@ -20,7 +20,7 @@
 
       <dt id="password-label">
       <label for="password" class="required">
-        <%= f.label t 'nlt.password' %>
+        <%= t('nlt.password') %>
       </label>
       </dt>
 
@@ -30,8 +30,8 @@
 
       <% if devise_mapping.rememberable? -%>
         <dd id="rememberme-element">
-        <%= f.check_box :remember_me %> 
-        <%= f.label t 'nlt.remember_me' %>
+        <%= f.check_box :remember_me %>
+        <%= t('nlt.remember_me') %>
         </dd>
 
       <% end -%>
