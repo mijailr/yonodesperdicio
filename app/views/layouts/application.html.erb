@@ -38,10 +38,11 @@
 
         <%= render :partial => "partials/user_actions" %>
 
+
+        <%= image_tag "yonodesperdicio_sandia_100.png", :alt => "yonodesperdicio.org", :id => "logo" %>
         <div class="site-name">
-          <%= link_to root_path, :title => "nolotiro.org home", "data-no-turbolink" => true do %>
-            <%= image_tag "logo.png", :alt => "yonodesperdicio.org", :id => "logo" %>
-              yonodesperdicio.org
+          <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
+            <h1>yonodesperdicio.org</h1>
             <%=h yield(:title) %>
           <% end %>
         </div>
@@ -50,11 +51,15 @@
           <%= t('nlt.slogan') %>
         </div>
 
+        <div id="main-menu">
+          <h1><%= render :partial => "partials/menu_principal" %></h1>
+        </div>
+
         <% if content_for?(:action) %>
           <%= yield(:action) %>
         <% end %>
 
-      </div>
+      </div><!--/header-->
 
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
@@ -77,12 +82,11 @@
       <div class="hide js-welcome-message"><%= t('nlt.welcome_message') %></div>
 
       <%= yield %>
+    </div><!--/container-->
 
       <% cache do %>
-        <%= render :partial => "partials/footer", :locals => { :url => "http://nolotiro.org" } %>
+        <%= render :partial => "partials/footer", :locals => { :url => "http://yonodesperdicio.org" } %>
       <% end %>
-
-    </div>
 
     <%= javascript_include_tag "application" %>
 
