@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-NolotiroOrg::Application.load_tasks
+Yonodesperdicio::Application.load_tasks

@@ -1,6 +1,6 @@
 require 'sidekiq/web'
 
-NolotiroOrg::Application.routes.draw do
+Yonodesperdicio::Application.routes.draw do
 
   get '/', to: redirect('/es')
 
