@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:meta_title) %> - nolotiro.org</title>
+    <title><%= yield(:meta_title) %> - yonodesperdicio.org</title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    "application", media: "all" %>
 
@@ -73,10 +73,11 @@
 
         <%= render :partial => "partials/user_actions" %>
 
+
+        <%= image_tag "yonodesperdicio_sandia_100.png", :alt => "yonodesperdicio.org", :id => "logo" %>
         <div class="site-name">
-          <%= link_to root_path, :title => "nolotiro.org home", "data-no-turbolink" => true do %>
-            <%= image_tag "nolotiro_logo.png", :alt => "nolotiro.org", :id => "logo" %>
-            nolotiro.org
+          <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
+            <h1>yonodesperdicio.org</h1>
             <%=h yield(:title) %>
           <% end %>
         </div>
@@ -89,7 +90,7 @@
           <%= yield(:action) %>
         <% end %>
 
-      </div>
+      </div><!--/header-->
 
       <% unless I18n.locale == :es %>
         <div id="advice_langtest" class="advice">
@@ -117,13 +118,21 @@
 
       <div class="hide js-welcome-message"><%= t('nlt.welcome_message') %></div>
 
+
+      <p>Esto es la web+appweb de YONODESPERDICIO</p>
+      <p>El menú principal tendrá que llevar:</p>
+      <ul>
+        <li>Noticias</li>
+        <li>Ideas frescas</li>
+        <li>Alimentos para compartir</li>
+        <li>Iniciativas sociales</li>
+      </ul>
+
       <%= yield %>
-
+    </div><!--/container-->
       <% cache do %>
-        <%= render :partial => "partials/footer", :locals => { :url => "http://nolotiro.org" } %>
+        <%= render :partial => "partials/footer", :locals => { :url => "http://yonodesperdicio.org" } %>
       <% end %>
-
-    </div>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

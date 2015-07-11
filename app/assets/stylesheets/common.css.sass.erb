@@ -1,11 +1,17 @@
 /* COMMON CODEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE STARTS HERE */
 
+@font-face 
+  font-family: 'Schuss'
+  src: url('SchussHandITC_Bold.ttf')  format('truetype')
+  font-weight: normal
+  font-style: bold
+
 body
   line-height: 1.3
   font-size: 83%
   color: #222
-  background: #fff
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  background: rgb(216, 216, 212)
+  font-family: Arial, Helvetica, sans-serif
 
 input[type="text"], input[type="password"], input[type="email"], input[type="submit"]
   border: 1px solid #666
@@ -29,13 +35,16 @@ a
     color: #26DAFF
   &.actual
     /*color: #FA58F4;
-     *text-decoration: underline;
+     *text-decoration: underline
     border-bottom: solid
     border-width: 3px
 
 h1
   font-size: 1.6em
   font-weight: bold
+  font-family: 'Schuss'
+  color: #6e93ea
+  text-shadow: 3px 3px 0px rgba(255, 255, 255, 1)
 
 h1, h2, h3, h4
   margin-bottom: 0
@@ -53,6 +62,10 @@ h2
   line-height: 1.2em
   font-weight: bold
   padding-left: 0px
+
+img#logo
+  float: left
+  margin: 5px
 
 textarea
   resize: none
@@ -653,6 +666,8 @@ dl, dd
   margin-bottom: 60px
   position: relative
   text-align: left
+  clear: both
+  height: 100px
 
 #main
   margin: 0px
@@ -670,6 +685,7 @@ dl, dd
   clear: both
   border-top: 1px solid #ddd
   background-color: #F2F2F2
+  width: 100%
 
 #facebook-button
   float: left
@@ -700,11 +716,12 @@ dl, dd
 
 .site-name
   z-index: -130
+  float: left
   /*below search form
   border: none
   margin-top: 0px
   padding-top: 10px
-  margin-left: 74px
+  /*margin-left: 74px
   width: 380px
   font-size: 2em
   line-height: 1
@@ -964,6 +981,7 @@ a#tab_active
 
 .container
   margin-top: 3px
+  width: 90%
 
 $langs: <%= Rails.application.secrets["langs"] %>
 
