@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:meta_title) %> - nolotiro.org</title>
+    <title><%= yield(:meta_title) %> - yonodesperdicio.org</title>
     <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    "application", media: "all" %>
 
@@ -19,47 +19,16 @@
 
     <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />
 
-    <% Rails.application.secrets["langs"].split(' ').each do |l|  %>
-      <link rel="alternate" hreflang="<%= l %>" href="<%= url_for(locale: l) %>" />
-    <% end %>
-
-    <!--
-
-           Esta web está hecha por la asociación aLabs (http://alabs.es).
-           Puedes ver el código en https://github.com/alabs/nolotiro.org/
-
-                       @@@@              @@@@                 @+`
-                       @@@@              @@@@               @@@@@`
-               `..`    @@@@      ,;;,    @@@@ ,;,    `:;:`   ,@@`
-             `::::::.  @@@@    .@@@@@@:  @@@@@@@@@  @@@@@@@  @#@@
-             ::::::::  @@@@    @@@@@@@@  @@@@@@@@@`:@@@@@@@#
-            .:::`,:::. @@@@   :@@@.;@@@; @@@@ @@@@.@@@@ @@@@
-            ,::: ,:::: @@@@   '@@@.,@@@+ @@@@ @@@@.@@@@ @@@@
-            :::: ::::; @@@@   '@@@.'@@@# @@@@ @@@@.+@@@@
-               .:::::; @@@@      :@@@@@# @@@@ @@@@. @@@@@#
-             ,:::::::; @@@@    +@@@@@@@# @@@@ @@@@. .@@@@@@`
-            `:::;,:::; @@@@   .@@@@,@@@# @@@@ @@@@.   #@@@@@
-            ,:::`,:::; @@@@   '@@@,,@@@# @@@@ @@@@.#@@@ @@@@
-            :::: ,:::; @@@@   '@@@.,@@@# @@@@ @@@@.+@@@ #@@@
-            ,::: ::::; @@@@@@@'@@@.;@@@# @@@@ @@@@`:@@@ @@@@
-            .::::::::; @@@@@@@.@@@@@@@@# @@@@@@@@@  @@@@@@@@
-             ::::::::; @@@@@@@ @@@@'@@@# @@@@#@@@+  .@@@@@@`
-              .:                `:`            :`     `::`
-
-    -->
-
   </head>
   <body>
 
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-    <!-- TODO i18n -->
+    <!-- TODO: facebook app id -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3&appId=400046993432649";
+      js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3&appId=XXXXXXXXXXX";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -67,16 +36,12 @@
 
       <div id="header">
 
-        <% cache("select_language_box_#{I18n.locale}_#{request.original_url}") do %>
-          <%= render :partial => "partials/select_language_box" %>
-        <% end %>
-
         <%= render :partial => "partials/user_actions" %>
 
         <div class="site-name">
           <%= link_to root_path, :title => "nolotiro.org home", "data-no-turbolink" => true do %>
-            <%= image_tag "nolotiro_logo.png", :alt => "nolotiro.org", :id => "logo" %>
-            nolotiro.org
+            <%= image_tag "logo.png", :alt => "yonodesperdicio.org", :id => "logo" %>
+              yonodesperdicio.org
             <%=h yield(:title) %>
           <% end %>
         </div>
@@ -90,12 +55,6 @@
         <% end %>
 
       </div>
-
-      <% unless I18n.locale == :es %>
-        <div id="advice_langtest" class="advice">
-          This language translation is in testing phase. If you find a missing or wrong translation, <%= link_to "please report it", "http://accounts.localeapp.com/projects/6872/translations?in_locale=#{ i18n_to_localeapp_in_locale(I18n.locale) }" %>.
-        </div>
-      <% end %>
 
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
@@ -125,17 +84,6 @@
 
     </div>
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-141609-7', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-    <script src="//www.google.com/jsapi"></script>
     <%= javascript_include_tag "application" %>
 
     <div class="hide js-cookie-message"><%= t('nlt.cookie') %></div>
