@@ -36,6 +36,10 @@ html img
   vertical-align: middle
   z-index: 360
 
+.img-responsive
+  display: inline
+
+
 .row
   margin: 0px
 a
@@ -609,14 +613,24 @@ form.searchbox
 
 .homearriba div,
 .homeabajo div
-  border: 1px solid #000
   padding: 20px
+  text-align: center
 
-.homemedio
+.homearriba div p,
+.homeabajo div p
+  text-align: justify
+
+.homearriba div img
+  height: 100px
+
+.homemedio 
   border-top: $b-rayas
   border-bottom: $b-rayas
   margin: 1em 0
-  padding: 3em
+  padding: 0em
+  text-align: center
+  #contador
+    padding: 2em 0em
   
 
 .home_location_change
@@ -735,9 +749,19 @@ dl, dd
 /**
  * Header Area.
 
+#comida-izda img,
+#comida-dcha img
+  width: 80%
+  float: right
+
+#cebolla
+  height: 100%
+
 #menu-cabecera
   padding: 10px
+  margin-bottom: 10px
   background: $c-azul
+  color: #FFF
   li
     display: inline
     padding: 5px
@@ -754,17 +778,14 @@ img#logo
   border: none
   margin-top: 0px
   padding-top: 10px
+  text-align: center
   width: 100%
-  img
-    position: absolute
-    top: 16px
-    left: 20px
   h1
     font-size: 7em
+    
     font-family: 'Schuss'
     color: $c-azul
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
-    text-align: center
 
 .site-slogan
   clear: both
@@ -787,7 +808,7 @@ img#logo
   text-align: center
   border-top: $b-rayas
   border-bottom: $b-rayas
-  margin-bottom: 2em
+  margin: 0.5em 0em
   li
     display: inline
     padding: 10px
@@ -810,7 +831,8 @@ img#logo
   margin-top: 8px
 
 #default_header_section
-  display: block
+  /*display: block
+  clear: both
   background-color: #FFFFCC
   padding-top: 16px
   padding-bottom: 16px
@@ -1095,10 +1117,9 @@ a#tab_active
     padding-left: 4%
 
   .site-name
-    width: 50%
     padding-top: 20px
     h1
-      font-size: 5em
+      font-size: 2em
   .site-slogan
     h1
       font-size: 1em

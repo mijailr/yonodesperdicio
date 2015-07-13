@@ -1,0 +1,51 @@
+<div id="header">
+  <div id="menu-cabecera" class="row col-md-12">
+    <ul>
+      <li><%= link_to 'Descarga App', '#' %></li>
+      <li>[RRSS]</li>
+      <li><%= link_to 'Cómo funciona' , '#' %></li> |
+      <li><%= render :partial => "partials/user_actions" %></li> 
+      <li><%= link_to 'Inicia sesión' , '#' %></li> |
+      <li><%= link_to 'Registrate' , '#' %></li>
+    </ul>
+  </div>
+
+  <div class="container">
+  <div class="col-md-2 col-xs-2">
+    <%= image_tag "comida-izda.png", :alt => "yonodesperdicio.org", :id => "comida-izda", :class => "img-responsive" %>
+  </div>
+
+  <div class="col-md-8 col-xs-8">
+    <div class="site-name">
+      <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
+        <h1>yonodesperdicio.org</h1>
+        <%=h yield(:title) %>
+      <% end %>
+    </div>
+
+    <div class="site-slogan">
+      <h1><%= t('nlt.slogan') %></h1>
+    </div>
+  </div>
+
+  <div class="col-md-2 col-xs-2">
+    <%= image_tag "comida-dcha.png", :alt => "yonodesperdicio.org", :id => "comida-dcha", :class => "img-responsive" %>
+  </div>
+  </div><!--/container-->
+
+  <div id="main-menu" class="row col-md-12">
+    <ul>
+      <li><%= link_to root_path, :title => "Inicio", "data-no-turbolink" => true do %>Inicio
+      <% end %></li>
+      <li><%= link_to 'noticias' , '#' %></li>
+      <li><%= link_to 'ideas frescas' , '#' %></li>
+      <li><%= link_to 'alimentos para compartir' , '#' %></li>
+      <li><%= link_to 'iniciativas sociales' , '#' %></li>
+    </ul>
+  </div>
+
+  <% if content_for?(:action) %>
+    <%= yield(:action) %>
+  <% end %>
+
+</div><!--/header-->

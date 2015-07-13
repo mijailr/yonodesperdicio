@@ -32,34 +32,11 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-      <div id="header">
-        <div id="menu-cabecera" class="row col-md-12">
-          <%= render :partial => "partials/menu_cabecera" %>
-        </div>
+      <% cache do %>
+        <%= render :partial => "partials/header", :locals => { :url => "http://yonodesperdicio.org" } %>
+      <% end %>
 
-        <%#= image_tag "yonodesperdicio_sandia_100.png", :alt => "yonodesperdicio.org", :id => "logo" %>
-        <div class="site-name col-md-6">
-          <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
-            <h1>yonodesperdicio.org</h1>
-            <%=h yield(:title) %>
-          <% end %>
-        </div>
-
-        <div class="site-slogan col-md-6">
-          <h1><%= t('nlt.slogan') %></h1>
-        </div>
-
-        <div id="main-menu" class="row col-md-12">
-          <%= render :partial => "partials/menu_principal" %>
-        </div>
-
-        <% if content_for?(:action) %>
-          <%= yield(:action) %>
-        <% end %>
-
-      </div><!--/header-->
-
-    <div class="container">
+    <div id="main" class="container">
 
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
@@ -82,6 +59,7 @@
       <div class="hide js-welcome-message"><%= t('nlt.welcome_message') %></div>
 
       <%= yield %>
+
     </div><!--/container-->
 
       <% cache do %>
