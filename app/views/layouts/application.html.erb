@@ -32,27 +32,25 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="container">
-
       <div id="header">
+        <div id="menu-cabecera" class="row col-md-12">
+          <%= render :partial => "partials/menu_cabecera" %>
+        </div>
 
-        <%= render :partial => "partials/user_actions" %>
-
-
-        <%= image_tag "yonodesperdicio_sandia_100.png", :alt => "yonodesperdicio.org", :id => "logo" %>
-        <div class="site-name">
+        <%#= image_tag "yonodesperdicio_sandia_100.png", :alt => "yonodesperdicio.org", :id => "logo" %>
+        <div class="site-name col-md-6">
           <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
             <h1>yonodesperdicio.org</h1>
             <%=h yield(:title) %>
           <% end %>
         </div>
 
-        <div class="site-slogan">
-          <%= t('nlt.slogan') %>
+        <div class="site-slogan col-md-6">
+          <h1><%= t('nlt.slogan') %></h1>
         </div>
 
         <div id="main-menu" class="row col-md-12">
-          <h2><%= render :partial => "partials/menu_principal" %></h2>
+          <%= render :partial => "partials/menu_principal" %>
         </div>
 
         <% if content_for?(:action) %>
@@ -60,6 +58,8 @@
         <% end %>
 
       </div><!--/header-->
+
+    <div class="container">
 
       <% flash.each do |name, msg| %>
         <% if msg.is_a?(String) %>
