@@ -39,7 +39,6 @@ html img
 .img-responsive
   display: inline
 
-
 .row
   margin: 0px
 a
@@ -726,6 +725,7 @@ dl, dd
   margin: 0 auto
   width: 100%
   text-align: left
+  background-color: inherit
 
 #main
   float: left
@@ -773,7 +773,7 @@ img#logo
   float: left
   margin: 5px
 
-.site-name
+#header .site-name
   z-index: -130
   float: left
   border: none
@@ -787,7 +787,7 @@ img#logo
     color: $c-azul
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
 
-.site-slogan
+#header .site-slogan
   clear: both
   float: right
   padding-right: 15%
@@ -810,9 +810,13 @@ img#logo
   margin: 1em 0 0.5em 0
   li
     display: inline
-    padding: 10px
+    padding: 10px 20px
   a
     color: $c-azul
+  a:hover
+    color: #CCC
+  a:active
+    color: red
 
 #location_header_section
   z-index: 100
