@@ -4,8 +4,24 @@ Yonodesperdicio::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   root 'home#index'
+
+  get '/noticias', to: 'home#noticias', as: 'noticias'
+  get '/noticia/:id', to: 'home#noticia', as: 'noticia'
+
+  get '/ideas', to: 'home#ideas', as: 'ideas'
+
+  get '/iniciativas_sociales', to: 'home#inicitaivas_sociales', as: 'iniciativas_sociales'
+
+  scope '/page' do
+    get '/faqs', to: 'page#faqs', as: 'faqs'
+    get '/tos', to: 'page#tos', as: 'tos'
+    get '/about', to: 'page#about', as: 'about'
+    get '/privacy', to: 'page#privacy', as: 'privacy'
+    get '/legal', to: 'page#legal', as: 'legal'
+    get '/translate', to: 'page#translate', as: 'translate'
+  end
 
   scope '/api' do
     scope '/v1' do
@@ -112,15 +128,6 @@ Yonodesperdicio::Application.routes.draw do
   scope '/rss' do
     get '/feed/woeid/:woeid/ad_type/:type', format: 'rss', to: 'rss#feed', as: 'rss_type'
     get '/feed/woeid/:woeid/ad_type/give/status/:status', format: 'rss', to: 'rss#feed', as: 'rss_status'
-  end
-
-  scope '/page' do
-    get '/faqs', to: 'page#faqs', as: 'faqs'
-    get '/tos', to: 'page#tos', as: 'tos'
-    get '/about', to: 'page#about', as: 'about'
-    get '/privacy', to: 'page#privacy', as: 'privacy'
-    get '/legal', to: 'page#legal', as: 'legal'
-    get '/translate', to: 'page#translate', as: 'translate'
   end
 
   # contact
