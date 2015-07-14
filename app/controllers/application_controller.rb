@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # TODO: comment captcha for ad creation/edition
-  
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
-    if user_signed_in? 
+    if user_signed_in?
       redirect_to root_url, :alert => t('nlt.permission_denied')
     else
       redirect_to new_user_session_url, :alert => exception.message
@@ -17,13 +17,17 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    # https://github.com/plataformatec/devise/wiki/How-To:-Redirect-to-a-specific-page-on-successful-sign-in
-    sign_in_url = new_user_session_url
-    if request.referer == sign_in_url
-      super
+    if resource.is_a?(User)
+      # https://github.com/plataformatec/devise/wiki/How-To:-Redirect-to-a-specific-page-on-successful-sign-in
+      sign_in_url = new_user_session_url
+      if request.referer == sign_in_url
+        super
+      else
+        initial_path = current_user.woeid? ? ads_woeid_path(id: current_user.woeid, type: 'give') : location_ask_path
+        stored_location_for(resource) || request.referer || initial_path
+      end
     else
-      initial_path = current_user.woeid? ? ads_woeid_path(id: current_user.woeid, type: 'give') : location_ask_path
-      stored_location_for(resource) || request.referer || initial_path
+      super
     end
   end
 
@@ -38,7 +42,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def get_location_suggest 
+  def get_location_suggest
     ip_address = GeoHelper.get_ip_address request
     GeoHelper.suggest ip_address
   end
