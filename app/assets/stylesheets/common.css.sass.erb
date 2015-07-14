@@ -6,7 +6,6 @@
   font-family: 'Schuss'
   src: font-url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
-  font-style: bold
 
 @font-face
   font-family: 'OpenSans'
@@ -14,6 +13,7 @@
   font-weight: normal
 
 $font-general: 'OpenSans', sans-serif
+$titulo: 'Schuss'
 $c-azul: #005db9
 $c-verde: #6bc04b
 $b-rayas: 2px dashed #FFF 
@@ -61,11 +61,10 @@ a
 
 h1, h2, h3, h4
   margin-bottom: 0
-  font-family: 'Schuss'
+  font-family: $titulo
 
 h2
   line-height: 1.2em
-  font-weight: bold
   padding-left: 0px
 
 ul
@@ -610,6 +609,21 @@ form.searchbox
 
 /**
  * Home
+#header
+.homearriba
+.homeabajo
+.homemedio
+  clear: both
+
+.homearriba h3,
+.homemedio h3
+  font-size: 40px
+  -ms-transform: skewX(40deg) /* IE 9 */
+  -webkit-transform: skewX(20deg) /* Safari */
+  -moz-transform: skewX(20deg)
+  transform: skewX(20deg)
+  a
+    color: $c-azul
 
 .homearriba div,
 .homeabajo div
@@ -618,7 +632,7 @@ form.searchbox
 
 .homearriba div p,
 .homeabajo div p
-  text-align: justify
+  text-align: left
 
 .homearriba div img
   height: 100px
@@ -627,11 +641,27 @@ form.searchbox
   border-top: $b-rayas
   border-bottom: $b-rayas
   margin: 1em 0
-  padding: 0em
+  padding: 0
   text-align: center
   #contador
-    padding: 2em 0em
-  
+    font-family: $titulo
+    font-size: 3.8em
+    color: $c-verde
+    -ms-transform: skewX(40deg) /* IE 9 */
+    -webkit-transform: skewX(20deg) /* Safari */
+    -moz-transform: skewX(20deg)
+    transform: skewX(20deg)
+    padding: 8% 0 3% 0
+  #contador-texto
+    color: red
+    padding: 8% 0 3% 3%
+    text-align: left
+
+.homeabajo #tweets
+  background: #FFF
+  -webkit-border-radius: 15px
+  -moz-border-radius: 15px
+  border-radius: 15px
 
 .home_location_change
   display: inline
@@ -690,64 +720,35 @@ dl, dd
  * Layout.
 
 #header
+  float: left
+  clear: both
+  height: auto
   margin: 0 auto
   width: 100%
   text-align: left
-  clear: both
-  height: 100px
 
 #main
+  float: left
+  clear: both
   margin: 0px
   padding-top: 0
   width: 100%
   text-align: left
-  height: auto
 
 #footer
-  line-height: 1.33em
   float: left
-  margin-top: 20px
   clear: both
+  line-height: 1.33em
+  margin-top: 20px
   border-top: 1px solid #ddd
   background-color: #F2F2F2
   width: 100%
 
-#footer h2
-  color: $c-verde
-
-#facebook-button
-  float: left
-  width: 85px
-  height: 30px
-  padding-right: 5px
-  margin: 4px
-
-#twitter-button
-  float: left
-  width: 85px
-  height: 30px
-  padding-right: 5px
-  margin: 4px
-  margin-right: 50px
-
-.links-left
-  text-align: left
-  background: $c-azul
-  a
-    color: #FFF
-  a:hover
-    color: #CCC
-
-.links-right
-  text-align: right
-  background: $c-verde
-  a
-    color: #FFF
-  a:hover
-    color: #CCC
-
 /**
  * Header Area.
+
+#rrss img
+  width: 30px
 
 #comida-izda img,
 #comida-dcha img
@@ -782,37 +783,34 @@ img#logo
   width: 100%
   h1
     font-size: 7em
-    
-    font-family: 'Schuss'
+    font-family: $titulo
     color: $c-azul
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
 
 .site-slogan
   clear: both
   float: right
-  font-size: 2em
-  /*padding-top: 1px
-  /*margin-left: 74px
-  h1
-    font-size: 2em
-    font-family: 'Schuss'
+  padding-right: 15%
+  h2
+    font-family: $titulo
+    font-size: 3emf
     color: $c-verde
     margin-top: 0
+    line-height: 0
 
 #main-menu
-  float: left
   clear: both
+  float: left
   text-transform: uppercase
-  font-family: 'OpenSans', sans-serif
+  font-family: $font-general
   font-size: 1.5em
   text-align: center
   border-top: $b-rayas
   border-bottom: $b-rayas
-  margin: 0.5em 0em
+  margin: 1em 0 0.5em 0
   li
     display: inline
     padding: 10px
-
   a
     color: $c-azul
 
@@ -891,6 +889,33 @@ img#logo
 /**
  ** footer
  **
+#footer h2
+  color: $c-verde
+#footer h2.enlinea
+  float: left
+  margin: 20px 10px 0 0
+#footer #rrss
+  float: left
+  margin: 15px 0 0 0
+#footer #logos
+  float: left
+
+.links-left,
+.links-right
+  padding: 10px
+  a
+    color: #FFF
+  a:hover
+    color: #CCC
+.links-left
+  text-align: left
+  background: $c-azul
+
+.links-right
+  text-align: right
+  background: $c-verde
+
+
 
 .page_footer
   position: absolute
@@ -1111,6 +1136,20 @@ a#tab_active
   border-bottom: none
 
 @media only screen and (max-width: 779px)
+  #header
+    display: inline-block
+    margin-top: 2%
+
+  #main
+    margin-left: auto
+    margin-right: auto
+    clear: both
+
+  #main-menu
+    font-size: 80%
+  #contador
+    font-size: 80%
+
   .section_ads
     padding: 0px
     width: 95%
@@ -1119,10 +1158,14 @@ a#tab_active
   .site-name
     padding-top: 20px
     h1
-      font-size: 2em
+      font-size: 3em
   .site-slogan
-    h1
+    h2
       font-size: 1em
+  h3
+    font-size: 1em
+  #header .container
+    font-size: 1em
 
   div.info.js-alert-first-visit.hide
     margin-top: 5em
@@ -1162,10 +1205,6 @@ a#tab_active
     margin: 10px 10px
     width: 95%
 
-  #main
-    margin-left: auto
-    margin-right: auto
-
   .span-18
     margin-left: 10px
     margin-top: 10px
@@ -1197,12 +1236,8 @@ a#tab_active
   .mobile
     display: inline-block !important
 
-  .desktop
+  .desktopeader
     display: none !important
-
-  #header
-    display: inline-block
-    margin-top: 2%
 
   .info
     width: 90%

@@ -1,18 +1,18 @@
-<div class="row homearriba col-md-12">
-  <div class="col-md-4 col-xs-4">
-    <%= image_tag "brick.png", :alt => "Comparte", :id => "brick", :class => "img-responsive" %>
+<div class="row homearriba col-md-12 col-xs-12">
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%= image_tag "propias/brick.png", :alt => "Imagen brick para 'Comparte'", :id => "brick", :class => "img-responsive" %>
     <h3><%= link_to 'COMPARTE' , '#' %></h3>
     <p>En este espacio podrás encontrar y compartir ideas, trucos, buenas prácticas para mejorar la conservación y aprovechamiento de los alimentos y reducir el desperdicio.</p>
   </div>
 
-  <div class="col-md-4 col-xs-4">
-    <%= image_tag "librorecetas.png", :alt => "Recetas y más...", :id => "librorecetas", :class => "img-responsive" %>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%= image_tag "propias/librorecetas.png", :alt => "Imagen libro de recetas para 'Recetas y más...'", :id => "librorecetas", :class => "img-responsive" %>
     <h3><%= link_to 'RECETAS Y MÁS...' , '#' %></h3>
     <p>En este espacio podrás encontrar y compartir ideas, trucos, buenas prácticas para mejorar la conservación y aprovechamiento de los alimentos y reducir el desperdicio.</p>
   </div>
 
-  <div class="col-md-4 col-xs-4">
-    <%= image_tag "organizaciones.png", :alt => "Organizaciones", :id => "organizaciones", :class => "img-responsive" %>
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%= image_tag "propias/organizaciones.png", :alt => "Imagen gente para 'Organizaciones'", :id => "organizaciones", :class => "img-responsive" %>
     <h3><%= link_to 'ORGANIZACIONES' , '#' %></h3>
     <p>Para subir información de los alimentos que quieres compartir es necesario que te registres. esta web funciona, además, como una red social con la que comunicarte con el resto de usuarias/os.</p>
   </div>
@@ -20,18 +20,18 @@
 
 <div class="row homemedio col-md-12 col-xs-12">
   <div class="col-md-2 col-xs-2">
-    <%= image_tag "cebolla.png", :alt => "Cebolla", :id => "cebolla", :class => "img-responsive" %>
+    <%= image_tag "propias/cebolla.png", :alt => "Imagen cebolla", :id => "cebolla", :class => "img-responsive" %>
   </div>
-  <div id="contador" class="col-md-8 col-xs-8">
-    Aquí CONTADOR DE COMIDA + Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura.
+  <div class="col-md-8 col-xs-8">
+    <div id="contador" class="col-md-6">CONTADOR DE COMIDA kg</div><div id="contador-texto" class="col-md-6">Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura.</div>
   </div>
   <div class="col-md-2 col-xs-2">
-    <%= image_tag "leche.png", :alt => "Leche", :id => "leche", :class => "img-responsive" %>
+    <%= image_tag "propias/leche.png", :alt => "Imagen leche", :id => "leche", :class => "img-responsive" %>
   </div>
 
 </div><!--/homemedio-->
 
-<div class="row homeabajo col-md-12">
+<div class="row homeabajo col-md-12 col-xs-12">
   <div class="col-md-4">
     Aquí una NOTICIA con foto, título y texto
   </div>
@@ -40,7 +40,7 @@
     Aquí una IDEA FRESCA con foto, título y texto
   </div>
 
-  <div class="col-md-4">
+  <div id="tweets" class="col-md-4">
     Aquí TWEETS
   </div>
 </div><!--/homeabajo--->

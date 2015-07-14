@@ -2,7 +2,12 @@
   <div id="menu-cabecera" class="row col-md-12">
     <ul>
       <li><%= link_to 'Descarga App', '#' %></li>
-      <li>[RRSS]</li>
+      <li id="rrss"> 
+        <%= image_tag "rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class => "img-responsive" %>
+        <%= image_tag "rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class => "img-responsive" %>
+        <%= image_tag "rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class => "img-responsive" %>
+        <%= image_tag "rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class => "img-responsive" %>
+      </li>
       <li><%= link_to 'Cómo funciona' , '#' %></li> |
       <li><%= render :partial => "partials/user_actions" %></li> 
       <li><%= link_to 'Inicia sesión' , '#' %></li> |
@@ -10,30 +15,30 @@
     </ul>
   </div>
 
-  <div class="container">
+  <div class="row col-md-12">
   <div class="col-md-2 col-xs-2">
-    <%= image_tag "comida-izda.png", :alt => "yonodesperdicio.org", :id => "comida-izda", :class => "img-responsive" %>
+    <%= image_tag "propias/comida-izda.png", :alt => "imagen de comida", :id => "comida-izda", :class => "img-responsive" %>
   </div>
 
   <div class="col-md-8 col-xs-8">
     <div class="site-name">
       <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
-        <h1>yonodesperdicio.org</h1>
+        <h1>yonodesperdicio</h1>
         <%=h yield(:title) %>
       <% end %>
     </div>
 
     <div class="site-slogan">
-      <h1><%= t('nlt.slogan') %></h1>
+      <h2><%= t('nlt.slogan') %></h2>
     </div>
   </div>
 
   <div class="col-md-2 col-xs-2">
-    <%= image_tag "comida-dcha.png", :alt => "yonodesperdicio.org", :id => "comida-dcha", :class => "img-responsive" %>
+    <%= image_tag "propias/comida-dcha.png", :alt => "imagen de comida", :id => "comida-dcha", :class => "img-responsive" %>
   </div>
   </div><!--/container-->
 
-  <div id="main-menu" class="row col-md-12">
+  <div id="main-menu" class="row col-md-12 col-xs-12">
     <ul>
       <li><%= link_to root_path, :title => "Inicio", "data-no-turbolink" => true do %>Inicio
       <% end %></li>
