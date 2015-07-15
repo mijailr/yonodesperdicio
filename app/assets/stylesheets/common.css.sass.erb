@@ -18,6 +18,16 @@ $c-azul: #012b5a
 $c-verde: #6bc04b
 $b-rayas: 2px dashed #FFF 
 
+@mixin titulos
+  font-family: $titulo
+  font-size: 3em
+  color: $c-verde
+  margin-bottom: 0
+@mixin titulosotros
+  font-family: $font-general
+  font-size: 2em
+  color: $c-azul
+
 /**** Fin Definiciones, que iran en una hoja aparte ****/
 
 body
@@ -59,12 +69,12 @@ a
     border-width: 3px
 
 h1, h2, h3, h4
-  margin-bottom: 0
-  font-family: $titulo
+  @include titulos
 
 h2
   line-height: 1.2em
   padding-left: 0px
+  font-size: 3em
 
 ul
   list-style-type: none
@@ -82,22 +92,6 @@ textarea
 
 #rememberme-element
   display: inline
-
-.user_login_box
-  position: relative
-  margin-top: -0.4em
-  font-size: 1em
-  background-color: #FFFFCC
-  border-bottom: 1px solid #ddd
-  border-left: 1px solid #ddd
-  border-right: 1px solid #ddd
-  float: right
-  right: 100px
-  padding-bottom: 3px
-  padding-left: 8px
-  padding-right: 6px
-  padding-top: 1px
-  z-index: 200
 
 .advice
   position: relative
@@ -617,6 +611,8 @@ form.searchbox
 .homearriba h3,
 .homemedio h3
   font-size: 40px
+  clear: both
+  margin-top: 0.5em 
   -ms-transform: skewX(40deg) /* IE 9 */
   -webkit-transform: skewX(20deg) /* Safari */
   -moz-transform: skewX(20deg)
@@ -633,7 +629,8 @@ form.searchbox
 .homeabajo div p
   text-align: left
 
-.homearriba div img
+.homearriba div img,
+.homeabajo div imb
   height: 100px
 
 .homemedio 
@@ -656,11 +653,14 @@ form.searchbox
     padding: 8% 0 3% 3%
     text-align: left
 
-.homeabajo #tweets
-  background: #FFF
-  -webkit-border-radius: 15px
-  -moz-border-radius: 15px
-  border-radius: 15px
+.homeabajo
+  h3.titulosotros
+    @include titulosotros
+  #tweets
+    background: #FFF
+    -webkit-border-radius: 15px
+    -moz-border-radius: 15px
+    border-radius: 15px
 
 .home_location_change
   display: inline
@@ -726,6 +726,9 @@ dl, dd
   width: 100%
   text-align: left
   background-color: inherit
+  border: none
+  box-shadow: none
+  text-shadow: none
 
 #main
   float: left
@@ -765,9 +768,16 @@ dl, dd
   color: #FFF
   li
     display: inline
-    padding: 5px
+    width: 20%
+    padding: 10px
   a
     color: #FFF
+  a:hover
+    color: #CCC
+
+.user_login_box
+  display: inline
+  float: right
 
 img#logo
   float: left
@@ -793,7 +803,7 @@ img#logo
   padding-right: 15%
   h2
     font-family: $titulo
-    font-size: 3emf
+    font-size: 4em
     color: $c-verde
     margin-top: 0
     line-height: 0
@@ -813,9 +823,10 @@ img#logo
     padding: 10px 20px
   a
     color: $c-azul
-  a:hover
+  a:hover,
+  a:focus
     color: #CCC
-  a:active
+  a.active
     color: red
 
 #location_header_section
@@ -897,10 +908,11 @@ img#logo
   color: $c-verde
 #footer h2.enlinea
   float: left
-  margin: 20px 10px 0 0
+  margin: 0px 10px 0 0
 #footer #rrss
   float: left
-  margin: 15px 0 0 0
+  margin: 0
+  padding: 0
 #footer #logos
   float: left
 

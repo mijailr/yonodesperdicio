@@ -1,12 +1,12 @@
 class HomeController < ApplicationController
   def index
-    @noticia = Article.order('created_at DESC').last
-    @idea = Idea.order('created_at DESC').last
+    @noticia = Article.order('created_at ASC').last
+    @idea = Idea.order('created_at ASC').last
   end
 
   # listado de noticias
   def noticias
-    @noticias = Article.order('created_at DESC')
+    @noticias = Article.order('created_at ASC')
   end
 
   # una noticia

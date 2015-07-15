@@ -7,12 +7,15 @@ Yonodesperdicio::Application.routes.draw do
 
   root 'home#index'
 
+  get '/articles', to: 'home#articles', as: 'articles'
+  get '/article/:id', to: 'home#article', as: 'article'
+
   get '/noticias', to: 'home#noticias', as: 'noticias'
   get '/noticia/:id', to: 'home#noticia', as: 'noticia'
 
   get '/ideas', to: 'home#ideas', as: 'ideas'
 
-  get '/iniciativas_sociales', to: 'home#inicitaivas_sociales', as: 'iniciativas_sociales'
+  get '/iniciativas_sociales', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
 
   scope '/page' do
     get '/faqs', to: 'page#faqs', as: 'faqs'

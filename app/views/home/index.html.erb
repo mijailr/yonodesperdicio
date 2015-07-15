@@ -33,11 +33,24 @@
 
 <div class="row homeabajo col-md-12 col-xs-12">
   <div class="col-md-4 col-sm-4 col-xs-12">
-    Aquí una NOTICIA con foto, título y texto
+    <%# @noticias.each do |noticia| %>
+      <%#= @noticia.title %>
+      <%#= raw truncate_html(noticia.body, length: 190) %>
+      <%#= link_to "Leer más", @noticia %>
+    <%# end %>
+    
+    [FOTO]
+    <h3 class="titulosotros"><%= @noticia.title %></h3>
+    <p><%= @noticia.body %> (recortar texto)</p>
+    <p><%= link_to "Leer más", @noticia %>(no funciona)</p>
+
   </div>
 
   <div class="col-md-4 col-sm-4 col-xs-12">
-    Aquí una IDEA FRESCA con foto, título y texto
+    [FOTO]
+    <h3 class="titulosotros"><%= @idea.title %></h3>
+    <p><%= @idea.body %> (recortar texto)</p>
+    <p>Link a la idea</p>
   </div>
 
   <div id="tweets" class="col-md-4 col-sm-4 col-xs-12">

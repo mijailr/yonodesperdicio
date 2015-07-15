@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Título</th>
+      <th>Cuerpo</th>
+      <th>Categoría</th>
+      <th>Fecha de publicación</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= link_to 'URL', idea %></td>
+        <td><%= idea.title %></td>
+        <td><%= idea.body %></td>
+        <td><%= idea.category %></td>
+        <td><%= idea.published_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Volver a Ideas' , 'ideas' %>
+

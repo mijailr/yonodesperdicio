@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Título</th>
+      <th>Cuerpo</th>
+      <th>Categoría</th>
+      <th>Fecha de publicación</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @noticias.each do |noticia| %>
+      <tr>
+        <td><%= link_to 'URL', noticia %></td>
+        <td><%= noticia.title %></td>
+        <td><%= noticia.body %></td>
+        <td><%= noticia.category %></td>
+        <td><%= noticia.published_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Volver a noticias' , 'noticias' %>
+

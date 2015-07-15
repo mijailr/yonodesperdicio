@@ -10,8 +10,6 @@
       </li>
       <li><%= link_to 'Cómo funciona' , '#' %></li> |
       <li><%= render :partial => "partials/user_actions" %></li> 
-      <li><%= link_to 'Inicia sesión' , '#' %></li> |
-      <li><%= link_to 'Registrate' , '#' %></li>
     </ul>
   </div>
 
@@ -42,8 +40,8 @@
     <ul>
       <li><%= link_to root_path, :title => "Inicio", "data-no-turbolink" => true do %>Inicio
       <% end %></li>
-      <li><%= link_to 'noticias' , '#' %></li>
-      <li><%= link_to 'ideas frescas' , '#' %></li>
+      <li><%= link_to 'noticias' , '/noticias' %></li>
+      <li><%= link_to 'ideas frescas' , '/ideas' %></li>
       <li><%= link_to 'alimentos para compartir' , '#' %></li>
       <li><%= link_to 'iniciativas sociales' , '#' %></li>
     </ul>
