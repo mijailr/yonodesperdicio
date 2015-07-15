@@ -14,6 +14,11 @@ class HomeController < ApplicationController
     @noticia = Article.find(params[:id])
   end
 
+  # una idea
+  def idea
+    @idea = Idea.find(params[:id])
+  end
+
   #listado de recetas
   def recetas
     @recetas = Idea.where(category: 'recetas')

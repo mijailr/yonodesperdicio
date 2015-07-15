@@ -14,6 +14,7 @@ Yonodesperdicio::Application.routes.draw do
   get '/noticia/:id', to: 'home#noticia', as: 'noticia'
 
   get '/ideas', to: 'home#ideas', as: 'ideas'
+  get '/idea/:id', to: 'home#idea', as: 'idea'
 
   get '/iniciativas_sociales', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
 
