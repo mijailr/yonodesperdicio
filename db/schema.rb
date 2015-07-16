@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711164138) do
+ActiveRecord::Schema.define(version: 20150716180922) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -191,6 +191,16 @@ ActiveRecord::Schema.define(version: 20150711164138) do
   add_index "messages_legacy", ["thread_id"], name: "thread_id"
   add_index "messages_legacy", ["user_from"], name: "user_from"
   add_index "messages_legacy", ["user_to"], name: "user_to"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.text     "CP"
+    t.text     "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "readedAdCount", primary_key: "id_ad", force: :cascade do |t|
     t.integer "counter", limit: 4, null: false

@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Yonodesperdicio::Application.routes.draw do
 
+  resources :organizations
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
