@@ -14,26 +14,47 @@
 
 $font-general: 'OpenSans', sans-serif
 $titulo: 'Schuss'
-$c-azul: #012b5a
-$c-verde: #6bc04b
-$b-rayas: 2px dashed #FFF 
+$c-azul-name: #012b5a
+$c-azul: #005cb8
+$c-verde: #6abf4a
+$c-rojo: #e55333
+$b-rayas: 2px dashed #FFF
+
 
 @mixin titulos
   font-family: $titulo
   font-size: 3em
   color: $c-verde
   margin-bottom: 0
+@mixin titulos-home
+  font-family: $titulo
+  font-size: 40px
+  clear: both
+  margin-top: 0.5em 
+  -ms-transform: skewX(40deg) /* IE 9 */
+  -webkit-transform: skewX(20deg) /* Safari */
+  -moz-transform: skewX(20deg)
+  transform: skewX(20deg)
+  a
+    color: $c-azul
+  
 @mixin titulosotros
   font-family: $font-general
-  font-size: 2em
   color: $c-azul
+@mixin titulossidebar
+  font-family: $font-general
+  background: $c-azul
+  color: #FFF
+  font-size: 0.9em
+  text-transform: uppercase
+  padding: 2px 5px
 
 /**** Fin Definiciones, que iran en una hoja aparte ****/
 
 body
   line-height: 1.3
   color: #222
-  background: rgb(223, 222, 221)
+  background: #dedddc
   font-family: $font-general
   font-size: 13px
 
@@ -68,14 +89,17 @@ a
     border-bottom: solid
     border-width: 3px
 
-h1, h2, h3, h4
+h1, h2
   @include titulos
 
 h2
   line-height: 1.2em
   padding-left: 0px
   font-size: 3em
-
+h3
+  @include titulosotros
+h4
+  @include titulossidebar
 ul
   list-style-type: none
   margin: 0
@@ -608,17 +632,8 @@ form.searchbox
 .homemedio
   clear: both
 
-.homearriba h3,
-.homemedio h3
-  font-size: 40px
-  clear: both
-  margin-top: 0.5em 
-  -ms-transform: skewX(40deg) /* IE 9 */
-  -webkit-transform: skewX(20deg) /* Safari */
-  -moz-transform: skewX(20deg)
-  transform: skewX(20deg)
-  a
-    color: $c-azul
+.homearriba h3
+  @include titulos-home
 
 .homearriba div,
 .homeabajo div
@@ -794,7 +809,7 @@ img#logo
   h1
     font-size: 7em
     font-family: $titulo
-    color: $c-azul
+    color: $c-azul-name
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
 
 #header .site-slogan
@@ -817,7 +832,7 @@ img#logo
   text-align: center
   border-top: $b-rayas
   border-bottom: $b-rayas
-  margin: 1em 0 0.5em 0
+  margin: 1em 0
   li
     display: inline
     padding: 10px 20px
@@ -827,7 +842,7 @@ img#logo
   a:focus
     color: #CCC
   a.active
-    color: red
+    color: $c-rojo
 
 #location_header_section
   z-index: 100
@@ -918,6 +933,7 @@ img#logo
 
 .links-left,
 .links-right
+  text-transform: capitalize
   padding: 10px
   a
     color: #FFF
