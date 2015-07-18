@@ -1,18 +1,32 @@
 ActiveAdmin.register Idea do
 
+  permit_params :title, :body, :category, :published_at, :user_id, :image
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
+  show do |idea|
+    attributes_table do
+      row :user
+      row :category
+      row :title
+      row :body
+      row :image do
+        idea.image? ? image_tag(idea.image.url, height: '200') : content_tag(:span, "No image yet")
+      end
+      row :published_at
+      row :created_at
+      row :updated_at
+    end
+  end
 
-  permit_params :title, :body, :category, :published_at, :user_id
+  form do |f|
+    f.inputs do
+      f.input :user
+      f.input :category
+      f.input :title
+      f.input :body
+      f.input :image, :as => :file, :hint => f.article.image_tag(f.object.image.url(:thumb))
+      # Will preview the image when the object is edited
+      f.input :published_at
+    end
+    f.actions
+  end
 end
