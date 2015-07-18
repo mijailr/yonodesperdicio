@@ -41,16 +41,16 @@
     <%# end %>
     
     [FOTO]
-    <h3 class="titulosotros"><%= @noticia.title %></h3>
-    <p><%= @noticia.body %> (recortar texto)</p>
+    <h3 class="titulosotros"><%= link_to @noticia.title, noticia_url(@noticia) %></h3>
+    <p><%= truncate_html(@noticia.body, length: 200, omission: '...(leer más)') %>
     <p><%= link_to "Leer más", noticia_url(@noticia) %></p>
 
   </div>
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     [FOTO]
-    <h3 class="titulosotros"><%= @idea.title %></h3>
-    <p><%= @idea.body %> (recortar texto)</p>
+    <h3 class="titulosotros"><%= link_to @idea.title, idea_url(@idea) %></h3>
+    <p><%= truncate_html(@idea.body, length: 200, omission: '...(leer más)') %>
     <p><%= link_to "Leer más", idea_url(@idea) %></p>
   </div>
 
