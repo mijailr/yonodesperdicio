@@ -1,14 +1,19 @@
+<% content_for(:meta_title) {@noticia.title} %>
 <div class="row">
   <div id="imagen" class="col-md-4">
-    [IMAGEN]
+    <%= image_tag @noticia.image.url(:medium), :alt => "...", :class => "img-responsive" %>    
     <p><%= @noticia.category %></p>
-    <p>Compartir en RRSS</p>
+    <p>
+      <% cache do %>
+        <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(@noticia) } %>
+      <% end %>
+    </p>
   </div><!-- /imagen -->
 
   <div id="cuerpo" class="col-md-8">
 
     <h3><%= @noticia.title %></h3>
-    <p><%= @noticia.published_at %> (sin hora)</p>
+    <p><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
     <p>Id: <%= @noticia.id %> (quitar)</p>
     <p><%= @noticia.body.html_safe %></p>
     <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/noticias' %></p>
