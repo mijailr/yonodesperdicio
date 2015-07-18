@@ -2,14 +2,10 @@ require 'sidekiq/web'
 
 Yonodesperdicio::Application.routes.draw do
 
-  resources :organizations
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
   root 'home#index'
-
-  get '/articles', to: 'home#articles', as: 'articles'
-  get '/article/:id', to: 'home#article', as: 'article'
 
   get '/noticias', to: 'home#noticias', as: 'noticias'
   get '/noticia/:id', to: 'home#noticia', as: 'noticia'
@@ -17,7 +13,11 @@ Yonodesperdicio::Application.routes.draw do
   get '/ideas', to: 'home#ideas', as: 'ideas'
   get '/idea/:id', to: 'home#idea', as: 'idea'
 
+  get '/organizaciones', to: 'home#organizations', as: 'organizations'
+  get '/organizacion/:id', to: 'home#organization', as: 'organization'
+
   get '/iniciativas_sociales', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
+  get '/iniciativa_social', to: 'home#iniciativa_social', as: 'iniciativa_social'
 
   scope '/page' do
     get '/faqs', to: 'page#faqs', as: 'faqs'

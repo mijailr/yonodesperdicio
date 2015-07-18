@@ -3,7 +3,7 @@
 
       <div class="col-md-4">
         [IMAGEN]
-        <h3><%= link_to 'URL', idea %> (arreglar) <%= idea.title %></h3>
+        <h3><%= link_to idea.title, idea_url(idea) %></h3>
         <p><%= idea.published_at %> (poner sin hora)</p>
         <p><%= idea.body %> (sólo texto, la imagen aparte)</p>
         <p><%= idea.category %> (categorías con link)</p>

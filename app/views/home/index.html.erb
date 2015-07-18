@@ -7,13 +7,13 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <%= image_tag "propias/librorecetas.png", :alt => "Imagen libro de recetas para 'Recetas y más...'", :id => "librorecetas", :class => "img-responsive" %>
-    <h3 class="titulos-home"><%= link_to 'RECETAS Y MÁS...' , '/ideas' %></h3>
+    <h3 class="titulos-home"><%= link_to 'RECETAS Y MÁS...' , ideas_url %></h3>
     <p>En este espacio podrás encontrar y compartir ideas, trucos, buenas prácticas para mejorar la conservación y aprovechamiento de los alimentos y reducir el desperdicio.</p>
   </div>
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <%= image_tag "propias/organizaciones.png", :alt => "Imagen gente para 'Organizaciones'", :id => "organizaciones", :class => "img-responsive" %>
-    <h3 class="titulos-home"><%= link_to 'ORGANIZACIONES' , '/organizations' %></h3>
+    <h3 class="titulos-home"><%= link_to 'ORGANIZACIONES' , organizations_url %></h3>
     <p>Para subir información de los alimentos que quieres compartir es necesario que te registres. esta web funciona, además, como una red social con la que comunicarte con el resto de usuarias/os.</p>
   </div>
 </div><!--/homearriba--->
@@ -36,13 +36,14 @@
     <%# @noticias.each do |noticia| %>
       <%#= @noticia.title %>
       <%#= raw truncate_html(noticia.body, length: 190) %>
+      <%#= truncate(@noticia.body, length: 190) %> (recortar texto)
       <%#= link_to "Leer más", @noticia %>
     <%# end %>
     
     [FOTO]
     <h3 class="titulosotros"><%= @noticia.title %></h3>
     <p><%= @noticia.body %> (recortar texto)</p>
-    <p><%= link_to "Leer más", @noticia %>(no funciona)</p>
+    <p><%= link_to "Leer más", noticia_url(@noticia) %></p>
 
   </div>
 
@@ -50,7 +51,7 @@
     [FOTO]
     <h3 class="titulosotros"><%= @idea.title %></h3>
     <p><%= @idea.body %> (recortar texto)</p>
-    <p><%= link_to "Leer más", @idea %></p>
+    <p><%= link_to "Leer más", idea_url(@idea) %></p>
   </div>
 
   <div id="tweets" class="col-md-4 col-sm-4 col-xs-12">

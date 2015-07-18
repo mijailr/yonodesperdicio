@@ -14,17 +14,24 @@ class HomeController < ApplicationController
     @noticia = Article.find(params[:id])
   end
 
+  # listado de ideas
+  def ideas
+    @ideas = Idea.order('created_at ASC')
+  end
+
   # una idea
   def idea
     @idea = Idea.find(params[:id])
   end
 
-  #listado de recetas
-  def recetas
-    @recetas = Idea.where(category: 'recetas')
+  #listado de organizaciones
+  def organizations 
+    @organizations = Organization.order('name')
   end
 
-  def ideas_conservacion
-    @ideas_conservacion = Idea.where(category: 'conservacion')
+  # una organizacion	
+  def organization
+    @organization = Organization.find(params[:id])
   end
+
 end

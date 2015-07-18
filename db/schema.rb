@@ -194,12 +194,11 @@ ActiveRecord::Schema.define(version: 20150716180922) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.text     "CP"
+    t.text     "description"
+    t.string   "zipcode"
     t.text     "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "readedAdCount", primary_key: "id_ad", force: :cascade do |t|

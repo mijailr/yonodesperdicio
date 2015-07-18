@@ -6,7 +6,7 @@
         [IMAGEN]
       </div>
       <div class="col-md-8">
-          <h3><%= link_to 'URL', noticia %> (arreglar) <%= noticia.title %></h3>
+          <h3><%= link_to 'URL', noticia_url(noticia) %> <%= noticia.title %></h3>
           <p><%= noticia.published_at %> (poner sin hora)</p>
           <p><%= noticia.body %> (sólo texto, la imagen aparte)</p>
           <p><%= noticia.category %> (categorías con link)</p>

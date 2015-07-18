@@ -10,7 +10,7 @@
     <h3><%= @noticia.title %></h3>
     <p><%= @noticia.published_at %> (sin hora)</p>
     <p>Id: <%= @noticia.id %> (quitar)</p>
-    <p><%= @noticia.body %></p>
+    <p><%= @noticia.body.html_safe %></p>
     <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/noticias' %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
