@@ -8,7 +8,7 @@ ActiveAdmin.register Article do
       row :title
       row :body
       row :image do
-        article.image? ? image_tag(article.image.url, height: '200') : content_tag(:span, "No image yet")
+        article.image? ? image_tag(article.image.url, height: '100') : content_tag(:span, "No image yet")
       end
       row :published_at
       row :created_at

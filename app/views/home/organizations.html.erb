@@ -3,12 +3,13 @@
     <% @organizations.each do |organization| %>
 
       <div class="col-md-4">
-        [IMAGEN]
+        <%= image_tag organization.image.url(:thumb), :alt => "", :class => "img-responsive" %>  
       </div>
       <div class="col-md-8">
           <h3><%= link_to organization.name, organization_url(organization) %></h3>
-          <p><%= organization.description %> (sólo texto, la imagen aparte)</p>
-          <p>Compartir en RRSS (iconitos para compartir directamente la organization en RRSS)</p>
+          <p><%= truncate_html(organization.description.html_safe, length: 400, omission: ' ...') %>
+        <span><%= link_to "  Leer más", organization_url(organization) %></span></p>
+          <p>[¿¿Compartir en RRSS (iconitos para compartir directamente la organization en RRSS)??]</p>
       </div>
     <% end %>
 

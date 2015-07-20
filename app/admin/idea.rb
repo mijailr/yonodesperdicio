@@ -9,7 +9,7 @@ ActiveAdmin.register Idea do
       row :title
       row :body
       row :image do
-        idea.image? ? image_tag(idea.image.url, height: '200') : content_tag(:span, "No image yet")
+        idea.image? ? image_tag(idea.image.url, height: '100') : content_tag(:span, "No image yet")
       end
       row :published_at
       row :created_at

@@ -1,0 +1,19 @@
+
+<% content_for(:meta_title) {@organization.name} %>
+<div class="row">
+  <div id="imagen" class="col-md-4">
+    <%= image_tag @organization.image.url(:medium), :alt => "...", :class => "img-responsive" %>  
+  </div><!-- /imagen -->
+
+  <div id="cuerpo" class="col-md-8">
+
+    <h3><%= @organization.name %></h3>
+    <p><%= @organization.description %></p>
+    <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/organizations' %></p>
+
+    <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
+    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
+    <p>[LISTADO DE COMENTARIOS]</p>
+ 
+  </div><!-- /cuerpo -->
+</div><!-- /row -->

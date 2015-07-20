@@ -3,12 +3,13 @@
     <% @ideas.each do |idea| %>
 
       <div class="col-md-4">
-        <%= image_tag idea.image.url(:medium), :alt => "...", :class => "img-responsive" %>  
+        <%= image_tag idea.image.url(:mediumidea), :alt => " ", :class => "img-responsive" %>  
         <h3><%= link_to idea.title, idea_url(idea) %></h3>
         <p><%= idea.published_at.strftime("%d/%m/%Y") %></p>
-        <p><%= idea.body %> (sólo texto, la imagen aparte)</p>
-        <p><%= idea.category %> (categorías con link)</p>
-        <p>      
+        <p><%= truncate_html(idea.body.html_safe, length: 200, omission: ' ...') %>
+        <span><%= link_to "  Leer más", idea_url(idea) %></span></p>
+        <p><%= link_to idea.category, '#' %> (categorías con link a la categoría)</p>
+        <p>[¿¿RRSS aquí??]
           <% cache do %>
             <%= render :partial => "partials/social_buttons", :locals => { :url => "http://yonodesperdicio.org" } %>
           <% end %>
@@ -18,7 +19,10 @@
     <% end %>
 
 <p><%= link_to 'Volver a Ideas' , '/ideas' %> ó Paginación</p>
-
-<p><span class="btn btn-default">Sube tu receta</span> (Para subir una receta es necesario estar registrado)
-   <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
 </div><!-- /listado -->
+
+
+<div id="subereceta">
+  <span class="btn btn-default">Sube tu receta</span> (Para subir una receta es necesario estar registrado)
+  <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span>
+</div><!-- /subereceta -->
