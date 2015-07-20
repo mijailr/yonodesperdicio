@@ -1,6 +1,4 @@
 <% content_for(:meta_title) {@noticia.title} %>
-<% content_for(:meta_image) {@noticia.image.url(:medium)} %>
-<% content_for(:meta_body) {@noticia.body.html_safe} %>
 
 <div class="row">
   <div id="imagen" class="col-md-6">
@@ -20,6 +18,8 @@
     <p><%#= @noticia.id %></p>
     <p><%= @noticia.body.html_safe %></p>
     <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/noticias' %></p>
+    <i class="fa fa-arrow-left"></i>
+
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
     <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
