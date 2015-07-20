@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504103704) do
+ActiveRecord::Schema.define(version: 20150718114416) do
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "ads", force: :cascade do |t|
     t.string   "title",              limit: 100,               null: false
@@ -34,9 +67,22 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.integer  "comments_count",     limit: 4,     default: 0
   end
 
-  add_index "ads", ["deleted_at"], name: "index_ads_on_deleted_at", using: :btree
-  add_index "ads", ["status"], name: "index_ads_on_status", using: :btree
-  add_index "ads", ["woeid_code"], name: "woeid", using: :btree
+  add_index "ads", ["deleted_at"], name: "index_ads_on_deleted_at"
+  add_index "ads", ["status"], name: "index_ads_on_status"
+  add_index "ads", ["woeid_code"], name: "woeid"
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "category"
+    t.datetime "published_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer  "ads_id",     limit: 4,     null: false
@@ -47,20 +93,34 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["ads_id"], name: "ads_id", using: :btree
+  add_index "comments", ["ads_id"], name: "ads_id"
 
   create_table "commentsAdCount", primary_key: "id_comment", force: :cascade do |t|
     t.integer "count", limit: 4
   end
 
-  add_index "commentsAdCount", ["id_comment", "count"], name: "idAd_comments", using: :btree
+  add_index "commentsAdCount", ["id_comment", "count"], name: "idAd_comments"
 
   create_table "friendships", id: false, force: :cascade do |t|
     t.integer "user_id",   limit: 4, null: false
     t.integer "friend_id", limit: 4, null: false
   end
 
-  add_index "friendships", ["user_id", "friend_id"], name: "iduser_idfriend", unique: true, using: :btree
+  add_index "friendships", ["user_id", "friend_id"], name: "iduser_idfriend", unique: true
+
+  create_table "ideas", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "category"
+    t.datetime "published_at"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id",   limit: 4
@@ -68,8 +128,8 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.integer "conversation_id",   limit: 4
   end
 
-  add_index "mailboxer_conversation_opt_outs", ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id", using: :btree
-  add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
+  add_index "mailboxer_conversation_opt_outs", ["conversation_id"], name: "index_mailboxer_conversation_opt_outs_on_conversation_id"
+  add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"
 
   create_table "mailboxer_conversations", force: :cascade do |t|
     t.string   "subject",    limit: 255, default: ""
@@ -96,10 +156,10 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.datetime "expires"
   end
 
-  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id", using: :btree
-  add_index "mailboxer_notifications", ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type", using: :btree
-  add_index "mailboxer_notifications", ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type", using: :btree
-  add_index "mailboxer_notifications", ["type"], name: "index_mailboxer_notifications_on_type", using: :btree
+  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+  add_index "mailboxer_notifications", ["notified_object_id", "notified_object_type"], name: "index_mailboxer_notifications_on_notified_object_id_and_type"
+  add_index "mailboxer_notifications", ["sender_id", "sender_type"], name: "index_mailboxer_notifications_on_sender_id_and_sender_type"
+  add_index "mailboxer_notifications", ["type"], name: "index_mailboxer_notifications_on_type"
 
   create_table "mailboxer_receipts", force: :cascade do |t|
     t.integer  "receiver_id",     limit: 4
@@ -113,15 +173,15 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.datetime "updated_at",                                  null: false
   end
 
-  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
-  add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
+  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+  add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
 
   create_table "messages_deleted", id: false, force: :cascade do |t|
     t.integer "id_user",    limit: 4, null: false
     t.integer "id_message", limit: 4, null: false
   end
 
-  add_index "messages_deleted", ["id_user", "id_message"], name: "iduser_idmessage", unique: true, using: :btree
+  add_index "messages_deleted", ["id_user", "id_message"], name: "iduser_idmessage", unique: true
 
   create_table "messages_legacy", force: :cascade do |t|
     t.integer  "thread_id",   limit: 4,                     null: false
@@ -136,15 +196,24 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.boolean  "is_migrated", limit: 1,     default: false
   end
 
-  add_index "messages_legacy", ["thread_id"], name: "thread_id", using: :btree
-  add_index "messages_legacy", ["user_from"], name: "user_from", using: :btree
-  add_index "messages_legacy", ["user_to"], name: "user_to", using: :btree
+  add_index "messages_legacy", ["thread_id"], name: "thread_id"
+  add_index "messages_legacy", ["user_from"], name: "user_from"
+  add_index "messages_legacy", ["user_to"], name: "user_to"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "zipcode"
+    t.text     "address"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "readedAdCount", primary_key: "id_ad", force: :cascade do |t|
     t.integer "counter", limit: 4, null: false
   end
 
-  add_index "readedAdCount", ["id_ad", "counter"], name: "id_ad_counter", unique: true, using: :btree
+  add_index "readedAdCount", ["id_ad", "counter"], name: "id_ad_counter", unique: true
 
   create_table "threads", force: :cascade do |t|
     t.string  "subject",         limit: 100,             null: false
@@ -153,7 +222,7 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.integer "conversation_id", limit: 4,   default: 0
   end
 
-  add_index "threads", ["last_speaker"], name: "last_speaker", using: :btree
+  add_index "threads", ["last_speaker"], name: "last_speaker"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               limit: 32,                   null: false
@@ -183,15 +252,8 @@ ActiveRecord::Schema.define(version: 20150504103704) do
     t.datetime "locked_at"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
-  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
-  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "messages_legacy", "threads", name: "messages_legacy_ibfk_1", on_delete: :cascade
-  add_foreign_key "messages_legacy", "users", column: "user_from", name: "messages_legacy_ibfk_2", on_delete: :nullify
-  add_foreign_key "messages_legacy", "users", column: "user_to", name: "messages_legacy_ibfk_3", on_delete: :nullify
-  add_foreign_key "threads", "users", column: "last_speaker", name: "threads_ibfk_1", on_delete: :nullify
 end

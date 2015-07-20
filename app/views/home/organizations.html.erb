@@ -1,0 +1,19 @@
+
+<div id="listado" class=" row col-md-10">
+    <% @organizations.each do |organization| %>
+
+      <div class="col-md-4">
+        [IMAGEN]
+      </div>
+      <div class="col-md-8">
+          <h3><%= link_to organization.name, organization_url(organization) %></h3>
+          <p><%= organization.description %> (sólo texto, la imagen aparte)</p>
+          <p>Compartir en RRSS (iconitos para compartir directamente la organization en RRSS)</p>
+      </div>
+    <% end %>
+
+<p><%= link_to 'Volver a organizations' , organizations_url %> ó Paginación</p>
+</div><!-- /listado -->
+
+
+

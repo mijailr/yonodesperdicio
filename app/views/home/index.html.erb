@@ -1,0 +1,62 @@
+<div class="row homearriba col-md-12 col-xs-12">
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%= image_tag "propias/brick.png", :alt => "Imagen brick para 'Comparte'", :id => "brick", :class => "img-responsive" %>
+    <h3 class="titulos-home"><%= link_to 'COMPARTE' , '/#' %></h3>
+    <p>En este espacio podrás encontrar y compartir ideas, trucos, buenas prácticas para mejorar la conservación y aprovechamiento de los alimentos y reducir el desperdicio.</p>
+  </div>
+
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%= image_tag "propias/librorecetas.png", :alt => "Imagen libro de recetas para 'Recetas y más...'", :id => "librorecetas", :class => "img-responsive" %>
+    <h3 class="titulos-home"><%= link_to 'RECETAS Y MÁS...' , ideas_url %></h3>
+    <p>En este espacio podrás encontrar y compartir ideas, trucos, buenas prácticas para mejorar la conservación y aprovechamiento de los alimentos y reducir el desperdicio.</p>
+  </div>
+
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%= image_tag "propias/organizaciones.png", :alt => "Imagen gente para 'Organizaciones'", :id => "organizaciones", :class => "img-responsive" %>
+    <h3 class="titulos-home"><%= link_to 'ORGANIZACIONES' , organizations_url %></h3>
+    <p>Para subir información de los alimentos que quieres compartir es necesario que te registres. esta web funciona, además, como una red social con la que comunicarte con el resto de usuarias/os.</p>
+  </div>
+</div><!--/homearriba--->
+
+<div class="row homemedio col-md-12 col-xs-12">
+  <div class="col-md-2 col-xs-2">
+    <%= image_tag "propias/cebolla.png", :alt => "Imagen cebolla", :id => "cebolla", :class => "img-responsive" %>
+  </div>
+  <div class="col-md-8 col-xs-8">
+    <div id="contador" class="col-md-6">CONTADOR DE COMIDA kg</div><div id="contador-texto" class="col-md-6">Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura.</div>
+  </div>
+  <div class="col-md-2 col-xs-2">
+    <%= image_tag "propias/leche.png", :alt => "Imagen leche", :id => "leche", :class => "img-responsive" %>
+  </div>
+
+</div><!--/homemedio-->
+
+<div class="row homeabajo col-md-12 col-xs-12">
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    <%# @noticias.each do |noticia| %>
+      <%#= @noticia.title %>
+      <%#= raw truncate_html(noticia.body, length: 190) %>
+      <%#= truncate(@noticia.body, length: 190) %> (recortar texto)
+      <%#= link_to "Leer más", @noticia %>
+    <%# end %>
+    
+    [FOTO]
+    <h3 class="titulosotros"><%= link_to @noticia.title, noticia_url(@noticia) %></h3>
+    <p><%= truncate_html(@noticia.body, length: 200, omission: '...(leer más)') %>
+    <p><%= link_to "Leer más", noticia_url(@noticia) %></p>
+
+  </div>
+
+  <div class="col-md-4 col-sm-4 col-xs-12">
+    [FOTO]
+    <h3 class="titulosotros"><%= link_to @idea.title, idea_url(@idea) %></h3>
+    <p><%= truncate_html(@idea.body, length: 200, omission: '...(leer más)') %>
+    <p><%= link_to "Leer más", idea_url(@idea) %></p>
+  </div>
+
+  <div id="tweets" class="col-md-4 col-sm-4 col-xs-12">
+    <a class="twitter-timeline"  href="https://twitter.com/prosalus" data-widget-id="481376715344580609" data-tweet-limit="3">Tweets de @prosalus.</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+  </div>
+</div><!--/homeabajo--->

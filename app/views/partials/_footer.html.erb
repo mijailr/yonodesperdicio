@@ -1,31 +1,42 @@
 <div id="footer">
-
-  <%= render :partial => "partials/social_buttons", :locals => { :url => url } %>
-
-  <div class="links-right">
-    <%= link_to t('nlt.about'), about_path %> |
-    <%= link_to t('nlt.blog'), "http://blog.alabs.es/category/nolotiro-org/" %> |
-    <%= link_to t('nlt.faqs'), faqs_path %> |
-    <%= link_to t('nlt.all_ads'), ads_listall_path(type: 'give') %> |
-    <%= link_to t('nlt.help_translate'), translate_path %> |
-    &nbsp;&nbsp;
-
-    <a href="http://alabs.es/">
-      <%= image_tag("alabs.png", :alt => "aLabs logo") %>
-    </a>
+  <div class="row col-md-12">
+    <div id="info" class="col-md-8 col-sm-8 col-xs-12">
+    <h2>Quiénes somos</h2>
+    <p>Prosalus es una organización no gubernamental de cooperación al desarrollo (ONGD) cuya misión es promover el respeto, protección y garantía de los derechos humanos a la alimentación, a la salud y al agua y saneamiento. Una de las líneas de trabajo de Prosalus está relacionada con el reconocimiento del derecho a la alimentación y un aspecto importante es la disminución del desperdicio de alimentos. Siguiendo la filosofía colaborativa, ponemos en marcha esta red que facilita el intercambio y la reducción del desperdicio. Esta iniciativa cuenta con el apoyo de Territorios Solidarios de BBVA.</p>
+  <p>E-mail de contacto: <a href="mailto:yonodesperdicio@prosalus.es">yonodesperdicio@prosalus.es</a></p>
+    </div><!--/info-->
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <h2 class="enlinea">Síguenos</h2>
+      <p id="rrss"> 
+        <%= image_tag "rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class => "img-responsive" %>
+        <%= image_tag "rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class => "img-responsive" %>
+        <%= image_tag "rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class => "img-responsive" %>
+        <%= image_tag "rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class => "img-responsive" %>
+      </p>
+      <p id="logos"><a href="http://prosalus.es/" target="_blank">
+        <%= image_tag("propias/logo-prosalus.png", :id => "logoprosalus", :alt => "Logo Prosalus", :height=> "100px") %>
+      </a>
+      <a href="http://bbva.es/" target="_blank">
+        <%= image_tag("propias/logo-bbva.png", :id => "logobbva", :alt => "Logo BBVA", :height => "40px") %>
+      </a></p>
+    </div>
   </div>
 
-  <br>
+  <div class="row col-md-12">
+    <div class="links-left col-md-8 col-sm-8">
+      <%= link_to t('nlt.contact'), contact_path %> |
+      <%= link_to t('nlt.legal_notice'), legal_path %> |
+      <%= 'Mapa del sitio' %>
+      <%= link_to t('nlt.faqs'), faqs_path %> |
 
-  <div id="info" class="innerWrap clearfix">
-    <p><%= t('nlt.footer_explain') %></p>
-  </div>
+      <%#= link_to t('nlt.about'), about_path %> |
+      <%#= link_to t('nlt.privacy'), privacy_path %> |
 
-  <div class="links-left">
-    <%= link_to t('nlt.legal_notice'), legal_path %> | 
-    <%= link_to t('nlt.privacy'), privacy_path %> |
-    <%= link_to t('nlt.developers'), 'https://github.com/alabs/nolotiro.org' %> |
-    <%= link_to t('nlt.contact'), contact_path %> |
-    <%= link_to t('nlt.suggestions'), 'http://nolotiro.uservoice.com/forums/30282?lang', :target => "_blank" %>
-  </div>
-</div>
+    </div>
+
+    <div class="links-right col-md-4 col-sm-4">
+      DISEÑO: <%= link_to "Estudio blg", "http://estudioblg.com/" , { :target => "_blank" } %> |
+      DESARROLLO: <%= link_to "Punto Abierto + Amaia", "http://puntoabierto.net/" , { :target => "_blank" } %>
+    </div>
+  </div><!--/row-->
+</div><!--/footer-->
