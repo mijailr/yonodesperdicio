@@ -10,6 +10,10 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.2.2'
 
 
+set :passenger_port, 5001
+set :passenger_cmd,  "bundle exec passenger"
+ 
+
 namespace :deploy do
 
   desc 'Start application'
@@ -26,7 +30,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          run "RAILS_ENV=staging passenger stop -p 5001"
+          execute "cd #{release_path} ; RAILS_ENV=staging bundle exec passenger stop -p 5001"
         end
       end
     end
@@ -37,8 +41,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       within release_path do
         with rails_env: fetch(:rails_env) do
-          run "RAILS_ENV=staging passenger stop -p 5001"
-          run "RAILS_ENV=staging passenger start -p 5001 -d"
+          execute "cd #{release_path} ; touch tmp/restart.txt"
         end
       end
     end
