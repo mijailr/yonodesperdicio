@@ -6,7 +6,7 @@
     <p><%= @idea.category %></p>
     <p>
       <% cache do %>
-        <%= render :partial => "partials/social_buttons", :locals => { :url => "http://yonodesperdicio.org" } %>
+        <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(@idea) } %>
       <% end %>
     </p>
   </div><!-- /imagen -->

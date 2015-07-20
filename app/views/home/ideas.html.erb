@@ -11,8 +11,8 @@
         <p><%= link_to idea.category, '#' %> (categorías con link a la categoría)</p>
         <p>[¿¿RRSS aquí??]
           <% cache do %>
-            <%= render :partial => "partials/social_buttons", :locals => { :url => "http://yonodesperdicio.org" } %>
-          <% end %>
+            <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(idea) } %>
+            <% end %>
         </p>
       </div>
 
