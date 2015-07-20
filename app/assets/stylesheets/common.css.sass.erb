@@ -1,11 +1,62 @@
 /* COMMON CODEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE STARTS HERE */
 
+/** Definiciones **/
+
+@font-face
+  font-family: 'Schuss'
+  src: font-url('SchussHandITC_Bold.ttf')  format('truetype')
+  font-weight: normal
+
+@font-face
+  font-family: 'OpenSans'
+  src: font-url('OpenSans-Regular') format('truetype')
+  font-weight: normal
+
+$font-general: 'OpenSans', sans-serif
+$titulo: 'Schuss'
+$c-azul-name: #012b5a
+$c-azul: #005cb8
+$c-verde: #6abf4a
+$c-rojo: #e55333
+$b-rayas: 2px dashed #FFF
+
+
+@mixin titulos
+  font-family: $titulo
+  font-size: 3em
+  color: $c-verde
+  margin-bottom: 0
+@mixin titulos-home
+  font-family: $titulo
+  font-size: 40px
+  clear: both
+  margin-top: 0.5em 
+  -ms-transform: skewX(40deg) /* IE 9 */
+  -webkit-transform: skewX(20deg) /* Safari */
+  -moz-transform: skewX(20deg)
+  transform: skewX(20deg)
+  a
+    color: $c-azul
+  
+@mixin titulosotros
+  font-family: $font-general
+  color: $c-azul
+@mixin titulossidebar
+  font-family: $font-general
+  background: $c-azul
+  color: #FFF
+  font-size: 0.9em
+  text-transform: uppercase
+  padding: 2px 5px
+
+/**** Fin Definiciones, que iran en una hoja aparte ****/
+
 body
   line-height: 1.3
-  font-size: 83%
   color: #222
-  background: #fff
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  background: #dedddc
+  font-family: $font-general
+  font-size: 13px
 
 input[type="text"], input[type="password"], input[type="email"], input[type="submit"]
   border: 1px solid #666
@@ -16,9 +67,14 @@ html img
   vertical-align: middle
   z-index: 360
 
+.img-responsive
+  display: inline
+
+.row
+  margin: 0px
 a
   &:link
-    color: #00ACCF
+    color: $c-azul
     text-decoration: none
   &:visited
     color: #00ACCF
@@ -29,17 +85,21 @@ a
     color: #26DAFF
   &.actual
     /*color: #FA58F4;
-     *text-decoration: underline;
+     *text-decoration: underline
     border-bottom: solid
     border-width: 3px
 
-h1
-  font-size: 1.6em
-  font-weight: bold
+h1, h2
+  @include titulos
 
-h1, h2, h3, h4
-  margin-bottom: 0
-
+h2
+  line-height: 1.2em
+  padding-left: 0px
+  font-size: 3em
+h3
+  @include titulosotros
+h4
+  @include titulossidebar
 ul
   list-style-type: none
   margin: 0
@@ -47,12 +107,6 @@ ul
 
 li a
   font-weight: bold
-
-h2
-  font-size: 1.5em
-  line-height: 1.2em
-  font-weight: bold
-  padding-left: 0px
 
 textarea
   resize: none
@@ -62,22 +116,6 @@ textarea
 
 #rememberme-element
   display: inline
-
-.user_login_box
-  position: relative
-  margin-top: -0.4em
-  font-size: 1em
-  background-color: #FFFFCC
-  border-bottom: 1px solid #ddd
-  border-left: 1px solid #ddd
-  border-right: 1px solid #ddd
-  float: right
-  right: 100px
-  padding-bottom: 3px
-  padding-left: 8px
-  padding-right: 6px
-  padding-top: 1px
-  z-index: 200
 
 .advice
   position: relative
@@ -588,6 +626,56 @@ form.searchbox
 
 /**
  * Home
+#header
+.homearriba
+.homeabajo
+.homemedio
+  clear: both
+
+.homearriba h3
+  @include titulos-home
+
+.homearriba div,
+.homeabajo div
+  padding: 20px
+  text-align: center
+
+.homearriba div p,
+.homeabajo div p
+  text-align: left
+
+.homearriba div img,
+.homeabajo div imb
+  height: 100px
+
+.homemedio 
+  border-top: $b-rayas
+  border-bottom: $b-rayas
+  margin: 1em 0
+  padding: 0
+  text-align: center
+  #contador
+    font-family: $titulo
+    font-size: 3.8em
+    color: $c-verde
+    -ms-transform: skewX(40deg) /* IE 9 */
+    -webkit-transform: skewX(20deg) /* Safari */
+    -moz-transform: skewX(20deg)
+    transform: skewX(20deg)
+    padding: 8% 0 3% 0
+  #contador-texto
+    color: red
+    padding: 8% 0 3% 3%
+    text-align: left
+
+.homeabajo
+  h3.titulosotros
+    @include titulosotros
+  #tweets
+    background: #FFF
+    -webkit-border-radius: 15px
+    -moz-border-radius: 15px
+    border-radius: 15px
 
 .home_location_change
   display: inline
@@ -646,80 +734,115 @@ dl, dd
  * Layout.
 
 #header
-  margin-top: 0px
+  float: left
+  clear: both
+  height: auto
+  margin: 0 auto
   width: 100%
-  margin-left: 0px
-  margin-right: 20px
-  margin-bottom: 60px
-  position: relative
   text-align: left
+  background-color: inherit
+  border: none
+  box-shadow: none
+  text-shadow: none
 
 #main
+  float: left
+  clear: both
   margin: 0px
   padding-top: 0
   width: 100%
   text-align: left
-  height: auto
 
 #footer
-  font-size: 1em
-  line-height: 1.33em
   float: left
-  margin-top: 20px
-  padding: 20px
   clear: both
+  line-height: 1.33em
+  margin-top: 20px
   border-top: 1px solid #ddd
   background-color: #F2F2F2
-
-#facebook-button
-  float: left
-  width: 85px
-  height: 30px
-  padding-right: 5px
-  margin: 4px
-
-#twitter-button
-  float: left
-  width: 85px
-  height: 30px
-  padding-right: 5px
-  margin: 4px
-  margin-right: 50px
-
-.links-right
-  text-align: right
-  margin-bottom: 10px
-  right: 10px
-
-.links-left
-  text-align: left
-  left: 10px
+  width: 100%
 
 /**
  * Header Area.
 
-.site-name
+#rrss img
+  width: 30px
+
+#comida-izda img,
+#comida-dcha img
+  width: 80%
+  float: right
+
+#cebolla
+  height: 100%
+
+#menu-cabecera
+  padding: 10px
+  margin-bottom: 10px
+  background: $c-azul
+  color: #FFF
+  li
+    display: inline
+    width: 20%
+    padding: 10px
+  a
+    color: #FFF
+  a:hover
+    color: #CCC
+
+.user_login_box
+  display: inline
+  float: right
+
+img#logo
+  float: left
+  margin: 5px
+
+#header .site-name
   z-index: -130
-  /*below search form
+  float: left
   border: none
   margin-top: 0px
   padding-top: 10px
-  margin-left: 74px
-  width: 380px
-  font-size: 2em
-  line-height: 1
-  margin-bottom: 0.01em
-  font-family: Georgia, "Times New Roman", Times, serif
-  img
-    position: absolute
-    top: 16px
-    left: 20px
+  text-align: center
+  width: 100%
+  h1
+    font-size: 7em
+    font-family: $titulo
+    color: $c-azul-name
+    text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
 
-.site-slogan
+#header .site-slogan
+  clear: both
+  float: right
+  padding-right: 15%
+  h2
+    font-family: $titulo
+    font-size: 4em
+    color: $c-verde
+    margin-top: 0
+    line-height: 0
+
+#main-menu
+  clear: both
   float: left
-  font-size: 1em
-  padding-top: 1px
-  margin-left: 74px
+  text-transform: uppercase
+  font-family: $font-general
+  font-size: 1.5em
+  text-align: center
+  border-top: $b-rayas
+  border-bottom: $b-rayas
+  margin: 1em 0
+  li
+    display: inline
+    padding: 10px 20px
+  a
+    color: $c-azul
+  a:hover,
+  a:focus
+    color: #CCC
+  a.active
+    color: $c-rojo
 
 #location_header_section
   z-index: 100
@@ -736,7 +859,8 @@ dl, dd
   margin-top: 8px
 
 #default_header_section
-  display: block
+  /*display: block
+  clear: both
   background-color: #FFFFCC
   padding-top: 16px
   padding-bottom: 16px
@@ -795,6 +919,35 @@ dl, dd
 /**
  ** footer
  **
+#footer h2
+  color: $c-verde
+#footer h2.enlinea
+  float: left
+  margin: 0px 10px 0 0
+#footer #rrss
+  float: left
+  margin: 0
+  padding: 0
+#footer #logos
+  float: left
+
+.links-left,
+.links-right
+  text-transform: capitalize
+  padding: 10px
+  a
+    color: #FFF
+  a:hover
+    color: #CCC
+.links-left
+  text-align: left
+  background: $c-azul
+
+.links-right
+  text-align: right
+  background: $c-verde
+
+
 
 .page_footer
   position: absolute
@@ -802,7 +955,6 @@ dl, dd
   width: 99%
   text-align: center
   clear: both
-  font-size: 9pt
   color: #999
 
 /* begin css tabs
@@ -963,22 +1115,7 @@ a#tab_active
   padding: 4px
 
 .container
-  margin-top: 3px
-
-$langs: <%= Rails.application.secrets["langs"] %>
-
-=flags-countries
-  @each $l in $langs
-    .flag-#{$l}
-      vertical-align: center
-      background-repeat: no-repeat
-      background-position: 0px 5px, center
-      background-image: image-url("flags/#{$l}.gif")
-      span
-        margin-left: 15px
-
-#select_language_box
-  +flags-countries
+  width: 90%
 
 #cookie-bar
   position: fixed
@@ -1015,7 +1152,6 @@ $langs: <%= Rails.application.secrets["langs"] %>
   float: right
   display: inline-block
   position: relative
-  width: 50%
 
 .links-left
   float: left
@@ -1032,14 +1168,36 @@ $langs: <%= Rails.application.secrets["langs"] %>
   border-bottom: none
 
 @media only screen and (max-width: 779px)
+  #header
+    display: inline-block
+    margin-top: 2%
+
+  #main
+    margin-left: auto
+    margin-right: auto
+    clear: both
+
+  #main-menu
+    font-size: 80%
+  #contador
+    font-size: 80%
+
   .section_ads
     padding: 0px
     width: 95%
     padding-left: 4%
 
   .site-name
-    width: 50%
     padding-top: 20px
+    h1
+      font-size: 3em
+  .site-slogan
+    h2
+      font-size: 1em
+  h3
+    font-size: 1em
+  #header .container
+    font-size: 1em
 
   div.info.js-alert-first-visit.hide
     margin-top: 5em
@@ -1079,10 +1237,6 @@ $langs: <%= Rails.application.secrets["langs"] %>
     margin: 10px 10px
     width: 95%
 
-  #main
-    margin-left: auto
-    margin-right: auto
-
   .span-18
     margin-left: 10px
     margin-top: 10px
@@ -1104,7 +1258,7 @@ $langs: <%= Rails.application.secrets["langs"] %>
     width: 100%
     margin-left: 4%
 
-  .home_location_change
+  .home_location_changef
     margin-top: 1em
 
   .notice
@@ -1114,13 +1268,8 @@ $langs: <%= Rails.application.secrets["langs"] %>
   .mobile
     display: inline-block !important
 
-  .desktop
+  .desktopeader
     display: none !important
-
-  #header
-    display: inline-block
-    margin-bottom: 5%
-    margin-top: 2%
 
   .info
     width: 90%

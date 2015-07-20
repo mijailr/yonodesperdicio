@@ -1,0 +1,23 @@
+
+<div id="listado" class=" row col-md-10">
+    <% @noticias.each do |noticia| %>
+
+      <div class="col-md-4">
+        [IMAGEN]
+      </div>
+      <div class="col-md-8">
+          <h3><%= link_to noticia.title, noticia_url(noticia) %></h3>
+          <p><%= noticia.published_at %> (poner sin hora)</p>
+          <p><%= noticia.body %> (sólo texto, la imagen aparte)</p>
+          <p><%= link_to noticia.category, '#' %> (categorías con link)</p>
+          <p>Compartir en RRSS (iconitos para compartir directamente la noticia en RRSS)</p>
+      </div>
+    <% end %>
+
+<p>Paginación</p>
+</div><!-- /listado -->
+
+      <% cache do %>
+        <%= render :partial => "partials/sidebar_right", :locals => { :url => "http://yonodesperdicio.org" } %>
+      <% end %>
+

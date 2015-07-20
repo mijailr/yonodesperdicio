@@ -1,0 +1,21 @@
+<div class="row">
+  <div id="imagen" class="col-md-4">
+    [IMAGEN]
+    <p><%= @noticia.category %></p>
+    <p>Compartir en RRSS</p>
+  </div><!-- /imagen -->
+
+  <div id="cuerpo" class="col-md-8">
+
+    <h3><%= @noticia.title %></h3>
+    <p><%= @noticia.published_at %> (sin hora)</p>
+    <p>Id: <%= @noticia.id %> (quitar)</p>
+    <p><%= @noticia.body.html_safe %></p>
+    <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/noticias' %></p>
+
+    <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
+    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
+    <p>[LISTADO DE COMENTARIOS]</p>
+ 
+  </div><!-- /cuerpo -->
+</div><!-- /row -->
