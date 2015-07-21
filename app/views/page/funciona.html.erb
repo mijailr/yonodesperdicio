@@ -1,0 +1,9 @@
+<%#= content_for :meta_title, t('nlt.about_page.title') %>
+<% content_for (:meta_title) {@funciona.title} %>
+
+<div class="row">
+  <h2><%= @funciona.title %></h2>
+  <div id="main" class="col-md-12">
+    <%= markdown(@funciona.body).html_safe %>
+  </div><!-- /main -->
+</div><!-- /row -->

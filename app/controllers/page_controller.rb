@@ -8,6 +8,10 @@ class PageController < ApplicationController
     @legal = Text.find_by(code: 'legal')
   end
 
+  def funciona
+    @funciona = Text.find_by(code: 'funciona')
+  end
+
   def tos
   end
 

@@ -8,8 +8,11 @@
         <%= image_tag "rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class => "img-responsive" %>
         <%= image_tag "rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class => "img-responsive" %>
       </li>
-      <li><%= link_to 'Cómo funciona' , '#' %></li> |
-      <li><%= render :partial => "partials/user_actions" %></li> 
+      <li><%= link_to 'Cómo funciona' , funciona_path %></li>
+      <li id="login"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
+      <li><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
+      <li id="buscador">[Buscador]<span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
+      <li><%= render :partial => "partials/user_actions" %></li>
     </ul>
   </div>
 
@@ -36,7 +39,7 @@
   </div>
   </div><!--/container-->
 
-  <div id="main-menu" class="nav row col-md-12 col-xs-12">
+  <div id="main-menu" class="row col-md-12 col-xs-12">
     <ul>
       <li><%= link_to root_path, :title => "Inicio", "data-no-turbolink" => true do %>Inicio
       <% end %></li>
