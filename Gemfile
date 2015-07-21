@@ -58,6 +58,7 @@ gem 'slim'
 gem 'geoplanet'                                     # yahoo woeid geoplanet
 gem 'geoip'                                         # geolite city
 gem 'kaminari'                                      # pagination
+gem 'will_paginate', '~> 3.0'                       # pagination
 gem 'passenger'                                     # webserver
 gem 'devise'                                        # users
 gem 'devise-async', github: 'mhfs/devise-async'     # send mails async
