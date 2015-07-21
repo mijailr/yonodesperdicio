@@ -1,13 +1,18 @@
-<%= content_for :meta_title, t('nlt.faq.title') %>
+<!--<%= content_for :meta_title, t('nlt.faq.title') %>-->
+<% content_for (:meta_title) {@faq.title} %>
+
 
 <div id="location_header_section">
-  <h2><%= t('nlt.faq.title') %></h2><br>
-  <b><a href="/"> « <%= t('nlt.back') %></a></b>
+  <h2><%= @faq.title %></h2>
+  <!--<h2><%= t('nlt.faq.title') %></h2><br>
+  <b><a href="/"> « <%= t('nlt.back') %></a></b>-->
 </div>
 
 <div id="main">
-  <div class="span-18">
-    <strong>* <%= t('nlt.faq.question_1') %></strong><br>
+  <div class="col-md-12">
+
+    <p><%= @faq.body %></p>
+    <!--<strong>* <%= t('nlt.faq.question_1') %></strong><br>
     <%= t('nlt.faq.answer_1_html') %>
     <br><br>
     <strong>* <%= t('nlt.faq.question_2') %></strong><br>
@@ -28,6 +33,6 @@
     <strong>* <%= t('nlt.faq.question_7') %></strong><br>
     <%= t('nlt.faq.answer_7_html') %>
     <br><br>
-  </div> 
+  </div> -->
 
 </div> 

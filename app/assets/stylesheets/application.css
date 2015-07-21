@@ -15,4 +15,7 @@
 
  *= require jquery.cookiebar
  *= require_tree .
- 
+ */
+
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
