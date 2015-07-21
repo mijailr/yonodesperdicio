@@ -18,4 +18,9 @@ module ApplicationHelper
     Digest::MD5.hexdigest(key)
   end
 
+  def markdown(content)
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, space_after_headers: true, fenced_code_blocks: true, tables: true, with_toc_data: true)
+    @markdown.render(content)
+  end
+
 end

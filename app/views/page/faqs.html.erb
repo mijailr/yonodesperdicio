@@ -10,8 +10,7 @@
 
 <div id="main">
   <div class="col-md-12">
-
-    <p><%= @faq.body %></p>
+    <%= markdown(@faq.body).html_safe %>
     <!--<strong>* <%= t('nlt.faq.question_1') %></strong><br>
     <%= t('nlt.faq.answer_1_html') %>
     <br><br>

@@ -16,9 +16,10 @@
     <h3><%= @noticia.title %></h3>
     <p><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
     <p><%#= @noticia.id %></p>
-    <p><%= @noticia.body.html_safe %></p>
+    <p><%= markdown(@noticia.body).html_safe %>
+    <p><%#= @noticia.body.html_safe %></p>
     <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/noticias' %></p>
-    <i class="fa fa-arrow-left"></i>
+    <i class="fa fa-arrow-left">Volver</i>
 
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...

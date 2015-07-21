@@ -8,7 +8,7 @@
   <div id="cuerpo" class="col-md-8">
 
     <h3><%= @organization.name %></h3>
-    <p><%= @organization.description %></p>
+    <p><%= markdown(@organization.description).html_safe %>
     <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/organizations' %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...

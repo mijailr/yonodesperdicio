@@ -82,3 +82,4 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'truncate_html'
 gem 'font-awesome-sass'
+gem 'redcarpet'

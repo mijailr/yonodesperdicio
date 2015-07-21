@@ -7,7 +7,8 @@
       </div>
       <div class="col-md-8">
           <h3><%= link_to organization.name, organization_url(organization) %></h3>
-          <p><%= truncate_html(organization.description.html_safe, length: 400, omission: ' ...') %>
+          <p><%= truncate_html(markdown(organization.description).html_safe, length: 200, omission: '...') %></p>
+          <p><%#= truncate_html(organization.description.html_safe, length: 400, omission: ' ...') %>
         <span><%= link_to "  Leer más", organization_url(organization) %></span></p>
           <p>[¿¿Compartir en RRSS (iconitos para compartir directamente la organization en RRSS)??]</p>
       </div>
