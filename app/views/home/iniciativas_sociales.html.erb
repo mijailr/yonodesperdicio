@@ -1,0 +1,38 @@
+<% content_for(:meta_title) {"inciativas_sociales"} %>
+
+<div class="row">
+  <p>Día a día aparecen en todo el mundo iniciativas y campañas cuyo objetivo es contribuir a la disminución del desperdi-
+cio de alimentos. Cuantos más seamos luchando contra el desperdicio de alimentos, más gente podrá ser consciente
+de la cantidad de recursos y dinero que desperdiciamos en un mundo finito.</p>
+  <p>Aquí puedes encontrar algunas que ya están dando resultados muy positivos para evitar el desperdicio de alimentos
+en España y en el resto del mundo.</p>
+</div><!-- /row -->
+
+<div id="listado" class=" row col-md-10">
+    <%# @iniciativas.each do |iniciativa| %>
+
+      <div class="col-md-5">
+        <%#= image_tag noticia.image.url(:medium), :alt => "", :class => "img-responsive" %>  
+      </div>
+      <div class="col-md-7">
+          <h3><%#= link_to iniciativa.title, iniciativa_url(iniciativa) %></h3>
+          <p><%#= noticia.published_at.strftime("%d/%m/%Y") %></p>
+          <p><%#= truncate_html(markdown(noticia.body).html_safe, length: 200, omission: '...') %></p>
+          <p><%#= truncate_html(noticia.body.html_safe, length: 200, omission: ' ...') %>
+          <span><%#= link_to "  Leer más", noticia_url(noticia) %></span></p>
+          <p><%#= link_to noticia.category, '#' %> (categorías con link a la categoría)</p>
+          <p>[¿¿RRSS aquí?? Mejor no. Se les ha sugerido]
+            <%# cache do %>
+              <%#= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(noticia) } %>
+            <%# end %>
+          </p>
+      </div>
+    <%# end %>
+
+<p>[Paginación]</p>
+<%#= will_paginate(@noticias) %>
+</div><!-- /listado -->
+
+      <% cache do %>
+        <%= render :partial => "partials/sidebar_right", :locals => { :url => "http://yonodesperdicio.org" } %>
+      <% end %>

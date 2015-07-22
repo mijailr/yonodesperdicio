@@ -14,6 +14,18 @@ class HomeController < ApplicationController
     @noticia = Article.find(params[:id])
   end
 
+  # listado de iniciativas
+  #def iniciativas
+  #  @iniciativas = Article.find_by(category: 'iniciativa').order('created_at ASC')
+  #   @iniciativas = Article.where(:category => { :name => 'iniciativa' }).order('created_at ASC')
+  #end
+
+  # una iniciativa
+  #def iniciativa
+  #  @iniciativa = Article.find_by(category: 'iniciativa').find(params[:id])
+  #  @iniciativa = Article.where(:category => { :name => 'iniciativa' }).find(params[:id])
+  #end
+
   # listado de ideas
   def ideas
     @ideas = Idea.order('created_at ASC')
