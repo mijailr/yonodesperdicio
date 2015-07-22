@@ -12,6 +12,11 @@
   src: font-url('OpenSans-Regular') format('truetype')
   font-weight: normal
 
+@font-face
+  font-family: 'FontAwesome'
+  src: font-url('FontAwesome.otf')
+
+
 $font-general: 'OpenSans', sans-serif
 $titulo: 'Schuss'
 $c-texto: #012b5a
@@ -85,11 +90,8 @@ a
   &:active
     color: #00C7EF
   &:hover
-    /*color: #FF08DE;
     color: #26DAFF
   &.actual
-    /*color: #FA58F4;
-     *text-decoration: underline
     border-bottom: solid
     border-width: 3px
 
@@ -135,66 +137,7 @@ textarea
 .close_advice a
   color: #000
 
-#select_language_box
-  position: absolute
-  top: 0px
-  float: right
-  right: 0px
-  border: 1px solid white
-  display: inline-block
-  height: 12px
-  overflow: hidden
-  vertical-align: top
-  width: 92px
-  padding-top: 24px
-  z-index: 400
-  &:hover
-    border: 1px solid #ddd
-    background-color: #fff
-    height: auto
-
-.deployed_languages
-  border: 1px solid #ddd
-  background-color: #fff
-  height: auto
-
-#select_language_box
-  a
-    padding: 2px
-    padding-left: 4px
-    padding-right: 0px
-    line-height: 16px
-    height: 20px
-    display: none
-    width: 100%
-    text-decoration: none !important
-  img
-    text-decoration: none !important
-    border: 0
-    right: 2px
-    clear: left
-    vertical-align: baseline
-  a span.lang_name
-    display: inline-block
-    text-decoration: none
-  &:hover a
-    display: block
-
-.deployed_languages a
-  display: block
-
-#select_language_box
-  .lang.active
-    display: block
-    position: absolute
-    top: 0px
-  a:hover
-    background-color: #999 !important
-    text-decoration: none !important
-    color: #fff !important
-
 form.searchbox
-  /*    position: absolute;
   display: inline-block
   width: auto
   padding-right: 20px
@@ -215,14 +158,242 @@ form.searchbox
   font-size: 14px
   padding: 5px
 
-.select_language_box
-  margin-top: -0.4em
-  padding: 4px
-  select
-    font-size: 0.9em
-    font-weight: bold
-    background-color: #fff
+/**
+ * Layout.
+#header
+  float: left
+  clear: both
+  height: auto
+  margin: 0 auto
+  padding: 0
+  width: 100%
+  text-align: left
+  background-color: inherit
+  border: none
+  box-shadow: none
+  text-shadow: none
 
+#main
+  float: left
+  clear: both
+  margin: 0px
+  padding-top: 0
+  padding-bottom: 10px
+  width: 100%
+  text-align: left
+
+#footer
+  float: left
+  clear: both
+  line-height: 1.33em
+  margin: 0 auto
+  padding-top: 20px
+  border-top: 1px solid #ddd
+  background-color: #F2F2F2
+  width: 100%
+
+/**
+ * Header Area.
+#rrss img
+  width: 30px
+
+#comida-izda img,
+#comida-dcha img
+  width: 80%
+  float: right
+
+#cebolla
+  height: 100%
+
+#menu-cabecera
+  padding: 0.3em
+  margin-bottom: 10px
+  background: $c-azul
+  color: #FFF
+  a
+    color: #FFF
+  a:hover
+    color: #CCC
+  li
+    display: inline
+    padding: 0.7em
+    width: 12.5%
+    float: left
+    text-align: center
+  li#login
+    border-left: 1px solid #FFF
+    border-right: 1px solid #FFF  
+  li#rrss
+    padding: 0.2em
+    img
+      padding-bottom: 0
+  li#buscador 
+    .form-control
+      width: 150px
+  .glyphicon-search
+    background: $c-verde
+    padding: 3px
+
+.user_login_box
+  display: inline
+  float: right
+
+img#logo
+  float: left
+  margin: 5px
+
+#header .site-name
+  z-index: -130
+  float: left
+  border: none
+  margin-top: 0px
+  padding-top: 10px
+  text-align: center
+  width: 100%
+  h1
+    font-size: 7em
+    font-family: $titulo
+    color: $c-azul
+    text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
+
+#header .site-slogan
+  clear: both
+  float: right
+  padding-right: 15%
+  h2
+    font-family: $titulo
+    font-size: 4em
+    color: $c-verde
+    margin-top: 0
+    line-height: 0
+
+#main-menu
+  clear: both
+  float: left
+  text-transform: uppercase
+  font-family: $font-general
+  font-size: 1.5em
+  text-align: center
+  border-top: $b-rayas
+  border-bottom: $b-rayas
+  margin: 1em 0
+  li
+    display: inline
+    padding: 10px 20px
+  a
+    color: $c-azul
+  a:hover,
+  a:focus
+    color: #CCC
+  a.active
+    color: $c-rojo
+
+/**
+ ** Footer
+ **
+#footer 
+  h2
+    color: $c-verde
+  #siguenos
+    text-align: center
+    h2.enlinea
+      float: left
+      margin: 0px 10px 0 0
+    #rrss
+      float: left
+      margin: 0
+      padding: 0
+    #logos
+      float: left
+
+#footertwo
+  margin: 0 auto
+  height: auto
+  float: left
+  width: 100%
+
+.links-left,
+.links-right
+  text-transform: capitalize
+  padding: 0.3em
+  a
+    color: #FFF
+  a:hover
+    color: #CCC
+  li
+    display: inline
+    padding: 0.6em
+    float: left
+    text-align: center
+    border-right: 1px solid #FFF
+.links-left
+  background: $c-azul
+  li
+    width: 25%
+.links-right
+  background: $c-verde
+  font-size: 0.7em
+  padding: 0.7em
+  li
+    width: 50%
+
+
+/**
+ * Home
+#header
+.homearriba
+.homeabajo
+.homemedio
+  clear: both
+
+.homearriba h3
+  @include titulos-home
+
+.homearriba div,
+.homeabajo div
+  padding: 20px
+  text-align: center
+
+.homearriba div p,
+.homeabajo div p
+  text-align: left
+
+.homearriba div img,
+.homeabajo div imb
+  height: 100px
+
+/**
+  * Recetas
+#subereceta
+  clear: both
+  @include rayas
+  padding: 10px 0
+
+/**
+  * Como funciona
+#dar,
+#recibir
+  text-align: center
+
+.funciona p
+  font-weight: bold
+  text-align: center
+
+h2.funciona
+  @include titulosotros
+  text-align: center
+  text-transform: uppercase
+  font-size: 2em
+  margin-bottom: 1em
+
+
+
+#recibir h3
+  color: $c-verde
+
+/**********************************NOLOTIRO SIN TOCAR
+/**
+  * Ads
 .ad_create_tab
   position: absolute
   right: 0px
@@ -514,7 +685,6 @@ form.searchbox
   a
     color: #8a1f11
 
-
 .notice
   background: #FFF6BF
   color: #514721
@@ -530,7 +700,6 @@ form.searchbox
     color: #264409
 
 /* styles for threads - now mails and maillist
-
 
 .thread_excerpt
   display: block
@@ -628,57 +797,6 @@ form.searchbox
     font-weight: normal
     text-align: center
 
-/**
- * Home
-#header
-.homearriba
-.homeabajo
-.homemedio
-  clear: both
-
-.homearriba h3
-  @include titulos-home
-
-.homearriba div,
-.homeabajo div
-  padding: 20px
-  text-align: center
-
-.homearriba div p,
-.homeabajo div p
-  text-align: left
-
-.homearriba div img,
-.homeabajo div imb
-  height: 100px
-
-.homemedio 
-  @include rayas
-  margin: 1em 0
-  padding: 0
-  text-align: center
-  #contador
-    font-family: $titulo
-    font-size: 3.8em
-    color: $c-verde
-    -ms-transform: skewX(40deg) /* IE 9 */
-    -webkit-transform: skewX(20deg) /* Safari */
-    -moz-transform: skewX(20deg)
-    transform: skewX(20deg)
-    padding: 8% 0 3% 0
-  #contador-texto
-    color: red
-    padding: 8% 0 3% 3%
-    text-align: left
-
-.homeabajo
-  h3.titulosotros
-    @include titulosotros
-  #tweets
-    background: #FFF
-    -webkit-border-radius: 15px
-    -moz-border-radius: 15px
-    border-radius: 15px
 
 .home_location_change
   display: inline
@@ -733,145 +851,6 @@ dl, dd
     font-size: 1.4em
     font-weight: bold
 
-/**
- * Layout.
-
-#header
-  float: left
-  clear: both
-  height: auto
-  margin: 0 auto
-  padding: 0
-  width: 100%
-  text-align: left
-  background-color: inherit
-  border: none
-  box-shadow: none
-  text-shadow: none
-
-#main
-  float: left
-  clear: both
-  margin: 0px
-  padding-top: 0
-  padding-bottom: 10px
-  width: 100%
-  text-align: left
-
-#footer
-  float: left
-  clear: both
-  line-height: 1.33em
-  margin: 0 auto
-  padding-top: 20px
-  border-top: 1px solid #ddd
-  background-color: #F2F2F2
-  width: 100%
-
-/**
-  * Recetas
-#subereceta
-  clear: both
-  @include rayas
-  padding: 10px 0
-
-
-/**
- * Header Area.
-
-#rrss img
-  width: 30px
-
-#comida-izda img,
-#comida-dcha img
-  width: 80%
-  float: right
-
-#cebolla
-  height: 100%
-
-#menu-cabecera
-  padding: 0.3em
-  margin-bottom: 10px
-  background: $c-azul
-  color: #FFF
-  a
-    color: #FFF
-  a:hover
-    color: #CCC
-  li
-    display: inline
-    padding: 0.7em
-    width: 12.5%
-    float: left
-    text-align: center
-  li#login
-    border-left: 1px solid #FFF
-    border-right: 1px solid #FFF  
-  li#rrss
-    padding: 0.2em
-    img
-      padding-bottom: 0
-  li#buscador 
-    .form-control
-      width: 150px
-  .glyphicon-search
-    background: $c-verde
-    padding: 3px
-
-.user_login_box
-  display: inline
-  float: right
-
-img#logo
-  float: left
-  margin: 5px
-
-#header .site-name
-  z-index: -130
-  float: left
-  border: none
-  margin-top: 0px
-  padding-top: 10px
-  text-align: center
-  width: 100%
-  h1
-    font-size: 7em
-    font-family: $titulo
-    color: $c-azul
-    text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
-
-#header .site-slogan
-  clear: both
-  float: right
-  padding-right: 15%
-  h2
-    font-family: $titulo
-    font-size: 4em
-    color: $c-verde
-    margin-top: 0
-    line-height: 0
-
-#main-menu
-  clear: both
-  float: left
-  text-transform: uppercase
-  font-family: $font-general
-  font-size: 1.5em
-  text-align: center
-  border-top: $b-rayas
-  border-bottom: $b-rayas
-  margin: 1em 0
-  li
-    display: inline
-    padding: 10px 20px
-  a
-    color: $c-azul
-  a:hover,
-  a:focus
-    color: #CCC
-  a.active
-    color: $c-rojo
 
 #location_header_section
   z-index: 100
@@ -944,56 +923,6 @@ img#logo
 .disabled
   border-color: #fff !important
   color: #666
-
-/**
- ** footer
- **
-#footer 
-  h2
-    color: $c-verde
-  #siguenos
-    text-align: center
-    h2.enlinea
-      float: left
-      margin: 0px 10px 0 0
-    #rrss
-      float: left
-      margin: 0
-      padding: 0
-    #logos
-      float: left
-
-#footertwo
-  margin: 0 auto
-  height: auto
-  float: left
-  width: 100%
-
-.links-left,
-.links-right
-  text-transform: capitalize
-  padding: 0.3em
-  a
-    color: #FFF
-  a:hover
-    color: #CCC
-  li
-    display: inline
-    padding: 0.6em
-    float: left
-    text-align: center
-    border-right: 1px solid #FFF
-.links-left
-  background: $c-azul
-  li
-    width: 25%
-.links-right
-  background: $c-verde
-  font-size: 0.7em
-  padding: 0.7em
-  li
-    width: 50%
-
 
 
 .page_footer
@@ -1214,6 +1143,8 @@ a#tab_active
 .section_ads .ad_excerpt_home
   border-bottom: none
 
+/** RESPONSIVE **************************************************************
+
 @media only screen and (max-width: 779px)
   #header
     display: inline-block
@@ -1386,3 +1317,68 @@ a#tab_active
     width: 100%
     margin-top: 0px
     top: 0px
+
+/* Language box
+.select_language_box
+  margin-top: -0.4em
+  padding: 4px
+  select
+    font-size: 0.9em
+    font-weight: bold
+    background-color: #fff
+#select_language_box
+  a
+    padding: 2px
+    padding-left: 4px
+    padding-right: 0px
+    line-height: 16px
+    height: 20px
+    display: none
+    width: 100%
+    text-decoration: none !important
+  img
+    text-decoration: none !important
+    border: 0
+    right: 2px
+    clear: left
+    vertical-align: baseline
+  a span.lang_name
+    display: inline-block
+    text-decoration: none
+  &:hover a
+    display: block
+
+.deployed_languages a
+  display: block
+
+#select_language_box
+  .lang.active
+    display: block
+    position: absolute
+    top: 0px
+  a:hover
+    background-color: #999 !important
+    text-decoration: none !important
+    color: #fff !important
+#select_language_box
+  position: absolute
+  top: 0px
+  float: right
+  right: 0px
+  border: 1px solid white
+  display: inline-block
+  height: 12px
+  overflow: hidden
+  vertical-align: top
+  width: 92px
+  padding-top: 24px
+  z-index: 400
+  &:hover
+    border: 1px solid #ddd
+    background-color: #fff
+    height: auto
+
+.deployed_languages
+  border: 1px solid #ddd
+  background-color: #fff
+  height: auto
