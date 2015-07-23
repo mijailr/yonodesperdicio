@@ -16,7 +16,6 @@
   font-family: 'FontAwesome'
   src: font-url('FontAwesome.otf')
 
-
 $font-general: 'OpenSans', sans-serif
 $titulo: 'Schuss'
 $c-texto: #012b5a
@@ -82,15 +81,15 @@ html img
 .row
   margin: 0px
 a
+  color: $c-azul
   &:link
-    color: $c-azul
     text-decoration: none
   &:visited
-    color: #00ACCF
-  &:active
-    color: #00C7EF
+    color: $c-azul
+  &.active
+    color: $c-rojo
   &:hover
-    color: #26DAFF
+    color: $c-texto
   &.actual
     border-bottom: solid
     border-width: 3px
@@ -282,9 +281,6 @@ img#logo
     padding: 10px 20px
   a
     color: $c-azul
-  a:hover,
-  a:focus
-    color: #CCC
   a.active
     color: $c-rojo
 
@@ -337,7 +333,6 @@ img#logo
   li
     width: 50%
 
-
 /**
  * Home
 #header
@@ -371,13 +366,10 @@ img#logo
 
 /**
   * Como funciona
-#dar,
-#recibir
-  text-align: center
-
-.funciona p
+.funciona 
   font-weight: bold
   text-align: center
+  line-height: 0.5em
 
 h2.funciona
   @include titulosotros
@@ -386,11 +378,26 @@ h2.funciona
   font-size: 2em
   margin-bottom: 1em
 
-
-
+#dar,
+#recibir
+  text-align: center
+  margin-bottom: 1em
+  h3
+    clear: both
 #recibir h3
   color: $c-verde
 
+/**
+ * Registrate
+
+#registrate 
+  dd, dt
+    float: left
+    width: 50%
+  dt
+    text-transform: uppercase
+  p
+    clear: both
 /**********************************NOLOTIRO SIN TOCAR
 /**
   * Ads

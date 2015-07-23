@@ -15,16 +15,17 @@ class HomeController < ApplicationController
   end
 
   # listado de iniciativas
-  #def iniciativas
-  #  @iniciativas = Article.find_by(category: 'iniciativa').order('created_at ASC')
-  #   @iniciativas = Article.where(:category => { :name => 'iniciativa' }).order('created_at ASC')
-  #end
+  def iniciativas
+    @iniciativas = Article.find_by(category: 'iniciativa').order('created_at ASC').last
+    #@iniciativas = Article.where(:category => { :name => 'iniciativa' }).order('created_at ASC').last
+    #@iniciativas = @articles.group_by { |t| t.category.name }
+  end
 
   # una iniciativa
-  #def iniciativa
-  #  @iniciativa = Article.find_by(category: 'iniciativa').find(params[:id])
+  def iniciativa
+    @iniciativa = Article.find_by(category: 'iniciativa').find(params[:id])
   #  @iniciativa = Article.where(:category => { :name => 'iniciativa' }).find(params[:id])
-  #end
+  end
 
   # listado de ideas
   def ideas

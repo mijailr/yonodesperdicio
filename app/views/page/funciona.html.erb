@@ -3,13 +3,13 @@
 
 <div class="row">
   <h2 class="funciona"><%= @funciona.title %></h2>
-  <div id="main" class="funciona col-md-12">
+  <div class="funciona row">
     <%= markdown(@funciona.body).html_safe %>
   </div><!-- /main -->
 </div><!-- /row -->
 
 <div id="dar" class="container">
-  <h3> Para dar </h3>
+  <div class="row"><h3> Dar </h3></div>
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/01-Dar-Registrate.png", :alt => "Imagen Regístrate'", :id => "registrate", :class => "img-responsive" %>
     <p>1. Regístrate en nuestra web</p>
@@ -31,9 +31,8 @@
   </div><!-- col-md-3 -->
 </div><!-- /row -->
 
-
 <div id="recibir" class="container">
-  <h3> Para recibir </h3>
+  <div class="row"><h3> Recibir </h3></div>
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/01-Recibir-Registrate.png", :alt => "Imagen Regístrate'", :id => "registrate", :class => "img-responsive" %>
     <p>1. Regístrate en nuestra web</p>

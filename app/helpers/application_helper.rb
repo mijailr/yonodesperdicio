@@ -18,9 +18,16 @@ module ApplicationHelper
     Digest::MD5.hexdigest(key)
   end
 
+  #Pasar a markdown los textos
   def markdown(content)
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, space_after_headers: true, fenced_code_blocks: true, tables: true, highlight: true)
     @markdown.render(content)
+  end
+
+  #Crear clase active en los menus
+  def current_class?(test_path)
+    return 'active' if request.path == test_path
+    ' '
   end
 
 end
