@@ -1,6 +1,16 @@
 ActiveAdmin.register Idea do
 
   permit_params :title, :body, :category, :published_at, :user_id, :image
+  
+  index do
+    selectable_column
+    column :category
+    column :title
+    column :published_at
+    column :created_at
+    column :updated_at
+    actions
+  end
 
   show do |idea|
     attributes_table do
@@ -20,7 +30,7 @@ ActiveAdmin.register Idea do
   form do |f|
     f.inputs do
       f.input :user
-      f.input :category
+      f.input :category, as: :select, collection: Idea::CATEGORIES
       f.input :title
       f.input :body
       f.input :image, :as => :file, :hint => f.article.image_tag(f.object.image.url(:thumb))

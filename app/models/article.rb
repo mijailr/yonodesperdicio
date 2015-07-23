@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+
+  CATEGORIES = ['noticia', 'iniciativa']
+
   validates :title, :body, :published_at, presence: true
 
   before_validation(on: :create) do

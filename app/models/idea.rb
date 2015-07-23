@@ -1,4 +1,7 @@
 class Idea < ActiveRecord::Base
+
+  CATEGORIES = ['trucos', 'recetas']
+  
   belongs_to :user
 
   validates :title, :body, :user_id, :published_at, presence: true

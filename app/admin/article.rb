@@ -2,6 +2,20 @@ ActiveAdmin.register Article do
 
   permit_params :title, :body, :category, :published_at, :image
 
+  # index as: :grid, columns: 5 do |article|
+  #   link_to image_tag(article.image.url, height: '100'), admin_article_path(article)
+  # end
+
+  index do
+    selectable_column
+    column :category
+    column :title
+    column :published_at
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   show do |article|
     attributes_table do
       row :category
@@ -18,7 +32,7 @@ ActiveAdmin.register Article do
 
   form do |f|
     f.inputs do
-      f.input :category
+      f.input :category, as: :select, collection: Article::CATEGORIES
       f.input :title
       f.input :body
       f.input :image, :as => :file, :hint => f.article.image_tag(f.object.image.url(:thumb))
