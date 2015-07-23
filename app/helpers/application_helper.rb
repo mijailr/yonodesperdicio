@@ -25,8 +25,8 @@ module ApplicationHelper
   end
 
   #Crear clase active en los menus
-  def current_class?(test_path)
-    return 'active' if request.path == test_path
+  def menu_class(tab)
+    return 'active' if tab == @current_tab
     ' '
   end
 

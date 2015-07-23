@@ -41,12 +41,12 @@
 
   <nav id="main-menu" class="row col-md-12 col-xs-12">
     <ul>
-      <li><%= link_to root_path, :title => "Inicio", :class => current_class?(root_path), "data-no-turbolink" => true do %>Inicio
+      <li><%= link_to root_path, :title => "Inicio", :class => menu_class('inicio'), "data-no-turbolink" => true do %>Inicio
       <% end %></li>
-      <li><%= link_to 'noticias' , noticias_path, :class => current_class?(noticias_path) %></li>
-      <li><%= link_to 'ideas frescas' , ideas_path, :class => current_class?(ideas_path) %></li>
-      <li><%= link_to 'alimentos para compartir' , '#', :class => current_class?(root_path)%></li>
-      <li><%= link_to 'iniciativas sociales' , iniciativas_sociales_path, :class => current_class?(iniciativas_sociales_path) %></li>
+      <li><%= link_to 'noticias' , noticias_path, :class => menu_class('noticias') %></li>
+      <li><%= link_to 'ideas frescas' , ideas_path, :class => menu_class('ideas') %></li>
+      <li><%= link_to 'alimentos para compartir' , '#', :class => menu_class('compartir')%></li>
+      <li><%= link_to 'iniciativas sociales' , iniciativas_sociales_path, :class => menu_class('iniciativas') %></li>
     </ul>
   </nav>
 
