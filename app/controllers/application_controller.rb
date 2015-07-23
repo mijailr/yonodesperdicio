@@ -58,4 +58,8 @@ class ApplicationController < ActionController::Base
     @current_tab = tab
   end
 
+  def set_submenu(tab)
+    @current_submenu = tab
+  end
+
 end

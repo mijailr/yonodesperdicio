@@ -30,4 +30,10 @@ module ApplicationHelper
     ' '
   end
 
+  #Crear clase active en los submenus
+  def submenu_class(tab)
+    return 'active' if tab == @current_submenu
+    ' '
+  end
+
 end

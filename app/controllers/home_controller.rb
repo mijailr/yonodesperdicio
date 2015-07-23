@@ -34,13 +34,20 @@ class HomeController < ApplicationController
   # listado de ideas
   def ideas
     set_menu('ideas')
-    @ideas = Idea.order('created_at ASC').page(params[:page]).per(10)
+    category = params[:category]
+    if category.present?
+      set_submenu(category)
+      @ideas = Idea.where(category: category).order('created_at ASC').page(params[:page]).per(10)
+    else
+      @ideas = Idea.order('created_at ASC').page(params[:page]).per(10)
+    end
   end
 
   # una idea
   def idea
     set_menu('ideas')
     @idea = Idea.find(params[:id])
+    set_submenu(@idea.category.pluralize)
   end
 
   #listado de organizaciones

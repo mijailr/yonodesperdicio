@@ -11,7 +11,8 @@
           <p><%= truncate_html(markdown(noticia.body).html_safe, length: 200, omission: '...') %></p>
           <p><%#= truncate_html(noticia.body.html_safe, length: 200, omission: ' ...') %>
           <span><%= link_to "  Leer más", noticia_url(noticia) %></span></p>
-          <p><%= link_to noticia.category, '#' %> (categorías con link a la categoría)</p>
+          <p><%= link_to noticia.category, '#' %></p>
+          <p>(tags con link a las tags)</p>
           <p>[¿¿RRSS aquí?? Mejor no. Se les ha sugerido]
             <% cache do %>
               <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(noticia) } %>
