@@ -1,18 +1,16 @@
-server 'panel.alabs.org', user: 'yonodesperdicio', roles: %w{db web app}
+server 'beta.yonodesperdicio.org', user: 'capistrano', roles: %w{db web app}
 
 set :stage, :staging
 set :rails_env, 'staging' 
 #set :deploy_to, '/rails/beta.yonodesperdicio.org'
-set :deploy_to, '/var/www/vhosts/yonodesperdicio.org/rails/beta.yonodesperdicio.org'
+set :deploy_to, '/var/www/beta.yonodesperdicio.org'
 set :branch, "staging"
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.2.2'
 
-
 set :passenger_port, 5001
 set :passenger_cmd,  "bundle exec passenger"
- 
 
 namespace :deploy do
 
