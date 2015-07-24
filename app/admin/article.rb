@@ -9,7 +9,12 @@ ActiveAdmin.register Article do
   index do
     selectable_column
     column :category
-    column :title
+    column "Image" do |article|
+       link_to image_tag(article.image.url(:thumb)), admin_article_path(article)
+    end
+    column "Title" do |article|
+      link_to article.title, admin_article_path(article)
+    end
     column :published_at
     column :created_at
     column :updated_at

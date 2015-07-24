@@ -2,6 +2,16 @@ ActiveAdmin.register Text do
 
   permit_params :title, :body, :code, :published_at
 
+  index do
+    selectable_column
+    column :code
+    column :title
+    column :published_at
+    column :created_at
+    column :updated_at
+    actions
+  end
+
   show do |text|
     attributes_table do
       row :code
