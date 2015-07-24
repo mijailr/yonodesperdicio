@@ -13,8 +13,8 @@
 
   <div id="cuerpo" class="col-md-6">
 
-    <h3><%= @noticia.title %></h3>
-    <p><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
+    <h1 id="title"><%= @noticia.title %></h1>
+    <p class="fecha"><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
     <p><%#= @noticia.id %></p>
     <p><%= markdown(@noticia.body).html_safe %>
     <p><%#= @noticia.body.html_safe %></p>
@@ -25,6 +25,15 @@
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
     <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
     <p>[LISTADO DE COMENTARIOS]</p>
+
+    <div class="ad_meta_info">
+      <b><%#= link_to t('nlt.send_a_message'), message_new_with_subject_path(user_id: ad.user.id, subject: ad.slug) %></b>
+      <b><%#= link_to t('nlt.write_a_comment'), adslug_path(ad,ad.slug) %></b>
+      <span class="right small">
+        &nbsp;&nbsp; <%#= t('nlt.readed_count', count: ad.readed_counter) %><%#= t('nlt.comments_count', count: ad.comments_count) %>
+      </span>
+    </div>
+
  
   </div><!-- /cuerpo -->
 </div><!-- /row -->

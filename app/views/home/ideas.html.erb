@@ -1,21 +1,20 @@
 <% content_for(:meta_title) {"ideas"} %>
 
-<nav id="main-menu" class="row col-md-12 col-xs-12">
-  <ul>
-    <li><%= link_to "Recetas", ideas_url(category: 'recetas'), :class => submenu_class('recetas') %></li>
+<nav id="submenu" class="row">
+  <ul class="col-md-12 col-xs-12">
+    <li><%= link_to "Recetas", ideas_url(category: 'recetas'), :class => submenu_class('recetas') %></h3></li>
     <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
   </ul>
 </nav>
 
-<div id="listado" class=" row col-md-12">
+<div id="listado" class="row col-md-12">
     <% @ideas.each do |idea| %>
 
       <div class="col-md-4">
-        <%= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
+        <%= image_tag idea.image.url(:mediumidea), :alt => " ", :class => "img-responsive" %>
         <h3><%= link_to idea.title, idea_url(idea) %></h3>
         <p><%= idea.published_at.strftime("%d/%m/%Y") %></p>
         <p><%= truncate_html(markdown(idea.body).html_safe, length: 200, omission: '...') %></p>
-        <p><%#= truncate_html(idea.body.html_safe, length: 200, omission: ' ...') %>
         <span><%= link_to "  Leer más", idea_url(idea) %></span></p>
         <p><%= link_to idea.category, '#' %></p>
         <p>(tags con link a las tags)</p>
@@ -32,7 +31,7 @@
 </div><!-- /listado -->
 
 
-<div id="subereceta">
+<div id="subereceta" class="row">
   <span class="btn btn-default">Sube tu receta</span> (Para subir una receta es necesario estar registrado)
   <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span>
 </div><!-- /subereceta -->
