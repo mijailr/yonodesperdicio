@@ -18,12 +18,12 @@
     <p><%#= @noticia.id %></p>
     <p><%= markdown(@noticia.body).html_safe %>
     <p><%#= @noticia.body.html_safe %></p>
-    <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/noticias' %></p>
-    <i class="fa fa-arrow-left">Volver</i>
+    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , noticias_path %></p>
+    
 
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
+    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-default"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
     <p>[LISTADO DE COMENTARIOS]</p>
 
     <div class="ad_meta_info">

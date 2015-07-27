@@ -11,7 +11,7 @@
       <li><%= link_to 'Cómo funciona' , funciona_path %></li>
       <li id="login"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
       <li><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
-      <li id="buscador">[Buscador]<span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
+      <li id="buscador">[Buscador] <%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
       <li><%= render :partial => "partials/user_actions" %></li>
     </ul>
   </div>

@@ -1,12 +1,12 @@
 <% content_for(:meta_title, t('nlt.new_user')) %>
 
-<div id="default_header_section">
-  <h1><%= t 'nlt.new_user' %></h1>
-  <p>(<%= t 'nlt.if_youre_already_an_user' %>&nbsp;
-  <%= link_to t('nlt.access_here'), new_user_session_path, :title => "user login" %>)</p>
-</div>
-
 <div id="registrate" class="col-md-6 col-md-offset-3">
+  <div>
+    <h1 id="title"><%= t 'nlt.new_user' %></h1>
+    <p>(<%= t 'nlt.if_youre_already_an_user' %>&nbsp;
+    <%= link_to t('nlt.access_here'), new_user_session_path, :title => "user login" %>)</p>
+  </div>
+
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <fieldset>
       <legend>

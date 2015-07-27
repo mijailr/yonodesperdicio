@@ -9,10 +9,10 @@
 
     <h1 id="title"><%= @organization.name %></h1>
     <p><%= markdown(@organization.description).html_safe %>
-    <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/organizations' %></p>
+    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , organizations_path %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
+    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-default"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
     <p>[LISTADO DE COMENTARIOS]</p>
  
   </div><!-- /cuerpo -->

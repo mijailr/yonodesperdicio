@@ -18,10 +18,10 @@
     <p><%#= @idea.id %></p>
     <p><%= markdown(@idea.body).html_safe %>
     <p><%#= @idea.body.html_safe %></p>
-    <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/ideas' %></p>
+    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
+    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-default"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
     <p>[LISTADO DE COMENTARIOS]</p>
  
   </div><!-- /cuerpo -->

@@ -1,4 +1,7 @@
 <% content_for(:meta_title) {"noticias"} %>
+
+
+<div class="col-md-10">
 <div id="listado" class=" row col-md-10">
     <% @noticias.each do |noticia| %>
 
@@ -13,7 +16,7 @@
           <span><%= link_to "  Leer más", noticia_url(noticia) %></span></p>
           <p><%= link_to noticia.category, '#' %></p>
           <p>(tags con link a las tags)</p>
-          <p>[¿¿RRSS aquí?? Mejor no. Se les ha sugerido]
+          <p>[¿¿RRSS aquí?? Mejor no.]
             <% cache do %>
               <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(noticia) } %>
             <% end %>
@@ -23,8 +26,11 @@
 
 <%= paginate(@noticias) %>
 </div><!-- /listado -->
+</div><!-- /col-md-10 -->
 
-      <% cache do %>
-        <%= render :partial => "partials/sidebar_right", :locals => { :url => "http://yonodesperdicio.org" } %>
-      <% end %>
+<div class="col-md-2">
+  <% cache do %>
+    <%= render :partial => "partials/sidebar_right", :locals => { :url => "http://yonodesperdicio.org" } %>
+  <% end %>
+</div><!-- /col-md-2-->
 

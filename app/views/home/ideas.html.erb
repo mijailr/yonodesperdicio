@@ -18,7 +18,7 @@
         <span><%= link_to "  Leer más", idea_url(idea) %></span></p>
         <p><%= link_to idea.category, '#' %></p>
         <p>(tags con link a las tags)</p>
-        <p>[¿¿RRSS aquí??]
+        <p>[¿¿RRSS aquí?? Mejor no.]
           <% cache do %>
             <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(idea) } %>
             <% end %>

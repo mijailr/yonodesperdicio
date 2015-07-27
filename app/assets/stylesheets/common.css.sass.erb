@@ -51,9 +51,21 @@ $b-rayas: 2px dashed #FFF
   font-size: 0.9em
   text-transform: uppercase
   padding: 2px 5px
+@mixin titulosrojos
+  font-family: $font-general
+  background: $c-rojo
+  color: #FFF
+  text-transform: uppercase
+  font-size: 1.2em
+  padding: 5px 5px
+  font-weight: semibold
+  margin-bottom: 1em  
 @mixin rayas
   border-top: $b-rayas
   border-bottom: $b-rayas
+@mixin texto-rojo
+  color: $c-rojo
+  font-weight: bold
     
 /**** Fin Definiciones, que iran en una hoja aparte ****/
 
@@ -98,6 +110,9 @@ h1, h2
 
 h1#title
   @include titulosotros
+h1.titulorojo
+  @include titulosrojos
+
 
 h2
   line-height: 1.2em
@@ -116,6 +131,9 @@ p.fecha
   color: $c-rojo
 textarea
   resize: none
+
+.enrojo
+  @include texto-rojo
 
 #rememberme-label
   display: none
@@ -366,7 +384,7 @@ img#logo
     transform: skewX(20deg)
     padding: 8% 0 3% 0
   #contador-texto
-    color: red
+    @include texto-rojo
     padding: 8% 0 3% 3%
     text-align: left
 
@@ -427,6 +445,15 @@ h2.funciona
     text-transform: uppercase
   p
     clear: both
+/**
+ * Login
+#loginblock
+  background: $c-texto
+  color: #FFF
+  label
+    text-transform: uppercase
+  dd
+    margin-bottom: 1em
 /**********************************NOLOTIRO SIN TOCAR
 /**
   * Ads
