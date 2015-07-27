@@ -1,7 +1,7 @@
 <% content_for(:meta_title) {@noticia.title} %>
 
 <div class="row">
-  <div id="imagen" class="col-md-6">
+  <div id="imagen" class="col-md-5">
     <%= image_tag @noticia.image.url(:large), :alt => "", :class => "img-responsive" %>    
     <p><%= @noticia.category %></p>
     <p>
@@ -11,7 +11,7 @@
     </p>
   </div><!-- /imagen -->
 
-  <div id="cuerpo" class="col-md-6">
+  <div id="cuerpo" class="col-md-7">
 
     <h1 id="title"><%= @noticia.title %></h1>
     <p class="fecha"><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
@@ -24,6 +24,8 @@
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
     <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-default"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
+
+    <%= render :partial => "partials/user_actions" %>
     <p>[LISTADO DE COMENTARIOS]</p>
 
     <div class="ad_meta_info">

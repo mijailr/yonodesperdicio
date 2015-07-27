@@ -1,7 +1,7 @@
 
 <% content_for(:meta_title) {@idea.title} %>
 <div class="row">
-  <div id="imagen" class="col-md-4">
+  <div id="imagen" class="col-md-5">
     <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>  
     <p><%= @idea.category %></p>
     <p>
@@ -11,7 +11,7 @@
     </p>
   </div><!-- /imagen -->
 
-  <div id="cuerpo" class="col-md-8">
+  <div id="cuerpo" class="col-md-7">
 
     <h1 id="title"><%= @idea.title %></h1>
     <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %></p>

@@ -4,20 +4,24 @@
 
 @font-face
   font-family: 'Schuss'
-  src: font-url('SchussHandITC_Bold.ttf')  format('truetype')
+  src: font-url('../fonts/SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
-
 @font-face
   font-family: 'OpenSans'
-  src: font-url('OpenSans-Regular') format('truetype')
-  font-weight: normal
-
+  src: font-url('../fonts/OpenSans-Regular.ttf') format('truetype')
+  font-weight: 400
+@font-face
+  font-family: 'OpenSans-Semibold'  
+  src: font-url('../fonts/OpenSans-Semibold.ttf') format('truetype')
+  font-weight: 600
 @font-face
   font-family: 'FontAwesome'
   src: font-url('FontAwesome.otf')
+  font-weight: normal
 
 $font-general: 'OpenSans', sans-serif
-$titulo: 'Schuss'
+$font-titulos: 'OpenSans-Semibold', sans-serif
+$font-titulo: 'Schuss'
 $c-texto: #012b5a
 $c-azul: #005cb8
 $c-verde: #6abf4a
@@ -25,12 +29,12 @@ $c-rojo: #e55333
 $b-rayas: 2px dashed #FFF
 
 @mixin titulos
-  font-family: $titulo
+  font-family: $font-titulo
   font-size: 3em
   color: $c-verde
   margin-bottom: 0
 @mixin titulos-home
-  font-family: $titulo
+  font-family: $font-titulo
   font-size: 40px
   clear: both
   margin-top: 0.5em 
@@ -41,11 +45,13 @@ $b-rayas: 2px dashed #FFF
   a
     color: $c-azul
 @mixin titulosotros
-  font-family: $font-general
+  font-family: $font-titulos
   color: $c-rojo
-  font-size: 2em
+  font-size: 1.5em
+  margin-bottom: 0.3em
+
 @mixin titulossidebar
-  font-family: $font-general
+  font-family: $font-titulos
   background: $c-azul
   color: #FFF
   font-size: 0.9em
@@ -59,7 +65,7 @@ $b-rayas: 2px dashed #FFF
   font-size: 1.2em
   padding: 5px 5px
   font-weight: semibold
-  margin-bottom: 1em  
+  margin: 0 15px 1em 15px  
 @mixin rayas
   border-top: $b-rayas
   border-bottom: $b-rayas
@@ -75,11 +81,6 @@ body
   background: #dedddc
   font-family: $font-general
   font-size: 13px
-
-input[type="text"], input[type="password"], input[type="email"], input[type="submit"]
-  border: 1px solid #666
-  font-size: 1.1em
-  padding: 4px
 
 html img
   vertical-align: middle
@@ -107,13 +108,10 @@ a
 
 h1, h2
   @include titulos
-
 h1#title
   @include titulosotros
 h1.titulorojo
   @include titulosrojos
-
-
 h2
   line-height: 1.2em
   padding-left: 0px
@@ -126,7 +124,8 @@ ul
   list-style-type: none
   margin: 0
   padding: 0
-
+p
+  margin: 0 0 0.8em 0
 p.fecha
   color: $c-rojo
 textarea
@@ -155,6 +154,25 @@ textarea
 .close_advice a
   color: #000
 
+input[type="text"], input[type="password"], input[type="email"], input[type="submit"]
+  border: 1px solid #666
+  font-size: 1.1em
+  padding: 4px
+
+form input[type="submit"], form input[type="button"], form button,
+.btn-default
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+  border-radius: 0
+  text-transform: uppercase
+
+form input[type="submit"], form input[type="button"], form button
+  background: $c-verde
+
+a.btn-default
+  background: none
+  color: #FFF
+
 form.searchbox
   display: inline-block
   width: auto
@@ -176,6 +194,7 @@ form.searchbox
   font-size: 14px
   padding: 5px
 
+
 /**
  * Layout.
 #header
@@ -194,7 +213,7 @@ form.searchbox
 #main
   float: left
   clear: both
-  margin: 0px
+  margin: 0 auto
   padding-top: 0
   padding-bottom: 10px
   width: 100%
@@ -271,7 +290,7 @@ img#logo
   width: 100%
   h1
     font-size: 7em
-    font-family: $titulo
+    font-family: $font-titulo
     color: $c-azul
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
 
@@ -280,7 +299,7 @@ img#logo
   float: right
   padding-right: 15%
   h2
-    font-family: $titulo
+    font-family: $font-titulo
     font-size: 4em
     color: $c-verde
     margin-top: 0
@@ -290,27 +309,27 @@ img#logo
   clear: both
   float: left
   text-transform: uppercase
-  font-family: $font-general
-  font-size: 1.5em
+  font-family: $font-titulos
+  font-size: 1.4em
   font-weight: bold
   text-align: center
   border-top: $b-rayas
   border-bottom: $b-rayas
-  margin: 1em 0
+  margin: 1em auto
+  padding: 0.5em
   li
     display: inline
-    padding: 10px 20px
+    padding: 0 2em 0 0
   a
     color: $c-azul
   a.active
     color: $c-rojo
 #submenu
-  font-family: $titulo
-  font-size: 2em
-  font-style: normal
+  font-family: $font-titulo
+  font-size: 2.8em
+  font-style: 600
   li 
     display: inline
-
 
 /**
  ** Footer
@@ -368,14 +387,13 @@ img#logo
 .homeabajo
 .homemedio
   clear: both
-
 .homemedio 
   @include rayas
   margin: 1em 0
   padding: 0
   text-align: center
   #contador
-    font-family: $titulo
+    font-family: $font-titulo
     font-size: 3.8em
     color: $c-verde
     -ms-transform: skewX(40deg) /* IE 9 */
@@ -387,22 +405,29 @@ img#logo
     @include texto-rojo
     padding: 8% 0 3% 3%
     text-align: left
-
 .homearriba h3
   @include titulos-home
-
+.homeabajo h3
+  text-align: left  
 .homearriba div,
 .homeabajo div
   padding: 20px
   text-align: center
-
 .homearriba div p,
 .homeabajo div p
   text-align: left
-
-.homearriba div img,
-.homeabajo div imb
+.homearriba div img
   height: 100px
+#tweets
+  .stream p 
+    font-size: 10px !important 
+
+/**
+  * Noticias, Iniciativas 
+#listado
+  clear: both 
+  float: left
+  margin-bottom: 1em
 
 /**
   * Recetas
@@ -412,12 +437,19 @@ img#logo
   padding: 10px 0
 
 /**
+  * Organizaciones
+
+.fondoblanco
+  background: #f0efef
+  padding: 1em 0
+  margin: 1em 0
+
+/**
   * Como funciona
 .funciona 
   font-weight: bold
   text-align: center
   line-height: 0.5em
-
 h2.funciona
   @include titulosotros
   text-align: center
@@ -445,6 +477,7 @@ h2.funciona
     text-transform: uppercase
   p
     clear: both
+
 /**
  * Login
 #loginblock
@@ -454,6 +487,16 @@ h2.funciona
     text-transform: uppercase
   dd
     margin-bottom: 1em
+    color: $c-texto
+
+/**
+ * Profile
+#profile
+  background: #FFF
+  padding: 1em
+  margin: 1em
+
+
 /**********************************NOLOTIRO SIN TOCAR
 /**
   * Ads

@@ -18,9 +18,9 @@ noma y sostenible, podemos echar una mano.</p>
 
 </div><!-- /row -->
 
-<div id="listado" class="col-md-12">
+<div class="col-md-12">
     <% @organizations.each do |organization| %>
-    <div class="row">
+    <div class="row fondoblanco">
       <div class="col-md-4">
         <h3><%= link_to organization.name, organization_url(organization) %></h3>  
         <%= markdown(organization.address).html_safe %>
