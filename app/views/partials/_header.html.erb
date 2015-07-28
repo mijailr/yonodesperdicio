@@ -1,27 +1,27 @@
 <div id="header">
   <div id="menu-cabecera" class="row col-md-12">
     <ul>
-      <li><%= link_to 'Descarga App', '#' %></li>
-      <li id="rrss"> 
+      <li class="col-md-2"><%= link_to 'Descarga App', '#' %></li>
+      <li id="rrss" class="col-md-2"> 
         <%= link_to(image_tag("rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class=> "img-responsive"), "https://twitter.com/nodesperdicio", :target => "_blank") %>
         <%= link_to(image_tag("rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class=> "img-responsive"), "https://www.facebook.com/yonodesperdicio", :target => "_blank") %>
         <%= link_to(image_tag("rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class=> "img-responsive"), "https://www.youtube.com/user/Prosalus", :target => "_blank") %>
         <%= link_to(image_tag("rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class=> "img-responsive"), "https://www.flickr.com/photos/prosalus/sets/72157636930322324", :target => "_blank") %>
      </li>
-      <li><%= link_to 'Cómo funciona' , funciona_path %></li>
-      <li id="login"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
-      <li><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
-      <li id="buscador">[Buscador] <%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
+      <li class="col-md-2"><%= link_to 'Cómo funciona' , funciona_path %></li>
+      <li id="login" class="col-sm-2"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
+      <li class="col-md-2"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
+      <li id="buscador" class="col-md-2">[Buscador] <%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
       <li><%= render :partial => "partials/user_actions" %></li>
     </ul>
   </div>
 
   <div class="row col-md-12">
-  <div class="col-md-2 col-xs-2">
-    <%= image_tag "propias/comida-izda.png", :alt => "imagen de comida", :id => "comida-izda", :class => "img-responsive" %>
+  <div class="col-md-2 col-xs-1">
+    <%= image_tag "propias/comida-izda.png", :alt => "imagen de comida", :id => "comida-izda", :class => "img-responsive visible-md-*" %>
   </div>
 
-  <div class="col-md-8 col-xs-8">
+  <div class="col-md-8 col-xs-9">
     <div class="site-name">
       <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
         <h1>yonodesperdicio</h1>
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="col-md-2 col-xs-2">
+  <div class="col-md-2 col-xs-1">
     <%= image_tag "propias/comida-dcha.png", :alt => "imagen de comida", :id => "comida-dcha", :class => "img-responsive" %>
   </div>
   </div><!--/container-->
