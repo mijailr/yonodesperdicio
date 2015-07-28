@@ -3,6 +3,7 @@
 <h1 class="titulorojo">Con organizaciones</h1>
 
 <div class="row">
+
   <div class="col-md-8">
     <p>En nuestra ciudad y más cerca aún, en nuestro barrio, hay numerosas iniciativas sociales que intentan
 apoyar a aquellas personas que no tienen garantizado el derecho a una alimentación básica: asociacio-
@@ -10,41 +11,31 @@ nes, iniciativas vecinales... que facilitan comida a familias cada día. ¿Conoc
 Hasta que todas las personas puedan tener acceso a una alimentación digna y suficiente, de forma autó-
 noma y sostenible, podemos echar una mano.</p>
   </div><!-- col -->
-  <div class="col-md-4 enrojo">
+    <div class="col-md-4 enrojo">
     <p>Busca aquí las organizaciones más cercanas, indicándonos el código postal que te interesa.<br />
-    [CÓDIGO POSTAL]<br />
-    [VER TODAS LAS ORGANIZACIONES]</p>
+    [CÓDIGO POSTAL]</p>
   </div><!-- col -->
 
 </div><!-- /row -->
 
-<div class="col-md-12">
+<div class="row">
+  <div class="col-md-12">
+    <ol>
     <% @organizations.each do |organization| %>
-    <div class="row fondoblanco">
-      <div class="col-md-4">
-        <h3><%= link_to organization.name, organization_url(organization) %></h3>  
-        <%= markdown(organization.address).html_safe %>
-        <%= markdown(organization.zipcode).html_safe %>
-        <%= markdown(organization.phone).html_safe %>
-        <%= markdown(organization.email).html_safe %>
-        <%= markdown(organization.website).html_safe %>
-        <p><%= '[Estrellitas]' %></p>
-      </div>
-
-      <div class="col-md-4">
-        <p><%= truncate_html(markdown(organization.description).html_safe, length: 200, omission: '...') %></p>
-        <p><%#= truncate_html(organization.description.html_safe, length: 400, omission: ' ...') %>
-        <span><%= link_to "  Leer más", organization_url(organization) %></span></p>
-      </div>
-
-      <div class="col-md-4">
-        <%= image_tag organization.image.url(:thumb), :alt => "", :class => "img-responsive" %> [mapa] 
-      </div>
-    </div><!-- /row -->
+      <li><%= link_to organization.name, organization_url(organization) %></li>  
     <% end %>
+    </ol>
+
+    <%= paginate(@organizations) %>
+  </div><!-- /col -->
+</div><!-- /row -->
+
+<center><%= image_tag "propias/Bodegon.png", :alt => "Imagen bodegón'", :id => "bodegon", :class => "img-responsive" %></center>
+
+
     
-<%= paginate(@organizations) %>
-</div><!-- /listado -->
+
+
 
 
 

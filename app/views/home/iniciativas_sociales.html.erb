@@ -11,22 +11,15 @@ en España y en el resto del mundo.</p>
 
 <div id="listado" class="row">
     <% @iniciativas.each do |iniciativa| %>
-
       <div class="col-md-4">
         <%= image_tag iniciativa.image.url(:medium), :alt => "", :class => "img-responsive" %>  
       </div>
       <div class="col-md-8">
           <h3><%= link_to iniciativa.title, noticia_url(iniciativa) %></h3>
-          <p><%= iniciativa.published_at.strftime("%d/%m/%Y") %></p>
-          <p><%= truncate_html(markdown(iniciativa.body).html_safe, length: 200, omission: '...') %></p>
+          <p><%= truncate_html(markdown(iniciativa.body).html_safe, length: 340, omission: ' +...') %></p>
           <p><%#= truncate_html(iniciativa.body.html_safe, length: 200, omission: ' ...') %>
-          <!--<span><%= link_to "  Leer más", noticia_url(iniciativa) %></span></p>-->
-          <p><%= link_to iniciativa.category, '#' %>  + (tags con link a las tags)</p>
-          <p>[¿¿RRSS aquí?? Mejor no.]
-            <%# cache do %>
-              <%#= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(iniciativa) } %>
-            <%# end %>
-          </p>
+          <!--<span><%= link_to "  Leer más", noticia_url(iniciativa) %></span>-->
+          <p>[tags con link a las tags]</p>
       </div>
     <% end %>
 

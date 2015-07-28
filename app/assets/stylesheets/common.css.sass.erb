@@ -131,6 +131,12 @@ p.fecha
 textarea
   resize: none
 
+.btn-danger
+  background: $c-rojo
+.btn-primary
+  background: $c-azul
+  a
+    color: #FFF  
 .enrojo
   @include texto-rojo
 
@@ -165,6 +171,13 @@ form input[type="submit"], form input[type="button"], form button,
   -webkit-border-radius: 0
   border-radius: 0
   text-transform: uppercase
+  border: none
+
+form input[type="submit"]:hover:not(.disabled), 
+form input[type="button"]:hover:not(.disabled),  
+form button:hover:not(.disabled), 
+.btn-default:hover:not(.disabled)
+  background: $c-azul
 
 form input[type="submit"], form input[type="button"], form button
   background: $c-verde

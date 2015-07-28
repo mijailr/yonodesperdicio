@@ -1,19 +1,38 @@
 
 <% content_for(:meta_title) {@organization.name} %>
-<div class="row">
-  <div id="imagen" class="col-md-4">
-    <%= image_tag @organization.image.url(:medium), :alt => "...", :class => "img-responsive" %>  
-  </div><!-- /imagen -->
 
-  <div id="cuerpo" class="col-md-8">
-
+<div class="row fondoblanco">
+  
+  <div class="col-md-4">
     <h1 id="title"><%= @organization.name %></h1>
-    <p><%= markdown(@organization.description).html_safe %>
-    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , organizations_path %></p>
+    <p><%= markdown(@organization.address).html_safe %></p>
+    <p><%= markdown(@organization.zipcode).html_safe %></p>
+    <p><%= markdown(@organization.phone).html_safe %></p>
+    <p><%= markdown(@organization.email).html_safe %></p>
+    <p><%= markdown(@organization.website).html_safe %></p>
+    <p><%= '[Estrellitas]' %></p>
+  </div><!-- col-4 -->
 
-    <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-default"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
-    <p>[LISTADO DE COMENTARIOS]</p>
+  <div class="col-md-4">
+    <p><%= truncate_html(markdown(@organization.description).html_safe, length: 200, omission: ' +...') %></p>
+  </div><!-- col-4 -->
+
+  <div class="col-md-4">
+    [mapa en vez de la imagen]
+  </div><!-- col-4 -->
+
+</div><!-- /fondoblanco -->
+
+
+
+
+
+
+
+
+
+
  
-  </div><!-- /cuerpo -->
-</div><!-- /row -->
+
+
+  <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , organizations_path %></p>

@@ -3,11 +3,11 @@
     <ul>
       <li><%= link_to 'Descarga App', '#' %></li>
       <li id="rrss"> 
-        <%= image_tag "rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class => "img-responsive" %>
-        <%= link_to(image_tag("rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class=> "img-responsive"), "https://www.facebook.com/yonodesperdicio") %>
-        <%= image_tag "rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class => "img-responsive" %>
-        <%= image_tag "rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class => "img-responsive" %>
-      </li>
+        <%= link_to(image_tag("rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class=> "img-responsive"), "https://twitter.com/nodesperdicio", :target => "_blank") %>
+        <%= link_to(image_tag("rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class=> "img-responsive"), "https://www.facebook.com/yonodesperdicio", :target => "_blank") %>
+        <%= link_to(image_tag("rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class=> "img-responsive"), "https://www.youtube.com/user/Prosalus", :target => "_blank") %>
+        <%= link_to(image_tag("rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class=> "img-responsive"), "https://www.flickr.com/photos/prosalus/sets/72157636930322324", :target => "_blank") %>
+     </li>
       <li><%= link_to 'Cómo funciona' , funciona_path %></li>
       <li id="login"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
       <li><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
@@ -49,6 +49,22 @@
       <li><%= link_to 'iniciativas sociales' , iniciativas_sociales_path, :class => menu_class('iniciativas') %></li>
     </ul>
   </nav>
+
+
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
 
   <% if content_for?(:action) %>
     <%= yield(:action) %>
