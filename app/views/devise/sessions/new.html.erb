@@ -1,7 +1,7 @@
-<%= render :partial => "partials/you_have_to_sign_in" %>
+<%#= render :partial => "partials/you_have_to_sign_in" %>
 <% content_for(:meta_title, t('nlt.sign_in')) %>
 
-<div class="span-16">
+<div id="loginblock" class="col-md-4 col-md-offset-4">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <fieldset>
       <legend>
@@ -33,14 +33,12 @@
         <%= f.check_box :remember_me %>
         <%= t('nlt.remember_me') %>
         </dd>
-
       <% end -%>
-
-      <div><%= f.submit t('nlt.sign_in') %></div>
-
+      <div><%= f.submit 'Entrar' %></div>
       <%= render "devise/shared/links" %>
-
     </fieldset>
   <% end %>
+  <p><%= 'Si aún no te has registrado, hazlo ahora' %></p>
+  <p><%= link_to 'Regístrate', new_user_registration_path, "data-no-turbolink" => true, :title => "user register", :class => "btn btn-default" %></p>
 
 </div>

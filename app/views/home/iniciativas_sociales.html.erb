@@ -1,0 +1,34 @@
+<% content_for(:meta_title) {"iniciativas_sociales"} %>
+
+<div class="col-md-10">
+<div class="row">
+  <p>Día a día aparecen en todo el mundo iniciativas y campañas cuyo objetivo es contribuir a la disminución del desperdi-
+cio de alimentos. Cuantos más seamos luchando contra el desperdicio de alimentos, más gente podrá ser consciente
+de la cantidad de recursos y dinero que desperdiciamos en un mundo finito.</p>
+  <p>Aquí puedes encontrar algunas que ya están dando resultados muy positivos para evitar el desperdicio de alimentos
+en España y en el resto del mundo.</p>
+</div><!-- /row -->
+
+<div id="listado" class="row">
+    <% @iniciativas.each do |iniciativa| %>
+      <div class="col-md-4">
+        <%= image_tag iniciativa.image.url(:medium), :alt => "", :class => "img-responsive" %>  
+      </div>
+      <div class="col-md-8">
+          <h3><%= link_to iniciativa.title, noticia_url(iniciativa) %></h3>
+          <p><%= truncate_html(markdown(iniciativa.body).html_safe, length: 340, omission: ' +...') %></p>
+          <p><%#= truncate_html(iniciativa.body.html_safe, length: 200, omission: ' ...') %>
+          <!--<span><%= link_to "  Leer más", noticia_url(iniciativa) %></span>-->
+          <p>[tags con link a las tags]</p>
+      </div>
+    <% end %>
+
+<%= paginate(@iniciativas) %>
+</div><!-- /listado -->
+</div><!-- /col-md-10 -->
+
+<div class="col-md-2">
+  <% cache do %>
+    <%= render :partial => "partials/sidebar_iniciativas", :locals => { :url => "http://yonodesperdicio.org" } %>
+  <% end %>
+</div><!-- /col-md-2-->

@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+texts = Text.create([{code: 'faq'}, {code: 'legal'}, {code: 'funciona'}])
+articles = Article.create([{title: 'Consejos para hacer una compra responsable'}, {title: 'Segunda noticia'}])
+ideas = Idea.create([{title: 'Fresas refrescamtes'}])
+organizations = Organization.create([{name: 'Prosalus'}])

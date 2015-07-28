@@ -1,0 +1,60 @@
+<%#= content_for :meta_title, t('nlt.about_page.title') %>
+<% content_for (:meta_title) {@funciona.title} %>
+
+<div class="row">
+  <h2 class="funciona"><%= @funciona.title %></h2>
+  <div class="funciona row">
+    <%= markdown(@funciona.body).html_safe %>
+  </div><!-- /main -->
+</div><!-- /row -->
+
+<div id="dar" class="container">
+  <div class="row"><h3> Dar </h3></div>
+  <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/01-Dar-Registrate.png", :alt => "Imagen Regístrate'", :id => "registrate", :class => "img-responsive" %>
+    <p>1. Regístrate en nuestra web</p>
+  </div><!-- col-md-3 -->
+
+  <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/02-Dar-Ofrece.png", :alt => "Imagen Ofrece'", :id => "ofrece", :class => "img-responsive" %>
+    <p>2. Ofrece la comida excedente que quieres compartir</p>
+  </div><!-- col-md-3 -->
+
+  <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/03-Dar-Revisa.png", :alt => "Imagen Revisa los mensajes'", :id => "revisa", :class => "img-responsive" %>
+    <p>3. Revisa los mensajes de las personas que están interesadas</p>
+  </div><!-- col-md-3 -->
+
+    <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/04-Dar-Acuerda.png", :alt => "Imagen Acuerda un punto de entrega'", :id => "acuerda", :class => "img-responsive" %>
+    <p>4. Acuerda un punto de entrega</p>
+  </div><!-- col-md-3 -->
+</div><!-- /row -->
+
+<div id="recibir" class="container">
+  <div class="row"><h3> Recibir </h3></div>
+  <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/01-Recibir-Registrate.png", :alt => "Imagen Regístrate'", :id => "registrate", :class => "img-responsive" %>
+    <p>1. Regístrate en nuestra web</p>
+  </div><!-- col-md-3 -->
+
+  <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/02-Recibir-Busca.png", :alt => "Imagen Busca'", :id => "busca", :class => "img-responsive" %>
+    <p>2. Busca en la web qué alimentos están disponibles cerca de tí</p>
+  </div><!-- col-md-3 -->
+
+  <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/03-Recibir-Contacta.png", :alt => "Imagen Contacta'", :id => "contacta", :class => "img-responsive" %>
+    <p>3. Contacta con las personas que ofrecen los alimentos que te interesan</p>
+  </div><!-- col-md-3 -->
+
+    <div class="col-md-3 col-sm-3 col-xs-6">
+    <%= image_tag "propias/04-Recibir-Acuerda.png", :alt => "Imagen Acuerda un punto de entrega'", :id => "acuerda", :class => "img-responsive" %>
+    <p>4. Acuerda el punto de recogida</p>
+  </div><!-- col-md-3 -->
+</div><!-- /row -->
+
+<div class="funciona row">
+  <p>Es muy IMPORTANTE que marques la casilla de "alimentos entregados" para saber cuántos kilos no tiramos a la basura.</p>
+  <p>Y anímate a valorar cómo ha ido la entrega.</p>
+</div><!-- /row -->

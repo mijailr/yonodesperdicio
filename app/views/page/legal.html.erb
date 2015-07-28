@@ -1,48 +1,11 @@
-<%= content_for :meta_title, t('nlt.legal_page.title') %>
+<%#= content_for :meta_title, t('nlt.legal_page.title') %>
+<% content_for (:meta_title) {@legal.title} %>
 
-<div id="location_header_section">
-  <h1><%= t('nlt.legal_page.title') %></h1><br>
-  <b><a href="/"> « <%= t('nlt.back') %></a></b>
-</div>
-
-<div id="main">
-  <div class="span-18">
-    <div class="ad_excerpt">
-      <%#= t('nlt.legal_page.body_html') %>
-(Se puede poner aquí mismo o es necesario que vaya en el config/locale/es.yml????)
-Información legal
-
-La asociación Prosalus, con CIF G-78223872 y  domicilio social en la calle María Panés nº 4 (28003 Madrid), es titular de la web site yonodesperdicio.org 
-
-Estos términos de uso generales tienen por objeto regular las condiciones y las formas de uso del sitio web  yonoderperdicio.org  así como definir los derechos y las obligaciones de las partes implicadas en su utilización.
-Todos los contenidos accesibles en la página web yonodesperdicio desarrollado por Prosalus están sujetos a licencia Creative Commons. (indicar la versión)
- 
-Añadir la licencia del software y dónde se encuentra el código abierto. (preguntar a Ana -puntoabierto y Daniel -freepress)
-
-Suelen ser  GNU-GPL v3 y el código en casos de app-web se aloja en github.
-
-Se concede el derecho de reproducción del contenido de la página “yonoderperdicio.org” siempre que se respeten las siguientes condiciones:
-
-Que el fin con que se utilicen sea compatible con los fines de esta iniciativa. 
-Que la finalidad sea obtener la información contenida en la página y no con propósito comercial. 
-Que, en caso de reproducción o utilización, se cite la fuente. 
-Que ninguno de los elementos contenidos en la web tales como datos, documentos, información, gráficos o imágenes, sean modificados de forma alguna.
-El contenido de dicha página es responsabilidad exclusiva de Prosalus y no refleja necesariamente la opinión de financiadores o patrocinadores de la misma.
-Prosalus no garantiza la inexistencia de errores en el acceso a la Web, en su contenido, ni que éste se encuentre actualizado, aunque desarrollará sus mejores esfuerzos para, en su caso, evitarlos, subsanarlos o actualizarlos. Agradecemos todas las aportaciones que puedas hacernos a este respecto.
-Prosalus se reserva la facultad de efectuar, en cualquier momento y sin necesidad de previo aviso, modificaciones y actualizaciones de la información contenida en su web o en la configuración y presentación de ésta.
-En cumplimiento de la Ley Orgánica 15/1999, de 13 de Diciembre, de Protección de Datos de Carácter Personal (LOPD), te informamos que no se cederán los datos personales de los usuarios y usuarias de la web sino que se utilizarán exclusivamente con la finalidad para la que se diseña esta iniciativa. 
-
-Prosalus es responsable del fichero “Comunidad”, inscrito en el Registro General de Protección de Datos, y te informamos de que los datos que nos facilites serán incluidos en dicho fichero. Podrás ejercitar tus derechos de acceso, rectificación, cancelación y oposición dirigiéndote por escrito, con una copia de documento acreditativo, a PROSALUS, como titular del fichero.
- Como usuario/a garantizas que todos los datos que facilites mediante el formulario de inscripción y/o mediante cualquier otro formulario o medio de contacto facilitado son exactos, están actualizados, son verídicos, son de tu propia titularidad y no tienen ninguna intención fraudulenta.  Asimismo, te comprometes a actualizar tus datos en caso de que haya alguna modificación, para que se correspondan con los criterios anteriores.
-
-Cookies
-Utilizamos cookies para facilitar el uso de nuestra página web. Las cookies son pequeños ficheros de texto que tu navegador almacena en el disco duro de tu ordenador y que son necesarias para utilizar nuestra página web. Las utilizamos para entender mejor la manera en la que se usa nuestra página web y de esta manera poder mejorar consecuentemente el proceso de navegación. Las cookies son el referente que nos indica, por ejemplo, si una página de nuestra web ha sido vista con anterioridad, o si su visita es nueva o recurrente. Las cookies que utilizamos no almacenan datos personal alguno, ni ningún tipo de información que pueda identificarte. En caso de no querer recibir cookies, por favor configura tu navegador de Internet para que las borre del disco duro de tu ordenador, las bloquee o te avise en caso de instalación de las mismas. 
-
-La utilización de esta página, implica la aceptación de utilización de cookies, en los términos y condiciones previstos anteriormente 
-
-(en programación tiene que ir una alerta para el usuario de que acepta las cookies)
+<div class="row">
+  <h2><%= @legal.title %></h2>
+  <div id="main" class="col-md-12">
+    <%= markdown(@legal.body).html_safe %>
+    <div class="google_ads">
     </div>
-  </div> 
-  <div class="google_ads">
-  </div>
-</div>
+  </div><!-- /main -->
+</div><!-- /row -->

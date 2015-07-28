@@ -54,4 +54,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
   end
 
+  def set_menu(tab)
+    @current_tab = tab
+  end
+
+  def set_submenu(tab)
+    @current_submenu = tab
+  end
+
 end

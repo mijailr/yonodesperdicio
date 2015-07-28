@@ -16,3 +16,10 @@
  *= require jquery.cookiebar
  *= require_tree .
  */
+
+/* Esto aquí no debería ir, sino en application.scss */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

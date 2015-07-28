@@ -1,20 +1,27 @@
+
+<% content_for(:meta_title) {@idea.title} %>
 <div class="row">
-  <div id="imagen" class="col-md-4">
-    [IMAGEN]
-    <p><%= @idea.category %></p>
-    <p>Compartir en RRSS</p>
+  <div id="imagen" class="col-md-5">
+    <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>  
+    <p><%= @idea.category %> [cambiar por tags]</p>
+    <p>
+      <% cache do %>
+        <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(@idea), :meta_title => @idea.title } %>
+      <% end %>
+    </p>
   </div><!-- /imagen -->
 
-  <div id="cuerpo" class="col-md-8">
+  <div id="cuerpo" class="col-md-7">
 
-    <h3><%= @idea.title %></h3>
-    <p><%= @idea.published_at %> (sin hora)</p>
-    <p>Id: <%= @idea.id %> (quitar)</p>
-    <p><%= @idea.body %></p>
-    <p><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> <%= link_to 'VOLVER' , '/ideas' %></p>
+    <h1 id="title"><%= @idea.title %></h1>
+    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %></p>
+    <p><%#= @idea.id %></p>
+    <p><%= markdown(@idea.body).html_safe %>
+    <p><%#= @idea.body.html_safe %></p>
+    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span></p>
+    <span class="btn btn-success"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-primary"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
     <p>[LISTADO DE COMENTARIOS]</p>
  
   </div><!-- /cuerpo -->

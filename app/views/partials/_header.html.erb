@@ -3,13 +3,16 @@
     <ul>
       <li><%= link_to 'Descarga App', '#' %></li>
       <li id="rrss"> 
-        <%= image_tag "rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class => "img-responsive" %>
-        <%= link_to(image_tag("rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class=> "img-responsive"), "https://www.facebook.com/yonodesperdicio") %>
-        <%= image_tag "rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class => "img-responsive" %>
-        <%= image_tag "rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class => "img-responsive" %>
-      </li>
-      <li><%= link_to 'Cómo funciona' , '#' %></li> |
-      <li><%= render :partial => "partials/user_actions" %></li> 
+        <%= link_to(image_tag("rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class=> "img-responsive"), "https://twitter.com/nodesperdicio", :target => "_blank") %>
+        <%= link_to(image_tag("rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class=> "img-responsive"), "https://www.facebook.com/yonodesperdicio", :target => "_blank") %>
+        <%= link_to(image_tag("rrss/youtube-48.png", :alt => "YouTube", :id => "youtube", :class=> "img-responsive"), "https://www.youtube.com/user/Prosalus", :target => "_blank") %>
+        <%= link_to(image_tag("rrss/flickr-48.png", :alt => "Flickr", :id => "flickr", :class=> "img-responsive"), "https://www.flickr.com/photos/prosalus/sets/72157636930322324", :target => "_blank") %>
+     </li>
+      <li><%= link_to 'Cómo funciona' , funciona_path %></li>
+      <li id="login"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
+      <li><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
+      <li id="buscador">[Buscador] <%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
+      <li><%= render :partial => "partials/user_actions" %></li>
     </ul>
   </div>
 
@@ -36,16 +39,27 @@
   </div>
   </div><!--/container-->
 
-  <div id="main-menu" class="row col-md-12 col-xs-12">
+  <nav id="main-menu" class="row col-md-12 col-xs-12">
     <ul>
-      <li><%= link_to root_path, :title => "Inicio", "data-no-turbolink" => true do %>Inicio
+      <li><%= link_to root_path, :title => "Inicio", :class => menu_class('inicio'), "data-no-turbolink" => true do %>Inicio
       <% end %></li>
-      <li><%= link_to 'noticias' , '/noticias' %></li>
-      <li><%= link_to 'ideas frescas' , '/ideas' %></li>
-      <li><%= link_to 'alimentos para compartir' , '#' %></li>
-      <li><%= link_to 'iniciativas sociales' , '#' %></li>
+      <li><%= link_to 'noticias sin desperdicio' , noticias_path, :class => menu_class('noticias') %></li>
+      <li><%= link_to 'ideas frescas' , ideas_path, :class => menu_class('ideas') %>
+        <ul class="col-md-12 col-xs-12">
+          <li><%= link_to "Recetas", ideas_url(category: 'recetas'), :class => submenu_class('recetas') %></li>
+          <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
+        </ul>
+      </li>
+      <li><%= link_to 'alimentos para compartir' , '#', :class => menu_class('compartir') %>
+        <ul>
+          <li><%= link_to 'Con organizaciones' , organizations_url, :class => menu_class('compartir') %></li>
+          <li><%= link_to 'Con particulares' , "#", :class => menu_class('compartir') %></li>
+        </ul>
+      </li>  
+      <li><%= link_to 'iniciativas sociales' , iniciativas_sociales_path, :class => menu_class('iniciativas') %></li>
     </ul>
-  </div>
+  </nav>
+
 
   <% if content_for?(:action) %>
     <%= yield(:action) %>

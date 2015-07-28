@@ -9,7 +9,7 @@ class ContactMailer < ActionMailer::Base
     mail(
       from: email,
       to: Rails.application.secrets.emails["contact"],
-      subject: "nolotiro.org - contact from #{email}"
+      subject: "Yonodesperdicio - contact from #{email}"
     )
   end
 

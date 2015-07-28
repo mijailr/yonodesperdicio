@@ -1,0 +1,38 @@
+
+<% content_for(:meta_title) {@organization.name} %>
+
+<div class="row fondoblanco">
+  
+  <div class="col-md-4">
+    <h1 id="title"><%= @organization.name %></h1>
+    <p><%= markdown(@organization.address).html_safe %></p>
+    <p><%= markdown(@organization.zipcode).html_safe %></p>
+    <p><%= markdown(@organization.phone).html_safe %></p>
+    <p><%= markdown(@organization.email).html_safe %></p>
+    <p><%= markdown(@organization.website).html_safe %></p>
+    <p><%= '[Estrellitas]' %></p>
+  </div><!-- col-4 -->
+
+  <div class="col-md-4">
+    <p><%= truncate_html(markdown(@organization.description).html_safe, length: 200, omission: ' +...') %></p>
+  </div><!-- col-4 -->
+
+  <div class="col-md-4">
+    [mapa en vez de la imagen]
+  </div><!-- col-4 -->
+
+</div><!-- /fondoblanco -->
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+  <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , organizations_path %></p>

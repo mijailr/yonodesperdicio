@@ -1,6 +1,15 @@
 class PageController < ApplicationController
 
   def faqs
+    @faq = Text.find_by(code: 'faq')
+  end
+
+  def legal
+    @legal = Text.find_by(code: 'legal')
+  end
+
+  def funciona
+    @funciona = Text.find_by(code: 'funciona')
   end
 
   def tos
@@ -11,10 +20,7 @@ class PageController < ApplicationController
 
   def privacy
   end
-
-  def legal
-  end
-
+  
   def translate
   end
 

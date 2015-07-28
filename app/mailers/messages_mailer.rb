@@ -7,7 +7,7 @@ class MessagesMailer < ActionMailer::Base
     @message = message
     mail(
       to: to_email,
-      subject: "[nolotiro.org] Tienes un nuevo mensaje del usuario #{@from_username}"
+      subject: "[yonodesperdicio.org] Tienes un nuevo mensaje del usuario #{@from_username}"
     )
   end
 
