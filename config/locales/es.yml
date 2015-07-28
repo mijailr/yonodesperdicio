@@ -204,18 +204,18 @@ es:
       unconfirmed: Tienes que confirmar tu cuenta para poder continuar.
     mailer:
       confirmation_instructions:
-        subject: "[nolotiro.org] Instrucciones de confirmación"
+        subject: "[Yonodesperdicio.org] Instrucciones de confirmación"
       reset_password_instructions:
-        subject: "[nolotiro.org] Instrucciones de recuperación de contraseña"
+        subject: "[Yonodesperdicio.org] Instrucciones de recuperación de contraseña"
       unlock_instructions:
-        subject: "[nolotiro.org] Instrucciones para desbloquear"
+        subject: "[Yonodesperdicio.org] Instrucciones para desbloquear"
     omniauth_callbacks:
       failure: No has sido autorizado en la cuenta %{kind} porque "%{reason}".
       success: Has sido autorizado satisfactoriamente de la cuenta %{kind}.
     passwords:
       instructions: Por favor, introduce tu email y te enviaremos un enlace de acceso directo para cambiar tu contraseña.
       action: Cambiar contraseña
-      follow_instructions: Alguien ha pedido cambiar tu contraseña de nolotiro.org. Si no has sido puedes ignorar este correo. Tu contraseña no cambiará hasta que accedas al enlace y crees una nueva.
+      follow_instructions: Alguien ha pedido cambiar tu contraseña de Yonodesperdicio.org. Si no has sido puedes ignorar este correo. Tu contraseña no cambiará hasta que accedas al enlace y crees una nueva.
       forgot: "¿Has olvidado tu contraseña?"
       send: Enviar por correo
       no_token: No puedes acceder a esta página si no es a través de un un enlace para resetear tu contraseña. Si has llegado hasta aquí desde el email para resetear tu contraseña, por favor asegúrate de que la URL introducida está completa.
@@ -297,8 +297,8 @@ es:
       trash_selected: Borrar mensajes seleccionados
       untrash: Recuperar mensaje de papelera
     message_mailer:
-      subject_new: "[nolotiro.org] Nuevo mensaje: %{subject}"
-      subject_reply: "[nolotiro.org] Nueva respuesta: %{subject}"
+      subject_new: "[Yonodesperdicio.org] Nuevo mensaje: %{subject}"
+      subject_reply: "[Yonodesperdicio.org] Nueva respuesta: %{subject}"
       visit: Ver conversación y responder mensaje
       you_have_new_message: Has recibido un nuevo mensaje
       you_have_recieved_new_message: Has recibido un nuevo mensaje
@@ -314,7 +314,7 @@ es:
       title: Nuevo mensaje privado para el usuario %{user}
       body_max: Máximo 1500 caracteres
     notification_mailer:
-      subject: "[nolotiro.org] Nueva notificación: %{subject}"
+      subject: "[Yonodesperdicio.org] Nueva notificación: %{subject}"
       you_have_new_reply: Has recibido una nueva respuesta
       you_have_recieved_new_reply: Has recibido una nueva respuesta
     notifications:
@@ -337,11 +337,11 @@ es:
       index: Mensajes de %{username}
   mailer:
     confirmation_reminder:
-      p1: Hemos detectado que te has creado una cuenta en nolotiro.org y no la has confirmado.
+      p1: Hemos detectado que te has creado una cuenta en Yonodesperdicio.org y no la has confirmado.
       p2: 'Esto significa que puedes haber tenido problemas para acceder a la página. Si quieres confirmar tu usuario (%{username}) puedes hacerlo con este enlace:'
     greetings: Gracias y saludos,
     hello: Hola,
-    signature: Equipo de nolotiro.org
+    signature: Equipo de Yonodesperdicio.org
   nlt:
     view_more_ads: "ver más anuncios >"
     please_insert_email_and_password: Por favor pon tu email y contraseña.
@@ -361,7 +361,7 @@ es:
     about: acerca de
     about_page:
       description_html: <b>¿Qué es nolotiro.org?</b><br> Es un sitio web donde ofrecer al público, las cosas que ya no quieres o ya no necesitas para que las recoja otra gente a la que puede servirle o serle de mucha utilidad. <br><br> <strong>Lee las <a href="/es/page/faqs">preguntas de uso frecuente</a> para saber mas detalles de la filosofia y objetivos del proyecto</strong> <br><br> <b>Ventajas de nolotiro.org:</b><br> La gran ventaja de nolotiro.org, es que sustituye la nostalgia/sentimiento de derroche, por la sensación de hacer algo por alguien. Logras deshacerte de esas cosas que no tirabas porque te daba pena, porque estaban nuevas, o porque... y que al final solo acumulaban polvo en algún rincón olvidadas u ocupaban espacio, sabiendo que alguien las va a sacar buen partido, porque si que las necesita verdaderamente. Por otra parte, nolotiro.org al estar organizado por zonas geográficas fomenta que las cosas que quieras dar, se queden cerca, no hay gastos de envío, ni desplazamientos, ni envios a países lejanos que nunca sabes si llegan, se lo das tú mismo a alguien de tu misma ciudad, que va a buscarlo en persona a un lugar pactado. <br><br> <b>A tener en cuenta:</b><br> NO HAY OPCIÓN DE INTERCAMBIO, esto no se basa en el trueque, ni en la compra, por que hay que fomentar el altruismo, dar las cosas por que sí, porque nos sobran. <br><br> <b>Explicación en versión literaria</b><br> <a href="http://www.marcianoduran.com.uy/?p=176">¿Porqué no lo tiro?</a> Por Marciano Durán <br><br> <b>Nolotiro.org funciona  gracias al trabajo de muchas <a href="http://www.youtube.com/watch?v=KMU0tzLwhbE">personas</a> que han creado el siguiente software libre:</b> <a href="http://rubyonrails.org/">Ruby On Rails</a>, <a href="http://www.mysql.com/">MySQL</a>, <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo GeoPlanet API</a>, <a href="http://www.postfix.org/">Postfix</a>, <a href="http://www.ubuntu.org/">Ubuntu</a>, <a href="http://nginx.org/">Nginx</a>, <a href="http://sphinxsearch.com/">Sphinx</a> , y muchos mas, tantos que sería imposible nombrarlos todos aquí. <br><br> <b>El código fuente de nolotiro.org es código abierto</b> y está disponible para ser utilizado (bajo licencia Affero GPL 3).<br> Visita la <a href="https://github.com/alabs/nolotiro.org"> web para desarrolladores</a> para mas detalles (en inglés).<br> Los colaboradores son bienvenidos, ya sea para programar o para traducir la página a otras lenguas.
-      title: Acerca de nolotiro.org
+      title: Acerca de Yonodesperdicio.org
     access_here: accede aquí
     admin:
       become_user: "[ADMIN] Cambiar a este usuario"
@@ -412,14 +412,14 @@ es:
       flash_ko: Hubo un error al guardar tu comentario. Revisalo y envialo de nuevo
       flash_ok: Comentario guardado
       label: Tu comentario
-      subject: "[nolotiro.org] Tienes un nuevo comentario en el anuncio %{ad}"
+      subject: "[yonodesperdicio.org] Tienes un nuevo comentario en el anuncio %{ad}"
       submit: Enviar
       title: Comentarios
       body_max: Máximo 1000 caracteres
     contact: contacto
     contact_form: Formulario de contacto
     contact_legend: Por favor, escribe tu mensaje
-    contact_thanks: "¡Mensaje enviado! Gracias por contactar con nolotiro.org"
+    contact_thanks: "¡Mensaje enviado! Gracias por contactar con yonodesperdicio.org"
     cookie: Utilizamos cookies para mejorar tu navegación en este sitio
     create_new_ad: Crea un nuevo anuncio
     delete_ad: borrar anuncio
@@ -441,13 +441,13 @@ es:
       question_2: Entonces ...¿Esta web no es para ayudar a los demás?
       question_3: Pero a mi me gustaría regalar mis cosas a alguien que realmente lo necesitj
       question_4: "¿Es verdad que hay gente que luego vende las cosas que regalan aquí?"
-      question_5: "¿Qué clase de anuncios puedo publicar en nolotiro?"
+      question_5: "¿Qué clase de anuncios puedo publicar en Yonodesperdicio?"
       question_6: "¿No está permitido el intercambio de objetos? que raro"
       question_7: "¿Puedo enviar cosas a gente que no vive en mi ciudad?"
       title: Preguntas frecuentes
     faqs: preguntas frecuentes
     fill_captcha: Por favor rellena los siguientes carácteres
-    first_visit: nolotiro.org es una comunidad donde podemos deshacernos de los objetos que ya no utilizamos y nos estorban en casa.
+    first_visit: Yonodesperdicio.org es una comunidad donde podemos deshacernos de los objetos que ya no utilizamos y nos estorban en casa.
     footer_explain: 'nolotiro.org es un sitio web donde regalo y busco regalos gratis de segunda mano : muebles, sillas, sofás, bicicletas, ordenadores portátiles, mesas, cocinas, lámparas, camas, ropa, juguetes, cunas o carros para bebes, teléfonos móviles y otras muchas cosas que ya no quieres y ya no necesitas para que las reutilicen otra gente a la que puede servirle o darle nueva vida.'
     forgot_your_password: "¿Has olvidado tu contraseña?"
     friends: Amigos
@@ -471,7 +471,7 @@ es:
       sent: Enviados
       trash: Papelera
     messages_title: Mensajes
-    meta_description: 'nolotiro.org es un sitio web donde regalo y busco regalos gratis de segunda mano : muebles, sillas, sofás, bicicletas, ordenadores portátiles, mesas, cocinas, lámparas, camas, ropa, juguetes, cunas o carros para bebes, teléfonos móviles y otras muchas cosas que ya no quieres y ya no necesitas para que las reutilicen otra gente a la que puede servirle o darle nueva vida.'
+    meta_description: 'Yonodesperdicio.org es un sitio web donde regalo y busco regalos gratis de segunda mano : muebles, sillas, sofás, bicicletas, ordenadores portátiles, mesas, cocinas, lámparas, camas, ropa, juguetes, cunas o carros para bebes, teléfonos móviles y otras muchas cosas que ya no quieres y ya no necesitas para que las reutilicen otra gente a la que puede servirle o darle nueva vida.'
     meta_description_ad: regalo segunda mano %{title} en %{woeid}. %{body}
     new_user: Regístrate
     no_results:

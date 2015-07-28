@@ -3,6 +3,7 @@
 //= require jquery.cookiebar
 //= require moment-with-locales
 // require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 //
 

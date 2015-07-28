@@ -3,7 +3,8 @@
 <div class="row">
   <div id="imagen" class="col-md-5">
     <%= image_tag @noticia.image.url(:large), :alt => "", :class => "img-responsive" %>    
-    <p><%= @noticia.category %></p>
+    <p><%= @noticia.video %></p>
+    <p><%= @noticia.category %> [cambiar por tags]</p>
     <p>
       <% cache do %>
         <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(@noticia), :meta_title => @noticia.title } %>
@@ -16,14 +17,13 @@
     <h1 id="title"><%= @noticia.title %></h1>
     <p class="fecha"><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
     <p><%#= @noticia.id %></p>
-    <p><%= markdown(@noticia.body).html_safe %>
+    <p><%= markdown(@noticia.body).html_safe %></p>
     <p><%#= @noticia.body.html_safe %></p>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , noticias_path %></p>
     
 
-
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-default"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-default"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
+    <span class="btn btn-success"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-primary"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
 
     <%= render :partial => "partials/user_actions" %>
     <p>[LISTADO DE COMENTARIOS]</p>

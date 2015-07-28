@@ -1,19 +1,12 @@
 <% content_for(:meta_title) {"ideas"} %>
 
-<nav id="submenu" class="row">
-  <ul class="col-md-12 col-xs-12">
-    <li><%= link_to "Recetas", ideas_url(category: 'recetas'), :class => submenu_class('recetas') %></h3></li>
-    <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
-  </ul>
-</nav>
-
 <div id="listado" class="row col-md-12">
     <% @ideas.each do |idea| %>
 
       <div class="col-md-4">
-        <%= image_tag idea.image.url(:mediumidea), :alt => " ", :class => "img-responsive" %>
-        <h3><%= link_to idea.title, idea_url(idea) %></h3>
-        <p><%= idea.published_at.strftime("%d/%m/%Y") %></p>
+        <%= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
+        (<%= link_to idea.category, '#' %>)<h3><%= link_to idea.title, idea_url(idea) %></h3>
+        <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por [Usuario]</span></p>
         <p><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %></p>
         <!--<span><%= link_to "  Leer más", idea_url(idea) %></span>-->
         <!--<p><%= link_to idea.category, '#' %></p>-->
