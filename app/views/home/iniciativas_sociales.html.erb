@@ -15,7 +15,7 @@ en España y en el resto del mundo.</p>
         <%= image_tag iniciativa.image.url(:medium), :alt => "", :class => "img-responsive" %>  
       </div>
       <div class="col-md-8">
-          <h3><%= link_to iniciativa.title, noticia_url(iniciativa) %></h3>
+          <h3><%= link_to iniciativa.title, iniciativa_url(iniciativa) %></h3>
           <p><%= truncate_html(markdown(iniciativa.body).html_safe, length: 340, omission: ' +...') %></p>
           <p><%#= truncate_html(iniciativa.body.html_safe, length: 200, omission: ' ...') %>
           <!--<span><%= link_to "  Leer más", noticia_url(iniciativa) %></span>-->

@@ -45,39 +45,30 @@
       <% end %></li>
       <li><%= link_to 'noticias sin desperdicio' , noticias_path, :class => menu_class('noticias') %></li>
       <li><%= link_to 'ideas frescas' , ideas_path, :class => menu_class('ideas') %>
-        <ul class="col-md-12 col-xs-12">
-          <li><%= link_to "Recetas", ideas_url(category: 'recetas'), :class => submenu_class('recetas') %></li>
-          <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
-        </ul>
+        <div class="btn-group">
+          <button type="button" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Recetas", ideas_url(category: 'recetas'), :class => submenu_class('recetas') %></li>
+            <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
+          </ul>
+        </div><!-- /btn-group -->
       </li>
       <li><%= link_to 'alimentos para compartir' , '#', :class => menu_class('compartir') %>
-        <ul>
-          <li><%= link_to 'Con organizaciones' , organizations_url, :class => menu_class('compartir') %></li>
-          <li><%= link_to 'Con particulares' , "#", :class => menu_class('compartir') %></li>
-        </ul>
+        <div class="btn-group">
+          <button dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Con organizaciones' , organizations_url, :class => menu_class('compartir') %></li>
+            <li><%= link_to 'Con particulares' , "#", :class => menu_class('compartir') %></li>
+          </ul>
+        </div><!-- /btn-group -->
       </li>  
       <li><%= link_to 'iniciativas sociales' , iniciativas_sociales_path, :class => menu_class('iniciativas') %></li>
     </ul>
   </nav>
-
-
-<!-- Split button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-  
-
 
   <% if content_for?(:action) %>
     <%= yield(:action) %>

@@ -1,33 +1,33 @@
 class HomeController < ApplicationController
   def index
     set_menu('inicio')
-    @noticia = Article.where(category: 'noticia').order('created_at ASC').last
-    @idea = Idea.order('created_at ASC').last
+    @noticia = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('created_at ASC').last
+    @idea = Idea.where("published_at < ?", Time.now).order('created_at ASC').last
   end
 
   # listado de noticias
   def noticias
     set_menu('noticias')
-    @noticias = Article.where(category: 'noticia').order('created_at ASC').page(params[:page]).per(10)
+    @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('created_at ASC').page(params[:page]).per(10)
   end
 
   # una noticia
   def noticia
     set_menu('noticias')
-    @noticia = Article.find(params[:id])
+    @noticia = Article.where("published_at < ?", Time.now).find(params[:id])
   end
 
   # listado de iniciativas
   def iniciativas_sociales
     set_menu('iniciativas')
-    @iniciativas = Article.where(category: 'iniciativa').order('created_at ASC').page(params[:page]).per(10)
+    @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('created_at ASC').page(params[:page]).per(10)
     #@iniciativas = @articles.group_by { |t| t.category.name }
   end
 
   # una iniciativa
   def iniciativa
     set_menu('iniciativas')
-    @iniciativa = Article.find_by(category: 'iniciativa').find(params[:id])
+    @iniciativa = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).find(params[:id])
   #  @iniciativa = Article.where(:category => { :name => 'iniciativa' }).find(params[:id])
   end
 
@@ -37,16 +37,16 @@ class HomeController < ApplicationController
     category = params[:category]
     if category.present?
       set_submenu(category)
-      @ideas = Idea.where(category: category).order('created_at ASC').page(params[:page]).per(10)
+      @ideas = Idea.where(category: category).where("published_at < ?", Time.now).order('created_at ASC').page(params[:page]).per(10)
     else
-      @ideas = Idea.order('created_at ASC').page(params[:page]).per(10)
+      @ideas = Idea.order('created_at ASC').where("published_at < ?", Time.now).page(params[:page]).per(10)
     end
   end
 
   # una idea
   def idea
     set_menu('ideas')
-    @idea = Idea.find(params[:id])
+    @idea = Idea.where("published_at < ?", Time.now).find(params[:id])
     set_submenu(@idea.category.pluralize)
   end
 
