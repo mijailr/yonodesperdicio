@@ -22,7 +22,7 @@
         </label>
         </dt>
         <dd id="nombre-element">
-        <%= f.text_field :email, :autofocus => true, :required => true %>cambiar
+        <%= f.text_field :email, :autofocus => true, :required => true, :placeholder => "Nombre y apellidos" %>cambiar
         </dd>
 
         <dt id="sexo-label">
@@ -40,7 +40,7 @@
         </label>
         </dt>
         <dd id="username-element">
-        <%= f.text_field :username, :required => true %>
+        <%= f.text_field :username, :required => true, :placeholder => "Nombre de usuario" %>
         </dd>
         
         <dt id="password1-label">
@@ -66,7 +66,7 @@
         </label>
         </dt>
         <dd id="localidad-element">
-        <%= f.text_field :email, :autofocus => true, :required => true %>cambiar
+        <%= f.text_field :email, :autofocus => true, :required => true, :placeholder => "Localidad" %>cambiar
         </dd>
 
         <dt id="provincia-label">
@@ -75,7 +75,7 @@
         </label>
         </dt>
         <dd id="provincia-element">
-        <%= f.text_field :email, :autofocus => true, :required => true %>cambiar
+        <%= f.text_field :email, :autofocus => true, :required => true, :placeholder => "Provincia" %>cambiar
         </dd>
 
         <dt id="codigo-label">
@@ -84,7 +84,7 @@
         </label>
         </dt>
         <dd id="codigo-element">
-        <%= f.text_field :email, :autofocus => true, :required => true %>cambiar
+        <%= f.text_field :email, :autofocus => true, :required => true, :placeholder => "Código postal" %>cambiar
         </dd>
 
         <dt id="email-label">
@@ -93,18 +93,13 @@
         </label>
         </dt>
         <dd id="email-element">
-        <%= f.email_field :email, :autofocus => true, :required => true %>
+        <%= f.email_field :email, :autofocus => true, :required => true, :placeholder => "Email" %>
         </dd>
 
-         <dt id="imagen-label">
-        <label for="imagen" class="required">
-          <%= 'Insertar imagen' %>
-        </label>
-        </dt>
-        <dd id="imagen-element">
-        <%= f.email_field :email, :autofocus => true, :required => true %>cambiar
-        </dd>
-      
+        <div id="insertarimagen" class="btn btn-primary">
+          Insertar imagen
+        </div> 
+     
         <dd id="captcha-element">
           <%= recaptcha_tags(:display => { :theme => "white" }, ajax: true)%>
         </dd>

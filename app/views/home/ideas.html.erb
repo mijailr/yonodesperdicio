@@ -5,7 +5,7 @@
 
       <div class="col-md-4">
         <%= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
-        (<%= link_to idea.category, '#' %>)<h3><%= link_to idea.title, idea_url(idea) %></h3>
+        <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
         <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por [Usuario]</span></p>
         <p><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %></p>
         <!--<span><%= link_to "  Leer más", idea_url(idea) %></span>-->
@@ -17,7 +17,6 @@
 
 <%= paginate(@ideas) %>
 </div><!-- /listado -->
-
 
 <div id="subereceta" class="row">
   <span class="btn btn-danger">Sube tu receta</span> (Para subir una receta es necesario estar registrado)

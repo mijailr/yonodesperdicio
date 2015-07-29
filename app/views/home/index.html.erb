@@ -23,7 +23,7 @@
     <%= image_tag "propias/cebolla.png", :alt => "Imagen cebolla", :id => "cebolla", :class => "img-responsive" %>
   </div>
   <div class="col-md-8 col-xs-9">
-    <div id="contador" class="col-md-6">CONTADOR DE COMIDA kg</div><div id="contador-texto" class="col-md-6">Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura.</div>
+    <div id="contador" class="col-md-6">01.082.524 kg</div><div id="contador-texto" class="col-md-6">Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura.</div>
   </div>
   <div class="col-md-2 col-xs-1">
     <%= image_tag "propias/leche.png", :alt => "Imagen leche", :id => "leche", :class => "img-responsive" %>
@@ -37,7 +37,7 @@
     <!-- Una noticia -->
     <% if @noticia %>
     <p><%= image_tag @noticia.image.url(:medium), :alt => " ", :class => "img-responsive" %></p>
-    <h3 class="titulosotros"><%= link_to @noticia.title, noticia_url(@noticia) %></h3>
+    <h3 class="veinticinco"><%= link_to @noticia.title, noticia_url(@noticia) %></h3>
     <p><%= truncate_html(markdown(@noticia.body).html_safe, length: 200, omission: '...') %></p>
     <p><%#= truncate_html(@noticia.body.html_safe, length: 200, omission: ' ...') %>
     <span><%= link_to "  Leer más", noticia_url(@noticia) %></span></p>
@@ -49,7 +49,7 @@
     <!-- Una idea -->
     <% if @idea %>
     <p><%= image_tag @idea.image.url(:mediumidea), :alt => " ", :class => "img-responsive" %></p>
-    <h3 class="titulosotros"><%= link_to @idea.title, idea_url(@idea) %></h3>
+    <h3 class="veinticinco"><%= link_to @idea.title, idea_url(@idea) %></h3>
     <p><%= truncate_html(markdown(@idea.body).html_safe, length: 200, omission: '...') %></p>
     <p><%#= truncate_html(@idea.body.html_safe, length: 200, omission: ' ...') %>
     <span><%= link_to "  Leer más", idea_url(@idea) %></span></p>

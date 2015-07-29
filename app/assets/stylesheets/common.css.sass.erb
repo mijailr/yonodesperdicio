@@ -7,7 +7,7 @@
   src: asset-url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
 @font-face
-  font-family: 'OpenSans'
+  font-family: 'OpenSans-Regular'
   src: asset-url('OpenSans-Regular.ttf') format('truetype')
   font-weight: 400
 @font-face
@@ -19,8 +19,8 @@
   src: asset-url('FontAwesome.otf')
   font-weight: normal
 
-$font-general: 'OpenSans', sans-serif
-$font-titulos: 'OpenSans-Semibold', sans-serif
+$font-general: 'OpenSans-Regular', sans-serif
+$font-gorda: 'OpenSans-Semibold', sans-serif
 $font-titulo: 'Schuss'
 $c-texto: #012b5a
 $c-azul: #005cb8
@@ -37,7 +37,7 @@ $b-rayas: 2.5px dashed #FFF
   font-family: $font-titulo
   font-size: 40px
   clear: both
-  margin-top: 0.5em 
+  margin: 0
   -ms-transform: skewX(40deg) /* IE 9 */
   -webkit-transform: skewX(20deg) /* Safari */
   -moz-transform: skewX(20deg)
@@ -45,13 +45,12 @@ $b-rayas: 2.5px dashed #FFF
   a
     color: $c-azul
 @mixin titulosotros
-  font-family: $font-titulos
+  font-family: $font-gorda
   color: $c-rojo
-  font-size: 1.5em
   margin-bottom: 0.3em
 
 @mixin titulossidebar
-  font-family: $font-titulos
+  font-family: $font-gorda
   background: $c-azul
   color: #FFF
   font-size: 0.9em
@@ -71,7 +70,11 @@ $b-rayas: 2.5px dashed #FFF
   border-bottom: $b-rayas
 @mixin texto-rojo
   color: $c-rojo
-  font-weight: bold
+  font-family: $font-gorda
+  line-height: 22px
+@mixin introducciones
+  font-family: $font-gorda
+  font-size: 15px
 
 $break-small: 320px
 $break-medium: 800px
@@ -81,11 +84,11 @@ $break-large: 1200px
 /**** Fin Definiciones, que iran en una hoja aparte ****/
 
 body
-  line-height: 1.3
   color: $c-texto
   background: #dedddc
   font-family: $font-general
-  font-size: 14px
+  font-size: 13px
+  line-height: 1.3em
   @media (max-width: $break-medium)
     p
       font-size: 0.7em
@@ -126,6 +129,9 @@ h2
   font-size: 3em
 h3
   @include titulosotros
+  font-size: 28px
+h3.veinticinco
+  font-size: 25px  
 h4
   @include titulossidebar
 ul
@@ -220,6 +226,16 @@ form.searchbox
     font-size: 1.5em
     padding: 0.2em
 
+#insertarimagen,
+.g-recaptcha,
+dd#captcha-element,
+dt#captcha-input-label
+  float: left
+  clear: both
+
+#insertarimagen
+  float: right
+
 /**
  * Layout.
 #header
@@ -272,7 +288,7 @@ form.searchbox
   height: 100%
 
 #menu-cabecera
-  font-family: $font-titulos
+  font-family: $font-gorda
   padding: 0.3em
   margin-bottom: 10px
   background: $c-azul
@@ -333,7 +349,7 @@ img#logo
 #header .site-slogan
   clear: both
   position: relative
-  top: -25px
+  top: -20px
   right: 25px
   @media (max-width: $break-small)
     top: -10px
@@ -352,11 +368,10 @@ img#logo
 
 #main-menu
   clear: both
-  float: left
+  float: center
+  font-family: $font-gorda
+  font-size: 20px
   text-transform: uppercase
-  font-family: $font-titulos
-  font-size: 1.4em
-  font-weight: bold
   text-align: center
   border-top: $b-rayas
   border-bottom: $b-rayas
@@ -435,20 +450,20 @@ img#logo
   text-align: center
   #contador
     font-family: $font-titulo
-    font-size: 3.8em
+    font-size: 6em
     color: $c-verde
     -ms-transform: skewX(40deg) /* IE 9 */
     -webkit-transform: skewX(20deg) /* Safari */
     -moz-transform: skewX(20deg)
     transform: skewX(20deg)
-    padding: 8% 0 3% 0
+    padding: 1em 0
     @media (max-width: $break-medium)
       font-size: 2.5em
     @media (max-width: $break-small)
       font-size: 2em
   #contador-texto
     @include texto-rojo
-    padding: 8% 0 3% 3%
+    padding: 5% 0 3% 3%
     text-align: left
 .homearriba h3
   @include titulos-home
@@ -460,7 +475,15 @@ img#logo
   text-align: center
 .homearriba div p,
 .homeabajo div p
+  font-family: $font-gorda
   text-align: left
+.homearriba div p
+  font-family: $font-gorda
+  font-size: 15px
+  line-height: 20px
+.homeabajo div p
+  font-size: 13px
+  line-height: 1.3em
 .homearriba div img
   height: auto
 #tweets
@@ -483,24 +506,27 @@ img#logo
 
 /**
   * Organizaciones
-
 .fondoblanco
   background: #f0efef
   padding: 1em 0
   margin: 1em 0
 
+.introduccion
+  @include introducciones
+
 /**
   * Como funciona
-.funciona 
-  font-weight: bold
+.funcionatexto
+  @include introducciones
   text-align: center
-  line-height: 0.5em
+
 h2.funciona
   @include titulosotros
   text-align: center
   text-transform: uppercase
   margin: 1em 0
-  font-weight: lighter
+
+
 
 #dar,
 #recibir
@@ -509,6 +535,9 @@ h2.funciona
   h3
     clear: both
     margin-top: 1em
+  p
+    padding: 0
+    text-align: left
 #recibir h3
   color: $c-verde
 

@@ -1,26 +1,25 @@
-<% content_for(:meta_title) {@noticia.title} %>
-<% content_for(:summary) {truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...') } %>
+<% content_for(:meta_title) {@iniciativa.title} %>
 
 <div class="row">
   <div id="imagen" class="col-md-5">
-    <%= image_tag @noticia.image.url(:large), :alt => "", :class => "img-responsive" %>    
-    <p><%= @noticia.video.html_safe if @noticia.video %></p>
-    <p><%= @noticia.category %> [cambiar por tags]</p>
+    <%= image_tag @iniciativa.image.url(:large), :alt => "", :class => "img-responsive" %>    
+    <p><%= @iniciativa.video.html_safe if @iniciativa.video %></p>
+    <p><%= @iniciativa.category %> [cambiar por tags]</p>
     <p>
       <% cache do %>
-        <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(@noticia), :meta_title => @noticia.title } %>
+        <%= render :partial => "partials/social_buttons", :locals => { :url => iniciativa_url(@iniciativa), :meta_title => @iniciativa.title } %>
       <% end %>
     </p>
   </div><!-- /imagen -->
 
   <div id="cuerpo" class="col-md-7">
 
-    <h1 id="title"><%= @noticia.title %></h1>
-    <p class="fecha"><%= @noticia.published_at.strftime("%d/%m/%Y") %></p>
-    <p><%#= @noticia.id %></p>
-    <p><%= markdown(@noticia.body).html_safe %></p>
-    <p><%#= @noticia.body.html_safe %></p>
-    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , noticias_path %></p>
+    <h1 id="title"><%= @iniciativa.title %></h1>
+    <p class="fecha"><%= @iniciativa.published_at.strftime("%d/%m/%Y") %></p>
+    <p><%#= @iniciativa.id %></p>
+    <p><%= markdown(@iniciativa.body).html_safe %></p>
+    <p><%#= @iniciativa.body.html_safe %></p>
+    <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , iniciativas_sociales_path %></p>
     
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
