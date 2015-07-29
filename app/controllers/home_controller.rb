@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     set_menu('inicio')
-    @noticia = Article.order('created_at ASC').last
+    @noticia = Article.where(category: 'noticia').order('created_at ASC').last
     @idea = Idea.order('created_at ASC').last
   end
 

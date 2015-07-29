@@ -4,19 +4,19 @@
 
 @font-face
   font-family: 'Schuss'
-  src: font-url('../fonts/SchussHandITC_Bold.ttf')  format('truetype')
+  src: asset-url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
 @font-face
   font-family: 'OpenSans'
-  src: font-url('../fonts/OpenSans-Regular.ttf') format('truetype')
+  src: asset-url('OpenSans-Regular.ttf') format('truetype')
   font-weight: 400
 @font-face
   font-family: 'OpenSans-Semibold'  
-  src: font-url('../fonts/OpenSans-Semibold.ttf') format('truetype')
+  src: asset-url('OpenSans-Semibold.ttf') format('truetype')
   font-weight: 600
 @font-face
   font-family: 'FontAwesome'
-  src: font-url('FontAwesome.otf')
+  src: asset-url('FontAwesome.otf')
   font-weight: normal
 
 $font-general: 'OpenSans', sans-serif
@@ -85,7 +85,7 @@ body
   color: $c-texto
   background: #dedddc
   font-family: $font-general
-  font-size: 13px
+  font-size: 14px
   @media (max-width: $break-medium)
     p
       font-size: 0.7em
@@ -272,6 +272,7 @@ form.searchbox
   height: 100%
 
 #menu-cabecera
+  font-family: $font-titulos
   padding: 0.3em
   margin-bottom: 10px
   background: $c-azul
