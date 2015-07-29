@@ -26,7 +26,7 @@ $c-texto: #012b5a
 $c-azul: #005cb8
 $c-verde: #6abf4a
 $c-rojo: #e55333
-$b-rayas: 2px dashed #FFF
+$b-rayas: 2.5px dashed #FFF
 
 @mixin titulos
   font-family: $font-titulo
@@ -261,12 +261,12 @@ form.searchbox
   @media (max-width: $break-medium)
     width: 10px
 
-#comida-izda img,
-#comida-dcha img
+#comida-izda div img,
+#comida-dcha div img
   width: 80%
   float: right
   @media (max-width: $break-medium)
-    display: none
+    visibility: hidden
 
 #cebolla
   height: 100%
@@ -331,6 +331,11 @@ img#logo
 
 #header .site-slogan
   clear: both
+  position: relative
+  top: -25px
+  right: 25px
+  @media (max-width: $break-small)
+    top: -10px
   float: right
   padding-right: 15%
   h2
@@ -456,7 +461,7 @@ img#logo
 .homeabajo div p
   text-align: left
 .homearriba div img
-  height: 120px
+  height: auto
 #tweets
   .stream p 
     font-size: 10px !important 
@@ -493,8 +498,8 @@ h2.funciona
   @include titulosotros
   text-align: center
   text-transform: uppercase
-  font-size: 2em
-  margin-bottom: 1em
+  margin: 1em 0
+  font-weight: lighter
 
 #dar,
 #recibir
@@ -502,6 +507,7 @@ h2.funciona
   margin-bottom: 1em
   h3
     clear: both
+    margin-top: 1em
 #recibir h3
   color: $c-verde
 
@@ -534,6 +540,10 @@ h2.funciona
   background: #FFF
   padding: 1em
   margin: 1em
+
+/**
+ * Faqs
+
 
 
 /**********************************NOLOTIRO SIN TOCAR
