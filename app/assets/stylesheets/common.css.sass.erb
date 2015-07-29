@@ -4,19 +4,19 @@
 
 @font-face
   font-family: 'Schuss'
-  src: font-url('../fonts/SchussHandITC_Bold.ttf')  format('truetype')
+  src: asset-url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
 @font-face
   font-family: 'OpenSans'
-  src: font-url('../fonts/OpenSans-Regular.ttf') format('truetype')
+  src: asset-url('OpenSans-Regular.ttf') format('truetype')
   font-weight: 400
 @font-face
   font-family: 'OpenSans-Semibold'  
-  src: font-url('../fonts/OpenSans-Semibold.ttf') format('truetype')
+  src: asset-url('OpenSans-Semibold.ttf') format('truetype')
   font-weight: 600
 @font-face
   font-family: 'FontAwesome'
-  src: font-url('FontAwesome.otf')
+  src: asset-url('FontAwesome.otf')
   font-weight: normal
 
 $font-general: 'OpenSans', sans-serif
@@ -26,7 +26,7 @@ $c-texto: #012b5a
 $c-azul: #005cb8
 $c-verde: #6abf4a
 $c-rojo: #e55333
-$b-rayas: 2px dashed #FFF
+$b-rayas: 2.5px dashed #FFF
 
 @mixin titulos
   font-family: $font-titulo
@@ -72,6 +72,11 @@ $b-rayas: 2px dashed #FFF
 @mixin texto-rojo
   color: $c-rojo
   font-weight: bold
+
+$break-small: 320px
+$break-medium: 800px
+$break-large: 1200px
+
     
 /**** Fin Definiciones, que iran en una hoja aparte ****/
 
@@ -80,7 +85,10 @@ body
   color: $c-texto
   background: #dedddc
   font-family: $font-general
-  font-size: 13px
+  font-size: 14px
+  @media (max-width: $break-medium)
+    p
+      font-size: 0.7em
 
 html img
   vertical-align: middle
@@ -212,8 +220,6 @@ form.searchbox
     font-size: 1.5em
     padding: 0.2em
 
-
-
 /**
  * Layout.
 #header
@@ -252,21 +258,28 @@ form.searchbox
  * Header Area.
 #rrss img
   width: 30px
+  @media (max-width: $break-medium)
+    width: 10px
 
-#comida-izda img,
-#comida-dcha img
+#comida-izda div img,
+#comida-dcha div img
   width: 80%
   float: right
+  @media (max-width: $break-medium)
+    visibility: hidden
 
 #cebolla
   height: 100%
 
 #menu-cabecera
+  font-family: $font-titulos
   padding: 0.3em
   margin-bottom: 10px
   background: $c-azul
   color: #FFF
   font-weight: bold
+  @media (max-width: $break-medium)
+    font-size: 0.7em
   a
     color: #FFF
   a:hover
@@ -312,9 +325,18 @@ img#logo
     font-family: $font-titulo
     color: $c-azul
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
+    @media (max-width: $break-medium)
+      font-size: 5em
+    @media (max-width: $break-small)
+      font-size: 3em
 
 #header .site-slogan
   clear: both
+  position: relative
+  top: -25px
+  right: 25px
+  @media (max-width: $break-small)
+    top: -10px
   float: right
   padding-right: 15%
   h2
@@ -323,6 +345,10 @@ img#logo
     color: $c-verde
     margin-top: 0
     line-height: 0
+    @media (max-width: $break-medium)
+      font-size: 2em
+    @media (max-width: $break-small)
+      font-size: 1.5em
 
 #main-menu
   clear: both
@@ -416,6 +442,10 @@ img#logo
     -moz-transform: skewX(20deg)
     transform: skewX(20deg)
     padding: 8% 0 3% 0
+    @media (max-width: $break-medium)
+      font-size: 2.5em
+    @media (max-width: $break-small)
+      font-size: 2em
   #contador-texto
     @include texto-rojo
     padding: 8% 0 3% 3%
@@ -432,7 +462,7 @@ img#logo
 .homeabajo div p
   text-align: left
 .homearriba div img
-  height: 100px
+  height: auto
 #tweets
   .stream p 
     font-size: 10px !important 
@@ -469,8 +499,8 @@ h2.funciona
   @include titulosotros
   text-align: center
   text-transform: uppercase
-  font-size: 2em
-  margin-bottom: 1em
+  margin: 1em 0
+  font-weight: lighter
 
 #dar,
 #recibir
@@ -478,6 +508,7 @@ h2.funciona
   margin-bottom: 1em
   h3
     clear: both
+    margin-top: 1em
 #recibir h3
   color: $c-verde
 
@@ -510,6 +541,10 @@ h2.funciona
   background: #FFF
   padding: 1em
   margin: 1em
+
+/**
+ * Faqs
+
 
 
 /**********************************NOLOTIRO SIN TOCAR

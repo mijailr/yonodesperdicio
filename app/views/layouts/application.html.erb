@@ -48,7 +48,7 @@
   }(document, 'script', 'facebook-jssdk'));</script>
 
 
-      <% cache do %>
+      <% cache("header") do %>
         <%= render :partial => "partials/header", :locals => { :url => "http://yonodesperdicio.org" } %>
       <% end %>
 
@@ -78,7 +78,7 @@
 
     </div><!--/container-->
 
-      <% cache do %>
+      <% cache("footer") do %>
         <%= render :partial => "partials/footer", :locals => { :url => "http://yonodesperdicio.org" } %>
       <% end %>
 
