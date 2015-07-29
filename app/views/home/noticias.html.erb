@@ -9,7 +9,7 @@
         <%= image_tag noticia.image.url(:medium), :alt => "", :class => "img-responsive" %>  
       </div>
       <div class="col-md-8">
-          <h3><%= link_to noticia.title, noticia_url(noticia) %></h3>
+          <h3 class="veinticinco"><%= link_to noticia.title, noticia_url(noticia) %></h3>
           <p><%= noticia.published_at.strftime("%d/%m/%Y") %></p>
           <p><%= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' +...') %></p>
           <!--<span><%= link_to "  Leer más", noticia_url(noticia) %></span>-->

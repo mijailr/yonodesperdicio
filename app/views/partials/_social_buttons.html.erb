@@ -1,8 +1,7 @@
 <div id="social-buttons">
 
   <span id="twitter-button">
-    
-    <a href="https://twitter.com/share" title="Twitealo!" alt="Twitealo!" data-url="<%= url %>" data-via="yonodesperdicio" data-count="yes"><i class="fa fa-twitter"></i></a>
+     <a href="https://twitter.com/share" title="Twitealo!" alt="Twitealo!" data-url="<%= url %>" data-via="yonodesperdicio" data-count="yes"><i class="fa fa-twitter"></i></a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   </span>
 
@@ -12,20 +11,17 @@
     <!-- probando Ana-->
     <a href="https://www.facebook.com/sharer.php?u=<%= url %>" title="<%= meta_title %>" target="_blank" data-via="yonodesperdicio" data-layout="button_count"><i class="fa fa-facebook"></i></a>
     
-    <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<%= url %>&p[title]=<%= meta_title %>&p[summary]=descripcion_contenido&p[images][0]=url_imagen" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<%= url %>&p[title]=<%= meta_title %>&p[summary]=loquesea&p[images][0]=url_imagen" target="_blank"><i class="fa fa-facebook"></i></a>
 
-    <div class="fb-share-button" data-href="<%= url %>" data-layout="link"></div>
-
+    <div class="fb-share-button" data-href="<%= url %>" data-layout="button_count"></div>
   </span>
 
   <span id="google-button">
-
     <a href="https://plus.google.com/share?url={<%= url %>}" title="Compártelo en G+!" alt="Compártelo en G+!" data-via="yonodesperdicio" onclick="javascript:window.open(this.href,
   '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus"></i></a>
 
     <!-- Inserta esta etiqueta donde quieras que aparezca Botón Compartir. -->
     <div class="g-plus" data-action="share" data-annotation="bubble" data-href="<%= url %>" data-via="yonodesperdicio"><i class="fa fa-google-plus"></i></div>
-
 </span>
 
 </div>

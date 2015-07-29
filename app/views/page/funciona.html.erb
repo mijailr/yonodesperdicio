@@ -3,7 +3,7 @@
 
 <div class="row">
   <h2 class="funciona"><%= @funciona.title %></h2>
-  <div class="funciona row">
+  <div class="funcionatexto row">
     <%= markdown(@funciona.body).html_safe %>
   </div><!-- /main -->
 </div><!-- /row -->
@@ -12,22 +12,26 @@
   <div class="row"><h3> Compartir alimentos </h3></div>
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Registro-A.png", :alt => "Imagen Regístrate'", :id => "registrate", :class => "img-responsive" %>
-    <p>1. Regístrate en nuestra web</p>
+    <%= image_tag "propias/1A.png", :alt => "Uno'", :class => "col-md-3 img-responsive" %>
+    <p class="col-md-8">Regístrate en nuestra web</p>
   </div><!-- col-md-3 -->
 
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Comparte-A.png", :alt => "Imagen Ofrece'", :id => "ofrece", :class => "img-responsive" %>
-    <p>2. Ofrece la comida excedente que quieres compartir</p>
+    <%= image_tag "propias/2A.png", :alt => "Dos'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Ofrece la comida excedente que quieres compartir</p>
   </div><!-- col-md-3 -->
 
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Contacta-A.png", :alt => "Imagen Revisa los mensajes'", :id => "revisa", :class => "img-responsive" %>
-    <p>3. Revisa los mensajes de las personas que están interesadas</p>
+    <%= image_tag "propias/3A.png", :alt => "Tres'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Revisa los mensajes de las personas que están interesadas</p>
   </div><!-- col-md-3 -->
 
     <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Mapa-A.png", :alt => "Imagen Acuerda un punto de entrega'", :id => "acuerda", :class => "img-responsive" %>
-    <p>4. Acuerda un punto de entrega</p>
+    <%= image_tag "propias/4A.png", :alt => "Cuatro'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Acuerda un punto de entrega</p>
   </div><!-- col-md-3 -->
 </div><!-- /row -->
 
@@ -35,26 +39,30 @@
   <div class="row"><h3> Recibir alimentos</h3></div>
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Registro-V.png", :alt => "Imagen Regístrate'", :id => "registrate", :class => "img-responsive" %>
-    <p>1. Regístrate en nuestra web</p>
+    <%= image_tag "propias/1V.png", :alt => "Uno'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Regístrate en nuestra web</p>
   </div><!-- col-md-3 -->
 
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Busca-V.png", :alt => "Imagen Busca'", :id => "busca", :class => "img-responsive" %>
-    <p>2. Busca en la web qué alimentos están disponibles cerca de tí</p>
+    <%= image_tag "propias/2V.png", :alt => "Dos'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Busca en la web qué alimentos están disponibles cerca de tí</p>
   </div><!-- col-md-3 -->
 
   <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Contacta-V.png", :alt => "Imagen Contacta'", :id => "contacta", :class => "img-responsive" %>
-    <p>3. Contacta con las personas que ofrecen los alimentos que te interesan</p>
+    <%= image_tag "propias/3V.png", :alt => "Tres'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Contacta con las personas que ofrecen los alimentos que te interesan</p>
   </div><!-- col-md-3 -->
 
     <div class="col-md-3 col-sm-3 col-xs-6">
     <%= image_tag "propias/Funciona-Mapa-V.png", :alt => "Imagen Acuerda un punto de entrega'", :id => "acuerda", :class => "img-responsive" %>
-    <p>4. Acuerda el punto de recogida</p>
+    <%= image_tag "propias/4V.png", :alt => "Cuatro'", :class => "col-md-3 img-responsive" %> 
+    <p class="col-md-8">Acuerda el punto de recogida</p>
   </div><!-- col-md-3 -->
 </div><!-- /row -->
 
-<div class="funciona row">
+<div class="funcionatexto row">
   <p>Es muy IMPORTANTE que marques la casilla de "alimentos entregados" para saber cuántos kilos no tiramos a la basura.</p>
   <p>Y anímate a valorar cómo ha ido la entrega.</p>
 </div><!-- /row -->
