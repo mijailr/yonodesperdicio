@@ -15,7 +15,7 @@
       </legend>  
       <%= devise_error_messages! %>
 
-      <dl class="zend_form">
+      <!--<dl class="zend_form">
         <dt id="nombre-label">
         <label for="nombre" class="required">
           <%= 'Nombre y apellidos' %>
@@ -41,6 +41,15 @@
         </dt>
         <dd id="username-element">
         <%= f.text_field :username, :required => true, :placeholder => "Nombre de usuario" %>
+        </dd>-->
+
+        <dt id="email-label">
+        <label for="email" class="required">
+          <%= 'Email de contacto' %>
+        </label>
+        </dt>
+        <dd id="email-element">
+        <%= f.email_field :email, :autofocus => true, :required => true, :placeholder => "Email" %>
         </dd>
         
         <dt id="password1-label">
@@ -60,7 +69,7 @@
         <%= f.password_field :password_confirmation, :required => true %>
         </dd>
 
-        <dt id="localidad-label">
+        <!--<dt id="localidad-label">
         <label for="localidad" class="required">
           <%= 'Localidad' %>
         </label>
@@ -87,15 +96,6 @@
         <%= f.text_field :email, :autofocus => true, :required => true, :placeholder => "Código postal" %>cambiar
         </dd>
 
-        <dt id="email-label">
-        <label for="email" class="required">
-          <%= 'Email de contacto' %>
-        </label>
-        </dt>
-        <dd id="email-element">
-        <%= f.email_field :email, :autofocus => true, :required => true, :placeholder => "Email" %>
-        </dd>
-
         <div id="insertarimagen" class="btn btn-primary">
           Insertar imagen
         </div> 
@@ -108,7 +108,8 @@
         <label for="captcha-input" class="required">
           <%= t 'nlt.fill_captcha' %>
         </label>
-        </dt>
+        </dt>-->
+
         <!-- FIXME: this doesn't work -->
         <%= f.hidden_field :lang, :value => I18n.locale.to_s %>
         </dd>

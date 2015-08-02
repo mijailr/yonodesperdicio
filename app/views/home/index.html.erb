@@ -48,7 +48,7 @@
   <div class="col-md-4 col-sm-4 col-xs-12">
     <!-- Una idea -->
     <% if @idea %>
-    <p><%= image_tag @idea.image.url(:mediumidea), :alt => " ", :class => "img-responsive" %></p>
+    <p><%= image_tag @idea.image.url(:medium), :alt => " ", :class => "img-responsive" %></p>
     <h3 class="veinticinco"><%= link_to @idea.title, idea_url(@idea) %></h3>
     <p><%= truncate_html(markdown(@idea.body).html_safe, length: 200, omission: '...') %></p>
     <p><%#= truncate_html(@idea.body.html_safe, length: 200, omission: ' ...') %>
