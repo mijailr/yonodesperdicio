@@ -1,6 +1,6 @@
 ActiveAdmin.register Idea do
 
-  permit_params :title, :body, :category, :published_at, :user_id, :image
+  permit_params :title, :introduction, :ingredients, :body, :category, :published_at, :user_id, :image
   
   index do
     selectable_column
@@ -22,6 +22,8 @@ ActiveAdmin.register Idea do
       row :user
       row :category
       row :title
+      row :introduction
+      row :ingredients
       row :body
       row :image do
         idea.image? ? image_tag(idea.image.url, height: '100') : content_tag(:span, "No image yet")
@@ -37,6 +39,8 @@ ActiveAdmin.register Idea do
       f.input :user
       f.input :category, as: :select, collection: Idea::CATEGORIES
       f.input :title
+      f.input :introduction
+      f.input :ingredients
       f.input :body
       f.input :image, :as => :file, :hint => f.article.image_tag(f.object.image.url(:thumb))
       # Will preview the image when the object is edited

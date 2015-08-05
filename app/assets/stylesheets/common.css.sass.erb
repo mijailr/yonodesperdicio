@@ -29,7 +29,6 @@ $c-rojo: #e55333
 $c-fondo: #dedddc
 $b-rayas: 2.5px dashed #FFF
 
-
 @mixin titulos
   font-family: $font-titulo
   font-size: 3em
@@ -129,6 +128,12 @@ h2
   line-height: 1.2em
   padding-left: 0px
   font-size: 3em
+h2.titulospeque
+  font-family: $font-gorda
+  color: $c-azul
+  font-size: 1.2em  
+  text-transform: uppercase
+  padding: 0 0 0.5em 0
 h3
   @include titulosotros
   font-size: 28px
@@ -397,13 +402,16 @@ img#logo
   .dropdown-menu
     background: $c-fondo
     text-transform: capitalize
+    font-size: 20px
     border: none
     box-shadow: none
     li
+      padding: 0.5em 0
+      width: 100%
       border-bottom: 2.5px dashed #FFF
-      vertical-align: middle
       a
         display: inline-block
+        vertical-align: middle
 
 /**
  ** Footer
@@ -517,6 +525,15 @@ img#logo
 
 /**
   * Recetas
+.intro  
+  @include introducciones
+
+.ingredientes ul 
+  padding-left: 2em
+  li
+    list-style-type: disc
+
+
 #subereceta
   clear: both
   @include rayas
