@@ -26,7 +26,9 @@ $c-texto: #012b5a
 $c-azul: #005cb8
 $c-verde: #6abf4a
 $c-rojo: #e55333
+$c-fondo: #dedddc
 $b-rayas: 2.5px dashed #FFF
+
 
 @mixin titulos
   font-family: $font-titulo
@@ -85,7 +87,7 @@ $break-large: 1200px
 
 body
   color: $c-texto
-  background: #dedddc
+  background: $c-fondo
   font-family: $font-general
   font-size: 13px
   line-height: 1.3em
@@ -386,6 +388,22 @@ img#logo
     color: $c-azul
   a.active
     color: $c-rojo
+  button
+    background: none
+    text-transform: uppercase  
+    border: none
+  .btn-group
+    vertical-align: top  
+  .dropdown-menu
+    background: $c-fondo
+    text-transform: capitalize
+    border: none
+    box-shadow: none
+    li
+      border-bottom: 2.5px dashed #FFF
+      vertical-align: middle
+      a
+        display: inline-block
 
 /**
  ** Footer
