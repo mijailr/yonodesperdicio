@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   # listado de noticias
   def noticias
     set_menu('noticias')
-    @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('created_at ASC').page(params[:page]).per(10)
+    @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('created_at DESC').page(params[:page]).per(10)
   end
 
   # una noticia
@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   # listado de iniciativas
   def iniciativas_sociales
     set_menu('iniciativas')
-    @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('created_at ASC').page(params[:page]).per(10)
+    @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('created_at DESC').page(params[:page]).per(10)
     #@iniciativas = @articles.group_by { |t| t.category.name }
   end
 
@@ -37,7 +37,7 @@ class HomeController < ApplicationController
     category = params[:category]
     if category.present?
       set_submenu(category)
-      @ideas = Idea.where(category: category).where("published_at < ?", Time.now).order('created_at ASC').page(params[:page]).per(10)
+      @ideas = Idea.where(category: category).where("published_at < ?", Time.now).order('created_at DESC').page(params[:page]).per(10)
     else
       @ideas = Idea.order('created_at ASC').where("published_at < ?", Time.now).page(params[:page]).per(10)
     end

@@ -7,8 +7,9 @@ de la cantidad de recursos y dinero que desperdiciamos en un mundo finito.</p>
   <p class="introduccion">Aquí puedes encontrar algunas que ya están dando resultados muy positivos para evitar el desperdicio de alimentos en España y en el resto del mundo.</p>
 </div><!-- /row -->
 
-<div id="listado" class="row">
+
     <% @iniciativas.each do |iniciativa| %>
+    <div id="listado" class="row">
       <div class="col-md-4">
         <%= image_tag iniciativa.image.url(:medium), :alt => "", :class => "img-responsive" %>  
       </div>
@@ -19,10 +20,11 @@ de la cantidad de recursos y dinero que desperdiciamos en un mundo finito.</p>
           <!--<span><%= link_to "  Leer más", noticia_url(iniciativa) %></span>-->
           <p>[tags con link a las tags]</p>
       </div>
+      </div><!-- /listado -->
     <% end %>
 
 <%= paginate(@iniciativas) %>
-</div><!-- /listado -->
+
 </div><!-- /col-md-10 -->
 
 <div class="col-md-2">
