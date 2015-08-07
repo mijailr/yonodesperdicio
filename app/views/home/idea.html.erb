@@ -14,10 +14,15 @@
   <div id="cuerpo" class="col-md-7">
 
     <h1 id="title"><%= @idea.title %></h1>
-    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %></p>
+    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %> | Por: <strong><%= @idea.user %></strong></p>
     <p><%#= @idea.id %></p>
-    <p><%= markdown(@idea.body).html_safe %>
-    <p><%#= @idea.body.html_safe %></p>
+    <div class="intro"><%= markdown(@idea.introduction).html_safe %></div>
+
+    <h2 class="titulospeque">Ingredientes:</h2>
+    <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe %></div>
+
+    <h2 class="titulospeque">Preparación:</h2>
+    <%= markdown(@idea.body).html_safe %>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...

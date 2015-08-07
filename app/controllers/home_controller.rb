@@ -53,11 +53,15 @@ class HomeController < ApplicationController
   #listado de organizaciones
   def organizations 
     @organizations = Organization.order('name').page(params[:page]).per(10)
+    set_menu('compartir')
+    set_submenu('organizaciones')
   end
 
   # una organizacion	
   def organization
     @organization = Organization.find(params[:id])
+    set_menu('compartir')
+    set_submenu('organizaciones')
   end
 
 end
