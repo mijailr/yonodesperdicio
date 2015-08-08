@@ -1,96 +1,12 @@
 /* COMMON CODEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE STARTS HERE */
 
-/** Definiciones **/
-
-@font-face
-  font-family: 'Schuss'
-  src: asset-url('SchussHandITC_Bold.ttf')  format('truetype')
-  font-weight: normal
-@font-face
-  font-family: 'OpenSans-Regular'
-  src: asset-url('OpenSans-Regular.ttf') format('truetype')
-  font-weight: 400
-@font-face
-  font-family: 'OpenSans-Semibold'  
-  src: asset-url('OpenSans-Semibold.ttf') format('truetype')
-  font-weight: 600
-@font-face
-  font-family: 'FontAwesome'
-  src: asset-url('FontAwesome.otf')
-  font-weight: normal
-
-$font-general: 'OpenSans-Regular', sans-serif
-$font-gorda: 'OpenSans-Semibold', sans-serif
-$font-titulo: 'Schuss'
-$c-texto: #012b5a
-$c-azul: #005cb8
-$c-verde: #6abf4a
-$c-rojo: #e55333
-$c-fondo: #dedddc
-$b-rayas: 2.5px dashed #FFF
-
-@mixin titulos
-  font-family: $font-titulo
-  font-size: 3em
-  color: $c-verde
-  margin-bottom: 0
-@mixin titulos-home
-  font-family: $font-titulo
-  font-size: 40px
-  clear: both
-  margin: 0
-  -ms-transform: skewX(40deg) /* IE 9 */
-  -webkit-transform: skewX(20deg) /* Safari */
-  -moz-transform: skewX(20deg)
-  transform: skewX(20deg)
-  a
-    color: $c-azul
-@mixin titulosotros
-  font-family: $font-gorda
-  color: $c-rojo
-  margin-bottom: 0.3em
-
-@mixin titulossidebar
-  font-family: $font-gorda
-  background: $c-azul
-  color: #FFF
-  font-size: 0.9em
-  text-transform: uppercase
-  padding: 2px 5px
-@mixin titulosrojos
-  font-family: $font-general
-  background: $c-rojo
-  color: #FFF
-  text-transform: uppercase
-  font-size: 1.2em
-  padding: 5px 5px
-  font-weight: semibold
-  margin: 0 15px 1em 15px  
-@mixin rayas
-  border-top: $b-rayas
-  border-bottom: $b-rayas
-@mixin texto-rojo
-  color: $c-rojo
-  font-family: $font-gorda
-  line-height: 22px
-@mixin introducciones
-  font-family: $font-gorda
-  font-size: 15px
-
-$break-small: 320px
-$break-medium: 800px
-$break-large: 1200px
-
-    
-/**** Fin Definiciones, que iran en una hoja aparte ****/
-
 body
   color: $c-texto
   background: $c-fondo
   font-family: $font-general
   font-size: 13px
   line-height: 1.3em
-  @media (max-width: $break-medium)
+  @media all and (max-width: $break-medium)
     p
       font-size: 0.7em
 
@@ -277,22 +193,24 @@ dt#captcha-input-label
   background-color: #F2F2F2
   width: 100%
 
+#sidebar-right
+  position: relative  
+  float: left
+  clear: right
+
 /**
  * Header Area.
 #rrss img
   width: 30px
-  @media (max-width: $break-medium)
+  @media all and (max-width: $break-medium)
     width: 10px
 
 #comida-izda div img,
 #comida-dcha div img
   width: 80%
   float: right
-  @media (max-width: $break-medium)
+  @media all and (max-width: $break-medium)
     visibility: hidden
-
-#cebolla
-  height: 100%
 
 #menu-cabecera
   font-family: $font-gorda
@@ -301,7 +219,7 @@ dt#captcha-input-label
   background: $c-azul
   color: #FFF
   font-weight: bold
-  @media (max-width: $break-medium)
+  @media all and (max-width: $break-medium)
     font-size: 0.7em
   a
     color: #FFF
@@ -348,9 +266,9 @@ img#logo
     font-family: $font-titulo
     color: $c-azul
     text-shadow: -5px 5px 1px rgba(255, 255, 255, 1)
-    @media (max-width: $break-medium)
+    @media all and (max-width: $break-medium)
       font-size: 5em
-    @media (max-width: $break-small)
+    @media all and (max-width: $break-small)
       font-size: 3em
 
 #header .site-slogan
@@ -358,7 +276,7 @@ img#logo
   position: relative
   top: -20px
   right: 25px
-  @media (max-width: $break-small)
+  @media all and (max-width: $break-small)
     top: -10px
   float: right
   padding-right: 15%
@@ -368,9 +286,9 @@ img#logo
     color: $c-verde
     margin-top: 0
     line-height: 0
-    @media (max-width: $break-medium)
+    @media all and (max-width: $break-medium)
       font-size: 2em
-    @media (max-width: $break-small)
+    @media all and (max-width: $break-small)
       font-size: 1.5em
 
 #main-menu
@@ -483,9 +401,9 @@ img#logo
     -moz-transform: skewX(20deg)
     transform: skewX(20deg)
     padding: 1em 0
-    @media (max-width: $break-medium)
+    @media all and (max-width: $break-medium)
       font-size: 2.5em
-    @media (max-width: $break-small)
+    @media all and (max-width: $break-small)
       font-size: 2em
   #contador-texto
     @include texto-rojo

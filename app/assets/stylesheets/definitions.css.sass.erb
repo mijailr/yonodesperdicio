@@ -2,18 +2,82 @@
 
 @font-face
   font-family: 'Schuss'
-  src: font-url('SchussHandITC_Bold.ttf')  format('truetype')
+  src: asset-url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
-  font-style: bold
-
 @font-face
-  font-family: 'OpenSans'
-  src: font-url('OpenSans-Regular.ttf') format('truetype')
+  font-family: 'OpenSans-Regular'
+  src: asset-url('OpenSans-Regular.ttf') format('truetype')
+  font-weight: 400
+@font-face
+  font-family: 'OpenSans-Semibold'  
+  src: asset-url('OpenSans-Semibold.ttf') format('truetype')
+  font-weight: 600
+@font-face
+  font-family: 'FontAwesome'
+  src: asset-url('FontAwesome.otf')
   font-weight: normal
 
-$font-general: 'OpenSans', sans-serif
-$c-azul: #005db9
-$c-verde: #6bc04b
-$b-rayas: 2px dashed #FFF 
+$font-general: 'OpenSans-Regular', sans-serif
+$font-gorda: 'OpenSans-Semibold', sans-serif
+$font-titulo: 'Schuss'
+$c-texto: #012b5a
+$c-azul: #005cb8
+$c-verde: #6abf4a
+$c-rojo: #e55333
+$c-fondo: #dedddc
+$b-rayas: 2.5px dashed #FFF
 
+@mixin titulos
+  font-family: $font-titulo
+  font-size: 3em
+  color: $c-verde
+  margin-bottom: 0
+@mixin titulos-home
+  font-family: $font-titulo
+  font-size: 40px
+  clear: both
+  margin: 0
+  -ms-transform: skewX(40deg) /* IE 9 */
+  -webkit-transform: skewX(20deg) /* Safari */
+  -moz-transform: skewX(20deg)
+  transform: skewX(20deg)
+  a
+    color: $c-azul
+@mixin titulosotros
+  font-family: $font-gorda
+  color: $c-rojo
+  margin-bottom: 0.3em
 
+@mixin titulossidebar
+  font-family: $font-gorda
+  background: $c-azul
+  color: #FFF
+  font-size: 0.9em
+  text-transform: uppercase
+  padding: 2px 5px
+@mixin titulosrojos
+  font-family: $font-general
+  background: $c-rojo
+  color: #FFF
+  text-transform: uppercase
+  font-size: 1.2em
+  padding: 5px 5px
+  font-weight: semibold
+  margin: 0 15px 1em 15px  
+@mixin rayas
+  border-top: $b-rayas
+  border-bottom: $b-rayas
+@mixin texto-rojo
+  color: $c-rojo
+  font-family: $font-gorda
+  line-height: 22px
+@mixin introducciones
+  font-family: $font-gorda
+  font-size: 15px
+
+$break-small: 320px
+$break-medium: 800px
+$break-large: 1200px
+
+    
+/**** Fin Definiciones, que iran en una hoja aparte ****/
