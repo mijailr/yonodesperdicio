@@ -11,7 +11,8 @@ de la cantidad de recursos y dinero que desperdiciamos en un mundo finito.</p>
     <% @iniciativas.each do |iniciativa| %>
     <div id="listado" class="row">
       <div class="col-md-4">
-        <%= image_tag iniciativa.image.url(:medium), :alt => "", :class => "img-responsive" %>  
+        <%= link_to image_tag(iniciativa.image.url(:medium), :alt => " ", :class => "img-responsive"), iniciativa_url(iniciativa) %>
+        <%#= image_tag iniciativa.image.url(:medium), :alt => "", :class => "img-responsive" %>  
       </div>
       <div class="col-md-8">
           <h3 class="veinticinco"><%= link_to iniciativa.title, iniciativa_url(iniciativa) %></h3>
