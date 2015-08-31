@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
     set_menu('inicio')
-    @noticia = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('created_at ASC').last
-    @idea = Idea.where("published_at < ?", Time.now).order('created_at ASC').last
+    @noticia = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at ASC').last
+    @idea = Idea.where("published_at < ?", Time.now).order('published_at ASC').last
   end
 
   # listado de noticias
