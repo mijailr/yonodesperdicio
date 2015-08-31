@@ -18,10 +18,10 @@
     <p><%#= @idea.id %></p>
     <div class="intro"><%= markdown(@idea.introduction).html_safe %></div>
 
-    <h2 class="titulospeque">Ingredientes:</h2>
+    <h2 class="titulospeque">¿Qué necesitas?</h2>
     <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe %></div>
 
-    <h2 class="titulospeque">Preparación:</h2>
+    <h2 class="titulospeque">¿Cómo se hace?</h2>
     <%= markdown(@idea.body).html_safe %>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
