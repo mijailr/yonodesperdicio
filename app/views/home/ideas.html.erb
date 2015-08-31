@@ -4,7 +4,8 @@
     <% @ideas.each do |idea| %>
 
       <div class="col-md-4">
-        <%= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
+        <%= link_to image_tag(idea.image.url(:medium), :alt => " ", :class => "img-responsive"), idea_url(idea) %>
+        <%#= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
         <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
         <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por [Usuario]</span></p>
         <p><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %></p>
