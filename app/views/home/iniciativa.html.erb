@@ -7,7 +7,7 @@
     <p><%= @iniciativa.category %> [cambiar por tags]</p>
     <p>
       <% cache do %>
-        <%= render :partial => "partials/social_buttons", :locals => { :url => iniciativa_url(@iniciativa), :meta_title => @iniciativa.title } %>
+        <%= render :partial => "partials/social_buttons", :locals => { :url => iniciativa_url(@iniciativa), :meta_title => @iniciativa.title, :meta_description =>  truncate_html(markdown(@iniciativa.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@iniciativa.body.html_safe, length: 130, omission: ' +...') } %>
       <% end %>
     </p>
   </div><!-- /imagen -->
