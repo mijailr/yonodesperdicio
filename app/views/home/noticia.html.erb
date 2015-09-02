@@ -1,5 +1,5 @@
 <% content_for(:meta_title) {@noticia.title} %>
-<% content_for(:summary) {truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...') } %>
+<% content_for(:meta_description) {truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...') } %>
 
 <div class="row">
   <div id="imagen" class="col-md-5">
