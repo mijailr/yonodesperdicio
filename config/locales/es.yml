@@ -471,7 +471,7 @@ es:
       sent: Enviados
       trash: Papelera
     messages_title: Mensajes
-    meta_description: 'Yonodesperdicio.org es un sitio web donde compartir la comida que no usas:'
+    meta_description: 'Yonodesperdicio.org es un sitio web donde compartir la comida que no usas.:'
     meta_description_ad: compartir alimentos %{title} en %{woeid}. %{body}
     new_user: Regístrate
     no_results:
