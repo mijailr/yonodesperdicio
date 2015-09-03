@@ -52,7 +52,7 @@
       <!--<p><%#= image_tag @idea.image.url(:medium), :alt => " ", :class => "img-responsive" %></p>-->
       <h3 class="veinticinco"><%= link_to @idea.title, idea_url(@idea) %></h3>
       <!--<p><%#= truncate_html(markdown(@idea.body).html_safe, length: 200) %><span><%= link_to "+ ...", idea_url(@idea) %></span></p>-->
-      <p><%= truncate_html(markdown(@idea.introduction).html_safe, length: 200) %><span><%= link_to "+ ...", idea_url(@idea) %></span></p>
+      <p><%= truncate_html(markdown(@idea.introduction).html_safe, length: 200) if @idea.introduction %><span><%= link_to "+ ...", idea_url(@idea) %></span></p>
 
     <% end %>
   </div>
