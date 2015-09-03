@@ -6,9 +6,9 @@
     <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>  
     <p><%= @idea.category %> [cambiar por tags]</p>
     <p>
-      <% cache do %>
-        <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(@idea), :meta_title => @idea.title, :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@idea.body.html_safe, length: 130, omission: ' +...')} %>
-      <% end %>
+
+        <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(@idea), :meta_title => @idea.title, :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@idea.body.html_safe, length: 10, omission: ' +...')} %>
+
     </p>
   </div><!-- /imagen -->
 
@@ -17,13 +17,13 @@
     <h1 id="title"><%= @idea.title %></h1>
     <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %> | Por: <strong><%= @idea.user %></strong></p>
     <p><%#= @idea.id %></p>
-    <div class="intro"><%= markdown(@idea.introduction).html_safe %></div>
+    <div class="intro"><%= markdown(@idea.introduction).html_safe if @idea.introduction %></div>
 
     <h2 class="titulospeque">¿Qué necesitas?</h2>
-    <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe %></div>
+    <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe if @idea.ingredients %></div>
 
     <h2 class="titulospeque">¿Cómo se hace?</h2>
-    <%= markdown(@idea.body).html_safe %>
+    <div class="como"><%= markdown(@idea.body).html_safe %></div>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
     <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
