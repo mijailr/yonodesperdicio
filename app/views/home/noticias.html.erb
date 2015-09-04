@@ -14,7 +14,9 @@
           <p><%= noticia.published_at.strftime("%d/%m/%Y") %></p>
           <p class="cuerpazo"><%= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' +...') %><span><%= link_to "+ info", noticia_url(noticia) %></span></p>
           <%#= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' +...') %>
-          <!--<p><%= link_to noticia.category, '#' %> + (tags con link a las tags)</p>-->
+
+          <!--<p>[tags con link a las tags]</p>-->
+          
       </div>
     </div><!-- /listado -->
     <% end %>

@@ -1,13 +1,26 @@
 <div id="sidebar-right">
   <h4>Iniciativas destacadas</h4>
-    blablabla
+  <ul>
+  <% @iniciativas_destacadas.each do |iniciativa| %>
+    <li><%= link_to iniciativa.title, iniciativa_url(iniciativa) %></li>
+  <% end %>        
+  </ul>
+
+
   <h4>Archivo de iniciativas</h4>
-    Por fechas
+  <ul>
+  <% @iniciativas_archivo.each do |iniciativa| %>
+    <li><%= iniciativa.published_at.strftime("%d/%m/%Y") %> - <%= link_to iniciativa.title, iniciativa_url(iniciativa) %></li>
+  <% end %>  
+  </ul> 
+
   <h4>Temas destacados</h4>
-    (Serán categorías de las organizations??)
-    * Prosalus
-    * Yonodesperdicio
+  <ul>
+    <li>..</li>
+  </ul>
+
   <h4>Links interesantes</h4>
-    * Prosalus
-    * blablalba
+  <ul>
+    <li><a href="http://prosalus.es" target="_blank">Prosalus</a></li>
+  </ul>
 </div><!-- /sidebar-right -->

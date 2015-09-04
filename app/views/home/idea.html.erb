@@ -4,7 +4,7 @@
 <div class="row">
   <div id="imagen" class="col-md-5">
     <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>  
-    <p><%= @idea.category %> [cambiar por tags]</p>
+    <p><%#= @idea.category %></p>
     <p>
 
         <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(@idea), :meta_title => @idea.title, :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@idea.body.html_safe, length: 10, omission: ' +...')} %>
@@ -19,16 +19,22 @@
     <p><%#= @idea.id %></p>
     <div class="intro"><%= markdown(@idea.introduction).html_safe if @idea.introduction %></div>
 
+
+
+<% if !@idea.ingredients %>
     <h2 class="titulospeque">¿Qué necesitas?</h2>
     <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe if @idea.ingredients %></div>
+  <% else %>
+    
+<% end %>
 
     <h2 class="titulospeque">¿Cómo se hace?</h2>
     <div class="como"><%= markdown(@idea.body).html_safe %></div>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
-    <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
+    <!--<p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
     <span class="btn btn-success"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-primary"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
-    <p>[LISTADO DE COMENTARIOS]</p>
+    <p>[LISTADO DE COMENTARIOS]</p>-->
  
   </div><!-- /cuerpo -->
 </div><!-- /row -->
