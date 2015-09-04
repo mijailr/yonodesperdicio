@@ -5,7 +5,7 @@
   <div id="imagen" class="col-md-5">
     <%= image_tag @noticia.image.url(:large), :alt => "", :class => "img-responsive" %>    
     <p><%= @noticia.video.html_safe if @noticia.video %></p>
-    <p><%= @noticia.category %> [cambiar por tags]</p>
+    <p><%#= @noticia.category %></p>
     <p>
 
         <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(@noticia), :meta_title => @noticia.title, :meta_description =>  truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@noticia.body.html_safe, length: 10, omission: ' +...') } %>
@@ -22,11 +22,11 @@
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , noticias_path %></p>
     
 
-    <p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
+    <!--<p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
     <span class="btn btn-success"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-primary"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
 
     <%= render :partial => "partials/user_actions" %>
-    <p>[LISTADO DE COMENTARIOS]</p>
+    <p>[LISTADO DE COMENTARIOS]</p>-->
 
     <div class="ad_meta_info">
       <b><%#= link_to t('nlt.send_a_message'), message_new_with_subject_path(user_id: ad.user.id, subject: ad.slug) %></b>

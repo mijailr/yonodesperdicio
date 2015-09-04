@@ -1,7 +1,7 @@
 <div id="header">
   <div id="menu-cabecera" class="row col-md-12">
     <ul>
-      <li class="col-md-2"><%= link_to 'Descarga App', '#' %></li>
+      <li class="col-md-2"><%#= link_to 'Descarga App', '#' %></li>
       <li id="rrss" class="col-md-2"> 
         <%= link_to(image_tag("rrss/twitter-48.png", :alt => "Twitter", :id => "twitter", :class=> "img-responsive"), "https://twitter.com/nodesperdicio", :target => "_blank") %>
         <%= link_to(image_tag("rrss/facebook-48.png", :alt => "Facebook", :id => "facebook", :class=> "img-responsive"), "https://www.facebook.com/yonodesperdicio", :target => "_blank") %>
@@ -11,7 +11,7 @@
       <li class="col-md-2"><%= link_to 'Cómo funciona' , funciona_path %></li>
       <li id="login" class="col-sm-2"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
       <li class="col-md-2"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
-      <li id="buscador" class="col-md-2">[Buscador] <%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>
+      <!--<li id="buscador" class="col-md-2">[Buscador] <%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>-->
       <li><%= render :partial => "partials/user_actions" %></li>
     </ul>
   </div>

@@ -9,6 +9,8 @@ class HomeController < ApplicationController
   def noticias
     set_menu('noticias')
     @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+    @noticias_destacadas = Article.where(category: 'noticia').where("published_at < ?", Time.now).where("title LIKE '%desperdicio%'").limit(5)
+    @noticias_archivo = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').limit(3)
   end
 
   # una noticia
@@ -22,6 +24,8 @@ class HomeController < ApplicationController
     set_menu('iniciativas')
     @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
     #@iniciativas = @articles.group_by { |t| t.category.name }
+    @iniciativas_destacadas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).where("title LIKE '%desperdicio%'").limit(5)
+    @iniciativas_archivo = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').limit(3)
   end
 
   # una iniciativa

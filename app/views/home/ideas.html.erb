@@ -14,10 +14,10 @@
         <%#= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
         <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
         <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por [Usuario]</span></p>
-        <p><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %></p>
-        <!--<span><%= link_to "  Leer más", idea_url(idea) %></span>-->
-        <!--<p><%= link_to idea.category, '#' %></p>-->
-        <p>(tags con link a las tags)</p>
+        <p class="cuerpazo"><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %><span><%= link_to "+ info", idea_url(idea) %></span></p>
+
+        <!--<p>[tags con link a las tags]</p>-->
+        
       </div>
 
     <% end %>
