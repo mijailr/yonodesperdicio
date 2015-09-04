@@ -182,6 +182,11 @@ dt#captcha-input-label
   padding-bottom: 10px
   width: 100%
   text-align: left
+  li
+    list-style-type: disc
+    margin-left: 2em
+  p.cuerpazo span
+    display: inline
 
 #footer
   float: left
@@ -301,10 +306,10 @@ img#logo
   border-top: $b-rayas
   border-bottom: $b-rayas
   margin: 1em auto
-  padding: 0.5em
+  padding: 0
   li
-    display: inline
-    padding: 0 2em 0 0
+    display: inline-block
+    padding: 0.5em 2em 0.5em 0
   li.nivel2
     display: block  
   a
@@ -1293,6 +1298,10 @@ a#tab_active
   border-bottom: none
 
 /** RESPONSIVE **************************************************************
+
+@media (min-width: $break-medium) and (max-width: $break-large)
+  #main-menu
+    font-size: 90%
 
 @media only screen and (max-width: 779px)
   #header
