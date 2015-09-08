@@ -36,4 +36,10 @@ module ApplicationHelper
     ' '
   end
 
+  def text_for(code)
+    if text = Text.where(code: code).first
+      markdown(text.body).html_safe
+    end
+  end
+
 end

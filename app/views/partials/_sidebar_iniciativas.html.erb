@@ -7,20 +7,8 @@
   </ul>
 
 
-  <h4>Archivo de iniciativas</h4>
-  <ul>
-  <% @iniciativas_archivo.each do |iniciativa| %>
-    <li><%= iniciativa.published_at.strftime("%d/%m/%Y") %> - <%= link_to iniciativa.title, iniciativa_url(iniciativa) %></li>
-  <% end %>  
-  </ul> 
-
-  <h4>Temas destacados</h4>
-  <ul>
-    <li>..</li>
-  </ul>
+  <h4>Tweets</h4>
 
   <h4>Links interesantes</h4>
-  <ul>
-    <li><a href="http://prosalus.es" target="_blank">Prosalus</a></li>
-  </ul>
+  <%= text_for :links %>
 </div><!-- /sidebar-right -->

@@ -7,20 +7,9 @@
   </ul>
 
 
-  <h4>Archivo de noticias</h4>
-  <ul>
-  <% @noticias_archivo.each do |noticia| %>
-    <li><%= noticia.published_at.strftime("%d/%m/%Y") %> - <%= link_to noticia.title, noticia_url(noticia) %></li>
-  <% end %>  
-  </ul> 
-
-  <h4>Temas destacados</h4>
-  <ul>
-    <li>..</li>
-  </ul>
+  <h4>Tweets</h4>
+  
 
   <h4>Links interesantes</h4>
-  <ul>
-    <li><a href="http://prosalus.es" target="_blank">Prosalus</a></li>
-  </ul>
+   <%= text_for :links %>
 </div><!-- /sidebar-right -->
