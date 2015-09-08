@@ -82,6 +82,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     addressable (2.3.8)
     airbrake (4.3.0)
       builder
@@ -454,6 +456,7 @@ DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
   activeadmin (~> 1.0.0.pre1)
+  acts-as-taggable-on (~> 3.4)
   airbrake
   blueprint-rails
   bullet
@@ -510,3 +513,6 @@ DEPENDENCIES
   truncate_html
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.5
