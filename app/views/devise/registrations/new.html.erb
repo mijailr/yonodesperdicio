@@ -32,7 +32,7 @@
         </dt>
         <dd id="sexo-element">
         <%= f.text_field :email, :autofocus => true, :required => true %>cambiar
-        </dd>
+        </dd>-->
 
         <dt id="username-label">
         <label for="username" class="required">
@@ -41,7 +41,7 @@
         </dt>
         <dd id="username-element">
         <%= f.text_field :username, :required => true, :placeholder => "Nombre de usuario" %>
-        </dd>-->
+        </dd>
 
         <dt id="email-label">
         <label for="email" class="required">
@@ -98,7 +98,7 @@
 
         <div id="insertarimagen" class="btn btn-primary">
           Insertar imagen
-        </div> 
+        </div> -->
      
         <dd id="captcha-element">
           <%= recaptcha_tags(:display => { :theme => "white" }, ajax: true)%>
@@ -108,7 +108,7 @@
         <label for="captcha-input" class="required">
           <%= t 'nlt.fill_captcha' %>
         </label>
-        </dt>-->
+        </dt>
 
         <!-- FIXME: this doesn't work -->
         <%= f.hidden_field :lang, :value => I18n.locale.to_s %>
