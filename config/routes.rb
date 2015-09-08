@@ -7,7 +7,7 @@ Yonodesperdicio::Application.routes.draw do
 
   root 'home#index'
 
-  get '/noticias', to: 'home#noticias', as: 'noticias'
+  get '/noticias/(:tag)', to: 'home#noticias', as: 'noticias'
   get '/noticia/:id', to: 'home#noticia', as: 'noticia'
 
   get '/ideas/(:category)', to: 'home#ideas', as: 'ideas'
@@ -16,7 +16,7 @@ Yonodesperdicio::Application.routes.draw do
   get '/organizaciones', to: 'home#organizations', as: 'organizations'
   get '/organizacion/:id', to: 'home#organization', as: 'organization'
 
-  get '/iniciativas_sociales', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
+  get '/iniciativas_sociales/(:tag)', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
   get '/iniciativa_social/:id', to: 'home#iniciativa', as: 'iniciativa'
 
   get '/particulares', to: 'home#particulares', as: 'particulares'
