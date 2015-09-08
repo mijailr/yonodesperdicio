@@ -6,7 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-texts = Text.create([{code: 'faq'}, {code: 'legal'}, {code: 'funciona'}])
-articles = Article.create([{title: 'Consejos para hacer una compra responsable'}, {title: 'Segunda noticia'}])
-ideas = Idea.create([{title: 'Fresas refrescamtes'}])
-organizations = Organization.create([{name: 'Prosalus'}])
+Text.create code: 'faq', body: "lalala"
+Text.create code: 'legal', body: "lalala"
+Text.create code: 'links', body: "lalala"
+Text.create code: 'funciona', body: "lalala"
+
+4.times do 
+	Article.create title: "Lo que sea", 
+	               category: "iniciativa",
+	               body: "Una introduccion",
+	               tag_list: "tag1, tag2"
+
+	Article.create title: "Otra", 
+	               category: "noticia",
+	               body: "Una introduccion",
+	               tag_list: "tag1, tag2"
+end

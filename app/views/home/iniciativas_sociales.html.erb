@@ -6,6 +6,9 @@
   <p class="introduccion">Aquí puedes encontrar algunas que ya están dando resultados muy positivos para evitar el desperdicio de alimentos en España y en el resto del mundo.</p>
 </div><!-- /row -->
 
+  <% if params[:tag] %>
+    Iniciativas de <%= params[:tag] %>
+  <% end %>
 
     <% @iniciativas.each do |iniciativa| %>
     <div id="listado" class="row">
@@ -28,7 +31,5 @@
 </div><!-- /col-md-10 -->
 
 <div class="col-md-2">
-  <% cache do %>
     <%= render :partial => "partials/sidebar_iniciativas", :locals => { :url => "http://yonodesperdicio.org" } %>
-  <% end %>
 </div><!-- /col-md-2-->

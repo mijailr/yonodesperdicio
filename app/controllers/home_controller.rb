@@ -8,7 +8,15 @@ class HomeController < ApplicationController
   # listado de noticias
   def noticias
     set_menu('noticias')
-    @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+    if params[:tag].present?
+      @noticias = Article.where(category: 'noticia').
+                          where("published_at < ?", Time.now).
+                          tagged_with(params[:tag]).
+                          order('published_at DESC').
+                          page(params[:page]).per(10)   
+    else
+      @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+    end
     @noticias_destacadas = Article.where(category: 'noticia').where("published_at < ?", Time.now).where(pin: true).order('published_at DESC').limit(5)
     @noticias_archivo = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').limit(3)
   end
@@ -22,7 +30,16 @@ class HomeController < ApplicationController
   # listado de iniciativas
   def iniciativas_sociales
     set_menu('iniciativas')
-    @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+    if params[:tag].present?
+      @iniciativas = Article.where(category: 'iniciativa').
+                             where("published_at < ?", Time.now).
+                             tagged_with(params[:tag]).
+                             order('published_at DESC').
+                             page(params[:page]).per(10)
+    else
+      @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+    end
+
     @iniciativas_destacadas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).where(pin: true).order('published_at DESC').limit(5)
     @iniciativas_archivo = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').limit(3)
   end
