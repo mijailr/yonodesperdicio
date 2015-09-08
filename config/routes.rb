@@ -84,8 +84,8 @@ Yonodesperdicio::Application.routes.draw do
   post '/addfriend/id/:id', to: 'friendships#create', as: 'add_friend'
   post '/deletefriend/:id', to: 'friendships#destroy', as: 'destroy_friend'
 
-  scope '/admin' do
-    authenticate :user, lambda { |u| u.admin? } do
+  scope '/adminjobs' do
+    authenticate :admin_user do
       mount Sidekiq::Web, at: "/jobs"
     end
     get '/become/:id', to: 'admin#become', as: 'become_user'
