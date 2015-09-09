@@ -412,14 +412,14 @@ es:
       flash_ko: Hubo un error al guardar tu comentario. Revisalo y envialo de nuevo
       flash_ok: Comentario guardado
       label: Tu comentario
-      subject: "[yonodesperdicio.org] Tienes un nuevo comentario en el anuncio %{ad}"
+      subject: "[Yonodesperdicio.org] Tienes un nuevo comentario en el anuncio %{ad}"
       submit: Enviar
       title: Comentarios
       body_max: Máximo 1000 caracteres
     contact: contacto
     contact_form: Formulario de contacto
     contact_legend: Por favor, escribe tu mensaje
-    contact_thanks: "¡Mensaje enviado! Gracias por contactar con yonodesperdicio.org"
+    contact_thanks: "¡Mensaje enviado! Gracias por contactar con Yonodesperdicio.org"
     cookie: Utilizamos cookies para mejorar tu navegación en este sitio
     create_new_ad: Crea un nuevo anuncio
     delete_ad: borrar anuncio
@@ -449,7 +449,7 @@ es:
     fill_captcha: Por favor rellena los siguientes carácteres
     first_visit: Yonodesperdicio.org es una comunidad donde podemos compartir la comida que nos sobra con otras personas.
     footer_explain: 'Yonodesperdicio.org es una comunidad donde podemos compartir la comida que nos sobra con otras personas'
-    forgot_your_password: "¿Has olvidado tu contraseña?"
+    forgot_your_password: "No recuerdo la contraseña. Recordar datos."
     friends: Amigos
     gift_on: regalo en %{woeid}
     give: regalo
@@ -471,7 +471,7 @@ es:
       sent: Enviados
       trash: Papelera
     messages_title: Mensajes
-    meta_description: 'Yonodesperdicio.org es un sitio web donde compartir la comida que no usas, evitando el desperdicio.:'
+    meta_description: 'Yonodesperdicio.org es un sitio web donde compartir la comida que no usas, evitando el desperdicio.'
     meta_description_ad: compartir alimentos %{title} en %{woeid}. %{body}
     new_user: Regístrate
     no_results:
@@ -485,7 +485,7 @@ es:
     or: o
     password: Contraseña
     permission_denied: No tienes permisos para realizar esta acción.
-    please_fill_to_become_member: Por favor, rellena este formulario para ser miembro de nolotiro
+    please_fill_to_become_member: Por favor, rellena este formulario para ser miembro de Yonodesperdicio
     please_introduce: 'Por favor, introduce los caracteres que veas:'
     tos_page:
       title: Términos de uso
