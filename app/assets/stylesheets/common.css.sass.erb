@@ -533,13 +533,44 @@ h2.funciona
 /**
  * Login
 #loginblock
-  background: $c-texto
+  background: $c-azul
   color: #FFF
+  padding: 3.5em
+  h1#sesion
+    font-family: $font-gorda
+    color: #FFF
+    margin: 0
+  fieldset > legend
+    border: none
   label
     text-transform: uppercase
+    padding-top: 1em
   dd
     margin-bottom: 1em
-    color: $c-texto
+    color: #FFF
+    input
+      width: 100%
+  p
+    margin-top: 1em
+    a
+      color: #FFF
+      font-weight: bold 
+  .boton-entrar
+    input[type="submit"]
+      font-weight: bold
+      padding: 6px 12px
+      margin: 1em 0 0 0
+    input[type="submit"]:hover
+      background: #FFF
+      color: $c-verde
+  .boton-registro
+    border: 1px solid #FFF
+    font-weight: bold    
+  .boton-registro:hover
+    background: #FFF
+    opacity: 1
+    color: $c-azul
+
 
 /**
  * Profile
