@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
     @resource = resource
     mail(
       to: @resource.email,
-      subject: "[nolotiro.org] Falta que confirmes tu cuenta"
+      subject: "[Yonodesperdicio.org] Falta que confirmes tu cuenta"
     )
   end
 

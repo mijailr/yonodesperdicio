@@ -149,15 +149,6 @@ form.searchbox
     font-size: 1.5em
     padding: 0.2em
 
-#insertarimagen,
-.g-recaptcha,
-dd#captcha-element,
-dt#captcha-input-label
-  float: left
-  clear: both
-
-#insertarimagen
-  float: right
 
 /**
  * Layout.
@@ -521,14 +512,53 @@ h2.funciona
 /**
  * Registrate
 
-#registrate 
-  dd, dt
-    float: left
-    width: 50%
-  dt
-    text-transform: uppercase
-  p
+#registrate
+  text-align: center
+  color: $c-azul
+  p.enrojo
+    padding: 0 3em    
+  a
+    font-weight: bold
+  .reg-item
+    width: 100%
+    height: auto
+    padding: 0.5em 0
     clear: both
+    dd, dt
+      float: left
+      width: 50%
+    dt
+      text-transform: uppercase
+      label
+        float: right
+        padding: 0 1em 0 0
+    dd  
+      margin: 0 0 1em 0
+      input
+        float: left
+        width: auto
+  .g-recaptcha
+    padding: 0 25%
+  #new_user input[type="submit"]
+    background: $c-rojo
+    color: #FFF
+    font-weight: bold
+    padding: 6px 12px
+    margin: 1em 0 0 0
+    width: auto
+  #new_user input[type="submit"]:hover
+    background: #FFF
+    color: $c-rojo
+  .insertarimagen
+    border: 1px solid $c-azul
+    font-weight: bold
+    width: auto
+    text-transform: uppercase  
+  .insertarimagen:hover
+    background: #FFF
+    opacity: 1
+    color: $c-azul
+
 
 /**
  * Login
@@ -536,7 +566,7 @@ h2.funciona
   background: $c-azul
   color: #FFF
   padding: 3.5em
-  h1#sesion
+  h1#title
     font-family: $font-gorda
     color: #FFF
     margin: 0
@@ -545,27 +575,29 @@ h2.funciona
   label
     text-transform: uppercase
     padding-top: 1em
+  input  
+    color: $c-azul
+    width: 100%
   dd
     margin-bottom: 1em
-    color: #FFF
-    input
-      width: 100%
   p
     margin-top: 1em
-    a
-      color: #FFF
-      font-weight: bold 
-  .boton-entrar
+  a
+    color: #FFF
+    font-weight: bold 
+  .submit
     input[type="submit"]
       font-weight: bold
       padding: 6px 12px
       margin: 1em 0 0 0
+      width: auto
     input[type="submit"]:hover
       background: #FFF
       color: $c-verde
   .boton-registro
     border: 1px solid #FFF
-    font-weight: bold    
+    font-weight: bold
+    width: auto  
   .boton-registro:hover
     background: #FFF
     opacity: 1
