@@ -1,8 +1,11 @@
 class HomeController < ApplicationController
   def index
     set_menu('inicio')
-    @noticia = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at ASC').last
-    @idea = Idea.where("published_at < ?", Time.now).order('published_at ASC').last
+    @noticia = Article.where(category: 'noticia').
+                      where("published_at < ?", Time.now).
+                      order('published_at ASC').last
+    @idea = Idea.where("published_at < ?", Time.now).
+                 order('published_at ASC').last
   end
 
   # listado de noticias
@@ -15,16 +18,25 @@ class HomeController < ApplicationController
                           order('published_at DESC').
                           page(params[:page]).per(10)   
     else
-      @noticias = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+      @noticias = Article.where(category: 'noticia').
+                          where("published_at < ?", Time.now).
+                          order('published_at DESC').
+                          page(params[:page]).per(10)
     end
-    @noticias_destacadas = Article.where(category: 'noticia').where("published_at < ?", Time.now).where(pin: true).order('published_at DESC').limit(5)
-    @noticias_archivo = Article.where(category: 'noticia').where("published_at < ?", Time.now).order('published_at DESC').limit(3)
+    @noticias_destacadas = Article.where(category: 'noticia').
+                                   where("published_at < ?", Time.now).
+                                   where(pin: true).
+                                   order('published_at DESC').limit(5)
+    @noticias_archivo = Article.where(category: 'noticia').
+                                where("published_at < ?", Time.now).
+                                order('published_at DESC').limit(3)
   end
 
   # una noticia
   def noticia
     set_menu('noticias')
-    @noticia = Article.where("published_at < ?", Time.now).find(params[:id])
+    @noticia = Article.where("published_at < ?", Time.now).
+                       find(params[:id])
   end
 
   # listado de iniciativas
@@ -37,19 +49,30 @@ class HomeController < ApplicationController
                              order('published_at DESC').
                              page(params[:page]).per(10)
     else
-      @iniciativas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+      @iniciativas = Article.where(category: 'iniciativa').
+                             where("published_at < ?", Time.now).
+                             order('published_at DESC').
+                             page(params[:page]).per(10)
     end
 
-    @iniciativas_destacadas = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).where(pin: true).order('published_at DESC').limit(5)
-    @iniciativas_archivo = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).order('published_at DESC').limit(3)
+    @iniciativas_destacadas = Article.where(category: 'iniciativa').
+                                      where("published_at < ?", Time.now).
+                                      where(pin: true).order('published_at DESC').limit(5)
+    @iniciativas_archivo = Article.where(category: 'iniciativa').
+                                   where("published_at < ?", Time.now).
+                                   order('published_at DESC').limit(3)
   end
 
   # una iniciativa
   def iniciativa
     set_menu('iniciativas')
-    @iniciativa = Article.where(category: 'iniciativa').where("published_at < ?", Time.now).find(params[:id])
+    @iniciativa = Article.where(category: 'iniciativa').
+                          where("published_at < ?", Time.now).
+                          find(params[:id])
   #  @iniciativa = Article.where(:category => { :name => 'iniciativa' }).find(params[:id])
   end
+
+
 
   # listado de ideas
   def ideas
@@ -57,22 +80,31 @@ class HomeController < ApplicationController
     category = params[:category]
     if category.present?
       set_submenu(category)
-      @ideas = Idea.where(category: category).where("published_at < ?", Time.now).order('published_at DESC').page(params[:page]).per(10)
+      @ideas = Idea.where(category: category).
+                    where("published_at < ?", Time.now).
+                    order('published_at DESC').
+                    includes(:user).
+                    page(params[:page]).per(10)
     else
-      @ideas = Idea.order('created_at ASC').where("published_at < ?", Time.now).page(params[:page]).per(10)
+      @ideas = Idea.order('created_at ASC').
+                    where("published_at < ?", Time.now).
+                    includes(:user).
+                    page(params[:page]).per(10)
     end
   end
 
   # una idea
   def idea
     set_menu('ideas')
-    @idea = Idea.where("published_at < ?", Time.now).find(params[:id])
+    @idea = Idea.where("published_at < ?", Time.now).
+                 find(params[:id])
     set_submenu(@idea.category.pluralize)
   end
 
   #listado de organizaciones
   def organizations 
-    @organizations = Organization.order('name').page(params[:page]).per(10)
+    @organizations = Organization.order('name').
+                                  page(params[:page]).per(10)
     set_menu('compartir')
     set_submenu('organizaciones')
   end

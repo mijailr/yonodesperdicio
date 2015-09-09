@@ -6,7 +6,7 @@
     <p><%= @noticia.video.html_safe if @noticia.video %></p>
     <p>
       <% @noticia.tag_list.each do |tag| %>
-        <%= link_to tag, noticias_url(tag: tag) %>
+        <%= link_to tag, noticias_url(tag: tag) %>,
       <% end %>
     </p>
     <p>

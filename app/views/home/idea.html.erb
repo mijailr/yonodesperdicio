@@ -21,11 +21,11 @@
 
 
 
-<% if !@idea.ingredients %>
+<% if @idea.ingredients.presence %>
     <h2 class="titulospeque">¿Qué necesitas?</h2>
     <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe if @idea.ingredients %></div>
   <% else %>
-    
+
 <% end %>
 
     <h2 class="titulospeque">¿Cómo se hace?</h2>

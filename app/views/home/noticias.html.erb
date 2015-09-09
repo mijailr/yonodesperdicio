@@ -3,7 +3,7 @@
 <div class="col-md-10 col-sm-10">
 
   <% if params[:tag] %>
-    Noticias de <%= params[:tag] %>
+    <h1 id="title">Noticias de <%= params[:tag] %></h1>
   <% end %>
 
     <% @noticias.each do |noticia| %>
