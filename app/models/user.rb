@@ -12,7 +12,14 @@ class User < ActiveRecord::Base
 
   validates :username,
     uniqueness: true,
+    presence: true,
     length: { minimum: 3 }
+
+  validates :name, :zipcode, presence: true
+
+  has_attached_file :image, styles: {thumb: "100x100>"}, :default_url => 'propias/avatar_:style.png'
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
@@ -20,10 +27,6 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :lockable
 
   acts_as_messageable
-
-  def name
-    username
-  end
 
   def to_s
     username

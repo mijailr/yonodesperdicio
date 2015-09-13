@@ -5,8 +5,8 @@
 
   <div id="profile" class="col-md-3">
       <h3>Mi perfil
-        <span><% if user_signed_in? and @user.id == current_user.id %>  
-          <%#= link_to 'Editar', user_edit_path(@user) %>
+        <span><% if user_signed_in? and @user.id == current_user.id %>
+          <%= link_to 'Editar', user_edit_path(@user) %>
          <% end %></span>
        </h3>
       <!--<p class="col-md-3">[Imagen]</p>-->
@@ -66,7 +66,7 @@
         </li>
       <% end %>
 
-      <% unless user_signed_in? and @user.id == current_user.id %>  
+      <% unless user_signed_in? and @user.id == current_user.id %>
 
         <% if can? :become, @user %>
           <li>

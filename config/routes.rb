@@ -94,7 +94,7 @@ Yonodesperdicio::Application.routes.draw do
     get '/unlock/:id', to: 'admin#unlock', as: 'unlock_user'
   end
 
-  get '/user/edit/id/:id', to: redirect('/es/user/edit'), as: 'user_edit'
+  get '/user/edit/id/:id', to: redirect('/user/edit'), as: 'user_edit'
   get '/profile/:username', to: 'users#profile', as: 'profile'
 
   # comments

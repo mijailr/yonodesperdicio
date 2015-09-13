@@ -14,7 +14,7 @@
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <fieldset>
- 
+
       <%= devise_error_messages! %>
 
       <dl class="zend_form">
@@ -25,7 +25,7 @@
             </label>
           </dt>
           <dd id="nombre-element">
-            <%#= f.text_field :nombre_apellidos, :autofocus => true, :required => true, :placeholder => "Nombre y apellidos" %>
+            <%= f.text_field :name, :autofocus => true, :required => true, :placeholder => "Nombre y apellidos" %>
           </dd>
         </div><!--/reg-item-->
 
@@ -51,7 +51,7 @@
         </dd>
         </div><!--/reg-item-->
 
-        <div class="reg-item col-md-12 col-sm-12 col-xs-12">            
+        <div class="reg-item col-md-12 col-sm-12 col-xs-12">
         <dt id="password1-label">
         <label for="password1" class="required">
           <%= 'Contraseña' %>
@@ -62,7 +62,7 @@
         </dd>
         </div><!--/reg-item-->
 
-        <div class="reg-item col-md-12 col-sm-12 col-xs-12">   
+        <div class="reg-item col-md-12 col-sm-12 col-xs-12">
         <dt id="password2-label">
         <label for="password2" class="required">
           <%= 'Repetir contraseña' %>
@@ -80,7 +80,7 @@
         </label>
         </dt>
         <dd id="localidad-element">
-        <%#= f.text_field :localidad, :autofocus => true, :required => true, :placeholder => "Localidad" %>
+        <%= f.text_field :city, :autofocus => true, :placeholder => "Localidad" %>
         </dd>
         </div><!--/reg-item-->
 
@@ -91,9 +91,9 @@
         </label>
         </dt>
         <dd id="provincia-element">
-        <%#= f.text_field :provincia, :autofocus => true, :required => true, :placeholder => "Provincia" %>
+        <%= f.text_field :province, :autofocus => true, :placeholder => "Provincia" %>
         </dd>
-        </div><!--/reg-item-->        
+        </div><!--/reg-item-->
 
         <div class="reg-item col-md-12 col-sm-12 col-xs-12">
         <dt id="codigo-label">
@@ -102,29 +102,22 @@
         </label>
         </dt>
         <dd id="codigo-element">
-        <%#= f.text_field :codigopostal, :autofocus => true, :required => true, :placeholder => "Código postal" %>
+        <%= f.text_field :zipcode, :autofocus => true, :required => true, :placeholder => "Código postal" %>
         </dd>
         </div><!--/reg-item-->
 
-        <div class="reg-item col-md-12 col-sm-12 col-xs-12">     
-          <p class="insertarimagen btn">Insertar imagen</p>
-        </div><!--/reg-item-->
-     
-        <div class="reg-item col-md-12 col-sm-12 col-xs-12">  
+        <div class="reg-item col-md-12 col-sm-12 col-xs-12">
           <p><%#= t 'nlt.fill_captcha' %></p>
           <%= recaptcha_tags(:display => { :theme => "white" }, ajax: true)%>
-        </div><!--/reg-item-->        
-
-        <!-- FIXME: this doesn't work -->
-        <%= f.hidden_field :lang, :value => I18n.locale.to_s %>
+        </div><!--/reg-item-->
 
         <p>
-          [checkbox] <%= 'Acepto recibir las noticias e información de Prosalus' %>
+          <%= f.check_box :accept_mailing %> <%= 'Acepto recibir las noticias e información de Prosalus' %>
         </p>
 
-        <div class="reg-item col-md-12 col-sm-12 col-xs-12">  
+        <div class="reg-item col-md-12 col-sm-12 col-xs-12">
           <p><%= f.submit 'Confirmar' %></p>
-        </div><!--/reg-item-->          
+        </div><!--/reg-item-->
       </dl>
 
     </fieldset>

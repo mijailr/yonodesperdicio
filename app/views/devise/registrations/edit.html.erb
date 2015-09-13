@@ -25,6 +25,15 @@
           <div><%= f.label :current_password %> <i>(<%= t('nlt.we_need_your_password') %>)</i><br />
           <%= f.password_field :current_password %></div>
 
+          <div><%= f.label :name %> <br />
+          <%= f.text_field :name %></div>
+
+          <div><%= f.label :zipcode %> <br />
+          <%= f.text_field :zipcode %></div>
+
+          <div><%= f.label :image %> <i>(Imagen)</i><br />
+          <%= f.file_field :image %></div>
+
           <div><%= f.submit t('nlt.update') %></div>
         </fieldset>
       <% end %>
@@ -32,7 +41,7 @@
       <fieldset>
         <h3><%= t('nlt.cancel_my_account') %></h3>
 
-        <p><%= t('nlt.want_to_leave') %>? <%= link_to t('nlt.cancel_my_account'), registration_path(resource_name), :data => { :confirm => t('nlt.delete_sure') }, :method => :delete %>.</p>
+        <p><%= t('nlt.want_to_leave') %> <%= link_to t('nlt.cancel_my_account'), registration_path(resource_name), :data => { :confirm => t('nlt.delete_sure') }, :method => :delete %>.</p>
       </fieldset>
 
     </div>
