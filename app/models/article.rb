@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
 
   CATEGORIES = ['noticia', 'iniciativa']
 
+  has_many :comments, as: :commentable
+
   validates :title, :category, :body, :published_at, presence: true
 
   before_validation(on: :create) do
@@ -13,6 +15,5 @@ class Article < ActiveRecord::Base
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
-
 end
 

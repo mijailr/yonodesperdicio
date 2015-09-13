@@ -5,6 +5,8 @@ class Ad < ActiveRecord::Base
 
   belongs_to :user, :counter_cache => true
 
+  has_many :comments, as: :commentable
+
   validates :title, presence: true
   validates :body, presence: true
   validates :user_id, presence: true

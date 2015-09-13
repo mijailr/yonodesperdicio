@@ -16,7 +16,7 @@ class HomeController < ApplicationController
                           where("published_at < ?", Time.now).
                           tagged_with(params[:tag]).
                           order('published_at DESC').
-                          page(params[:page]).per(10)   
+                          page(params[:page]).per(10)
     else
       @noticias = Article.where(category: 'noticia').
                           where("published_at < ?", Time.now).
@@ -35,7 +35,9 @@ class HomeController < ApplicationController
   # una noticia
   def noticia
     set_menu('noticias')
-    @noticia = Article.where("published_at < ?", Time.now).
+    @noticia = Article.where(category: 'noticia').
+                       where("published_at < ?", Time.now).
+                       includes(comments: :user).
                        find(params[:id])
   end
 
@@ -68,8 +70,8 @@ class HomeController < ApplicationController
     set_menu('iniciativas')
     @iniciativa = Article.where(category: 'iniciativa').
                           where("published_at < ?", Time.now).
+                          includes(comments: :user).
                           find(params[:id])
-  #  @iniciativa = Article.where(:category => { :name => 'iniciativa' }).find(params[:id])
   end
 
 
@@ -97,19 +99,20 @@ class HomeController < ApplicationController
   def idea
     set_menu('ideas')
     @idea = Idea.where("published_at < ?", Time.now).
+                 includes(comments: :user).
                  find(params[:id])
     set_submenu(@idea.category.pluralize)
   end
 
   #listado de organizaciones
-  def organizations 
+  def organizations
     @organizations = Organization.order('name').
                                   page(params[:page]).per(10)
     set_menu('compartir')
     set_submenu('organizaciones')
   end
 
-  # una organizacion	
+  # una organizacion
   def organization
     @organization = Organization.find(params[:id])
     set_menu('compartir')

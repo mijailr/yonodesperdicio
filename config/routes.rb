@@ -13,15 +13,18 @@ Yonodesperdicio::Application.routes.draw do
 
   get '/noticias/(:tag)', to: 'home#noticias', as: 'noticias'
   get '/noticia/:id', to: 'home#noticia', as: 'noticia'
-
-  get '/ideas/(:category)', to: 'home#ideas', as: 'ideas'
-  get '/idea/:id', to: 'home#idea', as: 'idea'
-
-  get '/organizaciones', to: 'home#organizations', as: 'organizations'
-  get '/organizacion/:id', to: 'home#organization', as: 'organization'
+  post'/noticia/:id/comments', to: 'comments#create', as: 'noticia_comments', commentable_type: 'Article', article_category: 'noticia'
 
   get '/iniciativas_sociales/(:tag)', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
   get '/iniciativa_social/:id', to: 'home#iniciativa', as: 'iniciativa'
+  post'/iniciativa_social/:id/comments', to: 'comments#create', as: 'iniciativa_comments', commentable_type: 'Article', article_category: 'iniciativa'
+
+  get '/ideas/(:category)', to: 'home#ideas', as: 'ideas'
+  get '/idea/:id', to: 'home#idea', as: 'idea'
+  post'/idea/:id/comments', to: 'comments#create', as: 'idea_comments', commentable_type: 'Idea'
+
+  get '/organizaciones', to: 'home#organizations', as: 'organizations'
+  get '/organizacion/:id', to: 'home#organization', as: 'organization'
 
   get '/particulares', to: 'home#particulares', as: 'particulares'
 

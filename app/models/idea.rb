@@ -1,8 +1,9 @@
 class Idea < ActiveRecord::Base
 
   CATEGORIES = ['trucos', 'recetas']
-  
+
   belongs_to :user
+  has_many :comments, as: :commentable
 
   validates :title, :category, :introduction, :body, :user_id, :published_at, presence: true
 

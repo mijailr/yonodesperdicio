@@ -4,7 +4,7 @@
 <div class="row">
   <div id="imagen" class="col-md-5">
 
-    <%= image_tag @iniciativa.image.url(:large), :alt => "", :class => "img-responsive" %>    
+    <%= image_tag @iniciativa.image.url(:large), :alt => "", :class => "img-responsive" %>
     <p><%= @iniciativa.video.html_safe if @iniciativa.video %></p>
     <p><% @iniciativa.tag_list.each do |tag| %>
         <%= link_to tag, iniciativas_sociales_url(tag: tag) %>,
@@ -25,13 +25,16 @@
     <p><%= markdown(@iniciativa.body).html_safe %></p>
     <p><%#= @iniciativa.body.html_safe %></p>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , iniciativas_sociales_path %></p>
-    
+
 
     <!--<p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
     <span class="btn btn-success"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-primary"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
 
     <%= render :partial => "partials/user_actions" %>
     <p>[LISTADO DE COMENTARIOS]</p>-->
+
+    <%= render :partial => "comments/list", :locals => {:comments => @iniciativa.comments} %>
+    <%= render :partial => "comments/form", :locals => {:path => iniciativa_comments_path(@iniciativa), :comment => Comment.new} %>
 
     <div class="ad_meta_info">
       <b><%#= link_to t('nlt.send_a_message'), message_new_with_subject_path(user_id: ad.user.id, subject: ad.slug) %></b>
@@ -41,6 +44,6 @@
       </span>
     </div>
 
- 
+
   </div><!-- /cuerpo -->
 </div><!-- /row -->

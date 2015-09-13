@@ -1,15 +1,5 @@
 <div class="ad_comment_form">
-	<%= form_tag(create_comment_path(ad)) do %>
-    <% if @comment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= t('nlt.save_failed') %></h2>
-        <ul>
-          <% @comment.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+	<%= form_tag(path) do %>
     <dl class="zend_form">
       <dt id="body-label">
         <label for="body" class="optional">
