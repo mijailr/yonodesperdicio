@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @idea.category %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @idea.title %>
+</p>
+
+<p>
+  <strong>Introduction:</strong>
+  <%= @idea.introduction %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @idea.ingredients %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @idea.body %>
+</p>
+
+<%= link_to 'Edit', edit_my_idea_path(@idea) %>

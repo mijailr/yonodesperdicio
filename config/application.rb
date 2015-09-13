@@ -18,12 +18,14 @@ module Yonodesperdicio
     config.active_record.raise_in_transactional_callbacks = true
 
     config.active_job.queue_adapter = :sidekiq
-    
-    # No usar TLS para conectar al SMTP ya 
+
+    # No usar TLS para conectar al SMTP ya
     # que no tenemos un certificado válido
     config.action_mailer.smtp_settings = {
       enable_starttls_auto: false
     }
+
+    config.app_generators.scaffold_controller = :scaffold_controller
   end
 end
 

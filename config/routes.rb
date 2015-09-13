@@ -46,6 +46,8 @@ Yonodesperdicio::Application.routes.draw do
     end
   end
 
+  resources :ideas, path: 'mis_ideas', as: 'my_ideas'
+
   # FIXME: type on ads#create instead of params
   # FIXME: nolotirov2 legacy - redirect from /es/ad/create
   resources :ads, path: 'ad', path_names: { new: 'create' }
