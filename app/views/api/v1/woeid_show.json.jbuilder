@@ -4,7 +4,7 @@ json.ads @ads do |ad|
   json.id ad.id
   json.title ad.title
   json.body ad.body
-  json.user_owner ad.user_owner
+  json.user_id ad.user_id
   json.woeid_code ad.woeid_code
   json.created_at ad.created_at
   json.image_file_name ad.image_file_name

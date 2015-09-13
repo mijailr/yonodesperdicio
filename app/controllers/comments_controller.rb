@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new({
       ads_id: params[:id],
       body: params[:body],
-      user_owner: current_user.id,
+      user: current_user,
       ip: request.remote_ip,
     })
     if @comment.save

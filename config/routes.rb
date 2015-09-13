@@ -5,6 +5,10 @@ Yonodesperdicio::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  authenticated :admin_user do
+    mount Sidekiq::Web, at: "/sidekiq"
+  end
+
   root 'home#index'
 
   get '/noticias/(:tag)', to: 'home#noticias', as: 'noticias'
@@ -84,10 +88,7 @@ Yonodesperdicio::Application.routes.draw do
   post '/addfriend/id/:id', to: 'friendships#create', as: 'add_friend'
   post '/deletefriend/:id', to: 'friendships#destroy', as: 'destroy_friend'
 
-  scope '/adminjobs' do
-    authenticate :admin_user do
-      mount Sidekiq::Web, at: "/jobs"
-    end
+  scope '/admin' do
     get '/become/:id', to: 'admin#become', as: 'become_user'
     get '/lock/:id', to: 'admin#lock', as: 'lock_user'
     get '/unlock/:id', to: 'admin#unlock', as: 'unlock_user'

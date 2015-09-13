@@ -2,7 +2,7 @@ ThinkingSphinx::Index.define :ad, :with => :active_record do
 
   indexes title
   indexes body
-  indexes user_owner
+  indexes user_id
 
   has woeid_code
   has status

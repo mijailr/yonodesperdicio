@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     @messages = current_user.mailbox.trash if @box == 'trash'
     @messages = current_user.mailbox.archive if @box == 'archive'
     @messages = @messages.sort_by {|m| m.messages.last.created_at}.reverse
-    @messages = @messages.paginate(:page => params[:page], :total_entries => @messages.to_a.size)
+    @messages = Kaminari.paginate_array(@messages).page(params[:page])
     session[:last_mailbox] = @box
   end
 

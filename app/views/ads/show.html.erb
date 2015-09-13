@@ -50,7 +50,14 @@
       <br><br>
       <div class="sharelinks">
         <p style="text-align:left;margin-bottom:5px;"><%= t('nlt.share_this_ad') %>:</p>
-        <%= render :partial => "partials/social_buttons", :locals => { :url => ad_url(@ad) } %>
+        <%= render :partial => "partials/social_buttons",
+                   :locals => {
+                     :url => ad_url(@ad),
+                     :meta_title => "#{I18n.t('nlt.keywords')} #{@ad.title} #{@ad.woeid_name}",
+                     :meta_description => t('nlt.meta_description_ad', title: @ad.title, woeid: @ad.woeid_name, body: @ad.body),
+                     :text => @ad.title
+                     }
+        %>
       </div>
     </div>
     <%= render :partial => "comments/show", :locals => {:ad => @ad} %>

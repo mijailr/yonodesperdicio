@@ -8,7 +8,7 @@ class AdsController < ApplicationController
 
   # GET /
   def index
-    if user_signed_in? 
+    if user_signed_in?
       url = current_user.woeid? ? ads_woeid_path(id: current_user.woeid, type: 'give') : location_ask_path
       redirect_to url
     else
@@ -17,9 +17,7 @@ class AdsController < ApplicationController
   end
 
   def list
-    @ads = Rails.cache.fetch("ads_list_#{params[:page]}") do 
-      Ad.give.available.includes(:user).paginate(:page => params[:page])
-    end
+    @ads = Ad.give.available.includes(:user).page(params[:page])
     @location = get_location_suggest
   end
 
@@ -33,7 +31,7 @@ class AdsController < ApplicationController
   # GET /ads/new
   def new
     @ad = Ad.new
-    if current_user.woeid.nil? 
+    if current_user.woeid.nil?
       redirect_to location_ask_path
     end
   end
@@ -46,7 +44,7 @@ class AdsController < ApplicationController
   # POST /ads.json
   def create
     @ad = Ad.new(ad_params)
-    @ad.user_owner = current_user.id
+    @ad.user = current_user
     @ad.ip = request.remote_ip
     @ad.status = 1
 
@@ -89,8 +87,8 @@ class AdsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_ad
-    #@ad = Rails.cache.fetch("set_ad_#{params[:id]}") do 
-    @ad = Ad.includes(:comments).includes(:user).find(params[:id])
+    #@ad = Rails.cache.fetch("set_ad_#{params[:id]}") do
+    @ad = Ad.includes(:user).find(params[:id])
     #end
   end
 

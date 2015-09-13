@@ -3,12 +3,11 @@ class Ad < ActiveRecord::Base
 
   require 'ipaddress'
 
-  belongs_to :user, foreign_key: 'user_owner', :counter_cache => true
-  has_many :comments, class_name: 'Comment', foreign_key: 'ads_id'
+  belongs_to :user, :counter_cache => true
 
   validates :title, presence: true
   validates :body, presence: true
-  validates :user_owner, presence: true
+  validates :user_id, presence: true
   validates :woeid_code, presence: true
   validates :ip, presence: true
 
@@ -27,7 +26,7 @@ class Ad < ActiveRecord::Base
 
   # legacy database: has a column with value "type", rails doesn't like that
   # the "type" column is no longer need it by rails, so we don't care about it
-  self.inheritance_column = nil 
+  self.inheritance_column = nil
 
   default_scope { order('ads.created_at DESC') }
 
@@ -35,7 +34,7 @@ class Ad < ActiveRecord::Base
 
   has_attached_file :image,
     styles: {thumb: "100x90>"},
-    process_in_background: :image 
+    process_in_background: :image
 
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
@@ -46,7 +45,7 @@ class Ad < ActiveRecord::Base
 
   scope :by_type, lambda {|type|
     return scope unless type.present?
-    where('type = ?', type) 
+    where('type = ?', type)
   }
 
   scope :available, -> { where(status: 1) }
@@ -55,19 +54,19 @@ class Ad < ActiveRecord::Base
 
   scope :by_status, lambda {|status|
     return all unless status.present?
-    where('status = ?', status) 
+    where('status = ?', status)
   }
 
   scope :by_woeid_code, lambda {|woeid_code|
     return all unless woeid_code.present?
-    where('woeid_code = ?', woeid_code) 
+    where('woeid_code = ?', woeid_code)
   }
 
-  def body 
+  def body
     ApplicationController.helpers.escape_privacy_data(read_attribute(:body))
   end
 
-  def title 
+  def title
     ApplicationController.helpers.escape_privacy_data(read_attribute(:title))
   end
 
@@ -93,7 +92,7 @@ class Ad < ActiveRecord::Base
     WoeidHelper.convert_woeid_name(self.woeid_code)[:short]
   end
 
-  def full_title 
+  def full_title
     self.type_string + " segunda mano " + self.title + ' ' + self.woeid_name
   end
 
@@ -105,7 +104,7 @@ class Ad < ActiveRecord::Base
       I18n.t('nlt.want')
     else
       I18n.t('nlt.give')
-    end 
+    end
   end
 
   def type_class
@@ -116,7 +115,7 @@ class Ad < ActiveRecord::Base
       "want"
     else
       "give"
-    end 
+    end
   end
 
   def status_class
@@ -124,12 +123,12 @@ class Ad < ActiveRecord::Base
     when 1
       'available'
     when 2
-      'booked' 
+      'booked'
     when 3
-      'delivered' 
+      'delivered'
     else
       'available'
-    end 
+    end
   end
 
   def status_string
@@ -137,12 +136,12 @@ class Ad < ActiveRecord::Base
     when 1
       I18n.t('nlt.available')
     when 2
-      I18n.t('nlt.booked') 
+      I18n.t('nlt.booked')
     when 3
-      I18n.t('nlt.delivered') 
+      I18n.t('nlt.delivered')
     else
       I18n.t('nlt.available')
-    end 
+    end
   end
 
   def valid_ip_address
@@ -151,11 +150,11 @@ class Ad < ActiveRecord::Base
     end
   end
 
-  def is_give? 
+  def is_give?
     type == 1
   end
 
-  def is_want? 
+  def is_want?
     type == 2
   end
 
