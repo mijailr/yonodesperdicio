@@ -61,7 +61,6 @@ gem 'geoip'                                         # geolite city
 gem 'kaminari'                                      # pagination
 gem 'passenger'                                     # webserver
 gem 'devise'                                        # users
-gem 'devise-async', github: 'mhfs/devise-async'     # send mails async
 gem 'cancancan', '~> 1.10'                          # authorization# authorization# authorization
 gem 'paperclip', '~> 4.0'                           # images
 gem 'delayed_paperclip'                             # images processing in bacground

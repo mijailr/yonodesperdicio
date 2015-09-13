@@ -8,13 +8,6 @@ GIT
       rails (>= 3.2.0)
 
 GIT
-  remote: git://github.com/mhfs/devise-async.git
-  revision: 5c5971c625f7ebfcfccdc0d643fc60fa3bb28eb1
-  specs:
-    devise-async (0.10.1)
-      devise (~> 3.2)
-
-GIT
   remote: git://github.com/resque/resque.git
   revision: 68b43a3a01006abb0aabf0d564967f546ec1e134
   branch: 1-x-stable
@@ -478,7 +471,6 @@ DEPENDENCIES
   database_cleaner
   delayed_paperclip
   devise
-  devise-async!
   factory_girl_rails (~> 4.0)
   font-awesome-sass
   geoip
