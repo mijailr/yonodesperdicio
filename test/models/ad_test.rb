@@ -1,8 +1,8 @@
 # encoding : utf-8
+require "test_helper"
+
 class AdTest < ActiveSupport::TestCase
 
-  require 'test_helper'
- 
   setup do
     @ad = FactoryGirl.create(:ad)
     I18n.default_locale = :es
@@ -14,7 +14,7 @@ class AdTest < ActiveSupport::TestCase
     assert a.errors[:status].include?("no puede estar en blanco")
     assert a.errors[:body].include?("no puede estar en blanco")
     assert a.errors[:title].include?("no puede estar en blanco")
-    assert a.errors[:user_owner].include?("no puede estar en blanco")
+    assert a.errors[:user_id].include?("no puede estar en blanco")
     assert a.errors[:type].include?("no puede estar en blanco")
     assert a.errors[:woeid_code].include?("no puede estar en blanco")
     assert a.errors[:ip].include?("no puede estar en blanco")
@@ -55,7 +55,7 @@ class AdTest < ActiveSupport::TestCase
     assert @ad.errors[:title].include?("es demasiado largo (100 caracteres máximo)")
   end
 
-  test "ad escaped title and body with escape_privacy_data" do 
+  test "ad escaped title and body with escape_privacy_data" do
     text = "contactar por email example@example.com, por sms 999999999, o whatsapp al 666666666"
     expected_text = "contactar por email  , por sms  , o whatsapp al  "
     @ad.update_attribute(:body, text)
@@ -114,24 +114,10 @@ class AdTest < ActiveSupport::TestCase
   test "ad meta_title" do
     @ad.type = 1
     @ad.save
-    assert_equal @ad.meta_title, "regalo segunda mano gratis  ordenador en Vallecas Madrid, Madrid, España"
+    assert_equal @ad.meta_title, "compartir comida ordenador en Vallecas Madrid, Madrid, España"
     @ad.type = 2
     @ad.save
-    assert_equal @ad.meta_title, "regalo segunda mano gratis  ordenador en Vallecas Madrid, Madrid, España"
-    #assert_equal @ad.meta_title, "busco ordenador en Vallecas Madrid, Madrid, España"
+    assert_equal @ad.meta_title, "compartir comida ordenador en Vallecas Madrid, Madrid, España"
   end
-
-#  Disabling IP validation. Some legacy IP are bad (8.8.8.1, 24.2.2.2) 
-#  test "ad validates ip address - fail" do
-#    @ad.ip = '999.99.9.9'
-#    @ad.valid?
-#    assert @ad.errors[:ip].include?("No es una IP válida")
-#  end
-#
-#  test "ad validates ip address - success" do
-#    @ad.ip = '2.2.2.2'
-#    assert @ad.valid?
-#  end
-
 end
 

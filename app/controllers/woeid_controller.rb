@@ -30,7 +30,7 @@ class WoeidController < ApplicationController
       ty = 1
     end
 
-    @ads = Ad.includes(:user).by_type(ty).by_status(st).by_woeid_code(@id).paginate(:page => params[:page])
+    @ads = Ad.includes(:user).by_type(ty).by_status(st).by_woeid_code(@id).page(params[:page])
 
     if params.has_key?(:id)
       @woeid = WoeidHelper.convert_woeid_name params[:id]

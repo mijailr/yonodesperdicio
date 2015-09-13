@@ -52,16 +52,16 @@ class AdsControllerTest < ActionController::TestCase
   end
 
   test "should not edit any ad as normal user" do
-    @ad.user_owner = @admin.id
+    @ad.user_id = @admin.id
     @ad.save
     sign_in @user
     get :edit, id: @ad
     assert_response :redirect
-    assert_redirected_to root_path 
+    assert_redirected_to root_path
   end
 
   test "should edit my own ad as normal user" do
-    @ad.user_owner = @user.id
+    @ad.user_id = @user.id
     @ad.save
     sign_in @user
     get :edit, id: @ad
@@ -75,20 +75,20 @@ class AdsControllerTest < ActionController::TestCase
   end
 
   test "should not update other user ad if normal user" do
-    @ad.user_owner = @admin.id
+    @ad.user_id = @admin.id
     @ad.save
     sign_in @user
-    patch :update, id: @ad, ad: { body: @ad.body, ip: @ad.ip, title: @ad.title, type: @ad.type, user_owner: @ad.user_owner, woeid_code: @ad.woeid_code }
+    patch :update, id: @ad, ad: { body: @ad.body, ip: @ad.ip, title: @ad.title, type: @ad.type, user_id: @ad.user_id, woeid_code: @ad.woeid_code }
     assert_redirected_to root_url
   end
 
   test "should update own ads as normal user" do
     sign_in @user
-    @ad.user_owner = @user.id
+    @ad.user_id = @user.id
     @ad.save
 
     body = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
-    patch :update, id: @ad, ad: { body: body, ip: @ad.ip, title: @ad.title, type: @ad.type, user_owner: @ad.user_owner, woeid_code: @ad.woeid_code }
+    patch :update, id: @ad, ad: { body: body, ip: @ad.ip, title: @ad.title, type: @ad.type, user_id: @ad.user_id, woeid_code: @ad.woeid_code }
     assert_redirected_to ad_path(assigns(:ad))
     @ad.reload
     assert_equal body, @ad.body
@@ -96,7 +96,7 @@ class AdsControllerTest < ActionController::TestCase
 
   test "should update any ad as admin" do
     sign_in @admin
-    patch :update, id: @ad, ad: { body: @ad.body, ip: @ad.ip, title: @ad.title, type: @ad.type, user_owner: @ad.user_owner, woeid_code: @ad.woeid_code }
+    patch :update, id: @ad, ad: { body: @ad.body, ip: @ad.ip, title: @ad.title, type: @ad.type, user_id: @ad.user_id, woeid_code: @ad.woeid_code }
     assert_redirected_to ad_path(assigns(:ad))
   end
 

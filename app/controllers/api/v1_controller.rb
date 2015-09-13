@@ -11,8 +11,8 @@ class Api::V1Controller < ApplicationController
       ads = Ad.want
     end
     @woeid = params[:id]
-    @page = params[:page] 
-    @ads = ads.available.where(:woeid_code => @woeid).paginate(:page => params[:page])
+    @page = params[:page]
+    @ads = ads.available.where(:woeid_code => @woeid).page(params[:page])
   end
 
   def woeid_list
