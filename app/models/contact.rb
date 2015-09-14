@@ -10,8 +10,8 @@ class Contact
   validates :message, presence: true
 
   validates_format_of :email, :with => /@/
-  validates_length_of :message, :maximum => 2000
-  validates_length_of :message, :minimum => 50
+  validates_length_of :message, :maximum => 1000
+  validates_length_of :message, :minimum => 20
 
   def initialize(attributes = {})
     attributes.each do |name, value|

@@ -17,7 +17,7 @@
 
       <%= devise_error_messages! %>
 
-      <dl class="zend_form">
+      <dl>
         <div class="reg-item col-md-12 col-sm-12 col-xs-12">
           <dt id="nombre-label">
             <label for="nombre" class="required">
@@ -107,7 +107,9 @@
         </div><!--/reg-item-->
 
         <div class="reg-item col-md-12 col-sm-12 col-xs-12">
-          <p><%#= t 'nlt.fill_captcha' %></p>
+          <label for="captcha-input" class="required">
+            <%= t('nlt.please_introduce') %>
+          </label>
           <%= recaptcha_tags(:display => { :theme => "white" }, ajax: true)%>
         </div><!--/reg-item-->
 

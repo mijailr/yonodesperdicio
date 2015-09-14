@@ -1,17 +1,15 @@
 <% content_for :meta_title, t('nlt.contact_form') %>
 
-<h1><%= 'Formulario de contacto' %></h1>
 
-
-<div id="main">
-  <div class="col-md-12">
+<div id="contactblock" class="col-md-6 col-md-offset-3">
+    <h1 id="title"><%= 'Formulario de contacto' %></h1>
     <%= form_for @contact do |f| %>
       <fieldset>
-        <legend><%= t('nlt.contact_legend') %></legend>
+        <p><%= t('nlt.contact_legend') %></p>
 
         <% if @contact.errors.any? %>
           <div class="error_messages">
-            <h2><%= t('nlt.save_failed') %></h2>
+            <h3><%= t('nlt.save_failed') %></h3>
             <ul>
               <% @contact.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
@@ -20,7 +18,7 @@
           </div>
         <% end %>
 
-        <dl class="zend_form">
+        <dl>
           <% unless user_signed_in? %>
             <dt id="email-label">
               <%= f.label :email, :class => "required" %>
@@ -33,7 +31,7 @@
             <%= f.label :message, :class => "required" %><br />
           </dt>
           <dd id="message-element">
-            <%= f.text_area :message, :size => "24x10" %>
+            <%= f.text_area :message, :rows => "10" %>
           </dd>
           <dt id="captcha-input-label">
           <label for="captcha-input" class="required">
@@ -45,11 +43,9 @@
           </dd>
           <dt id="submit-label">&nbsp;</dt>
           <dd id="submit-element">
-            <%= f.submit t('nlt.send') %>
+            <div class="submit"><%= f.submit t('nlt.send') %></div>
           </dd>
         </dl>    
       </fieldset>
     <% end %>
   </div><!-- /col -->
-
-</div><!-- /main -->
