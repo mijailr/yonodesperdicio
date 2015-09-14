@@ -25,7 +25,6 @@
 </div><!-- /listado -->
 
 <div id="subereceta" class="row">
-  <p>Próximamente: </p>
-  <span class="btn btn-danger">Sube tu receta</span> (Para subir una receta es necesario estar registrado)
-  <span class="btn btn-primary"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span>
+  <span class="btn btn-rojo"><%= link_to 'Sube tu receta', new_my_idea_path %></span> (Para subir una receta es necesario estar registrado)
+  <span class="registrate"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span>
 </div><!-- /subereceta -->

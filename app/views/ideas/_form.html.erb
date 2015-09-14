@@ -1,6 +1,4 @@
-<div id="newidea" class="row">
 
-<div class="col-md-8 col-md-offset-2">
 <%= form_for(@idea, url: form_url) do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
@@ -38,6 +36,3 @@
     <%= f.submit %>
   </div>
 <% end %>
-</div><!--/col-12-->
-
-</div><!--/row-->

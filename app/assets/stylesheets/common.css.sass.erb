@@ -117,14 +117,6 @@ form input[type="submit"], form input[type="button"], form button,
   text-transform: uppercase
   border: none
 
-form input[type="submit"]:hover:not(.disabled), 
-form input[type="button"]:hover:not(.disabled),  
-form button:hover:not(.disabled), 
-.btn-default:hover:not(.disabled)
-  background: $c-azul
-
-form input[type="submit"], form input[type="button"], form button
-  background: $c-verde
 
 a.btn-default
   background: none
@@ -463,11 +455,24 @@ img#logo
   li
     list-style-type: disc
 
-
 #subereceta
   clear: both
   @include rayas
   padding: 10px 0
+  .submit
+    float: right
+  .submit a
+    font-weight: bold
+    text-transform: uppercase
+    padding: 6px
+    margin: 1em 0 0 0
+    width: auto
+    background: $c-azul
+    border: 1px solid #FFF
+    color: #FFF
+  .submit:hover
+    background: #FFF
+    color: $c-azul
 
 /**
   * Organizaciones
@@ -598,6 +603,8 @@ h2.funciona
 #loginblock
   .submit
     input[type="submit"]
+      background: $c-verde
+      color: #FFF
       font-weight: bold
       padding: 6px 12px
       margin: 1em 0 0 0
@@ -614,21 +621,36 @@ h2.funciona
     opacity: 1
     color: $c-azul
 
-#comentarios
-  .submit
-    float: right
-  .submit a
-    font-weight: bold
-    text-transform: uppercase
-    padding: 6px
-    margin: 1em 0 0 0
-    width: auto
-    background: $c-azul
-    border: 1px solid #FFF
+.registrate
+  float: right
+.registrate a
+  font-weight: bold
+  text-transform: uppercase
+  padding: 6px
+  margin: 1em 0 0 0
+  width: auto
+  background: $c-azul
+  border: 1px solid #FFF
+  color: #FFF
+.registrate a:hover
+  background: #FFF
+  color: $c-azul
+  border: 1px solid $c-azul
+  opacity: 1
+
+.actions
+  input[type="submit"]
+    background: $c-verde
     color: #FFF
-  .submit:hover
+    width: auto
+    border: 1px solid #FFF
+  input[type="submit"]:hover
     background: #FFF
-    color: $c-azul
+    color: $c-verde
+    border: 1px solid $c-verde
+
+#comentarios
+  width: 100%
 
 #contactblock 
   .error_messages
@@ -681,6 +703,7 @@ h2.funciona
 .title-listados
   @include titulosfondoazul
   font-size: 1em
+  padding: 6px
 #profile table#listados
   width: 100%
   border-collapse: separate
@@ -707,13 +730,13 @@ h2.funciona
   float: left
 .ad_comments
   float: left
+  width: 100%
 
 .ad_comment
   float: left
   font-size: 1em
   background: #FFF
   width: 100% !important
-  margin-top: 14px
   span
     clear: left
     float: left
@@ -721,11 +744,8 @@ h2.funciona
   .izda, .dcha
     float: left
   .izda 
-    width: 20%
     img
       @include avatares
-  .dcha
-    width: 80%  
 
 .ad_comments h5
   float: left

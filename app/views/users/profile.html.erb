@@ -7,7 +7,7 @@
     <h1 id="title"><%= 'Hola, ' %> <%= @user.name %></h1>
   <% end %>
 
-  <div id="profile-block" class="col-md-3">
+  <div id="profile-block" class="col-md-3 col-sm-3 col-xs-12">
     <div class="profile-header">
       <span class="col-md-8 col-sm-8 col-xs-8">Perfil</span>
       <% if user_signed_in? and @user.id == current_user.id %>
@@ -44,7 +44,7 @@
 
 
 
-<div id="ofertas" class="col-md-9">
+<div id="ofertas" class="col-md-9 col-sm-9 col-xs-12">
 
   <h1 class="title-listados">Ofertas en curso <%= @user.username %></h1>
   <table id="listados">
