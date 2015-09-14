@@ -1,6 +1,6 @@
 <% content_for(:meta_title) {"noticias"} %>
 
-<div class="col-md-10 col-sm-10">
+<div class="col-md-10 col-sm-10 col-xs-12">
 
   <% if params[:tag] %>
     <h1 id="title">Noticias de <%= params[:tag] %></h1>
@@ -8,18 +8,17 @@
 
     <% @noticias.each do |noticia| %>
     <div id="listado" class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6 col-xs-12">
         <%= link_to image_tag(noticia.image.url(:medium), :alt => " ", :class => "img-responsive"), noticia_url(noticia) %>
         <%#= image_tag noticia.image.url(:medium), :alt => "", :class => "img-responsive" %>  
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 col-sm-6 col-xs-12">
           <h3 class="veinticinco"><%= link_to noticia.title, noticia_url(noticia) %></h3>
-          <p><%= noticia.published_at.strftime("%d/%m/%Y") %></p>
-          <p class="cuerpazo"><%= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' +...') %><span><%= link_to "+ info", noticia_url(noticia) %></span></p>
+          <div><%= noticia.published_at.strftime("%d/%m/%Y") %></div>
+          <div><%= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' ... ') %>
+          <span id="masinfo"><%= link_to "+ info", noticia_url(noticia) %></span></div>
           <%#= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' +...') %>
-
-          <!--<p>[tags con link a las tags]</p>-->
-          
+          <!--<p>[tags con link a las tags]</p>--> 
       </div>
     </div><!-- /listado -->
     <% end %>

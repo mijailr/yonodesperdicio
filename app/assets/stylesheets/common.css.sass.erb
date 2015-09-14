@@ -17,6 +17,7 @@ html img
 
 .img-responsive
   display: inline
+  width: 100% 
 
 .row
   margin: 0px
@@ -54,7 +55,8 @@ h3
   @include titulosotros
   font-size: 28px
 h3.veinticinco
-  font-size: 25px  
+  font-size: 25px
+  margin-top: 0
 
 ul
   list-style-type: none
@@ -170,8 +172,6 @@ form.searchbox
   li
     list-style-type: disc
     margin-left: 2em
-  p.cuerpazo span
-    display: inline
 
 #footer
   float: left
@@ -434,9 +434,18 @@ img#logo
 /**
   * Noticias, Iniciativas 
 #listado
-  clear: both 
   float: left
   margin-bottom: 1em
+  div
+    margin: 0 0 0.8em  
+  p
+    float: left
+    width: auto
+  span#masinfo
+    float: left
+    display: inline
+    clear: right
+    padding: 0 0 0 0.5em
 
 /**
   * Recetas
@@ -458,21 +467,10 @@ img#logo
 #subereceta
   clear: both
   @include rayas
-  padding: 10px 0
-  .submit
-    float: right
-  .submit a
-    font-weight: bold
-    text-transform: uppercase
-    padding: 6px
-    margin: 1em 0 0 0
-    width: auto
-    background: $c-azul
-    border: 1px solid #FFF
-    color: #FFF
-  .submit:hover
-    background: #FFF
-    color: $c-azul
+  padding: 0
+  .registrate
+    font-size: 14px
+    margin: 1.5em 0
 
 /**
   * Organizaciones
@@ -627,7 +625,6 @@ h2.funciona
   font-weight: bold
   text-transform: uppercase
   padding: 6px
-  margin: 1em 0 0 0
   width: auto
   background: $c-azul
   border: 1px solid #FFF
@@ -1485,7 +1482,7 @@ a#tab_active
 .section_ads .ad_excerpt_home
   border-bottom: none
 
-/** RESPONSIVE **************************************************************
+/** RESPONSIVE **************************************************************/
 
 @media (min-width: $break-medium) and (max-width: $break-large)
   #main-menu

@@ -5,24 +5,23 @@
   <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
 </ul>
 
-
-<div id="listado" class="row col-md-12">
+    <div id="listado" class="row col-md-12">
     <% @ideas.each do |idea| %>
 
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-6 col-xs-12">
         <%= link_to image_tag(idea.image.url(:medium), :alt => " ", :class => "img-responsive"), idea_url(idea) %>
         <%#= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
         <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
-        <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por: <%= link_to idea.user, profile_path(idea.user) %></span></p>
-        <p class="cuerpazo"><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %><span><%= link_to "+ info", idea_url(idea) %></span></p>
-
-        <!--<p>[tags con link a las tags]</p>-->
-      </div>
+        <div><%= idea.published_at.strftime("%d/%m/%Y") %>
+        <span> | Por: <%= link_to idea.user, profile_path(idea.user) %></span></div>
+        <div><%= truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... ') %>
+        <span id="masinfo"><%= link_to "+ info", idea_url(idea) %></span></div>
+      </div><!--/col-md-4-->
 
     <% end %>
-
+   </div><!-- /listado -->
 <%= paginate(@ideas) %>
-</div><!-- /listado -->
+
 
 <div id="subereceta" class="row">
   <span class="btn btn-rojo"><%= link_to 'Sube tu receta', new_my_idea_path %></span> (Para subir una receta es necesario estar registrado)
