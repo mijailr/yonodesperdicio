@@ -7,7 +7,7 @@ ActiveAdmin.register Organization do
      # link_to image_tag(organization.image.url(:thumb)), admin_organization_path(organization)
     #end
     column "Title" do |organization|
-      link_to organization.name, admin_organization_path(organization)
+      link_to organization.name, content_admin_organization_path(organization)
     end
     column :zipcode
     column :address

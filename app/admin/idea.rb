@@ -6,10 +6,10 @@ ActiveAdmin.register Idea do
     selectable_column
     column :category
     column "Image" do |idea|
-      link_to image_tag(idea.image.url(:thumb)), admin_idea_path(idea)
+      link_to image_tag(idea.image.url(:thumb)), content_admin_idea_path(idea)
     end
     column "Title" do |idea|
-      link_to idea.title, admin_idea_path(idea)
+      link_to idea.title, content_admin_idea_path(idea)
     end
     column :published_at
     column :created_at

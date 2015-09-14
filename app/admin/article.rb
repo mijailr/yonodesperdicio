@@ -2,18 +2,15 @@ ActiveAdmin.register Article do
 
   permit_params :title, :body, :video, :pin, :tag_list, :category, :published_at, :image
 
-  # index as: :grid, columns: 5 do |article|
-  #   link_to image_tag(article.image.url, height: '100'), admin_article_path(article)
-  # end
 
   index do
     selectable_column
     column :category
     column "Image" do |article|
-       link_to image_tag(article.image.url(:thumb)), admin_article_path(article)
+      link_to image_tag(article.image.url(:thumb)), content_admin_article_path(article)
     end
     column "Title" do |article|
-      link_to article.title, admin_article_path(article)
+      link_to article.title, content_admin_article_path(article)
     end
     column :published_at
     column :created_at
