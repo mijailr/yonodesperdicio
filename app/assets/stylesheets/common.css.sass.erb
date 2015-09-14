@@ -67,6 +67,9 @@ p.fecha
   color: $c-rojo
 textarea
   resize: none
+p.mayusc
+  text-transform: uppercase
+  font-weight: bold
 
 .btn-danger
   background: $c-rojo
@@ -496,12 +499,13 @@ h2.funciona
   p
     padding: 0
     text-align: left
+#dar h3
+  color: $c-azul
 #recibir h3
   color: $c-verde
 
 /**
  * Alimentos
-
 #alimento
   background: #FFF
   padding: 1em
@@ -511,7 +515,6 @@ h2.funciona
 
 /**
  * Registrate
-
 #registrate
   text-align: center
   color: $c-azul
@@ -561,7 +564,7 @@ h2.funciona
 
 
 /**
- * Login
+ * Login y contacto
 #contactblock,
 #loginblock
   background: $c-azul
@@ -586,6 +589,11 @@ h2.funciona
   a
     color: #FFF
     font-weight: bold 
+
+/**
+ * Botones
+#contactblock,
+#loginblock
   .submit
     input[type="submit"]
       font-weight: bold
@@ -604,6 +612,22 @@ h2.funciona
     opacity: 1
     color: $c-azul
 
+#comentarios
+  .submit
+    float: right
+  .submit a
+    font-weight: bold
+    text-transform: uppercase
+    padding: 6px
+    margin: 1em 0 0 0
+    width: auto
+    background: $c-azul
+    border: 1px solid #FFF
+    color: #FFF
+  .submit:hover
+    background: #FFF
+    color: $c-azul
+
 #contactblock 
   .error_messages
     background: #FFF
@@ -614,9 +638,6 @@ h2.funciona
   #contact_message
     width: 100%
     color: $c-azul
-
-
-
 
 /**
  * Profile
@@ -630,6 +651,54 @@ h2.funciona
 #faq h3
   font-size: 20px
 
+/**
+ * Comentarios
+#comentarios
+  border: 1px dashed #FFF
+  height: auto
+  padding: 1em
+  float: left
+.ad_comments
+  float: left
+
+.ad_comment
+  float: left
+  font-size: 1em
+  background: #FFF
+  width: 100% !important
+  margin-top: 14px
+  span
+    clear: left
+    float: left
+    padding: 5px
+  #avatar, #comment-text
+    float: left
+  #avatar 
+    width: 20%
+    img
+      height: 70px
+      margin: 5px
+      padding: 0
+      -webkit-border-radius: 10px
+      -moz-border-radius: 10px
+      border-radius: 10px
+  #comment-text
+    width: 80%  
+
+.ad_comments h5
+  float: left
+  font-size: 1.2em
+  font-weight: bold
+  padding-top: 10px
+  margin-bottom: 10px !important
+
+.ad_comment_form
+  clear: left
+  float: left
+  margin-bottom: 10px
+  margin-top: 10px
+  #body
+    width: 100%
 
 
 /**********************************NOLOTIRO SIN TOCAR
@@ -858,36 +927,6 @@ h2.funciona
   margin-bottom: 15px
   #social-buttons
     float: left
-
-.ad_comments
-  padding-left: 18px
-  margin-bottom: 80px
-
-.ad_comment
-  float: left
-  font-size: 1em
-  border-bottom: 1px dashed #ddd
-  width: 100% !important
-  padding-right: 18px
-  padding-bottom: 18px
-  margin-top: 14px
-  span
-    clear: left
-    float: left
-    padding: 5px
-
-.ad_comments h5
-  float: left
-  font-size: 1.2em
-  font-weight: bold
-  padding-top: 10px
-  margin-bottom: 10px !important
-
-.ad_comment_form
-  clear: left
-  float: left
-  margin-bottom: 10px
-  margin-top: 10px
 
 .location_name
   display: inline-block

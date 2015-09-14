@@ -4,6 +4,9 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
+    column "Image" do |user|
+      link_to image_tag(user.image.url(:thumb)), content_admin_user_path(user)
+    end
     column :username
     column :name
     column :email

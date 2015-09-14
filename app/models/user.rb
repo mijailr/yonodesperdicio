@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   validates :name, :zipcode, presence: true
 
-  has_attached_file :image, styles: {thumb: "100x100>"}, :default_url => 'propias/avatar_:style.png'
+  has_attached_file :image, styles: {thumb: "50x50#"}, :default_url => 'propias/avatar_:style.png'
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 

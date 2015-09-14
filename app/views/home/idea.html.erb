@@ -32,12 +32,15 @@
     <div class="como"><%= markdown(@idea.body).html_safe %></div>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
-    <!--<p>COMENTAR (Para dejar un comentario es necesario estar registrado)...
-    <span class="btn btn-success"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span> ó <span class="btn btn-primary"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span></p>
-    <p>[LISTADO DE COMENTARIOS]</p>-->
+    <div id="comentarios">
+      <p><b>COMENTAR (Para dejar un comentario es necesario estar registrado) </b>
+      <span class="submit"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span>
+      <!--<br> ó <span class="submit"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></span>-->
+      <%= render :partial => "partials/user_actions" %></p>
 
-    <%= render :partial => "comments/list", :locals => {:comments => @idea.comments} %>
-    <%= render :partial => "comments/form", :locals => {:path => idea_comments_path(@idea), :comment => Comment.new} %>
+      <%= render :partial => "comments/form", :locals => {:path => idea_comments_path(@idea), :comment => Comment.new} %>
+      <%= render :partial => "comments/list", :locals => {:comments => @idea.comments} %>
+    </div><!--/comentarios-->
 
   </div><!-- /cuerpo -->
 </div><!-- /row -->

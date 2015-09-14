@@ -513,7 +513,7 @@ es:
     publish_ad_on: Publicar anuncio en %{woeid}
     to_publish_ad: Publicar anuncio
     published_ads: Anuncios publicados
-    published_at_by_html: Publicado hace %{time} por el usuario %{user}
+    published_at_by_html: Por <b>%{user}</b> hace %{time} 
     published_on: Publicado hace %{date}
     published_on_html: Publicado <abbr class='js-moment' title='%{date}'>%{date}</abbr>
     reads: lecturas
