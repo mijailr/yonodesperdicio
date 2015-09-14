@@ -48,13 +48,14 @@ $b-rayas: 2.5px dashed #FFF
   color: $c-rojo
   margin-bottom: 0.3em
 
-@mixin titulossidebar
+@mixin titulosfondoazul
   font-family: $font-gorda
   background: $c-azul
   color: #FFF
-  font-size: 0.9em
   text-transform: uppercase
   padding: 2px 5px
+  margin: 0 0 0.5em 0
+
 @mixin titulosrojos
   font-family: $font-general
   background: $c-rojo
@@ -74,6 +75,30 @@ $b-rayas: 2.5px dashed #FFF
 @mixin introducciones
   font-family: $font-gorda
   font-size: 15px
+
+@mixin avatares
+  margin: 5px
+  padding: 0
+  -webkit-border-radius: 15px
+  -moz-border-radius: 15px
+  border-radius: 15px
+
+@mixin btn-rojo
+  font-weight: bold
+  text-transform: uppercase
+  margin: 1em 0
+  width: 100%
+  border: 1px solid #FFF
+  background: $c-rojo
+  color: #FFF
+  a
+    color: #FFF
+@mixin btn-rojo-hover
+  background: #FFF
+  border: 1px solid $c-rojo
+  color: $c-rojo
+  a
+    color: $c-rojo
 
 $break-small: 320px
 $break-medium: 800px

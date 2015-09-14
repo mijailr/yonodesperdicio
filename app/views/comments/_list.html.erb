@@ -5,10 +5,10 @@
   <% comments.each do |comment| %>
     <% if comment.user %>
       <div class="ad_comment">
-        <div id="avatar">
-          <%= image_tag comment.user.image.url(:thumb), :alt => "", :class => "img-responsive" %>
+        <div class="izda">
+          <%= image_tag comment.user.image.url(:thumb), :alt => "", :class => "img-responsive, avatar" %>
         </div><!--/avatar--> 
-        <div id="comment-text">
+        <div class="dcha">
           <span class="ad_date">
           <%= t('nlt.published_at_by_html', time: distance_of_time_in_words_to_now(comment.created_at), user: link_to(comment.user.username, profile_path(comment.user))) %>
           </span>

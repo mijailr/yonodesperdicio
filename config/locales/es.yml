@@ -511,7 +511,7 @@ es:
     profile: perfil
     publish_ad: 'Publicando anuncio '
     publish_ad_on: Publicar anuncio en %{woeid}
-    to_publish_ad: Publicar anuncio
+    to_publish_ad: Publicar anuncio 
     published_ads: Anuncios publicados
     published_at_by_html: Por <b>%{user}</b> hace %{time} 
     published_on: Publicado hace %{date}

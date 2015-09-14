@@ -1,8 +1,6 @@
 <% content_for :meta_title, "#{t('nlt.published_ads')} - #{@user.username}" %>
 
-<div id="default_header_section">
-  <h1><%= t 'nlt.published_ads' %>  -  <%= @user.username %></h1>
-</div>
+  <h1 class="title-listados"><%= t 'nlt.published_ads' %> por <%= @user.username %></h1>
 
 <div id="main">
   <div class="span-18" id="list-ads-profile">

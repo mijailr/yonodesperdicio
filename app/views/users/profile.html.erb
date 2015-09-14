@@ -1,26 +1,91 @@
 <%= content_for(:meta_title, "#{t('nlt.user_profile')} - #{@user.username}") %>
 
-<div id="main">
-  <h1 id="title"><%= 'Hola, ' %> <%= @user.username %></h1>
 
-  <div id="profile" class="col-md-3">
-      <h3>Mi perfil
-        <span><% if user_signed_in? and @user.id == current_user.id %>
-          <%= link_to 'Editar', user_edit_path(@user) %>
-         <% end %></span>
-       </h3>
-      <!--<p class="col-md-3">[Imagen]</p>-->
-      <p class="col-md-9"> <%= t('nlt.username') %>: <%= @user.username %>
-      <%= t('nlt.member_since') %>: <%= l @user.created_at, format: :long %><br/>
-      <!--[Estrellitas]--></p>
-      <!--<p>[Mapa]</p>
-      <p>[Comida que has entregado: 12,600 kg]</p>-->
-  </div><!-- /profile -->
+<div id="profile" class="row">
+
+  <% if user_signed_in? and @user.id == current_user.id %>
+    <h1 id="title"><%= 'Hola, ' %> <%= @user.name %></h1>
+  <% end %>
+
+  <div id="profile-block" class="col-md-3">
+    <div class="profile-header">
+      <span class="col-md-8 col-sm-8 col-xs-8">Perfil</span>
+      <% if user_signed_in? and @user.id == current_user.id %>
+        <span class="col-md-4 col-sm-4 col-xs-4"><%= link_to 'Editar', user_edit_path(@user) %></span>
+      <% end %>
+    </div><!--/profile-header-->
+
+    <div class="profile-body">
+      <div class="izda col-md-4">
+        <%= image_tag @user.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %>
+      </div><!--/izda--> 
+
+      <div class="dcha col-md-8">
+        <p class="username"><%= @user.username %></p>
+        <!--[Estrellitas]-->
+      </div><!-- /dcha -->
+
+      <div class="abajo col-md-12">
+        <p><%= t('nlt.member_since') %>: <%= l @user.created_at, format: "%d-%m-%Y" %></p>
+        <p>Código Postal: <%= @user.zipcode %></p>
+        <!--<p>[Mapa]</p>-->
+        <p>Comida entregada: 0,000 kg</p>
+      </div><!-- /abajo -->
+    </div><!-- /profile-body -->
+
+    <div id="profile-menu">
+      <%#= render partial: "users/tabnav", locals: {user: @user} %> 
+    </div><!-- /profile-menu -->
+
+  <% if user_signed_in? and @user.id == current_user.id %>
+    <div class="btn btn-rojo"><%= link_to 'Nueva idea', new_my_idea_path %></div>
+  <% end %>
+  </div><!-- /profile-block --> 
 
 
-  <div class="col-md-8">
 
-    <%= render partial: "users/tabnav", locals: {user: @user} %>
+<div id="ofertas" class="col-md-9">
+
+  <h1 class="title-listados">Ofertas en curso <%= @user.username %></h1>
+  <table id="listados">
+    <tr>
+      <% if @user.ads.count > 0 %>  
+        <% @user.ads.each do |anuncios| %>
+          <td><%= ad.title %></td>
+        <% end %>
+      <% else %>  
+        <p> <%= t("nlt.no_results.on_user") %> </p>
+      <% end %>      
+    </tr>
+  </table>
+
+  <h1 class="title-listados">Ideas de <%= @user.username %></h1>
+  <table id="listados">
+    <% @user.ideas.each do |idea| %>
+    <tr>
+      <td><%= link_to image_tag(idea.image.url(:thumb), :alt => " ", :class => "img-responsive"), idea_url(idea) %></td>
+      <td>
+        <p><%= link_to idea.title, idea_url(idea) %></p>
+        <p><%= idea.introduction %></p>
+      </td>
+      <td><% if user_signed_in? and @user.id == current_user.id %>
+        <p><%= link_to 'Preview', my_idea_path(idea) %></p>
+        <p><%= link_to 'Edit', edit_my_idea_path(idea) %></p>
+        <p><%= link_to 'Destroy', my_idea_path(idea), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </td>  
+      <% end %>
+    </tr>
+    <% end %>
+</table>
+
+  <!--<h1 class="title-listados">Valoraciones pendientes <%= @user.username %></h1>
+  <table id="listados">
+    <tr>  
+      <td>bla</td>
+    </tr>
+  </table>-->
+
+<hr>
 
     <ul>
       <% unless current_user == @user %>
@@ -32,23 +97,23 @@
         </li>
       <% end %>
 
-      <% if user_signed_in? %>
-        <% unless current_user == @user %>
+      <!--<%# if user_signed_in? %>
+        <%# unless current_user == @user %>
           <li>
-          <% if current_user.is_friend? @user %>
-            <%= link_to destroy_friend_path(@user.id), class: 'world_link', method: 'post' do %>
-              <%= t('nlt.profile_actions.friend.delete', username: @user.username) %>
-              <%= image_tag "friend_delete.png", alt: "Delete friend"%>
-            <% end %>
-          <% else %>
-            <%= link_to add_friend_path(@user.id), class: 'world_link', method: 'post' do %>
-              <%= t('nlt.profile_actions.friend.add', username: @user.username) %>
-              <%= image_tag "friend_add.png", alt: "Add friend"%>
-            <% end %>
-          <% end %>
+          <%# if current_user.is_friend? @user %>
+            <%#= link_to destroy_friend_path(@user.id), class: 'world_link', method: 'post' do %>
+              <%#= t('nlt.profile_actions.friend.delete', username: @user.username) %>
+              <%#= image_tag "friend_delete.png", alt: "Delete friend"%>
+            <%# end %>
+          <%# else %>
+            <%#= link_to add_friend_path(@user.id), class: 'world_link', method: 'post' do %>
+              <%#= t('nlt.profile_actions.friend.add', username: @user.username) %>
+              <%#= image_tag "friend_add.png", alt: "Add friend"%>
+            <%# end %>
+          <%# end %>
             </li>
-          <% end %>
-        <% end %>
+          <%# end %>
+        <%# end %>-->
 
       <% if can? :lock, @user %>
         <li>
@@ -90,6 +155,5 @@
         </div>
       <% end %>
 
-  </div><!-- /col-md-9-->
-
-</div><!-- /main -->
+  </div><!-- /ofertas-->
+</div><!-- /profile -->

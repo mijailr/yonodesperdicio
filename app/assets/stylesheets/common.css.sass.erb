@@ -55,8 +55,7 @@ h3
   font-size: 28px
 h3.veinticinco
   font-size: 25px  
-h4
-  @include titulossidebar
+
 ul
   list-style-type: none
   margin: 0
@@ -71,12 +70,17 @@ p.mayusc
   text-transform: uppercase
   font-weight: bold
 
-.btn-danger
-  background: $c-rojo
 .btn-primary
   background: $c-azul
   a
-    color: #FFF  
+    color: #FFF
+.btn-rojo
+  @include btn-rojo
+
+.btn-rojo:hover
+  @include btn-rojo-hover  
+
+
 .enrojo
   @include texto-rojo
 
@@ -143,15 +147,10 @@ form.searchbox
   dl
     margin: 0px !important
 
-.user_profile h4
-  font-size: 14px
-  padding: 5px
-
 #social-buttons
   i
     font-size: 1.5em
     padding: 0.2em
-
 
 /**
  * Layout.
@@ -196,6 +195,9 @@ form.searchbox
   position: relative  
   float: left
   clear: right
+  h4
+    @include titulosfondoazul
+    font-size: 0.9em
 
 /**
  * Header Area.
@@ -641,10 +643,55 @@ h2.funciona
 
 /**
  * Profile
-#profile
-  background: #FFF
-  padding: 1em
-  margin: 1em
+#profile-block
+  float: left
+  padding: 0
+  .profile-header
+    background: $c-azul
+    float: left
+    width: 100%
+    color: #FFF
+    text-transform: uppercase
+    font-weight: bold
+    .col-md-8
+      padding: 6px
+    .col-md-4
+      background: $c-verde
+      padding: 6px
+      a
+        color: #FFF
+  .profile-body
+    float: left
+    background: #FFF  
+    padding: 1em
+  .username
+    font-weight: bold
+  .izda
+    float: left
+    padding: 0 
+    img   
+      @include avatares
+  .dcha
+    float: left
+#profile-menu
+  float: left
+  width: 100%
+  li    
+    display: inherit
+.title-listados
+  @include titulosfondoazul
+  font-size: 1em
+#profile table#listados
+  width: 100%
+  border-collapse: separate
+  border-spacing: 0 1em
+  td
+    padding: 5px
+    background: #FFF
+
+#newidea input, 
+#newidea textarea
+  width: 100%
 
 /**
  * Faqs
@@ -671,18 +718,13 @@ h2.funciona
     clear: left
     float: left
     padding: 5px
-  #avatar, #comment-text
+  .izda, .dcha
     float: left
-  #avatar 
+  .izda 
     width: 20%
     img
-      height: 70px
-      margin: 5px
-      padding: 0
-      -webkit-border-radius: 10px
-      -moz-border-radius: 10px
-      border-radius: 10px
-  #comment-text
+      @include avatares
+  .dcha
     width: 80%  
 
 .ad_comments h5
