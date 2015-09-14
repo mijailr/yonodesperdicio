@@ -13,7 +13,7 @@
         <%= link_to image_tag(idea.image.url(:medium), :alt => " ", :class => "img-responsive"), idea_url(idea) %>
         <%#= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
         <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
-        <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por: <%= idea.user %></span></p>
+        <p><%= idea.published_at.strftime("%d/%m/%Y") %><span> | Por: <%= link_to idea.user, profile_path(idea.user) %></span></p>
         <p class="cuerpazo"><%= truncate_html(markdown(idea.body).html_safe, length: 340, omission: ' +...') %><span><%= link_to "+ info", idea_url(idea) %></span></p>
 
         <!--<p>[tags con link a las tags]</p>-->

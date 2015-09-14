@@ -15,7 +15,7 @@
   <div id="cuerpo" class="col-md-7">
 
     <h1 id="title"><%= @idea.title %></h1>
-    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %> | Por: <strong><%= @idea.user %></strong></p>
+    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %> | Por: <strong><%= link_to @idea.user, profile_path(@idea.user) %></strong></p>
     <p><%#= @idea.id %></p>
     <div class="intro"><%= markdown(@idea.introduction).html_safe if @idea.introduction %></div>
 
