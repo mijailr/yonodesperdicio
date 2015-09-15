@@ -71,6 +71,9 @@ p.mayusc
   text-transform: uppercase
   font-weight: bold
 
+form textarea
+  resize: both
+
 .btn-primary
   background: $c-azul
   a
@@ -80,7 +83,6 @@ p.mayusc
 
 .btn-rojo:hover
   @include btn-rojo-hover  
-
 
 .enrojo
   @include texto-rojo
@@ -220,7 +222,6 @@ form.searchbox
   li
     display: inline
     padding: 0.7em
-    width: 12.5%
     float: left
     text-align: center
   li#login
@@ -674,7 +675,7 @@ h2.funciona
     color: $c-azul
 
 /**
- * Profile
+ * Profile y mensajes
 #profile-block
   float: left
   padding: 0
@@ -714,7 +715,7 @@ h2.funciona
   @include titulosfondoazul
   font-size: 1em
   padding: 6px
-#profile table#listados
+table#listados
   width: 100%
   border-collapse: separate
   border-spacing: 0 1em
@@ -722,9 +723,15 @@ h2.funciona
     padding: 5px
     background: #FFF
 
-#newidea input, 
-#newidea textarea
+#newinside form input, 
+#newinside form textarea
   width: 100%
+
+
+ul#insidebar
+  li
+    display: block
+
 
 /**
  * Faqs

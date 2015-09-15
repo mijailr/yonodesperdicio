@@ -1,6 +1,14 @@
+
+<div class="col-md-1 col-sm-1 col-xs-12">
+  <%= render partial: "users/tabnav", locals: {user: current_user} %>
+</div>
+
+<div id="inside" class="col-md-11 col-sm-11 col-xs-12">
+
 <p id="notice"><%= notice %></p>
 
-<h1 class="title-listados">Mis ideas</h1>
+<h1 class="title-listados">Mis ideas (<%= current_user %>)</h1>
+
 
 <table id="listados">
   <thead>
@@ -31,3 +39,5 @@
 <br>
 
 <%= link_to 'New Idea', new_my_idea_path %>
+
+</div><!--/inside-->

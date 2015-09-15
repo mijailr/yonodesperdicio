@@ -1,10 +1,10 @@
-<ul id="tabnav">
+<ul id="insidenav">
 <!-- TODO: can an user edit or view messages from another user? -->
 <!-- TODO: active class in partials -->
   <% if user_signed_in? and user.id == current_user.id %>
     <li><%= link_to_unless_current t('nlt.messages'), messages_list_path %></li>
     <li><%= link_to_unless_current t('nlt.profile'), profile_path(user) %></li>
+    <li><%= link_to_unless_current "Ideas", my_ideas_path %></li>
+    <li><%= link_to_unless_current t('nlt.user_ads'), listads_user_path(user) %></li>
   <% end %>
-  <li><%= link_to_unless_current "Ideas", my_ideas_path %></li>
-  <li><%= link_to_unless_current t('nlt.user_ads'), listads_user_path(user) %></li>
 </ul>
