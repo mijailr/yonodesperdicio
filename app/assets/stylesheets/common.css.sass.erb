@@ -17,7 +17,6 @@ html img
 
 .img-responsive
   display: inline
-  width: 100% 
 
 .row
   margin: 0px
@@ -382,6 +381,13 @@ img#logo
 .homeabajo
 .homemedio
   clear: both
+.homearriba
+.homemedio
+  @media all and (max-width: $break-small)
+    img
+      display: none
+.homearriba div img
+  height: auto
 .homemedio 
   @include rayas
   margin: 1em 0
@@ -423,10 +429,17 @@ img#logo
 .homeabajo div p
   font-size: 13px
   line-height: 1.3em
-  span
+  float: left
+  width: auto
+.homeabajo div.cuerpazo
+  padding: 0 
+  float: left 
+  span#masinfo
+    float: left
+    text-align: left
     display: inline
-.homearriba div img
-  height: auto
+    clear: right
+    padding: 0 0 0 0.5em
 #tweets
   .stream p 
     font-size: 10px !important 

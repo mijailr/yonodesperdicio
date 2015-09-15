@@ -19,13 +19,13 @@
 </div><!--/homearriba-->
 
 <div class="homemedio col-md-12 col-xs-12">
-  <div class="col-md-2 col-xs-1">
+  <div class="col-md-2 col-xs-2">
     <%= image_tag "propias/cebolla.png", :alt => "Imagen cebolla", :id => "cebolla", :class => "img-responsive" %>
   </div>
-  <div class="col-md-8 col-xs-9">
+  <div class="col-md-8 col-xs-8">
     <div id="contador" class="col-md-6">0,000 kg</div><div id="contador-texto" class="col-md-6">Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura.</div>
   </div>
-  <div class="col-md-2 col-xs-1">
+  <div class="col-md-2 col-xs-2">
     <%= image_tag "propias/leche.png", :alt => "Imagen leche", :id => "leche", :class => "img-responsive" %>
   </div>
 
@@ -36,11 +36,10 @@
 
     <!-- Una noticia -->
     <% if @noticia %>
-      <p><%= link_to image_tag(@noticia.image.url(:medium), :alt => " ", :class => "img-responsive"), noticia_url(@noticia) %></p>
-      <!--<p><%#= image_tag @noticia.image.url(:medium), :alt => " ", :class => "img-responsive" %></p>-->
+      <%= link_to image_tag(@noticia.image.url(:medium), :alt => " ", :class => "img-responsive"), noticia_url(@noticia) %>
       <h3 class="veinticinco"><%= link_to @noticia.title, noticia_url(@noticia) %></h3>
-      <%= truncate_html(markdown(@noticia.body).html_safe, length: 200) %><%= link_to "+ ...", noticia_url(@noticia) %>
-      <%#= truncate_html(markdown(@noticia.body).html_safe, length: 200, omission: " +... #{link_to(noticia_url(@noticia))}") %>
+      <div class="cuerpazo"><%= truncate_html(markdown(@noticia.body).html_safe, length: 200, omission: ' ... ') %>
+      <span id="masinfo"><%= link_to "+ ...", noticia_url(@noticia) %></span></div>
     <% end %>
 
   </div>
@@ -48,11 +47,10 @@
   <div class="col-md-4 col-sm-4 col-xs-12">
     <!-- Una idea -->
     <% if @idea %>
-      <p><%= link_to image_tag(@idea.image.url(:medium), :alt => " ", :class => "img-responsive"), idea_url(@idea) %></p>
-      <!--<p><%#= image_tag @idea.image.url(:medium), :alt => " ", :class => "img-responsive" %></p>-->
+      <%= link_to image_tag(@idea.image.url(:medium), :alt => " ", :class => "img-responsive"), idea_url(@idea) %>
       <h3 class="veinticinco"><%= link_to @idea.title, idea_url(@idea) %></h3>
-      <!--<p><%#= truncate_html(markdown(@idea.body).html_safe, length: 200) %><span><%= link_to "+ ...", idea_url(@idea) %></span></p>-->
-      <p><%= truncate_html(markdown(@idea.introduction).html_safe, length: 200) if @idea.introduction %><span><%= link_to "+ ...", idea_url(@idea) %></span></p>
+      <div class="cuerpazo"><%= truncate_html(markdown(@idea.introduction).html_safe, length: 200, omission: ' ... ') if @idea.introduction %>
+      <span id="masinfo"><%= link_to "+ ...", idea_url(@idea) %></span></div>
 
     <% end %>
   </div>
