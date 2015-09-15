@@ -581,7 +581,6 @@ h2.funciona
     opacity: 1
     color: $c-azul
 
-
 /**
  * Login y contacto
 #contactblock,
@@ -660,9 +659,6 @@ h2.funciona
     color: $c-verde
     border: 1px solid $c-verde
 
-#comentarios
-  width: 100%
-
 #contactblock 
   .error_messages
     background: #FFF
@@ -673,6 +669,13 @@ h2.funciona
   #contact_message
     width: 100%
     color: $c-azul
+
+input#delete_multiple_button
+  width: auto
+  @include btn-rojo
+
+input#delete_multiple_button:hover
+  @include btn-rojo-hover
 
 /**
  * Profile y mensajes
@@ -711,6 +714,28 @@ h2.funciona
   width: 100%
   li    
     display: inherit
+#profile 
+  .ad_excerpt
+    fieldset
+      margin: 0 0 1em 0
+    input
+      margin: 0 0 0.5em 0
+  .ad_excerpt:hover      
+    background: none
+
+
+#newinside form input, 
+#newinside form textarea
+  width: 100%
+
+ul#insidenav
+  li
+    display: block
+    margin: 0.2em 0
+    padding: 0.5em
+    text-transform: uppercase
+    font-weight: bold
+
 .title-listados
   @include titulosfondoazul
   font-size: 1em
@@ -719,19 +744,40 @@ table#listados
   width: 100%
   border-collapse: separate
   border-spacing: 0 1em
-  td
+  th, td
     padding: 5px
     background: #FFF
 
-#newinside form input, 
-#newinside form textarea
-  width: 100%
+#mensajescabecera
+  margin: 0 0 1em 0
+  line-height: 1em
+  h1
+    font-size: 2em
+    margin-bottom: 1em
 
-
-ul#insidebar
-  li
-    display: block
-
+#listamensajes 
+  img
+    width: 60px
+    @include avatares
+  .bg-bubble-me
+    background: #FFF
+    -webkit-border-radius: 15px
+    -moz-border-radius: 15px
+    border-radius: 15px
+.triangle-me
+  position: absolute
+  background: image-url("pico-white-left.png") no-repeat 0 0
+  height: 10px
+  top: 40px
+  left: -11px
+  width: 12px
+.triangle-other
+  position: absolute
+  background: image-url("pico-white-right.png") no-repeat 0 0
+  height: 10px
+  top: 40px
+  right: -11px
+  width: 12px
 
 /**
  * Faqs
@@ -741,6 +787,7 @@ ul#insidebar
 /**
  * Comentarios
 #comentarios
+  width: 100%
   border: 1px dashed #FFF
   height: auto
   padding: 1em
@@ -753,6 +800,7 @@ ul#insidebar
   float: left
   font-size: 1em
   background: #FFF
+  margin: 0 0 0.5em 0
   width: 100% !important
   span
     clear: left
@@ -937,25 +985,6 @@ ul#insidebar
   font-size: 0.9em
   position: relative
   margin-left: 120px
-
-.triangle-me
-  position: absolute
-  background: image-url("pico-green-left.png") no-repeat 0 0
-  height: 10px
-  top: 40px
-  left: -11px
-  width: 12px
-
-.triangle-other
-  position: absolute
-  background: image-url("pico-white-right.png") no-repeat 0 0
-  height: 10px
-  top: 40px
-  right: -11px
-  width: 12px
-
-.bg-bubble-me
-  background: #CCF8A7
 
 .bubble
   min-height: 23px

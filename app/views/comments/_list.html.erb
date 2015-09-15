@@ -1,6 +1,9 @@
 <div class="ad_comments">
-  <p class="mayusc"><%= t('nlt.comments.title') %></p>
-  <%#= t('nlt.comments_count') %>
+
+  <% if comments.count > 0 %>
+    <p class="mayusc"><%= comments.count %> comentario(s)</p>
+    <%#= t('nlt.comments_count') %><%#= t('nlt.comments.title') %>
+  <% end %>
 
   <% comments.each do |comment| %>
     <% if comment.user %>

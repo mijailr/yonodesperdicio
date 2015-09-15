@@ -1,7 +1,8 @@
 <div class="message-excerpt">
   <div class="message-from-left">
     <%= link_to profile_path(current_user) do  %>
-      <%= image_tag "contact.png" %>
+      <%#= image_tag "contact.png" %>
+      <%= image_tag current_user.image.url(:thumb), :alt => "", :class => "img-responsive, avatar" %>
       <%= current_user.username  %>
     <% end %>
   </div>
@@ -15,7 +16,7 @@
           <p class="description">
             <%= t 'mailboxer.new.body_max' %>
           </p>
-          <%= f.submit t('mailboxer.new.button') %>
+          <div class="actions"><%= f.submit t('mailboxer.new.button') %></div>
         <% end %>
       </div>
     </div>

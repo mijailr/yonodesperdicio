@@ -46,8 +46,8 @@
 
 <div id="ofertas" class="col-md-9 col-sm-9 col-xs-12">
 
-  <h1 class="title-listados">Anuncios de <%= @user.username %></h1>
-  <table id="listados">
+  <p class="title-listados">Anuncios de <%= @user.username %></p>
+  <table id="listados" class="table table-responsive">
     <tr>
       <% if @user.ads.count > 0 %>  
         <% @user.ads.each do |anuncios| %>
@@ -59,19 +59,19 @@
     </tr>
   </table>
 
-  <h1 class="title-listados">Ideas de <%= @user.username %></h1>
-  <table id="listados">
+  <p class="title-listados">Ideas de <%= @user.username %></p>
+  <table id="listados" class="table table-responsive">
     <% @user.ideas.each do |idea| %>
     <tr>
       <td><%= link_to image_tag(idea.image.url(:thumb), :alt => " ", :class => "img-responsive"), idea_url(idea) %></td>
       <td>
         <p><%= link_to idea.title, idea_url(idea) %></p>
-        <p><%= idea.introduction %></p>
+        <p><%= truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... ') %></p>
       </td>
       <td><% if user_signed_in? and @user.id == current_user.id %>
-        <p><%= link_to 'Preview', my_idea_path(idea) %></p>
-        <p><%= link_to 'Edit', edit_my_idea_path(idea) %></p>
-        <p><%= link_to 'Destroy', my_idea_path(idea), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to 'Ver', my_idea_path(idea) %></p>
+        <p><%= link_to 'Editar', edit_my_idea_path(idea) %></p>
+        <p><%= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>
       </td>  
       <% end %>
     </tr>

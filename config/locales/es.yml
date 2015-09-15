@@ -303,9 +303,9 @@ es:
   mailboxer:
     buttons:
       back: "< volver a mensajes"
-      trash: Mover mensaje a papelera
+      trash: Mover conversación a la papelera
       trash_selected: Borrar mensajes seleccionados
-      untrash: Recuperar mensaje de papelera
+      untrash: Recuperar conversación de la papelera
     message_mailer:
       subject_new: "[Yonodesperdicio.org] Nuevo mensaje: %{subject}"
       subject_reply: "[Yonodesperdicio.org] Nueva respuesta: %{subject}"
@@ -343,7 +343,7 @@ es:
       subject: Asunto
       none: No tienes mensajes de este tipo
     titles:
-      conversation: Conversación con %{recipient} asunto %{subject}
+      conversation: "Conversación con %{recipient} | Asunto: %{subject}"
       index: Mensajes de %{username}
   mailer:
     confirmation_reminder:
@@ -363,7 +363,7 @@ es:
     want_to_leave: "¿Quieres borrar tu usuario?"
     update: Guardar
     readed_count: "%{count} lecturas"
-    comments_count:
+    comments_count: 
       zero: " "
       one: ", %{count} comentario"
       other: ", %{count} comentarios"

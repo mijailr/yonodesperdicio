@@ -1,13 +1,7 @@
 <!-- TODO: can an user edit or view messages from another user? -->
 <ul id="tabnav">
-  <li>
-    <%= link_to_unless_current t('nlt.messages_tabs.inbox'), ( mailboxer_messages_path(box: 'inbox') || mailboxer_messages_path )  %>
-  </li>
-  <li>
-    <%= link_to_unless_current t('nlt.messages_tabs.sent'), mailboxer_messages_path(box: 'sent') %>
-  </li>
-  <li>
-    <%= link_to_unless_current t('nlt.messages_tabs.trash'), mailboxer_messages_path(box: 'trash')  %>
-  </li>
+  <li><%= link_to_unless_current t('nlt.messages_tabs.inbox'), ( mailboxer_messages_path(box: 'inbox') || mailboxer_messages_path )  %></li>
+  <li><%= link_to_unless_current t('nlt.messages_tabs.sent'), mailboxer_messages_path(box: 'sent') %></li>
+  <li><%= link_to_unless_current t('nlt.messages_tabs.trash'), mailboxer_messages_path(box: 'trash')  %></li>
 </ul>
 <%#= # form_tag search_mailboxer_messages_path do %input{ type: 'search', placeholder: t('nlt.search'), name: 'search' } %>

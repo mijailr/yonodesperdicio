@@ -1,8 +1,7 @@
 <% content_for :meta_title, "#{t('nlt.published_ads')} - #{@user.username}" %>
 
 <div class="col-md-1 col-sm-1 col-xs-12">
-  REVISAR
-  Current user: <%= render partial: "users/tabnav", locals: {user: current_user} %> 
+  <%= render partial: "users/tabnav", locals: {user: current_user} %> 
 </div>
 
 <div id="inside" class="col-md-11 col-sm-11 col-xs-12">
