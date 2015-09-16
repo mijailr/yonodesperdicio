@@ -203,8 +203,10 @@ form.searchbox
 #comida-dcha div img
   width: 80%
   float: right
+#comida-izda,
+#comida-dcha  
   @media all and (max-width: $break-medium)
-    visibility: hidden
+    display: none
 
 #menu-cabecera
   font-family: $font-gorda
@@ -382,11 +384,6 @@ img#logo
 .homeabajo
 .homemedio
   clear: both
-.homearriba
-.homemedio
-  @media all and (max-width: $break-small)
-    img
-      display: none
 .homearriba div img
   height: auto
 .homemedio 
@@ -395,7 +392,10 @@ img#logo
   padding: 0
   text-align: center
   #contador
+    float: left
+    width: 30%
     font-family: $font-titulo
+    text-align: center
     font-size: 6em
     color: $c-verde
     -ms-transform: skewX(40deg) /* IE 9 */
@@ -408,9 +408,20 @@ img#logo
     @media all and (max-width: $break-small)
       font-size: 2em
   #contador-texto
+    float: left
+    font-size: 1.5em
     @include texto-rojo
     padding: 5% 0 3% 3%
     text-align: left
+    @media all and (max-width: $break-medium)
+      padding: 2% 0 2% 0
+      width: 60%
+      font-size: 1em
+.homemedio img
+  @media all and (max-width: $break-small)
+    display: none
+  @media all and (max-width: $break-medium) 
+    width: 50%   
 .homearriba h3
   @include titulos-home
 .homeabajo h3
