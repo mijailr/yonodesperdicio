@@ -37,7 +37,7 @@ a
     border-bottom: solid
     border-width: 3px
 
-h1, h2
+h2
   @include titulos
 h1#title
   @include titulosotros
@@ -47,7 +47,7 @@ h2
   line-height: 1.2em
   padding-left: 0px
   font-size: 3em
-h2.titulospeque
+h3.titulospeque
   font-family: $font-gorda
   color: $c-azul
   font-size: 1.2em  
@@ -373,6 +373,8 @@ img#logo
     float: left
     text-align: center
     border-right: 1px solid #FFF
+  li.last  
+    border-right: none
 .links-left
   background: $c-azul
   li
@@ -522,8 +524,10 @@ img#logo
   @include introducciones
   text-align: center
 
-h2.funciona
-  @include titulosotros
+h1.funciona
+  font-family: $font-gorda
+  color: $c-rojo
+  margin: 0 0 0.3em 0
   text-align: center
   text-transform: uppercase
   margin: 1em 0

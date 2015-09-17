@@ -2,7 +2,7 @@
 <% content_for (:meta_title) {@funciona.title} %>
 
 <div class="row">
-  <h2 class="funciona"><%= @funciona.title %></h2>
+  <h1 class="funciona"><%= @funciona.title %></h1>
   <div class="funcionatexto row">
     <%= markdown(@funciona.body).html_safe %>
   </div><!-- /main -->

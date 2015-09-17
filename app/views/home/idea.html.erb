@@ -22,13 +22,13 @@
 
 
 <% if @idea.ingredients.presence %>
-    <h2 class="titulospeque">¿Qué necesitas?</h2>
+    <h3 class="titulospeque">¿Qué necesitas?</h3>
     <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe if @idea.ingredients %></div>
   <% else %>
 
 <% end %>
 
-    <h2 class="titulospeque">¿Cómo se hace?</h2>
+    <h3 class="titulospeque">¿Cómo se hace?</h3>
     <div class="como"><%= markdown(@idea.body).html_safe %></div>
     <p><i class="fa fa-arrow-left"></i><%= link_to ' VOLVER' , ideas_path %></p>
 
