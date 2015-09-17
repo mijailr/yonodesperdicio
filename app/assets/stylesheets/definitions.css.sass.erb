@@ -5,6 +5,10 @@
   src: asset-url('SchussHandITC_Bold.ttf')  format('truetype')
   font-weight: normal
 @font-face
+  font-family: 'JustAnotherHand'
+  src: asset-url('JustAnotherHand.ttf')  format('truetype')
+  font-weight: bold  
+@font-face
   font-family: 'OpenSans-Regular'
   src: asset-url('OpenSans-Regular.ttf') format('truetype')
   font-weight: 400
@@ -19,7 +23,7 @@
 
 $font-general: 'OpenSans-Regular', sans-serif
 $font-gorda: 'OpenSans-Semibold', sans-serif
-$font-titulo: 'Schuss'
+$font-titulo: 'JustAnotherHand'
 $c-texto: #012b5a
 $c-azul: #005cb8
 $c-verde: #6abf4a
@@ -29,18 +33,25 @@ $b-rayas: 2.5px dashed #FFF
 
 @mixin titulos
   font-family: $font-titulo
+  letter-spacing: 1px
   font-size: 3em
   color: $c-verde
   margin-bottom: 0
+  -ms-transform: skewX(170deg) /* IE 9 */
+  -webkit-transform: skewX(170deg) /* Safari */
+  -moz-transform: skewX(170deg)
+  transform: skewX(170deg)
 @mixin titulos-home
   font-family: $font-titulo
+  letter-spacing: 2px
   font-size: 40px
   clear: both
   margin: 0
-  -ms-transform: skewX(40deg) /* IE 9 */
-  -webkit-transform: skewX(20deg) /* Safari */
-  -moz-transform: skewX(20deg)
-  transform: skewX(20deg)
+  -ms-transform: skewX(170deg) /* IE 9 */
+  -webkit-transform: skewX(170deg) /* Safari */
+  -moz-transform: skewX(170deg)
+  transform: skewX(170deg)
+  text-shadow: -1px 0 $c-azul, 0 1px $c-azul, 1px 0 $c-azul, 0 -1px $c-azul
   a
     color: $c-azul
 @mixin titulosotros
@@ -102,7 +113,7 @@ $b-rayas: 2.5px dashed #FFF
 
 $break-small: 320px
 $break-medium: 800px
-$break-large: 1200px
+$break-large: 1180px
 
     
 /**** Fin Definiciones, que iran en una hoja aparte ****/

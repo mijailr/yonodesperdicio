@@ -24,14 +24,15 @@
   <div class="col-md-8 col-xs-9">
     <div class="site-name">
       <%= link_to root_path, :title => "yonodesperdicio.org home", "data-no-turbolink" => true do %>
-        <h1>yonodesperdicio</h1>
+      <%= image_tag "propias/cabecera-yonodesperdicio-B.png", :title => "Yonodesperdicio", :alt => "Yonodesperdicio", :id => "img-cabecera", :class => "img-responsive" %>
+        <!--<h1>yonodesperdicio</h1>-->
         <%=h yield(:title) %>
       <% end %>
     </div>
 
-    <div class="site-slogan">
-      <h2><%= t('nlt.slogan') %></h2>
-    </div>
+    <!--<div class="site-slogan">
+      <h2><%#= t('nlt.slogan') %></h2>
+    </div>-->
   </div>
 
   <div class="col-md-2 col-xs-1">
