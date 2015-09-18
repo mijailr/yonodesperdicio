@@ -10,8 +10,15 @@ apoyar a aquellas personas que no tienen garantizado el derecho a una alimentaci
 Hasta que todas las personas puedan tener acceso a una alimentación digna y suficiente, de forma autónoma y sostenible, podemos echar una mano.</p>
   </div><!-- col -->
     <div class="col-md-4 enrojo">
-    <p>Busca aquí las organizaciones más cercanas, indicándonos el código postal que te interesa.<br />
-    [CÓDIGO POSTAL]</p>
+    <p>Busca aquí las organizaciones más cercanas, indicándonos el código postal que te interesa.<br /></p>
+      <div id="buscadororg">
+        <%= form_tag organizations_path, :method => :get do %>
+            <%= text_field_tag :search, params[:search], :placeholder => "Código Postal" %>
+            <%= button_tag(type: "submit", class: " ") do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <% end %>
+        <% end %>
+      </div><!--buscador-->
   </div><!-- col -->
 
 </div><!-- /row -->
@@ -29,7 +36,6 @@ Hasta que todas las personas puedan tener acceso a una alimentación digna y suf
 </div><!-- /row -->
 
 <center><%= image_tag "propias/Bodegon.png", :alt => "Imagen bodegón'", :id => "bodegon", :class => "img-responsive" %></center>
-
 
     
 

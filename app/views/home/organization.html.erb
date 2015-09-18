@@ -10,7 +10,7 @@
     <p><%= markdown(@organization.phone).html_safe %></p>
     <p><%= markdown(@organization.email).html_safe %></p>
     <p><%= markdown(@organization.website).html_safe %></p>
-    <p><%= '[Estrellitas]' %></p>
+    <p><%#= '[Estrellitas]' %></p>
   </div><!-- col-4 -->
 
   <div class="col-md-4">
@@ -18,7 +18,7 @@
   </div><!-- col-4 -->
 
   <div class="col-md-4">
-    [mapa en vez de la imagen]
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@organization.address}", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
   </div><!-- col-4 -->
 
 </div><!-- /fondoblanco -->
