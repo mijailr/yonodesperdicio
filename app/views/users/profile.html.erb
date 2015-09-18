@@ -41,19 +41,21 @@
 
   <% if user_signed_in? and @user.id == current_user.id %>
     <div class="btn btn-rojo"><%= link_to 'Nueva idea', new_my_idea_path %></div>
+    <div class="btn btn-rojo">Comparte alimentos<%#= link_to "+ #{t('nlt.to_publish_ad')}", @user.new_ad_path(type: type_n) %></div>
   <% end %>
+
   </div><!-- /profile-block --> 
 
 
 
 <div id="ofertas" class="col-md-9 col-sm-9 col-xs-12">
 
-  <p class="title-listados">Anuncios de <%= @user.username %></p>
+  <p class="title-listados">Alimentos compartidos de <%= @user.username %></p>
   <table id="listados" class="table table-responsive">
     <tr>
       <% if @user.ads.count > 0 %>  
-        <% @user.ads.each do |anuncios| %>
-          <td><%= ad.title %></td>
+        <% @user.ads.each do |anuncio| %>
+          <td><%= link_to anuncio.title, ad_url(anuncio) %></td>
         <% end %>
       <% else %>  
         <p> <%= t("nlt.no_results.on_user") %> </p>
