@@ -4,7 +4,7 @@
 <div class="row fondoblanco">
   
   <div class="col-md-4">
-    <h1 id="title"><%= @organization.name %></h1>
+    <h3 id="title"><%= @organization.name %></h3>
     <p><%= markdown(@organization.address).html_safe %></p>
     <p><%= markdown(@organization.zipcode).html_safe %></p>
     <p><%= markdown(@organization.phone).html_safe %></p>
@@ -14,11 +14,11 @@
   </div><!-- col-4 -->
 
   <div class="col-md-4">
-    <p><%= truncate_html(markdown(@organization.description).html_safe, length: 200, omission: ' +...') %></p>
+    <p><%= truncate_html(markdown(@organization.description).html_safe, length: 800, omission: ' +...') %></p>
   </div><!-- col-4 -->
 
   <div class="col-md-4">
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@organization.address}", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x200&sensor=false&zoom=16&markers=#{@organization.address}", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
   </div><!-- col-4 -->
 
 </div><!-- /fondoblanco -->
