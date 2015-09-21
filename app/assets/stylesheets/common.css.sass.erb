@@ -229,24 +229,31 @@ form.searchbox
     display: inline
     padding: 0.7em
     float: left
-    text-align: center
-  li#login
-    border-left: 1px solid #FFF
-    border-right: 1px solid #FFF  
+    text-align: left
   li#rrss
     padding: 0.2em
     img
       padding-bottom: 0
+  li#comofunciona
+    text-align: right      
+  li#login
+    border-left: 1px solid #FFF
+    border-right: 1px solid #FFF  
   li#buscador 
-    .form-control
-      width: 150px
+    input#search
+      width: 100px
+      padding: 1px
   .glyphicon-search
     background: $c-verde
     padding: 3px
 
 .user_login_box
   display: inline
-  float: right
+  float: left !important
+  right: 0 !important
+  top: 0 !important
+  a img
+    padding: 0
 
 img#logo
   float: left
@@ -777,6 +784,23 @@ input#delete_multiple_button:hover
 #newinside form textarea
   width: 100%
 
+#newinside
+  background: $c-azul
+  padding: 1em
+  color: #FFF
+  a
+    color: #FFF
+  select
+    color: $c-azul
+  #comments_enabled-label,    
+  input[type="checkbox"]
+    width: auto
+    float: left
+  #captcha-input-label
+    clear: both
+  .actions
+    width: 10em  
+
 ul#insidenav
   li
     display: block
@@ -787,7 +811,7 @@ ul#insidenav
 
 .title-listados
   @include titulosfondoazul
-  font-size: 1em
+  font-size: 1.2em
   padding: 6px
 table#listados
   width: 100%

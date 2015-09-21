@@ -41,7 +41,10 @@
 
   <% if user_signed_in? and @user.id == current_user.id %>
     <div class="btn btn-rojo"><%= link_to 'Nueva idea', new_my_idea_path %></div>
-    <div class="btn btn-rojo">Comparte alimentos<%#= link_to "+ #{t('nlt.to_publish_ad')}", @user.new_ad_path(type: type_n) %></div>
+    <div class="btn btn-rojo">
+      <%#= link_to "+ #{t('nlt.to_publish_ad')}", @user.new_ad_path(type: type_n) %>
+      <%= link_to "Comparte alimentos", new_ad_path %>
+    </div>
   <% end %>
 
   </div><!-- /profile-block --> 

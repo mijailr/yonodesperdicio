@@ -1,5 +1,5 @@
 <div id="main">
-  <div class="span-16">
+  <div class="col-md-12">
     <fieldset>
       <%= form_for(@ad, :html => {:multipart => true}) do |f| %>
         <% if @ad.errors.any? %>
@@ -32,7 +32,7 @@
 
         <% if @ad.id %>
           <dt id="status-label">
-          <%= f.label :status,  t('nlt.ads.form.status'), :class => "required" %> 
+          <%= f.label :status,  t('nlt.ads.form.status'), :class => "required" %>
           </dt>
           <dd id="status-element">
           <%= f.select(:status, options_for_select([[t('nlt.available'), 1], [t('nlt.booked'), 2], [t('nlt.delivered'), 3]], selected: @ad.status))  %>
@@ -87,7 +87,7 @@
         <%= f.hidden_field :woeid_code, value: current_user.woeid %>
 
         <dd>
-          <%= f.submit t 'nlt.send' %>
+          <div class="actions"><%= f.submit t 'nlt.send' %></div>
         </dd>
 
         </dd>
