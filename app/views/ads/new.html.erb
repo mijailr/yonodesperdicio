@@ -3,7 +3,7 @@
 
 <div id="newinside" class="col-md-8 col-md-offset-2">
 
-  <h1 class="title-listados"><%= current_user.name %> - <%= t 'nlt.publish_ad' %> - <%= woeid_name[:full] %></h1>
+  <h1 class="title-listados"><%= current_user.name %> - <%= t 'nlt.publish_ad' %> - <%= woeid_name[:short] %></h1>
   <br>
   <%= link_to location_ask_path, :class => "world_link" do %>
     <%= image_tag "change_location.png", :alt => "change location" %> 

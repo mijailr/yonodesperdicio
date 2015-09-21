@@ -6,9 +6,12 @@
     <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>
     <p><%#= @idea.category %></p>
     <p>
-
-        <%= render :partial => "partials/social_buttons", :locals => { :url => idea_url(@idea), :meta_title => @idea.title, :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@idea.body.html_safe, length: 10, omission: ' +...')} %>
-
+      <%= render :partial => "partials/social_buttons", 
+                 :locals => { 
+                    :url => idea_url(@idea), 
+                    :meta_title => @idea.title, 
+                    :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'), 
+                    :text => truncate_html(@idea.body.html_safe, length: 10, omission: ' +...')} %>
     </p>
   </div><!-- /imagen -->
 
@@ -22,7 +25,7 @@
 
 
 <% if @idea.ingredients.presence %>
-    <h3 class="titulospeque">¿Qué necesitas?</h3>
+    <h3 class="titulospeque"><%= t('¿Qué se necesita?') %></h3>
     <div class="ingredientes"><%= markdown(@idea.ingredients).html_safe if @idea.ingredients %></div>
   <% else %>
 

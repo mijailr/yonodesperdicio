@@ -10,7 +10,13 @@
       <% end %>
     </p>
     <p>
-      <%= render :partial => "partials/social_buttons", :locals => { :url => noticia_url(@noticia), :meta_title => @noticia.title, :meta_description =>  truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...'), :text => truncate_html(@noticia.body.html_safe, length: 10, omission: ' +...') } %>
+      <%= render :partial => "partials/social_buttons", 
+                 :locals => { 
+                   :url => noticia_url(@noticia), 
+                   :meta_title => "#{@noticia.title}", 
+                   :meta_description =>  truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...'), 
+                   :text => truncate_html(@noticia.body.html_safe, length: 10, omission: ' +...') } %>
+
     </p>
   </div><!-- /imagen -->
 

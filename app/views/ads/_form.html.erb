@@ -60,7 +60,11 @@
         <%= f.label :body,  t('nlt.ads.form.body'), :class => "required" %> 
         </dt>
         <dd id="body-element">
-        <%= f.text_area :body, :rows => 24, :cols => 80, :required => true, :maxlength => 500 %>
+          <% if @ad.body %>
+            <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %><%= @ad.body %>
+          <% else %>
+            <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %>
+          <% end %>
         <p class="description">
         <%= t 'nlt.ads.form.body_max' %>
         </p>

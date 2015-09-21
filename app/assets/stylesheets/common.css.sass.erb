@@ -521,6 +521,14 @@ img#logo
   background: #f0efef
   padding: 1em 0
   margin: 1em 0
+  .meta_info
+    span
+      float: left
+      margin: 0 0.5em
+      width: auto
+    #social-buttons
+      width: 15em
+
 
 .introduccion
   @include introducciones
@@ -696,7 +704,23 @@ h1.funciona
   border: 1px solid $c-azul
   opacity: 1
 
+.submit
+  height: auto
+  clear: both
+  font-weight: bold
+  padding: 6px 12px
+  margin: 1em 0 0 0
+  background: $c-verde
+  color: #FFF
+  width: auto
+  border: 1px solid #FFF
+.submit:hover
+  background: #FFF
+  color: $c-verde
+  border: 1px solid $c-verde
+
 .actions
+  margin: 0.5em 0
   input[type="submit"]
     background: $c-verde
     color: #FFF
@@ -799,7 +823,7 @@ input#delete_multiple_button:hover
   #captcha-input-label
     clear: both
   .actions
-    width: 10em  
+    width: 8em  
 
 ul#insidenav
   li
