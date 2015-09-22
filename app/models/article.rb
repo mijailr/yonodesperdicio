@@ -12,9 +12,10 @@ class Article < ActiveRecord::Base
 
   has_attached_file :image, 
                      styles: {thumb: "100x100>", 
-                              medium: "400x230#", 
-                              large: "600x400>"}, 
-                     :default_url => "propias/news_:style.png"
+                              medium: "400x225#", 
+                              fourthree: "400x300#",
+                              large: "600x337.5>"}, 
+                     :default_url => "propias/d_news_:style.png"
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 

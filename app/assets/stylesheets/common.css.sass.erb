@@ -39,7 +39,7 @@ a
 
 h2
   @include titulos
-h1#title
+h1, h1#title
   @include titulosotros
 h1.titulorojo
   @include titulosrojos
@@ -52,14 +52,16 @@ h3.titulospeque
   color: $c-azul
   font-size: 1.2em  
   text-transform: uppercase
-  padding: 0 0 0.5em 0
+  padding: 1em 0 0.5em 0
 h3
   @include titulosotros
   font-size: 28px
 h3.veinticinco
-  font-size: 25px
+  font-size: 22px
   margin-top: 0
-
+  span
+    font-size: 0.7em
+    color: $c-azul
 ul
   list-style-type: none
   margin: 0
@@ -76,16 +78,6 @@ p.mayusc
 
 form textarea
   resize: both
-
-.btn-primary
-  background: $c-azul
-  a
-    color: #FFF
-.btn-rojo
-  @include btn-rojo
-
-.btn-rojo:hover
-  @include btn-rojo-hover  
 
 .enrojo
   @include texto-rojo
@@ -122,7 +114,6 @@ form input[type="submit"], form input[type="button"], form button,
   border-radius: 0
   text-transform: uppercase
   border: none
-
 
 a.btn-default
   background: none
@@ -176,17 +167,7 @@ form.searchbox
   text-align: left
   li
     list-style-type: disc
-    margin-left: 2em
-
-#footer
-  float: left
-  clear: both
-  line-height: 1.33em
-  margin: 0 auto
-  padding-top: 20px
-  border-top: 1px solid #ddd
-  background-color: #F2F2F2
-  width: 100%
+    margin-left: 1em
 
 #sidebar-right
   position: relative  
@@ -344,21 +325,28 @@ img#logo
 /**
  ** Footer
  **
-#footer 
+#footer
+  float: left
+  clear: both
+  line-height: 1.33em
+  margin: 0 auto
+  padding-top: 20px
+  border-top: 1px solid #ddd
+  background-color: #F2F2F2
+  width: 100%
   h2
     color: $c-verde
     margin-top: 0
   #siguenos
-    text-align: center
     h2.enlinea
       float: left
-      margin: 0px 10px 0 0
     #rrss
       float: left
-      margin: 0
+      margin: 5px 0 0 0
       padding: 0
     #logos
       float: left
+      padding: 0
 
 #footertwo
   margin: 0 auto
@@ -402,8 +390,22 @@ img#logo
 .homeabajo
 .homemedio
   clear: both
+.homearriba div,
+.homeabajo div
+  padding: 20px 20px 20px 0 
+  text-align: center
+.homearriba div p,
+.homeabajo div p
+  font-family: $font-gorda
+  text-align: left  
 .homearriba div img
   height: auto
+.homearriba h3
+  @include titulos-home
+.homearriba div p
+  font-family: $font-gorda
+  font-size: 15px
+  line-height: 20px  
 .homemedio 
   @include rayas
   margin: 1em 0
@@ -411,51 +413,41 @@ img#logo
   text-align: center
   #contador
     float: left
-    width: 30%
+    line-height: 1em
+    padding: 0.6em 0 0.4em 0
     font-family: $font-titulo
     text-align: center
     font-size: 6em
     color: $c-verde
-    -ms-transform: skewX(40deg) /* IE 9 */
-    -webkit-transform: skewX(160deg) /* Safari */
-    -moz-transform: skewX(160deg)
-    transform: skewX(160deg)
-    padding: 1em 0
+    -ms-transform: skewX(-5deg) /* IE 9 */
+    -webkit-transform: skewX(-5deg) /* Safari */
+    -moz-transform: skewX(-5deg)
+    transform: skewX(-5deg)
     @media all and (max-width: $break-medium)
       font-size: 2.5em
     @media all and (max-width: $break-small)
       font-size: 2em
   #contador-texto
     float: left
-    font-size: 1.5em
+    line-height: 1em
+    padding: 2.5em 0
     @include texto-rojo
-    padding: 5% 0 3% 3%
     text-align: left
+    font-size: 1.5em
     @media all and (max-width: $break-medium)
       padding: 2% 0 2% 0
       width: 60%
       font-size: 1em
-.homemedio img
-  @media all and (max-width: $break-small)
-    display: none
-  @media all and (max-width: $break-medium) 
-    width: 50%   
-.homearriba h3
-  @include titulos-home
+  div
+    padding: 0
+  img
+    padding: 0
+    @media all and (max-width: $break-small)
+      display: none
+    @media all and (max-width: $break-medium) 
+      width: 50%   
 .homeabajo h3
   text-align: left  
-.homearriba div,
-.homeabajo div
-  padding: 20px
-  text-align: center
-.homearriba div p,
-.homeabajo div p
-  font-family: $font-gorda
-  text-align: left
-.homearriba div p
-  font-family: $font-gorda
-  font-size: 15px
-  line-height: 20px
 .homeabajo div p
   font-size: 13px
   line-height: 1.3em
@@ -464,13 +456,10 @@ img#logo
 .homeabajo div.cuerpazo
   padding: 0 
   float: left 
-  span#masinfo
-    float: left
-    text-align: left
-    display: inline
-    clear: right
-    padding: 0 0 0 0.5em
+  a
+    color: $c-texto
 #tweets
+  padding: 20px 0 20px 0
   .stream p 
     font-size: 10px !important 
 
@@ -484,11 +473,8 @@ img#logo
   p
     float: left
     width: auto
-  span#masinfo
-    float: left
-    display: inline
-    clear: right
-    padding: 0 0 0 0.5em
+  .cuerpo a
+    color: $c-texto
 
 /**
   * Recetas
@@ -503,8 +489,9 @@ img#logo
   @include introducciones
 
 .ingredientes ul 
-  padding-left: 2em
+  padding-left: 0
   li
+    margin-left: 0
     list-style-type: disc
 
 #subereceta
@@ -618,7 +605,8 @@ h1.funciona
   .g-recaptcha
     padding: 0 25%
   #new_user input[type="submit"]
-    background: $c-rojo
+    background: $c-verde
+    border: 1px solid $c-verde
     color: #FFF
     font-weight: bold
     padding: 6px 12px
@@ -626,7 +614,8 @@ h1.funciona
     width: auto
   #new_user input[type="submit"]:hover
     background: #FFF
-    color: $c-rojo
+    color: $c-verde
+    border: 1px solid $c-verde
   .insertarimagen
     border: 1px solid $c-azul
     font-weight: bold
@@ -666,11 +655,33 @@ h1.funciona
 
 /**
  * Botones
+.btn
+  -webkit-border-radius: 0
+  -moz-border-radius: 0
+  border-radius: 0 
+  background: $c-azul
+  font-size: 0.9em
+  a
+    color: #FFF
+.btn-rojo
+  @include btn-rojo
+.btn-rojo:hover
+  @include btn-rojo-hover
+.btn-verde
+  @include btn-verde
+.btn-verde:hover  
+  @include btn-verde-hover
+.btn-azul
+  @include btn-azul
+.btn-azul:hover  
+  @include btn-azul-hover
+
 #contactblock,
 #loginblock
-  .submit
+  .entrar
     input[type="submit"]
       background: $c-verde
+      border: 1px solid $c-verde
       color: #FFF
       font-weight: bold
       padding: 6px 12px
@@ -679,26 +690,26 @@ h1.funciona
     input[type="submit"]:hover
       background: #FFF
       color: $c-verde
+      border: 1px solid $c-verde
   .boton-registro
     border: 1px solid #FFF
     font-weight: bold
-    width: auto  
+    width: auto
   .boton-registro:hover
     background: #FFF
     opacity: 1
     color: $c-azul
 
-.registrate
+.login
   float: right
-.registrate a
+.login a
   font-weight: bold
   text-transform: uppercase
   padding: 6px
   width: auto
   background: $c-azul
-  border: 1px solid #FFF
   color: #FFF
-.registrate a:hover
+.login a:hover
   background: #FFF
   color: $c-azul
   border: 1px solid $c-azul
@@ -721,6 +732,7 @@ h1.funciona
 
 .actions
   margin: 0.5em 0
+  width: 10em
   input[type="submit"]
     background: $c-verde
     color: #FFF
@@ -807,6 +819,7 @@ input#delete_multiple_button:hover
 #newinside form input, 
 #newinside form textarea
   width: 100%
+  color: $c-azul
 
 #newinside
   background: $c-azul
@@ -822,8 +835,7 @@ input#delete_multiple_button:hover
     float: left
   #captcha-input-label
     clear: both
-  .actions
-    width: 8em  
+
 
 ul#insidenav
   li
@@ -885,9 +897,9 @@ table#listados
  * Comentarios
 #comentarios
   width: 100%
-  border: 1px dashed #FFF
+  border-top: 1px dashed #FFF
   height: auto
-  padding: 1em
+  padding: 1em 0
   float: left
 .ad_comments
   float: left

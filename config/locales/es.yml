@@ -57,11 +57,12 @@ es:
       comment:
         body: comentario
       idea:
-        title: Título
-        category: Tipo
-        introduction: Introducción
-        ingredients: ¿Qué se necesita?
-        body: ¿Cómo se hace?
+        title: "Título"
+        category: "Tipo"
+        introduction: "Introducción"
+        ingredients: "¿Qué se necesita?"
+        body: "¿Cómo se hace?"
+        Idea was successfully updated: "La idea ha sido actualizada con éxito"
       article:
         title: Título
       organization:
@@ -393,6 +394,13 @@ es:
         body_max: Máximo 500 caracteres
         to_publish: Para publicar tu alimento para compartir, por favor, introduce estos datos
         type_ad: 'Tipo de alimento para compartir:'
+    ideas:
+      title: "Título"
+      category: "Tipo"
+      introduction: "Introducción"
+      ingredients: "¿Qué se necesita?"
+      body: "¿Cómo se hace?"
+      Idea was successfully updated: "La idea ha sido actualizada con éxito"
     all: todos
     all_ads: todos los alimentos para compartir
     and: y

@@ -15,8 +15,9 @@
       <div class="col-md-8 col-sm-6 col-xs-12">
           <h3 class="veinticinco"><%= link_to noticia.title, noticia_url(noticia) %></h3>
           <div><%= noticia.published_at.strftime("%d/%m/%Y") %></div>
-          <div><%= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' ... ') %>
-          <span id="masinfo"><%= link_to "+ ...", noticia_url(noticia) %></span></div>
+          <div class="cuerpo">
+            <%= link_to truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' ... '), noticia_url(noticia) %>
+          </div>
           <%#= truncate_html(markdown(noticia.body).html_safe, length: 340, omission: ' +...') %>
           <!--<p>[tags con link a las tags]</p>--> 
       </div>

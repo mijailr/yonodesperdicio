@@ -2,7 +2,7 @@
   <h4>Iniciativas destacadas</h4>
   <ul>
   <% @iniciativas_destacadas.each do |iniciativa| %>
-    <li><%= link_to iniciativa.title, iniciativa_url(iniciativa) %></li>
+    <p><%= link_to iniciativa.title, iniciativa_url(iniciativa) %></p>
   <% end %>        
   </ul>
 

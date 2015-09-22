@@ -35,7 +35,11 @@ class Ad < ActiveRecord::Base
   acts_as_paranoid
 
   has_attached_file :image,
-    styles: {thumb: "100x90>"},
+    styles: {thumb: "100x100>",
+            mediumad: "300x225#", 
+            fourthree: "400x300#",
+            large: "600x337.5>"}, 
+    :default_url => "propias/d_ads_:style.png",
     process_in_background: :image
 
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }

@@ -7,7 +7,7 @@
 <div class="row fondoblanco">
   <div class="col-md-4 col-sm-4 col-xs-12">
     <% if @ad.image.exists? %>
-      <%= link_to image_tag(@ad.image.url(:thumb), :alt => @ad.title), @ad.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large') %>
+      <%= link_to image_tag(@ad.image.url(:mediumad), :alt => @ad.title, :class => "img-responsive"), @ad.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large') %>
     <% end %>
   </div><!--/col-->
 

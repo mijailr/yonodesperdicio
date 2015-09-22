@@ -2,7 +2,7 @@
   <h4>Noticias destacadas</h4>
   <ul>
   <% @noticias_destacadas.each do |noticia| %>
-    <li><%= link_to noticia.title, noticia_url(noticia) %></li>
+    <p><%= link_to noticia.title, noticia_url(noticia) %></p>
   <% end %>        
   </ul>
 

@@ -14,8 +14,9 @@
         <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
         <div><%= idea.published_at.strftime("%d/%m/%Y") %>
         <span> | Por: <%= link_to idea.user, profile_path(idea.user) %></span></div>
-        <div><%= truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... ') %>
-        <span id="masinfo"><%= link_to "+ ...", idea_url(idea) %></span></div>
+        <div class="cuerpo">
+         <%= link_to truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... '), idea_url(idea) %>
+        </div>
       </div><!--/col-md-4-->
 
     <% end %>

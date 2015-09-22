@@ -35,10 +35,6 @@
       </div><!-- /abajo -->
     </div><!-- /profile-body -->
 
-    <div id="profile-menu">
-      <%= render partial: "users/tabnav", locals: {user: @user} %> 
-    </div><!-- /profile-menu -->
-
   <% if user_signed_in? and @user.id == current_user.id %>
     <div class="btn btn-rojo"><%= link_to 'Nueva idea', new_my_idea_path %></div>
     <div class="btn btn-rojo">
@@ -47,6 +43,19 @@
     </div>
   <% end %>
 
+    <div id="profile-menu">
+      <%#= render partial: "users/tabnav", locals: {user: @user} %> 
+      <% if user_signed_in? %>
+        <div class="btn btn-azul">
+          <%#= link_to_unless_current t('nlt.messages'), messages_list_path %>  
+          <% unread_messages_count = current_user.unread_messages_count %>
+          <%= link_to messages_list_path, title: "#{unread_messages_count}" do %>
+            Tienes <%= unread_messages_count %> mensaje(s) sin leer
+          <% end %>
+        </div>
+          <%= link_to t('nlt.logout'), destroy_user_session_path, :method => :delete, :class => "btn btn-azul" %>
+        <% end %>
+    </div><!-- /profile-menu -->
   </div><!-- /profile-block --> 
 
 
@@ -76,9 +85,9 @@
         <p><%= truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... ') %></p>
       </td>
       <td><% if user_signed_in? and @user.id == current_user.id %>
-        <p><%= link_to 'Ver', my_idea_path(idea) %></p>
-        <p><%= link_to 'Editar', edit_my_idea_path(idea) %></p>
-        <p><%= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>
+        <p class="btn btn-azul"><%= link_to 'Ver', my_idea_path(idea) %></p>
+        <p class="btn btn-verde"><%= link_to 'Editar', edit_my_idea_path(idea) %></p>
+        <p class="btn btn-rojo"><%= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>
       </td>  
       <% end %>
     </tr>

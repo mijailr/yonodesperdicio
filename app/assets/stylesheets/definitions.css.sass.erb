@@ -56,9 +56,9 @@ $b-rayas: 2.5px dashed #FFF
     color: $c-azul
 @mixin titulosotros
   font-family: $font-gorda
+  font-size: 30px
   color: $c-rojo
   margin: 0 0 0.3em 0
-
 @mixin titulosfondoazul
   font-family: $font-gorda
   background: $c-azul
@@ -66,7 +66,6 @@ $b-rayas: 2.5px dashed #FFF
   text-transform: uppercase
   padding: 2px 5px
   margin: 0 0 0.5em 0
-
 @mixin titulosrojos
   font-family: $font-general
   background: $c-rojo
@@ -76,6 +75,7 @@ $b-rayas: 2.5px dashed #FFF
   padding: 5px 5px
   font-weight: semibold
   margin: 0 15px 1em 15px  
+
 @mixin rayas
   border-top: $b-rayas
   border-bottom: $b-rayas
@@ -98,7 +98,6 @@ $b-rayas: 2.5px dashed #FFF
   font-weight: bold
   text-transform: uppercase
   margin: 1em 0
-  border: 1px solid #FFF
   background: $c-rojo
   color: #FFF
   a
@@ -110,6 +109,38 @@ $b-rayas: 2.5px dashed #FFF
   a
     color: $c-rojo
     opacity: 1
+@mixin btn-verde
+  font-weight: bold
+  text-transform: uppercase
+  margin: 1em 0
+  border: 1px solid #FFF
+  background: $c-verde
+  color: #FFF
+  a
+    color: #FFF
+@mixin btn-verde-hover
+  background: #FFF
+  border: 1px solid $c-verde
+  color: $c-verde
+  a
+    color: $c-verde
+    opacity: 1
+@mixin btn-azul
+  font-weight: bold
+  text-transform: uppercase
+  margin: 1em 0
+  border: 1px solid #FFF
+  background: $c-azul
+  color: #FFF
+  a
+    color: #FFF
+@mixin btn-azul-hover
+  background: #FFF
+  border: 1px solid $c-azul
+  color: $c-azul
+  a
+    color: $c-azul
+    opacity: 1    
 
 $break-small: 320px
 $break-medium: 800px

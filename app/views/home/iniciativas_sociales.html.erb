@@ -18,8 +18,9 @@
       </div>
       <div class="col-md-8 col-sm-6 col-xs-12">
           <h3 class="veinticinco"><%= link_to iniciativa.title, iniciativa_url(iniciativa) %></h3>
-          <div><%= truncate_html(markdown(iniciativa.body).html_safe, length: 340, omission: ' ... ') %>
-          <span id="masinfo"><%= link_to "+ ...", iniciativa_url(iniciativa) %></span></div>
+          <div class="cuerpo">
+            <%= link_to truncate_html(markdown(iniciativa.body).html_safe, length: 340, omission: ' ... '), iniciativa_url(iniciativa) %>
+          </div>
           <!--<p>[tags con link a las tags]</p>-->
       </div>
     </div><!-- /listado -->
