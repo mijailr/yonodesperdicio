@@ -36,6 +36,14 @@
     <%= f.text_area :body, maxlenght: 500, :rows => 10 %>
     <%= t "(Entre 30 y 500 caracteres)" %>
   </div>
+
+  <div><%= f.label :image %> <i>(Imagen)</i><br />
+    <% if @idea.image.presence %>
+      La imagen actual: <%= image_tag @idea.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %>
+    <% end %>
+    <%= f.file_field :image %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

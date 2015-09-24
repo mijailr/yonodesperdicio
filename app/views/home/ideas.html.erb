@@ -5,10 +5,10 @@
   <li><%= link_to "Trucos", ideas_url(category: 'trucos'), :class => submenu_class('trucos') %></li>
 </ul>
 
-    <div id="listado" class="row col-md-12">
+    <div id="listado" class="row">
     <% @ideas.each do |idea| %>
 
-      <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="col-md-4 col-sm-4 col-xs-12">
         <%= link_to image_tag(idea.image.url(:medium), :alt => " ", :class => "img-responsive"), idea_url(idea) %>
         <%#= image_tag idea.image.url(:medium), :alt => " ", :class => "img-responsive" %>
         <h3 class="veinticinco"><%= link_to idea.title, idea_url(idea) %></h3>
@@ -18,13 +18,20 @@
          <%= link_to truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... '), idea_url(idea) %>
         </div>
       </div><!--/col-md-4-->
+      <div class="clearfix visible-md-block visible-sm-block"></div>
 
     <% end %>
    </div><!-- /listado -->
 <%= paginate(@ideas) %>
 
 
-<div id="subereceta" class="row">
-  <span class="btn btn-rojo"><%= link_to 'Sube tu receta', new_my_idea_path %></span> (Para subir una receta es necesario estar registrado)
-  <span class="registrate"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></span>
+<div id="subereceta" class="row col-md-12 col-sm-12 col-xs-12">
+  <div class="col-md-10 col-sm-10 col-xs-10">
+    <span class="btn btn-rojo"><%= link_to 'Sube tu receta', new_my_idea_path %></span>
+    <span class="enrojo">  (Para subir una receta es necesario iniciar sesión)</span>
+  </div>
+  <div class="login col-md-2 col-sm-2 col-xs-2">
+    <%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %>
+  </div>
+
 </div><!-- /subereceta -->

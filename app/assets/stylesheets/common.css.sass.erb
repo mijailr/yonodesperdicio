@@ -468,6 +468,8 @@ img#logo
 #listado
   float: left
   margin-bottom: 1em
+  .col-md-4, .col-sm-4
+    height: 350px
   div
     margin: 0 0 0.8em  
   p
@@ -479,11 +481,13 @@ img#logo
 /**
   * Recetas
 #submenu
-  margin: 0 0 1em 0
+  margin: 0 0 1em 1em
   li
     display: inline-block
     @include titulos
     padding: 0 0.5em 0 0
+    margin: 0
+
 
 .intro  
   @include introducciones
@@ -498,9 +502,14 @@ img#logo
   clear: both
   @include rayas
   padding: 0
-  .registrate
-    font-size: 14px
-    margin: 1.5em 0
+  div
+    padding: 0
+  .enrojo
+    padding-left: 10px  
+  .login
+    margin: 1em 0
+    a
+      float: right
 
 /**
   * Organizaciones
@@ -708,6 +717,7 @@ h1.funciona
   padding: 6px
   width: auto
   background: $c-azul
+  border: 1px solid $c-azul
   color: #FFF
 .login a:hover
   background: #FFF

@@ -38,7 +38,7 @@
     <div id="comentarios">
       <p><b>COMENTAR</b>
       <% if !user_signed_in? %>
-       <b>(Para dejar un comentario es necesario estar registrado)</b>
+       <b>(Para dejar un comentario es necesario iniciar sesión)</b>
         <span class="login">
           <%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %>
         </span>
