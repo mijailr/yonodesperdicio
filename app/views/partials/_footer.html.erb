@@ -26,10 +26,10 @@
 <div id="footertwo" class="row">
   <div class="links-left col-md-9 col-sm-7 col-xs-12">
     <ul>
-      <li><%= link_to t('nlt.contact'), contact_path %></li>
-      <li><%= link_to ('Información legal'), legal_path %></li>
-      <li><%= 'Mapa del sitio' %></li>
-      <li class="last"><%= link_to t('nlt.faqs'), faqs_path %></li>
+      <li class="col-md-3 col-sm-3 col-xs-3"><%= link_to t('nlt.contact'), contact_path %></li>
+      <li class="col-md-3 col-sm-3 col-xs-3"><%= link_to ('Información legal'), legal_path %></li>
+      <li class="col-md-3 col-sm-3 col-xs-3"><%= 'Mapa del sitio' %></li>
+      <li class="last col-md-3 col-sm-3 col-xs-3"><%= link_to t('nlt.faqs'), faqs_path %></li>
       <%#= link_to t('nlt.about'), about_path %>
       <%#= link_to t('nlt.privacy'), privacy_path %>
     </ul>
@@ -37,8 +37,8 @@
 
   <div class="links-right col-md-3 col-sm-5 col-xs-12">
     <ul>
-      <li>DISEÑO: <%= link_to " Estudio blg", "http://estudioblg.com/" , { :target => "_blank" } %></li>
-      <li class="last">DESARROLLO: <%= link_to " Punto Abierto", "http://puntoabierto.net/" , { :target => "_blank" } %></li>
+      <li class="col-md-6 col-sm-6 col-xs-6">DISEÑO:<%= link_to "Estudio blg", "http://estudioblg.com/" , { :target => "_blank" } %></li>
+      <li class="last col-md-6 col-sm-6 col-xs-6">DESARROLLO:<%= link_to "Punto Abierto", "http://puntoabierto.net/" , { :target => "_blank" } %></li>
     </ul>
   </div><!--/links-right-->
 </div><!--/footertwo-->

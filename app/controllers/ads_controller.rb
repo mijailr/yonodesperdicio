@@ -13,6 +13,8 @@ class AdsController < ApplicationController
       redirect_to url
     else
       list
+      #Ana pruebas
+      #@alimentos = Ad.give.available.page(params[:page])
     end
   end
 

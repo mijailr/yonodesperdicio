@@ -4,12 +4,12 @@
 
 <div class="row">
 
-  <div class="col-md-8">
-    <p class="introduccion">En nuestra ciudad y más cerca aún, en nuestro barrio, hay numerosas iniciativas sociales que intentan
+  <div id="introduccion" class="col-md-8 col-sm-8 col-xs-12">
+    <p>En nuestra ciudad y más cerca aún, en nuestro barrio, hay numerosas iniciativas sociales que intentan
 apoyar a aquellas personas que no tienen garantizado el derecho a una alimentación básica: asociaciones, iniciativas vecinales... que facilitan comida a familias cada día. ¿Conoces dónde están?<br /><br />
 Hasta que todas las personas puedan tener acceso a una alimentación digna y suficiente, de forma autónoma y sostenible, podemos echar una mano.</p>
   </div><!-- col -->
-    <div class="col-md-4 enrojo">
+    <div id="introduccion" class="col-md-4 col-sm-4 col-xs-12 enrojo">
     <p>Busca aquí las organizaciones más cercanas, indicándonos el código postal que te interesa.<br /></p>
       <div id="buscadororg">
         <%= form_tag organizations_path, :method => :get do %>
@@ -23,13 +23,16 @@ Hasta que todas las personas puedan tener acceso a una alimentación digna y suf
 
 </div><!-- /row -->
 
-<div class="row">
+<div id="listadoorg" class="row">
   <div class="col-md-12">
-    <ol>
+
     <% @organizations.each do |organization| %>
-      <li><%= link_to organization.name, organization_url(organization) %></li>  
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <p><%= link_to organization.name, organization_url(organization) %></p>
+        <p><%= markdown(organization.address).html_safe %></p>
+        <p><%= markdown(organization.zipcode).html_safe %></p>
+      </div>  
     <% end %>
-    </ol>
 
     <%= paginate(@organizations) %>
   </div><!-- /col -->

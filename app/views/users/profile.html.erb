@@ -11,7 +11,7 @@
     <div class="profile-header">
       <span class="col-md-8 col-sm-8 col-xs-8">Perfil</span>
       <% if user_signed_in? and @user.id == current_user.id %>
-        <span class="col-md-4 col-sm-4 col-xs-4"><%= link_to 'Editar', user_edit_path(@user) %></span>
+        <span class="col-md-4 col-sm-4 col-xs-4"><%= link_to 'Editar', user_edit_path(@user, :class => "btn btn-azul") %></span>
       <% end %>
     </div><!--/profile-header-->
 

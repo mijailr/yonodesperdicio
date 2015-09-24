@@ -210,19 +210,17 @@ form.searchbox
     display: inline
     padding: 0.7em
     float: left
-    text-align: left
+    text-align: center
   li#rrss
     padding: 0.2em
     img
       padding-bottom: 0
-  li#comofunciona
-    text-align: right      
   li#login
     border-left: 1px solid #FFF
     border-right: 1px solid #FFF  
   li#buscador 
     input#search
-      width: 100px
+      width: 80%
       padding: 1px
   .glyphicon-search
     background: $c-verde
@@ -285,9 +283,9 @@ img#logo
   font-size: 18px
   text-transform: uppercase
   text-align: center
+  margin: 1em auto
   border-top: $b-rayas
   border-bottom: $b-rayas
-  margin: 1em auto
   padding: 0
   @media all and (min-width: $break-medium) and (max-width: $break-large)
     font-size: 90%
@@ -295,9 +293,7 @@ img#logo
     font-size: 80%    
   li
     display: inline-block
-    padding: 0.5em 2em 0.5em 0
-  li.nivel2
-    display: block  
+    padding: 0.5em 1em 0.5em 0
   a
     color: $c-azul
   a.active
@@ -308,19 +304,30 @@ img#logo
     border: none
   .btn-group
     vertical-align: top  
+    .caret
+      border-left: 6px solid transparent
+      border-right: 6px solid transparent
+      border-top: 6px dashed $c-azul
   .dropdown-menu
     background: $c-fondo
     text-transform: capitalize
-    font-size: 20px
+    font-size: 16px
     border: none
     box-shadow: none
     li
       padding: 0.5em 0
       width: 100%
       border-bottom: 2.5px dashed #FFF
+      display: block
+      @media all and (min-width: $break-medium) and (max-width: $break-large)
+        font-size: 90%
+      @media all and (max-width: $break-medium)
+        font-size: 80% 
       a
         display: inline-block
         vertical-align: middle
+  
+
 
 /**
  ** Footer
@@ -372,16 +379,14 @@ img#logo
     border-right: none
 .links-left
   background: $c-azul
-  li
-    width: 25%
+
 .links-right
   background: $c-verde
   font-size: 0.7em
   padding: 0.7em
-  li
-    width: 50%
-    a
-      font-weight: bold
+  a
+    font-weight: bold
+    padding-left: 0.5em
 
 /**
  * Home
@@ -476,6 +481,10 @@ img#logo
   .cuerpo a
     color: $c-texto
 
+#cuerpo
+  i.fa
+    color: $c-azul    
+
 /**
   * Recetas
 #submenu
@@ -497,7 +506,6 @@ img#logo
     width: auto
   .cuerpo a
     color: $c-texto
-
 .intro  
   @include introducciones
 
@@ -522,20 +530,8 @@ img#logo
 
 /**
   * Organizaciones
-.fondoblanco
-  background: #f0efef
-  padding: 1em 0
-  margin: 1em 0
-  .meta_info
-    span
-      float: left
-      margin: 0 0.5em
-      width: auto
-    #social-buttons
-      width: 15em
-
-
-.introduccion
+#introduccion
+  margin: 0 0 2em 0
   @include introducciones
 
 #buscadororg
@@ -553,7 +549,23 @@ img#logo
     font-size: 1.5em
     padding: 5px
     color: #FFF
+#listadoorg 
+  font-size: 15px
+#bodegon
+  margin: 2em 0 0 0 
 
+
+.fondoblanco
+  background: #f0efef
+  padding: 1em 0
+  margin: 1em 0
+  .meta_info
+    span
+      float: left
+      margin: 0 0.5em
+      width: auto
+    #social-buttons
+      width: 15em
     
 /**
   * Como funciona
@@ -586,12 +598,14 @@ h1.funciona
 
 /**
  * Alimentos
-#alimento
-  background: #FFF
-  padding: 1em
-  margin: 1em
-  p.cantidad
-    @include texto-rojo
+#gridalimentos
+  .alimento
+    background: #FFF
+    padding: 1em
+    p
+      clear: both
+    p.cantidad
+      @include texto-rojo
 
 /**
  * Registrate
@@ -782,9 +796,10 @@ input#delete_multiple_button:hover
 
 /** 
  * Profile y mensajes
+#profile h1#title 
+  padding-left: 15px
 #profile-block
   float: left
-  padding: 0
   .profile-header
     background: $c-azul
     float: left
@@ -795,7 +810,9 @@ input#delete_multiple_button:hover
     .col-md-8
       padding: 6px
     .col-md-4
+      border-left: 1px solid #FFF
       background: $c-verde
+      text-align: center
       padding: 6px
       a
         color: #FFF
@@ -875,6 +892,8 @@ table#listados
   th, td
     padding: 5px
     background: #FFF
+    width: 33%
+    vertical-align: middle
 
 #mensajescabecera
   margin: 0 0 1em 0

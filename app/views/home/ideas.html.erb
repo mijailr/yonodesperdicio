@@ -18,10 +18,9 @@
          <%= link_to truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... '), idea_url(idea) %>
         </div>
       </div><!--/col-md-4-->
-      <div class="clearfix visible-md-block visible-sm-block"></div>
 
     <% end %>
-   </div><!-- /listado -->
+   </div><!-- /gridrecetas -->
 <%= paginate(@ideas) %>
 
 

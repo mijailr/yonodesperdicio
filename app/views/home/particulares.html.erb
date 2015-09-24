@@ -3,16 +3,31 @@
 <h1 class="titulorojo">Entre particulares</h1>
 
 <div class="row">
-  <div class="col-md-8">
-    <p class="introduccion">En esta página podrás ver los alimentos que los particulares ofrezcan. Esto es sólo un ejemplo.</p><br>
+  <div id="introduccion" class="col-md-8">
+    <p>En esta página podrás ver los alimentos que los particulares ofrezcan. Esto es sólo un ejemplo.</p>
   </div><!-- col -->
 </div><!-- /row -->
 
-<div id="listado" class="row col-md-12">
-    <%# @alimento.each do |alimento| %>
 
-      <div class="col-md-4">
-        <div id="alimento">
+<!--pruebas-->
+    <%# @alimentos.each do |ad| %>
+
+      <!--<div class="col-md-4 col-sm-4 col-xs-12">
+        <h3 class="veinticinco"><%#= link_to ad.title, ad_url(ad) %></h3>
+        </div>
+      </div>--><!--/col-md-4-->
+
+    <%# end %>
+<!--/pruebas-->
+
+
+
+
+  <div id="gridalimentos" class="row">
+    <%# @alimentos.each do |alimento| %>
+
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="alimento">
           <center><%= image_tag "propias/ejemplo-alimento-compartido.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
           <%#= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), alimento_url(alimento) %>
           <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
@@ -29,7 +44,7 @@
       </div><!--/col-md-4-->
 
       <div class="col-md-4">
-        <div id="alimento">
+        <div class="alimento">
           <center><%= image_tag "propias/ejemplo-alimento-compartido2.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
           <%#= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), alimento_url(alimento) %>
           <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
@@ -46,7 +61,7 @@
       </div><!--/col-md-4-->
 
       <div class="col-md-4">
-        <div id="alimento">
+        <div class="alimento">
           <center><%= image_tag "propias/ejemplo-alimento-compartido3.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
           <%#= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), alimento_url(alimento) %>
           <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
@@ -63,6 +78,7 @@
       </div><!--/col-md-4-->
 
     <%# end %>
-<%#= paginate(@ideas) %>
 
-</div><!--/listado-->
+</div><!--/gridrecetas-->
+<%#= paginate(@alimentos) %>
+
