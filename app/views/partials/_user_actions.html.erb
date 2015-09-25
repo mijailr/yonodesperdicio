@@ -1,6 +1,4 @@
-
 <% if user_signed_in? %>
-  <div class="user_login_box">
     <%= t('nlt.welcome') %>,
     <b>
       <%= link_to current_user.username, profile_path(current_user), id: 'js-username' %>
@@ -12,10 +10,7 @@
     <% end %>
     |
     <%= link_to t('nlt.logout'), destroy_user_session_path, :method => :delete %>
-  </div>
 <% else %>
-  <div class="user_login_box">
     <%#= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %>
     <%#= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %>
-  </div>
 <% end %>

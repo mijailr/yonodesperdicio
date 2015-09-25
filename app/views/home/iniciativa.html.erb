@@ -34,7 +34,7 @@
           <%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %>
         </span>
       <% end %>
-      <%= render :partial => "partials/user_actions" %></p>
+      <div class="user_login_box"><%= render :partial => "partials/user_actions" %></div></p>
 
 
       <%= render :partial => "comments/form", :locals => {:path => iniciativa_comments_path(@iniciativa), :comment => Comment.new} %>

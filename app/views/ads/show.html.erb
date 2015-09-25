@@ -63,7 +63,10 @@
 
 </div><!--fondoblanco-->  
 
-<div class="col-md-12 col-sm-12 col-xs-12"><%= render :partial => "comments/show", :locals => {:ad => @ad} %></div>
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="user_login_box"><%= render :partial => "partials/user_actions" %>  </div>
+  <%= render :partial => "comments/show", :locals => {:ad => @ad} %>
+</div>
 
 <h3><%= @ad.user.username %> también comparte:</h3>
   <table id="listados" class="table table-responsive">

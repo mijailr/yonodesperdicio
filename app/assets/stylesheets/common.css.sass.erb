@@ -226,6 +226,10 @@ form.searchbox
     background: $c-verde
     padding: 3px
 
+#useractions
+  background: #CCC    
+  text-align: right
+
 .user_login_box
   display: inline
   float: left !important
@@ -429,9 +433,10 @@ img#logo
     -moz-transform: skewX(-5deg)
     transform: skewX(-5deg)
     @media all and (max-width: $break-medium)
-      font-size: 2.5em
+      font-size: 4em
+      padding: 0.3em 0 0.2em 0
     @media all and (max-width: $break-small)
-      font-size: 2em
+      font-size: 3em
   #contador-texto
     float: left
     line-height: 1em
@@ -440,17 +445,19 @@ img#logo
     text-align: left
     font-size: 1.5em
     @media all and (max-width: $break-medium)
-      padding: 2% 0 2% 0
-      width: 60%
+      padding: 1em
       font-size: 1em
+      line-height: 1em
+    @media all and (max-width: $break-small)
+      font-size: 0.8em
+      line-height: 1em
   div
     padding: 0
   img
     padding: 0
     @media all and (max-width: $break-small)
       display: none
-    @media all and (max-width: $break-medium) 
-      width: 50%   
+ 
 .homeabajo h3
   text-align: left  
 .homeabajo div p
