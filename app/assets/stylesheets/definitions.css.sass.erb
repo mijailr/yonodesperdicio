@@ -41,6 +41,16 @@ $b-rayas: 2.5px dashed #FFF
   -webkit-transform: skewX(-10deg) /* Safari */
   -moz-transform: skewX(-10deg)
   transform: skewX(-10deg)
+@mixin titulosrojos
+  font-family: $font-titulo
+  letter-spacing: 1px
+  font-size: 4em
+  color: $c-rojo
+  margin-bottom: 0
+  -ms-transform: skewX(-10deg) /* IE 9 */
+  -webkit-transform: skewX(-10deg) /* Safari */
+  -moz-transform: skewX(-10deg)
+  transform: skewX(-10deg)
 @mixin titulos-home
   font-family: $font-titulo
   letter-spacing: 2px
@@ -66,7 +76,7 @@ $b-rayas: 2.5px dashed #FFF
   text-transform: uppercase
   padding: 2px 5px
   margin: 0 0 0.5em 0
-@mixin titulosrojos
+@mixin titulosfondorojos
   font-family: $font-general
   background: $c-rojo
   color: #FFF

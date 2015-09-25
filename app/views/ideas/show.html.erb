@@ -30,4 +30,9 @@
   <%= image_tag @idea.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %>
 </p>
 
+<p>
+  <strong>Tag_list:</strong>
+  <%= @idea.tag_list %>
+</p>
+
 <%= link_to 'Edit', edit_my_idea_path(@idea) %>

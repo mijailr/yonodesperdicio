@@ -23,4 +23,6 @@ class Idea < ActiveRecord::Base
                     :default_url => "propias/d_brick_:style.png"
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
+
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
 end

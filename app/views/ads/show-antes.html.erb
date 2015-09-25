@@ -1,0 +1,69 @@
+------------------------BORRAR ESTÁ REPETIDO-------------------------
+
+<%= content_for(:meta_title, "#{I18n.t('nlt.keywords')} #{@ad.title} #{@ad.woeid_name}") %>
+<%= content_for :meta_description do %>
+  <meta name="description" content="<%= t('nlt.meta_description_ad', title: @ad.title, woeid: @ad.woeid_name, body: @ad.body) %>" />
+<% end %>
+
+  <h2>
+    <%= link_to ads_woeid_path(id: @ad.woeid_code, type: @ad.type_class) do %>
+      <%= @ad.woeid_name %> &gt;
+      <%= @ad.type_string %>
+    <% end %>
+  </h2>
+  <h1><%= @ad.title %></h1>
+
+
+<div id="main" class="row">
+  <div class="col-md-8">
+    <div class="ad_excerpt_show">
+      <% if @ad.image.exists? %>
+        <div class="ad_list_image">
+          <%= link_to image_tag(@ad.image.url(:thumb), :alt => @ad.title), @ad.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large') %>
+        </div>
+      <% end %>
+      <% if can? :update, @ad %>
+        <div class="ad_edit">
+          <%= link_to ads_edit_path(@ad.id) do %>
+            <%= image_tag "edit_ad.png", :alt => t('nlt.edit_this_ad') %>
+            &nbsp; <%= t('nlt.edit_this_ad') %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if @ad.is_give? %>
+        <span class="ad_status <%= @ad.status_class %>"><%= @ad.status_string %></span>
+      <% end %>
+      <span class="ad_date">
+        <%= t('nlt.published_at_by_html', time: distance_of_time_in_words_to_now(@ad.created_at), user: link_to(@ad.user.username, listads_user_path(@ad.user))) %>
+      </span>
+      <br>
+      <p><%= @ad.body %></p>
+      <div class="ad_meta_info">
+        <%= t('nlt.readed_count', count: @ad.readed_counter) %><%= t('nlt.comments_count', count: @ad.comments_count) %>
+      </div>
+
+      <%= t('nlt.are_you_interested') %>
+      <%= link_to message_new_with_subject_path(user_id: @ad.user.id, subject: @ad.title.parameterize), :class => "world_link" do %>
+        <%= t('nlt.send_a_private_message') %>
+        <%= image_tag "email_send.png", :alt => t('nlt.send_a_message') %>
+      <% end %>
+
+      <br><br>
+      <div class="sharelinks">
+        <p style="text-align:left;margin-bottom:5px;"><%= t('nlt.share_this_ad') %>:</p>
+        <%= render :partial => "partials/social_buttons",
+                   :locals => {
+                     :url => ad_url(@ad),
+                     :meta_title => "#{I18n.t('nlt.keywords')} #{@ad.title} #{@ad.woeid_name}",
+                     :meta_description => t('nlt.meta_description_ad', title: @ad.title, woeid: @ad.woeid_name, body: @ad.body),
+                     :text => @ad.title
+                     }
+        %>
+      </div>
+    </div>
+    <%= render :partial => "comments/show", :locals => {:ad => @ad} %>
+
+  </div>
+</div>
+
+------------------------BORRAR-------------------------

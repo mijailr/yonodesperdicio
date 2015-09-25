@@ -4,7 +4,11 @@
 <div class="row">
   <div id="imagen" class="col-md-5">
     <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>
-    <p><%#= @idea.category %></p>
+    <p>
+      <% @idea.tag_list.each do |tag| %>
+        <%= link_to tag, ideas_url(tag: tag) %>,
+      <% end %>
+    </p>
     <p>
       <%= render :partial => "partials/social_buttons", 
                  :locals => { 

@@ -42,6 +42,9 @@ h2
 h1, h1#title
   @include titulosotros
 h1.titulorojo
+  @include titulosfondorojos
+
+h1.title-inside  
   @include titulosrojos
 h2
   line-height: 1.2em
@@ -227,7 +230,6 @@ form.searchbox
     padding: 3px
 
 #useractions
-  background: #CCC    
   text-align: right
 
 .user_login_box
@@ -353,21 +355,29 @@ img#logo
       float: left
     #rrss
       float: left
-      margin: 5px 0 0 0
-      padding: 0
+      padding: 5px 0 0 20px
     #logos
       float: left
       padding: 0
+      #logoprosalus
+        height: 100px
+      #logohambre0
+        height: 80px  
 
 #footertwo
   margin: 0 auto
   height: auto
   float: left
   width: 100%
+  text-transform: capitalize
+  font-family: $font-gorda
+  @media all and (max-width: $break-small)
+    font-size: 0.8em
+  @media all and (max-width: $break-small)
+    font-size: 0.7em
 
 .links-left,
 .links-right
-  text-transform: capitalize
   padding: 0.3em
   a
     color: #FFF
@@ -386,11 +396,14 @@ img#logo
 
 .links-right
   background: $c-verde
-  font-size: 0.7em
-  padding: 0.7em
+  font-size: 0.8em
+  padding: 0.4em
+  line-height: 1em
   a
     font-weight: bold
     padding-left: 0.5em
+  a:hover
+    color: #000  
 
 /**
  * Home
@@ -495,7 +508,7 @@ img#logo
 /**
   * Recetas
 #submenu
-  margin: 0 0 1em 1em
+  margin: 1em 0 1em 1em
   li
     display: inline-block
     @include titulos
@@ -756,32 +769,34 @@ h1.funciona
   opacity: 1
 
 .submit
+  width: auto
   height: auto
   clear: both
   font-weight: bold
   padding: 6px 12px
   margin: 1em 0 0 0
   background: $c-verde
-  color: #FFF
-  width: auto
   border: 1px solid #FFF
+  color: #FFF
 .submit:hover
   background: #FFF
-  color: $c-verde
   border: 1px solid $c-verde
-
+  color: $c-verde
 .actions
   margin: 0.5em 0
   width: 10em
   input[type="submit"]
     background: $c-verde
+    border: 1px solid $c-verde
     color: #FFF
-    width: auto
-    border: 1px solid #FFF
+    a
+      color: #FFF
   input[type="submit"]:hover
     background: #FFF
     color: $c-verde
     border: 1px solid $c-verde
+    a
+      color: $c-verde
 
 #contactblock 
   .error_messages
@@ -862,15 +877,16 @@ input#delete_multiple_button:hover
 #newinside form input, 
 #newinside form textarea
   width: 100%
-  color: $c-azul
 
 #newinside
-  background: $c-azul
   padding: 1em
-  color: #FFF
+  dt, label
+    color: $c-azul
+    text-transform: uppercase
+    margin: 1em 0 0 0
   a
     color: #FFF
-  select
+  a.world_link
     color: $c-azul
   #comments_enabled-label,    
   input[type="checkbox"]
@@ -901,7 +917,11 @@ table#listados
     background: #FFF
     width: 33%
     vertical-align: middle
-
+  p.grande  
+    font-size: 1.3em
+  .btn  
+    font-size: 0.8em
+    padding: 0.5em
 #mensajescabecera
   margin: 0 0 1em 0
   line-height: 1em
