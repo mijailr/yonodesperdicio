@@ -10,11 +10,11 @@
       <% end %>
     </p>
     <p>
-      <%= render :partial => "partials/social_buttons", 
-                 :locals => { 
-                    :url => idea_url(@idea), 
-                    :meta_title => @idea.title, 
-                    :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'), 
+      <%= render :partial => "partials/social_buttons",
+                 :locals => {
+                    :url => idea_url(@idea),
+                    :meta_title => @idea.title,
+                    :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'),
                     :text => truncate_html(@idea.body.html_safe, length: 10, omission: ' +...')} %>
     </p>
   </div><!-- /imagen -->
@@ -22,7 +22,7 @@
   <div id="cuerpo" class="col-md-7">
 
     <h1 id="title"><%= @idea.title %></h1>
-    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %> | Por: <strong><%= link_to @idea.user, profile_path(@idea.user) %></strong></p>
+    <p class="fecha"><%= @idea.published_at.strftime("%d/%m/%Y") %> | Por: <strong><%= link_to @idea.user, profile_path(@idea.user.username) %></strong></p>
     <p><%#= @idea.id %></p>
     <div class="intro"><%= markdown(@idea.introduction).html_safe if @idea.introduction %></div>
 

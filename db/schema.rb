@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926114828) do
+ActiveRecord::Schema.define(version: 20150926151806) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150926114828) do
     t.datetime "image_updated_at"
     t.text     "video",              limit: 65535
     t.boolean  "pin"
+    t.string   "slug",               limit: 255
   end
 
   create_table "comments", force: :cascade do |t|
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 20150926114828) do
     t.datetime "image_updated_at"
     t.text     "introduction",       limit: 65535
     t.text     "ingredients",        limit: 65535
+    t.string   "slug",               limit: 255
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -213,6 +215,7 @@ ActiveRecord::Schema.define(version: 20150926114828) do
     t.string   "email",              limit: 255
     t.string   "phone",              limit: 255
     t.string   "website",            limit: 255
+    t.string   "slug",               limit: 255
   end
 
   create_table "readedAdCount", primary_key: "id_ad", force: :cascade do |t|
