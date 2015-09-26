@@ -13,8 +13,6 @@ class AdsController < ApplicationController
       redirect_to url
     else
       list
-      #Ana pruebas
-      #@alimentos = Ad.give.available.page(params[:page])
     end
   end
 
@@ -96,6 +94,9 @@ class AdsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ad_params
-    params.require(:ad).permit(:title, :body, :type, :status, :woeid_code, :comments_enabled, :image, :user_owner, :ip)
+    params.require(:ad).
+           permit(:title, :body, :type, :status, :woeid_code, 
+                  :grams, :expiration_date, :pick_up_date, 
+                  :comments_enabled, :image, :user_owner, :ip)
   end
 end

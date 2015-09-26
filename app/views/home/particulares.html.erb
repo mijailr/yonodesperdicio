@@ -8,76 +8,31 @@
   </div><!-- col -->
 </div><!-- /row -->
 
-
-<!--pruebas-->
-    <%# @alimentos.each do |ad| %>
-
-      <!--<div class="col-md-4 col-sm-4 col-xs-12">
-        <h3 class="veinticinco"><%#= link_to ad.title, ad_url(ad) %></h3>
-        </div>
-      </div>--><!--/col-md-4-->
-
-    <%# end %>
-<!--/pruebas-->
-
+    <%= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
 
 
 
   <div id="gridalimentos" class="row">
-    <%# @alimentos.each do |alimento| %>
+    <% @alimentos.each do |alimento| %>
 
       <div class="col-md-4 col-sm-4 col-xs-12">
         <div class="alimento">
-          <center><%= image_tag "propias/ejemplo-alimento-compartido.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
-          <%#= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), alimento_url(alimento) %>
+          <center><%#= image_tag "propias/ejemplo-alimento-compartido.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
+          <%= link_to image_tag(alimento.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(alimento) %>
           <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
-          <h3 class="veinticinco">Zanahorias<%#= link_to alimento.title, alimento_url(alimento) %></h3>
-          <p class="cantidad">0,200 Kg</p>
+          <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
+          <p class="cantidad"><%= alimento.grams %> gramos</p>
           <p>Código postal: 28008 Madrid</p>
-          <p>Fecha límite de entrega: 31/09/2015</p>
+          <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
+          <p>Fecha de caducidad: <%= formated_date(alimento.expiration_date) %></p>
           <hr>
           <div id="usuario">
-            <p><b>Cristina XXX</b></p>
+            <p><b><%= alimento.user.username %></b></p>
             <p>Comida compartida: 8,200 Kg</p>
           </div>
         </div><!--/alimento-->
       </div><!--/col-md-4-->
-
-      <div class="col-md-4">
-        <div class="alimento">
-          <center><%= image_tag "propias/ejemplo-alimento-compartido2.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
-          <%#= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), alimento_url(alimento) %>
-          <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
-          <h3 class="veinticinco">Pollo<%#= link_to alimento.title, alimento_url(alimento) %></h3>
-          <p class="cantidad">0,100 Kg</p>
-          <p>Código postal: 08003 Barcelona</p>
-          <p>Fecha límite de entrega: 26/09/2015</p>
-          <hr>
-          <div id="usuario">
-            <p><b>MariCruz XXX</b></p>
-            <p>Comida compartida: 8,200 Kg</p>
-          </div>
-        </div><!--/alimento-->
-      </div><!--/col-md-4-->
-
-      <div class="col-md-4">
-        <div class="alimento">
-          <center><%= image_tag "propias/ejemplo-alimento-compartido3.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
-          <%#= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), alimento_url(alimento) %>
-          <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
-          <h3 class="veinticinco">Aguacates<%#= link_to alimento.title, alimento_url(alimento) %></h3>
-          <p class="cantidad">0,500 Kg</p>
-          <p>Código postal: 28018 Madrid</p>
-          <p>Fecha límite de entrega: 31/09/2015</p>
-          <hr>
-          <div id="usuario">
-            <p><b>Mario XXX</b></p>
-            <p>Comida compartida: 9,200 Kg</p>
-          </div>
-        </div><!--/alimento-->
-      </div><!--/col-md-4-->
-
-    <%# end %>
+    <% end %>
 
 </div><!--/gridrecetas-->
 <%#= paginate(@alimentos) %>

@@ -70,6 +70,37 @@
         </p>
         </dd>
 
+
+        <dt id="grams-label">
+        <%= f.label :grams,  t('gramos'), :class => "required" %> 
+        </dt>
+        <dd id="gram-element">
+<%= f.text_field :grams %>
+        <p class="description">
+        <%= t '(en gramos)' %>
+        </p>
+        </dd>
+
+        <dt id="expiration-label">
+        <%= f.label :expiration_date,  t('Fecha de caducidad') %> 
+        </dt>
+        <dd id="expiraton-element">
+<%= f.date_select :expiration_date %>
+        <p class="description">
+        <%= 'Elige una fecha' %>
+        </p>
+        </dd>
+
+        <dt id="pick_up-label">
+        <%= f.label :pick_up_date,  t('Fecha límite de entrega') %> 
+        </dt>
+        <dd id="gram-element">
+<%= f.date_select :pick_up_date %>
+        <p class="description">
+        <%= t 'Elige una fecha' %>
+        </p>
+        </dd>
+
         <dt id="comments_enabled-label">
         <%= f.label :comments_enabled,  t('nlt.ads.form.comments_enabled'), :class => "required" %> 
         </dt>

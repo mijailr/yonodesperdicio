@@ -26,7 +26,7 @@
       </div><!-- /dcha -->
 
       <div class="abajo col-md-12 col-sm-12 col-xs-12">
-        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x100&sensor=false&zoom=11&markers=#{@user.city}", :width => "100%", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
+        <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x100&sensor=false&zoom=13&markers=#{@user.zipcode}, #{@user.city}", :width => "100%", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
 
         <p><%= t('nlt.member_since') %>: <%= l @user.created_at, format: "%d-%m-%Y" %></p>
         <p>Código Postal: <%= @user.zipcode %></p>

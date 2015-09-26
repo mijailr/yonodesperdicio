@@ -9,4 +9,7 @@ module AdHelper
     Ad.give.group_by(&:woeid_code).map{ |w,a| [WoeidHelper.convert_woeid_name(w)[:full], w, a.count] }.sort_by{|k| k[2]}.reverse.take(limit) 
   end
 
+  def formated_date(date)
+     date.strftime("%d-%m-%Y") if date
+  end
 end

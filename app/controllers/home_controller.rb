@@ -119,4 +119,10 @@ class HomeController < ApplicationController
     set_submenu('organizaciones')
   end
 
+  # listado de alimentos
+  def particulares
+    @alimentos = Ad.give.available.includes(:user).page(params[:page])
+  end
+
+
 end

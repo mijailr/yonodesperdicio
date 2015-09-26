@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913142846) do
+ActiveRecord::Schema.define(version: 20150926114828) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -65,6 +65,9 @@ ActiveRecord::Schema.define(version: 20150913142846) do
     t.datetime "image_updated_at"
     t.integer  "readed_count",       limit: 4
     t.integer  "comments_count",     limit: 4,     default: 0
+    t.integer  "grams",              limit: 4
+    t.date     "expiration_date"
+    t.date     "pick_up_date"
   end
 
   add_index "ads", ["deleted_at"], name: "index_ads_on_deleted_at", using: :btree
