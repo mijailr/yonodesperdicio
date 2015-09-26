@@ -95,6 +95,19 @@ class HomeController < ApplicationController
     end
   end
 
+
+  def ideas_tag
+    set_menu('ideas')
+    tag = params[:tag]
+    @ideas = Idea.where("published_at < ?", Time.now).
+                  tagged_with(tag).
+                  order('published_at DESC').
+                  includes(:user).
+                  page(params[:page]).per(10)
+    render :ideas
+  end
+
+
   # una idea
   def idea
     set_menu('ideas')

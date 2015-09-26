@@ -20,6 +20,7 @@ Yonodesperdicio::Application.routes.draw do
   post'/iniciativa_social/:id/comments', to: 'comments#create', as: 'iniciativa_comments', commentable_type: 'Article', article_category: 'iniciativa'
 
   get '/ideas/(:category)', to: 'home#ideas', as: 'ideas'
+  get '/ideas/de/:tag', to: 'home#ideas_tag', as: 'ideas_tag'
   get '/idea/:id', to: 'home#idea', as: 'idea'
   post'/idea/:id/comments', to: 'comments#create', as: 'idea_comments', commentable_type: 'Idea'
 

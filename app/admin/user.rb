@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  permit_params :username, :name, :email, :city, :province, :zipcode, :image, :password, :password_confirmation
+  permit_params :username, :name, :email, :city, 
+                :province, :zipcode, :image, :password, :password_confirmation
 
   index do
     selectable_column
@@ -13,6 +14,7 @@ ActiveAdmin.register User do
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
+    column :accept_mailing
     actions
   end
 
@@ -28,6 +30,7 @@ ActiveAdmin.register User do
         user.image? ? image_tag(user.image.url, height: '100') : content_tag(:span, "No image yet")
       end
       row :created_at
+      row :accept_mailing
     end
   end
 

@@ -6,7 +6,7 @@
     <%= image_tag @idea.image.url(:large), :alt => " ", :class => "img-responsive" %>
     <p>
       <% @idea.tag_list.each do |tag| %>
-        <%= link_to tag, ideas_url(tag: tag) %>,
+        <%= link_to tag, ideas_tag_url(tag: tag) %>,
       <% end %>
     </p>
     <p>
