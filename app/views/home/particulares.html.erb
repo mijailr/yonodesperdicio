@@ -21,14 +21,14 @@
           <%= link_to image_tag(alimento.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(alimento) %>
           </center>
           <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
-          <p class="cantidad"><%= alimento.grams %> gramos</p>
+          <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg</p>
           <p>Código postal: <%= alimento.user.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
           <p>Fecha de caducidad: <%= formated_date(alimento.expiration_date) %></p>
           <hr>
           <div id="usuario">
-            <p><b><%= link_to alimento.user.username, profile_path(alimento.user) %></b></p>
-            <p><%= alimento.user.total_quantity %></p>
+            <p><b><%= link_to alimento.user.username, profile_path(alimento.user.username) %></b></p>
+            <p><%= grams_to_kg(alimento.user.total_quantity) %> kg</p>
           </div>
         </div><!--/alimento-->
       </div><!--/col-md-4-->

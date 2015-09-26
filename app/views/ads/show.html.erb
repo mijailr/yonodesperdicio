@@ -13,7 +13,7 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <h3 class="enrojo"><%= @ad.title %></h3>
-    <p>Cantidad: <%= @ad.grams %> gramos</p>
+    <p>Cantidad: <%= grams_to_kg(@ad.grams) %> kg</p>
     <p>Fecha límite de entrega: <%= formated_date(@ad.pick_up_date) %></p>
     <p>Fecha de caducidad: <%= formated_date(@ad.expiration_date) %></p>
     <p><%= @ad.body %></p>
@@ -27,7 +27,7 @@
 
     <div class="dcha col-md-8">
       <p>Código postal: <%= @ad.user.zipcode %></p>
-      <p><%= link_to @ad.user, profile_path(@ad.user) %></p>
+      <p><%= link_to @ad.user, profile_path(@ad.user.username) %></p>
       <p>[Total comida compartida por el usuario]</p>
       <p>[Estrellitas]</p>
     </div><!-- /dcha -->

@@ -12,4 +12,17 @@ module AdHelper
   def formated_date(date)
      date.strftime("%d-%m-%Y") if date
   end
+
+  def great_total_quantity
+    grams = Ad.give.delivered.sum(:grams)
+    grams_to_kg(grams)
+  end
+
+  def grams_to_kg(grams)
+  	if grams > 0
+  	  grams / 1000.0
+  	else
+  	  grams
+  	end
+  end
 end
