@@ -52,7 +52,7 @@
         <dd id="title-element">
         <%= f.text_field :title, required: true, maxlength: 100, size: 45 %>
         <p class="description">
-        <%= t 'nlt.ads.form.title_max' %>
+          (Requerido) <%= t 'nlt.ads.form.title_max' %>
         </p>
         </dd>
 
@@ -66,38 +66,38 @@
             <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %>
           <% end %>
         <p class="description">
-        <%= t 'nlt.ads.form.body_max' %>
+          (Requerido)<%= t 'nlt.ads.form.body_max' %>
         </p>
         </dd>
 
 
         <dt id="grams-label">
-        <%= f.label :grams,  t('gramos'), :class => "required" %> 
+          <%= f.label :grams,  t('Cantidad'), :class => "required" %> 
         </dt>
         <dd id="gram-element">
-<%= f.text_field :grams %>
+          <%= f.text_field :grams %>
         <p class="description">
-        <%= t '(en gramos)' %>
+          (Requerido) <%= t '(en gramos)' %>
         </p>
         </dd>
 
         <dt id="expiration-label">
-        <%= f.label :expiration_date,  t('Fecha de caducidad') %> 
+          <%= f.label :expiration_date,  t('Fecha de caducidad') %> 
         </dt>
         <dd id="expiraton-element">
-<%= f.date_select :expiration_date %>
+          <%= f.date_select :expiration_date, :include_blank => true, :default => {:day => nil, :month => nil, :year => nil} %>
         <p class="description">
-        <%= 'Elige una fecha' %>
+          <%= 'Elige una fecha' %>
         </p>
         </dd>
 
         <dt id="pick_up-label">
-        <%= f.label :pick_up_date,  t('Fecha límite de entrega') %> 
+          <%= f.label :pick_up_date,  t('Fecha límite de entrega') %> 
         </dt>
         <dd id="gram-element">
-<%= f.date_select :pick_up_date %>
+          <%= f.date_select :pick_up_date, :include_blank => true, :default => {:day => nil, :month => nil, :year => nil} %>
         <p class="description">
-        <%= t 'Elige una fecha' %>
+          <%= t 'Elige una fecha' %>
         </p>
         </dd>
 

@@ -66,4 +66,8 @@ class User < ActiveRecord::Base
     self.friends.where(id: user.id).count > 0 ? true : false
   end
 
+  def total_quantity
+    ads.give.delivered.sum(:grams)
+  end
+
 end

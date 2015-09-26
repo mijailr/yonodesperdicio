@@ -31,7 +31,7 @@
         <p><%= t('nlt.member_since') %>: <%= l @user.created_at, format: "%d-%m-%Y" %></p>
         <p>Código Postal: <%= @user.zipcode %></p>
         <!--<p>[Mapa]</p>-->
-        <p>Comida entregada: <span id="comidaentregada">0,000 kg</span></p>
+        <p>Comida entregada: <span id="comidaentregada"><%= @user.total_quantity %> gramos</span></p>
       </div><!-- /abajo -->
     </div><!-- /profile-body -->
 

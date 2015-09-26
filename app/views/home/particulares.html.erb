@@ -4,31 +4,31 @@
 
 <div class="row">
   <div id="introduccion" class="col-md-8">
-    <p>En esta página podrás ver los alimentos que los particulares ofrezcan. Esto es sólo un ejemplo.</p>
+    <p>En esta página podrás ver los alimentos que los particulares ofrezcan. </p>
   </div><!-- col -->
 </div><!-- /row -->
 
-    <%= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
+    <%#= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
 
 
 
   <div id="gridalimentos" class="row">
     <% @alimentos.each do |alimento| %>
 
-      <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="col-md-3 col-sm-3 col-xs-6">
         <div class="alimento">
-          <center><%#= image_tag "propias/ejemplo-alimento-compartido.png", :alt => "Imagen alimento'", :id => "caja-alimento", :class => "img-responsive" %></center>
+          <center>
           <%= link_to image_tag(alimento.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(alimento) %>
-          <%#= image_tag alimento.image.url(:medium), :alt => " ", :class => "img-responsive" %>
+          </center>
           <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
           <p class="cantidad"><%= alimento.grams %> gramos</p>
-          <p>Código postal: 28008 Madrid</p>
+          <p>Código postal: <%= alimento.user.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
           <p>Fecha de caducidad: <%= formated_date(alimento.expiration_date) %></p>
           <hr>
           <div id="usuario">
-            <p><b><%= alimento.user.username %></b></p>
-            <p>Comida compartida: 8,200 Kg</p>
+            <p><b><%= link_to alimento.user.username, profile_path(alimento.user) %></b></p>
+            <p><%= alimento.user.total_quantity %></p>
           </div>
         </div><!--/alimento-->
       </div><!--/col-md-4-->
