@@ -3,6 +3,7 @@ ActiveAdmin.register Organization do
 
   index do
     selectable_column
+    column :id
     #column "Image" do |organization|
      # link_to image_tag(organization.image.url(:thumb)), admin_organization_path(organization)
     #end
@@ -22,6 +23,8 @@ ActiveAdmin.register Organization do
 
 show do |organization|
     attributes_table do
+      row :id
+      row :slug
       row :name
       row :description
       row :zipcode

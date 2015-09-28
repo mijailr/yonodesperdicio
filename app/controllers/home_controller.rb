@@ -71,7 +71,8 @@ class HomeController < ApplicationController
     @iniciativa = Article.where(category: 'iniciativa').
                           where("published_at < ?", Time.now).
                           includes(comments: :user).
-                          friendly.find(params[:id])
+                          #friendly.find(params[:id])
+                          find(params[:id])
   end
 
 
@@ -111,7 +112,8 @@ class HomeController < ApplicationController
     set_menu('ideas')
     @idea = Idea.where("published_at < ?", Time.now).
                  includes(comments: :user).
-                 friendly.find(params[:id])
+                 #friendly.find(params[:id])
+                 find(params[:id])
     set_submenu(@idea.category.pluralize)
   end
 
@@ -125,7 +127,9 @@ class HomeController < ApplicationController
 
   # una organizacion
   def organization
-    @organization = Organization.friendly.find(params[:id])
+    @organization = Organization.
+                                #friendly.find(params[:id])
+                                find(params[:id])
     set_menu('compartir')
     set_submenu('organizaciones')
   end

@@ -5,6 +5,7 @@ ActiveAdmin.register Article do
 
   index do
     selectable_column
+    column :id
     column :category
     column "Image" do |article|
       link_to image_tag(article.image.url(:thumb)), content_admin_article_path(article)
@@ -20,7 +21,9 @@ ActiveAdmin.register Article do
 
   show do |article|
     attributes_table do
+      row :id
       row :category
+      row :slug
       row :title
       row :body
       row :image do

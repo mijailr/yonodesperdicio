@@ -4,6 +4,7 @@ ActiveAdmin.register Idea do
   
   index do
     selectable_column
+    column :id
     column :category
     column "Image" do |idea|
       link_to image_tag(idea.image.url(:thumb)), content_admin_idea_path(idea)
@@ -19,6 +20,8 @@ ActiveAdmin.register Idea do
 
   show do |idea|
     attributes_table do
+      row :id
+      row :slug
       row :user
       row :category
       row :title
