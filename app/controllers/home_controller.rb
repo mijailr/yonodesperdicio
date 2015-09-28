@@ -136,7 +136,11 @@ class HomeController < ApplicationController
 
   # listado de alimentos
   def particulares
-    @alimentos = Ad.give.available.includes(:user).page(params[:page])
+    #Poner los alimentos disponibles
+    #@alimentos = Ad.give.available.includes(:user).page(params[:page])
+    #Poner alimentos disponibles y reservados
+    @alimentos = Ad.give.includes(:user).page(params[:page]).
+                          where(status: [1,2])
   end
 
 

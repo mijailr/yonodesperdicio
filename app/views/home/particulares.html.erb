@@ -17,9 +17,12 @@
 
       <div class="col-md-3 col-sm-3 col-xs-6">
         <div class="alimento">
-          <center>
+
           <%= link_to image_tag(alimento.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(alimento) %>
-          </center>
+        <% if alimento.is_give? %>
+          <span class="ad_status <%= alimento.status_class %>"><%= alimento.status_string %></span>
+        <% end %>
+
           <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
           <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg</p>
           <p>Código postal: <%= alimento.user.zipcode %></p>
@@ -28,7 +31,15 @@
           <hr>
           <div id="usuario">
             <p><b><%= link_to alimento.user.username, profile_path(alimento.user.username) %></b></p>
-            <p><%= grams_to_kg(alimento.user.total_quantity) %> kg</p>
+            <p>Total comida entregada: <span id="comidaentregada"><%= grams_to_kg(alimento.user.total_quantity) %> kg</span></p>
+              <% if can? :update, alimento %>
+                <%= link_to ads_edit_path(alimento.id) do %>
+                <div class="submit"><%= t('nlt.edit_this_ad') %></div>
+              <% end %>
+    <% end %>
+
+
+
           </div>
         </div><!--/alimento-->
       </div><!--/col-md-4-->

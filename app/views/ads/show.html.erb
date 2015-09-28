@@ -28,8 +28,8 @@
     <div class="dcha col-md-8">
       <p>Código postal: <%= @ad.user.zipcode %></p>
       <p><%= link_to @ad.user, profile_path(@ad.user.username) %></p>
-      <p>[Total comida compartida por el usuario]</p>
-      <p>[Estrellitas]</p>
+      <p>Comida entregada: <span id="comidaentregada"><%= grams_to_kg(@ad.user.total_quantity) %> kg</span></p>
+      <!--<p>[Estrellitas]</p>-->
     </div><!-- /dcha -->
 
     <% unless current_user == @ad.user %>
