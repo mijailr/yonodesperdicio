@@ -430,7 +430,8 @@ es:
     hello: Hola,
     signature: Equipo de Yonodesperdicio.org
   nlt:
-    view_more_ads: "ver más anuncios >"
+    prohibited this %{model} from being saved: "ha impedido guardar esta %{model}"
+    view_more_ads: "Ver más anuncios >"
     please_insert_email_and_password: Por favor pon tu email y contraseña.
     save_failed: 'Hay un problema, revisa esto:'
     profile_edit: Editar perfil
@@ -478,7 +479,6 @@ es:
       body: "¿Cómo se hace?"
       image: "Imagen"
       tag_list: "Etiquetas"
-      Idea was successfully updated: "La idea ha sido actualizada con éxito"
     all: todos
     all_ads: todos los alimentos para compartir
     and: y

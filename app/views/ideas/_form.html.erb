@@ -2,7 +2,7 @@
 <%= form_for(@idea, url: form_url) do |f| %>
   <% if @idea.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+      <h2><%= pluralize(@idea.errors.count, "error") %>. <%= t('nlt.save_failed') %></h2>
 
       <ul>
       <% @idea.errors.full_messages.each do |message| %>

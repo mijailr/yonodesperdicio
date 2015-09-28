@@ -26,7 +26,14 @@ ActiveAdmin.register Organization do
     actions
   end
 
-show do |organization|
+  filter :name
+  filter :zipcode
+  filter :address
+  filter :email
+  filter :phone
+  filter :website
+
+  show do |organization|
     attributes_table do
       row :id
       row :slug

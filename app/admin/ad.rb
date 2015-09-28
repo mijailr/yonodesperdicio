@@ -2,7 +2,8 @@ ActiveAdmin.register Ad do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :status, :title, :user, :body, :grams, :expiration_date, :pick_up_date, :image
+  permit_params :status, :title, :user, :body, 
+                :grams, :expiration_date, :pick_up_date, :image
   #
   # or
   #
@@ -15,7 +16,7 @@ ActiveAdmin.register Ad do
   index do
     selectable_column
     id_column
-    column :status
+    column :status_string
     column "Image" do |ad|
       link_to image_tag(ad.image.url(:thumb)), content_admin_ad_path(ad)
     end
@@ -24,14 +25,17 @@ ActiveAdmin.register Ad do
     column :user
     column :pick_up_date
     column :expiration_date
-
     actions
   end
 
+  filter :status
+  filter :user
+  filter :pick_up_date
+  filter :created_at
 
   show do |ad|
     attributes_table do
-      row :status
+      row :status_string
       row :user
       row :title
       row :body
@@ -45,13 +49,9 @@ ActiveAdmin.register Ad do
     end
   end
 
-  filter :user
-  filter :pick_up_date
-  filter :created_at
-
   form do |f|
     f.inputs "Admin Details" do
-      f.input :status
+      #f.input :status, :as => :select, collection: Ad.all.status_string, include_blank: false
       f.input :title
       f.input :body      
       f.input :grams

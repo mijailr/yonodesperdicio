@@ -14,7 +14,9 @@ class Ad < ActiveRecord::Base
   validates :ip, presence: true
   validates :grams, presence: true
 
-  validates :title, length: {minimum: 5, maximum: 100}
+  validates :title, length: {minimum: 5, maximum: 100},
+            presence: true
+
   validates :body, length: {minimum: 10, maximum: 500}
 
   validates :status,
@@ -36,12 +38,12 @@ class Ad < ActiveRecord::Base
   acts_as_paranoid
 
   has_attached_file :image,
-    styles: {thumb: "100x100>",
-            mediumad: "300x225#", 
-            fourthree: "400x300#",
-            large: "600x337.5>"}, 
-    :default_url => "propias/d_ads_:style.png",
-    process_in_background: :image
+                    styles: {thumb: "100x100>",
+                             mediumad: "300x225#", 
+                             fourthree: "400x300#",
+                            large: "600x337.5>"}, 
+                    :default_url => "propias/d_ads_:style.png",
+                    process_in_background: :image
 
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 

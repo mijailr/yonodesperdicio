@@ -7,9 +7,9 @@ class Idea < ActiveRecord::Base
 
   validates :title, :category, :introduction, :body, :user_id, :published_at, presence: true
 
-  #validates :title, length: {minimum: 5, maximum: 100}
-  #validates :introduction, length: {minimum: 10, maximum: 200}
-  #validates :body, length: {minimum: 30, maximum: 500}
+  validates :title, length: {minimum: 5, maximum: 100}
+  validates :introduction, length: {minimum: 10, maximum: 200}
+  validates :body, length: {minimum: 10, maximum: 500}
 
   before_validation(on: :create) do
     self.published_at = Time.now

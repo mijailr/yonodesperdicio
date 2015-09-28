@@ -28,6 +28,13 @@ ActiveAdmin.register Article do
     actions
   end
 
+  filter :title
+  filter :category
+  filter :body
+  filter :pin
+  filter :tags
+  filter :published_at
+
   show do |article|
     attributes_table do
       row :id

@@ -29,6 +29,12 @@ ActiveAdmin.register Idea do
     actions
   end
 
+  filter :user
+  filter :tags
+  filter :category
+  filter :ingredients
+  filter :body
+
   show do |idea|
     attributes_table do
       row :id
