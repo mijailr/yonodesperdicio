@@ -2,6 +2,15 @@ ActiveAdmin.register Article do
 
   permit_params :title, :body, :video, :pin, :tag_list, :category, :published_at, :image
 
+  controller do
+    def find_resource
+      begin
+        scoped_collection.where(slug: params[:id]).first!
+      rescue ActiveRecord::RecordNotFound
+        scoped_collection.find(params[:id])
+      end
+    end
+  end
 
   index do
     selectable_column

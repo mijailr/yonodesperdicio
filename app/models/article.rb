@@ -16,13 +16,14 @@ class Article < ActiveRecord::Base
                               fourthree: "400x300#",
                               large: "600x337.5>"},
                      :default_url => "propias/d_news_:style.png"
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  validates_attachment :image, 
+                       content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
 
-  #extend FriendlyId
-  #friendly_id :title, use: :slugged
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
 end
 

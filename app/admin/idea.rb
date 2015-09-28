@@ -1,7 +1,18 @@
 ActiveAdmin.register Idea do
 
-  permit_params :title, :introduction, :ingredients, :body, :category, :tag_list, :published_at, :user_id, :image
+  permit_params :title, :introduction, :ingredients, :body, 
+                :category, :tag_list, :published_at, :user_id, :image
   
+  controller do
+    def find_resource
+      begin
+        scoped_collection.where(slug: params[:id]).first!
+      rescue ActiveRecord::RecordNotFound
+        scoped_collection.find(params[:id])
+      end
+    end
+  end
+
   index do
     selectable_column
     column :id

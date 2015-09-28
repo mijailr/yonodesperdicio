@@ -8,7 +8,7 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1
   def show
-    @idea = current_user.ideas.find(params[:id])
+    @idea = current_user.ideas.friendly.find(params[:id])
   end
 
   # GET /ideas/new
@@ -18,7 +18,7 @@ class IdeasController < ApplicationController
 
   # GET /ideas/1/edit
   def edit
-    @idea = current_user.ideas.find(params[:id])
+    @idea = current_user.ideas.friendly.find(params[:id])
   end
 
   # POST /ideas
@@ -35,7 +35,7 @@ class IdeasController < ApplicationController
 
   # PATCH/PUT /ideas/1
   def update
-    @idea = current_user.ideas.find(params[:id])
+    @idea = current_user.ideas.friendly.find(params[:id])
 
     if @idea.update(idea_params)
       redirect_to my_idea_path(@idea), notice: 'Idea was successfully updated.'
@@ -46,7 +46,7 @@ class IdeasController < ApplicationController
 
   # DELETE /ideas/1
   def destroy
-    @idea = current_user.ideas.find(params[:id])
+    @idea = current_user.ideas.friendly.find(params[:id])
 
     @idea.destroy
     redirect_to my_ideas_url, notice: 'Idea was successfully destroyed.'
@@ -55,6 +55,7 @@ class IdeasController < ApplicationController
   private
     # Only allow a trusted parameter "white list" through.
     def idea_params
-      params.require(:idea).permit(:category, :title, :introduction, :ingredients, :body, :image, :tag_list)
+      params.require(:idea).permit(:category, :title, :introduction, 
+                                   :ingredients, :body, :image, :tag_list)
     end
 end

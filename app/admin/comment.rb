@@ -14,13 +14,31 @@ ActiveAdmin.register Comment do
 
   permit_params :body, :user
 
-  #index do
-  #  selectable_column
-  #  column :user
-  #  column :commentable
-  #  column :body
-  #  column :created_at
-  #  actions
-  #end
+  index do
+    selectable_column
+    column :user
+    column :commentable
+    column :body
+    column :created_at
+    actions
+  end
+
+  show do |comment|
+  attributes_table do
+    row :user
+    row :commentable
+    row :body
+    row :created_at
+    end
+  end
+
+  form do |f|
+    f.inputs do
+      f.input :user
+      #f.input :commentable
+      f.input :body
+    end
+    f.actions
+  end  
 
 end

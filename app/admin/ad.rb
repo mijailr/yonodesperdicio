@@ -1,6 +1,4 @@
 ActiveAdmin.register Ad do
-
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -60,6 +58,7 @@ ActiveAdmin.register Ad do
       f.input :pick_up_date
       f.input :expiration_date
       f.input :image, :as => :file, :hint => f.article.image_tag(f.object.image.url(:thumb))
+      f.input :created_at
     end
     f.actions
   end

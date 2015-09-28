@@ -36,27 +36,82 @@ es:
       contact:
         email: Correo electrónico
         message: Mensaje
+     
   activerecord:
+    models:
+      user:
+        one: "Usuario"
+        other: "Usuarios"
+      admin_user:
+        one: "Usuario administrador"
+        other: "Usuarios administradores"
+      ad:
+        one: "Alimento"
+        other: "Alimentos"
+      comment:
+        one: "Comentario"
+        other: "Comentarios"
+      text:
+        one: "Texto"
+        other: "Textos" 
+      article:
+        one: "Artículo"
+        other: "Artículos"
+      idea:
+        one: "Idea"
+        other: "Ideas"
+      organization:
+        one: "Organización"
+        other: "Organizaciones" 
     attributes:
       message:
         subject: Tema
       user:
+        name: Nombre y apellidos
+        username: Nombre de usuario
+        email: Correo electrónico
+        city: Ciudad
+        province: Provincia
+        zipcode: Código postal
         password: Contraseña nueva
         password_confirmation: Contraseña nueva (repetir)
         current_password: Contraseña actual
+        image: Imagen
         remember: Recuérdame
-        email: Correo electrónico
+        sign_in_count: Número de logins
+        current_sign_in_at: Último login
+        created_at: Creado el día
+        accept_mailing: Acepta mailing
       ad:
         title: Título
         body: Cuerpo
         subject: Título
         type: Tipo
+        user: Usuario
         image: Imagen
         image_content_type: Tipo de contenido de imagen
         image_file_size: Tamaño de imagen
+        grams: Cantidad (en gramos)
+        pick_up_date: Fecha de entrega
+        expiration_date: Fecha de caducidad
+        created_at: Creado el día
       comment:
-        body: comentario
+        user: Usuario
+        commentable: Lo que se comenta
+        body: Comentario
+        created_at: Creado el día
+      article:
+        title: "Título"
+        category: "Tipo"
+        body: "Cuerpo"
+        image: "Imagen"
+        tag_list: "Etiquetas"
+        published_at: "Publicado el día"
+        created_at: "Creado el día"
+        updated_at: "Actualizado el día"
+        pin: "Destacada"
       idea:
+        user: "Usuario"
         title: "Título"
         category: "Tipo"
         introduction: "Introducción"
@@ -65,10 +120,29 @@ es:
         image: "Imagen"
         tag_list: "Etiquetas"
         Idea was successfully updated: "La idea ha sido actualizada con éxito"
-      article:
-        title: Título
+        published_at: "Publicado el día"
+        created_at: "Creado el día"
+        updated_at: "Actualizado el día"
       organization:
         name: Nombre
+        title: Nombre
+        description: Descripción
+        address: Dirección
+        zipcode: Código postal y ciudad
+        phone: Teléfono
+        email: Dirección de email
+        website: Sitio web
+        published_at: "Publicado el día"
+        created_at: "Creado el día"
+        updated_at: "Actualizado el día"
+      text:
+        title: Título
+        code: Código
+        body: Cuerpo
+        published_at: "Publicado el día"
+        created_at: "Creado el día"
+        updated_at: "Actualizado el día"
+
     errors:
       format: "%{attribute} %{message}"
       messages:
@@ -305,7 +379,7 @@ es:
       update: Actualizar %{model}
   mailboxer:
     buttons:
-      back: "< volver a mensajes"
+      back: "< Volver a mensajes"
       trash: Mover conversación a la papelera
       trash_selected: Borrar mensajes seleccionados
       untrash: Recuperar conversación de la papelera
