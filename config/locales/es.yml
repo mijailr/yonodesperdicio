@@ -727,3 +727,11 @@ es:
         zero: No se encontraron %{model}
     page_gap: "&hellip;"
     previous_label: "<span class='mobile'>←</span><span class='desktop'>← Anterior</span>"
+  views:
+    pagination:
+      first: "Primera"
+      previous: "Anterior"
+      next: "Siguiente"
+      last: "Última"
+      truncate: "&hellip;&rdquo;"
+
