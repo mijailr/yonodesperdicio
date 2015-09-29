@@ -4,10 +4,8 @@
   <meta name="description" content="<%= @iniciativa.body %>" />
   <meta itemprop="description" content="<%= @iniciativa.body %>" />
   <meta property="og:title" content="<%= @iniciativa.body %>" />
-<% end %>
-<% content_for :meta_extra do %>
-  <meta property="og:title" content='<%= @iniciativa.title %>' />
   <meta property="og:image" content='<%= image_tag @iniciativa.image.url(:medium) %>' />
+  <meta property="og:title" content='<%= @iniciativa.title %>' />
 <% end %>
 
 
@@ -22,12 +20,12 @@
     </p>
     <p>
 
-    <%= render :partial => "partials/social_buttons", :locals => { 
-        :url => iniciativa_url(@iniciativa), 
-        :meta_title => @iniciativa.title, 
-        :meta_description =>  truncate_html(markdown(@iniciativa.body).html_safe, length: 340, omission: ' +...'), 
-        :text => truncate_html(@iniciativa.body.html_safe, length: 10, omission: ' +...'), 
-        :meta_extra => @iniciativa.image.url } %>
+    <%= render :partial => "partials/social_buttons", 
+               :locals => { 
+                  :url => iniciativa_url(@iniciativa), 
+                  :meta_title => @iniciativa.title, 
+                  :meta_description =>  truncate_html(markdown(@iniciativa.body).html_safe, length: 340, omission: ' +...'), 
+                  :text => truncate_html(@iniciativa.body.html_safe, length: 10, omission: ' +...') } %>
 
     </p>
   </div><!-- /imagen -->

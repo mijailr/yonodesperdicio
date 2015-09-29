@@ -1,6 +1,6 @@
 <% content_for(:meta_title) {@idea.title} %>
 <%= content_for :meta_description do %>
-  <meta name="description" content="<%= t(title: @idea.title, body: @idea.introduction) %>" />
+  <meta name="description" content='<%=  @idea.introduction %>' />
 <% end %>
 
 
