@@ -1,6 +1,6 @@
 <% content_for(:meta_title) {@noticia.title} %>
 <%= content_for :meta_description do %>
-  <meta name="description" content="<%= @noticia.body %>" />
+  <meta name="description" content='<%= @noticia.body %><%= image_tag @noticia.image.url(:medium) %>' />
 <% end %>
 
 <div class="row">
