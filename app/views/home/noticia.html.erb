@@ -1,6 +1,6 @@
 <% content_for(:meta_title) {@noticia.title} %>
 <%= content_for :meta_description do %>
-  <meta name="description" content="<%= t(title: @noticia.title, body: @noticia.body) %>" />
+  <meta name="description" content="<%= @noticia.body %>" />
 <% end %>
 
 <div class="row">
@@ -19,7 +19,6 @@
                    :meta_title => "#{@noticia.title}", 
                    :meta_description =>  truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...'), 
                    :text => truncate_html(@noticia.body.html_safe, length: 10, omission: ' +...') } %>
-
     </p>
   </div><!-- /imagen -->
 
