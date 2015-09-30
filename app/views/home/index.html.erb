@@ -23,7 +23,7 @@
     <%= image_tag "propias/cebolla.png", :alt => "Imagen cebolla", :id => "cebolla", :class => "img-responsive" %>
   </div>
   <div class="col-md-8 col-sm-8 col-xs-10">
-    <div id="contador" class="col-md-6 col-sm-6 col-xs-6"><%= great_total_quantity %> kg</div>
+    <div id="contador" class="col-md-6 col-sm-6 col-xs-6"><%= number_with_precision(great_total_quantity, :precision => 3, :delimiter => ',') %> kg</div>
     <div id="contador-texto" class="col-md-6 col-sm-6 col-xs-6">Son los kilos de comida que entre todos hemos conseguido evitar que acaben en la basura</div>
   </div>
   <div class="col-md-2 col-sm-2 col-xs-1">
