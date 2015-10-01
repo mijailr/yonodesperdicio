@@ -19,13 +19,6 @@ Hasta que todas las personas puedan tener acceso a una alimentación digna y suf
             <% end %>
         <% end %>
       </div><!--buscador-->
-      <div id="search-results" class="row">
-        <ul>
-        <% @organizations_search.each do |org| %>
-          <li><%= link_to org.name, organization_url(org) %>, <%= org.zipcode %></li>
-        <% end %>
-        </ul>
-      </div>
   </div><!-- col -->
 </div><!-- /row -->
 

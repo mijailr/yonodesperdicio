@@ -120,16 +120,19 @@ class HomeController < ApplicationController
 
   #listado de organizaciones
   def organizations
-    @organizations = Organization.order('name').
-                                  page(params[:page]).per(10)
+    #@organizations = Organization.order('name').
+     #                             page(params[:page]).per(10)
     set_menu('compartir')
     set_submenu('organizaciones')
 
     #Buscador por CP de Organizaciones
     if params[:search]
-      @organizations_search = Organization.search(params[:search]).order('name')
+      @organizations = Organization.search(params[:search]).
+                                    order('name').
+                                    page(params[:page]).per(10)
     else
-      @organizations_search = Organization.order('name')
+      @organizations = Organization.order('name').
+                                    page(params[:page]).per(10)
     end
   end #cierra listado organizaciones
 
