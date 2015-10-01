@@ -517,8 +517,6 @@ img#logo
 #gridrecetas
   float: left
   margin-bottom: 1em
-  .col-md-4, .col-sm-4
-    height: 350px
   div
     margin: 0 0 0.8em  
   p
@@ -548,6 +546,23 @@ img#logo
     margin: 1em 0
     a
       float: right
+
+/**
+ * Alimentos
+#gridalimentos
+  .col-md-3, .col-sm-6, .col-xs-12
+    padding: 0
+  .alimento
+    background: #FFF
+    margin: 1em 15px 1em 0
+    padding: 1em
+    p
+      clear: both
+    p.cantidad
+      @include texto-rojo
+  .ad_status
+    float: right
+
 
 /**
   * Organizaciones
@@ -622,19 +637,6 @@ h1.funciona
   color: $c-azul
 #recibir h3
   color: $c-verde
-
-/**
- * Alimentos
-#gridalimentos
-  .alimento
-    background: #FFF
-    padding: 1em
-    p
-      clear: both
-    p.cantidad
-      @include texto-rojo
-  .ad_status
-    float: right
 
 /**
  * Registrate

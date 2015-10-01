@@ -10,10 +10,12 @@
 
     <%#= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
 
+  <% @alimentos.each_slice(4) do |alimentos| %>
   <div id="gridalimentos" class="row">
-    <% @alimentos.each do |alimento| %>
 
-      <div class="col-md-3 col-sm-3 col-xs-6">
+    <% alimentos.each do |alimento| %>
+
+      <div class="col-md-3 col-sm-6 col-xs-12">
         <div class="alimento">
           <%= link_to image_tag(alimento.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(alimento) %>
         <% if alimento.is_give? %>
@@ -36,10 +38,13 @@
     <% end %>
           </div>
         </div><!--/alimento-->
-      </div><!--/col-md-4-->
+      </div><!--/col-md-3-->
     <% end %>
 
-</div><!--/gridrecetas-->
+</div><!--/gridalimentos-->
+  <% end %>
+
+
 <%= paginate(@alimentos) %>
 
 <div id="subereceta" class="row col-md-12 col-sm-12 col-xs-12">
