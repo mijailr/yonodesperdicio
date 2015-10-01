@@ -3,12 +3,12 @@
   <meta name="description" content="<%= t('nlt.meta_description_ad', title: @ad.title, woeid: @ad.woeid_name, body: @ad.body) %>" />
 <% end %>
 
-
 <div class="row fondoblanco">
   <div class="col-md-4 col-sm-4 col-xs-12">
-    <% if @ad.image.exists? %>
-      <%= link_to image_tag(@ad.image.url(:mediumad), :alt => @ad.title, :class => "img-responsive"), @ad.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large') %>
-    <% end %>
+    <%# if @ad.image.exists? %>
+      <%#= link_to image_tag(@ad.image.url(:thumb), :alt => @ad.title, :class => "img-responsive"), @ad.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large') %>
+    <%= image_tag @ad.image.url(:large), :alt => " ", :class => "img-responsive" %>
+    <%# end %>
   </div><!--/col-->
 
   <div class="col-md-4 col-sm-4 col-xs-12">
@@ -31,7 +31,7 @@
 
     <div class="dcha col-md-8">
       <p>Código postal: <%= @ad.user.zipcode %></p>
-      <p><%= link_to @ad.user, profile_path(@ad.user.username) %></p>
+      <p><b><%= link_to @ad.user, profile_path(@ad.user.username) %></b></p>
       <p>Comida entregada: <span id="comidaentregada"><%= grams_to_kg(@ad.user.total_quantity) %> kg</span></p>
       <!--<p>[Estrellitas]</p>-->
     </div><!-- /dcha -->
@@ -65,30 +65,30 @@
                      }
         %></span>
   </div><!--/meta_info-->
+</div><!--fondoblanco-->
 
-</div><!--fondoblanco-->  
 
 <div class="col-md-12 col-sm-12 col-xs-12">
 <div class="user_login_box"><%= render :partial => "partials/user_actions" %>  </div>
   <%= render :partial => "comments/show", :locals => {:ad => @ad} %>
 </div>
 
-<h3><%= @ad.user.username %> también comparte:</h3>
-  <table id="listados" class="table table-responsive">
-    <tr>
-      <% if @ad.user.ads.count > 0 %>  
+<div id="otros-ads" class="col-md-12 col-sm-12 col-xs-12">
+  <h3><%= @ad.user.username %> también comparte:</h3>
+      <% if @ad.user.ads.count > 0 %> 
         <% @ad.user.ads.each do |anuncio| %>
-          <td><%= link_to anuncio.title, ad_url(anuncio) %></td>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <p><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(anuncio) %></p>
+            <p><%= link_to anuncio.title, ad_url(anuncio) %></p>
+          </div><!--/col-4-->
         <% end %>
       <% else %>  
-        <p> <%= t("nlt.no_results.on_user") %> </p>
+        <p> <%= t("nlt.no_results.on_user") %> </p> 
       <% end %>      
-    </tr>
-  </table>
+</div><!--/otros-ads-->
 
 
 <hr>
-
 <% content_for :action do %>
   <div class="ad_create_tab">
     <%#= link_to "+ #{ t('nlt.publish_ad_on', woeid: @ad.woeid_name_short) }", new_ad_path(type: @ad.type) %>

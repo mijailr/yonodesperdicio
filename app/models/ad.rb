@@ -39,9 +39,9 @@ class Ad < ActiveRecord::Base
 
   has_attached_file :image,
                     styles: {thumb: "100x100>",
-                             mediumad: "300x225#", 
+                             medium: "300x225#", 
                              fourthree: "400x300#",
-                            large: "600x337.5>"}, 
+                             large: "600x337.5>"}, 
                     :default_url => "propias/d_ads_:style.png",
                     process_in_background: :image
 
