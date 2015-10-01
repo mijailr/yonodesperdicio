@@ -7,4 +7,9 @@ class Organization < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
+     
+    def self.search(query)
+      where("zipcode like ?", "%#{query}%")
+    end
+
 end

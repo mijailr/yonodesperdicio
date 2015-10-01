@@ -124,7 +124,14 @@ class HomeController < ApplicationController
                                   page(params[:page]).per(10)
     set_menu('compartir')
     set_submenu('organizaciones')
-  end
+
+    #Buscador por CP de Organizaciones
+    if params[:search]
+      @organizations_search = Organization.search(params[:search]).order('name')
+    else
+      @organizations_search = Organization.order('name')
+    end
+  end #cierra listado organizaciones
 
   # una organizacion
   def organization
@@ -142,6 +149,5 @@ class HomeController < ApplicationController
     @alimentos = Ad.give.includes(:user).page(params[:page]).
                           where(status: [1,2])
   end
-
 
 end
