@@ -1,12 +1,20 @@
 <% content_for(:meta_title) {"particulares"} %>
 
-<h1 class="titulorojo">Entre particulares</h1>
+<h1 id="titalimentos" class="titulorojo">
+  Entre particulares
+    <%= form_tag(particulares_path, :method => "get", id: "buscadorads") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Buscar alimentos" %>
+      <%= button_tag(type: "submit", class: " ") do %>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      <% end %>
+    <% end %>
+</h1>
 
-<div class="row">
+<!--<div class="row">
   <div id="introduccion" class="col-md-8">
-    <p>En esta página podrás ver los alimentos que los particulares ofrezcan. </p>
-  </div><!-- col -->
-</div><!-- /row -->
+    <p>En esta página podrás ver los alimentos que los particulares ofrezcan.</p>
+  </div>
+</div>--><!-- /row -->
 
     <%#= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
 

@@ -26,6 +26,8 @@ class AdsController < ApplicationController
   def show
     redirect_to ads_path unless @ad.user
     @ad.increment_readed_count!
+    set_menu('compartir')
+    set_submenu('particulares')
   end
 
   # GET /ads/new
@@ -99,4 +101,5 @@ class AdsController < ApplicationController
                   :grams, :expiration_date, :pick_up_date, 
                   :comments_enabled, :image, :user_owner, :ip)
   end
+
 end

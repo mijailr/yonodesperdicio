@@ -171,4 +171,8 @@ class Ad < ActiveRecord::Base
     "#{I18n.t('nlt.keywords')} #{self.title} #{self.woeid_name}"
   end
 
+  def self.search(query)
+    where("title like ? OR body LIKE ? OR grams LIKE ?", "%#{query}%","%#{query}%","%#{query}%")
+  end
+
 end

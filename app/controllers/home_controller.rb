@@ -146,11 +146,25 @@ class HomeController < ApplicationController
 
   # listado de alimentos
   def particulares
+    set_menu('compartir')
+    set_submenu('particulares')
+
     #Poner los alimentos disponibles
     #@alimentos = Ad.give.available.includes(:user).page(params[:page])
     #Poner alimentos disponibles y reservados
-    @alimentos = Ad.give.includes(:user).page(params[:page]).
-                          where(status: [1,2])
-  end
+    #@alimentos = Ad.give.includes(:user).
+    #                      where(status: [1,2]).
+    #                      page(params[:page]).per(10)
+    if params[:search]
+      @alimentos = Ad.give.includes(:user).
+                           where(status: [1,2]).
+                           page(params[:page]).per(10).
+                           search(params[:search])
+    else
+      @alimentos = Ad.give.includes(:user).
+                           where(status: [1,2]).
+                           page(params[:page]).per(10)
+    end
 
+  end
 end

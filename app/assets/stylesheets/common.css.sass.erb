@@ -191,10 +191,7 @@ form.searchbox
 #comida-dcha div img
   width: 80%
   float: right
-#comida-izda,
-#comida-dcha  
-  @media all and (max-width: $break-small)
-    display: none
+
 
 #menu-cabecera
   font-family: $font-gorda
@@ -549,6 +546,8 @@ img#logo
 
 /**
  * Alimentos
+#titalimentos
+  height: 2.3em
 #gridalimentos
   .alimento
     background: #FFF
@@ -560,6 +559,18 @@ img#logo
       @include texto-rojo
   .ad_status
     float: right
+#buscadorads
+  float: right
+  width: auto
+  color: #000
+  font-size: 0.8em
+  padding: 0
+  input#search
+    height: 100%
+    border: none
+  button
+    background: $c-rojo
+    color: #FFF
 
 
 /**
