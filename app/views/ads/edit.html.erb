@@ -3,10 +3,10 @@
 <div id="newinside" class="col-md-8 col-md-offset-2">
   <h1 class="title-listados"><%= t('nlt.edit_this_ad') %></h1>
   <br>
-  <%= link_to ad_path(@ad), method: :delete, data: { confirm: t('nlt.delete_sure') } do %>
-    <%= image_tag "delete_ad.png" %>
-    <%= t('nlt.delete_ad') %>
-  <% end %>
+  <%#= link_to ad_path(@ad), method: :delete, data: { confirm: t('nlt.delete_sure') } do %>
+    <%#= image_tag "delete_ad.png" %>
+    <%#= t('nlt.delete_ad') %>
+  <%# end %>
 
 <%= render 'form' %>
 

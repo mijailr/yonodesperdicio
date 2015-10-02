@@ -1,6 +1,5 @@
 <%= content_for(:meta_title, "#{t('nlt.user_profile')} - #{@user.username}") %>
 
-
 <div id="profile" class="row">
 
   <% if user_signed_in? and @user.id == current_user.id %>
@@ -39,8 +38,8 @@
     </div><!-- /profile-body -->
 
   <% if user_signed_in? and @user.id == current_user.id %>
-    <div class="btn btn-rojo"><%= link_to 'Nueva idea', new_my_idea_path %></div>
-    <div class="btn btn-rojo">
+    <div class="btn btn-rojo col-md-12"><%= link_to 'Nueva idea', new_my_idea_path %></div>
+    <div class="btn btn-rojo col-md-12">
       <%#= link_to "+ #{t('nlt.to_publish_ad')}", @user.new_ad_path(type: type_n) %>
       <%= link_to "Comparte alimentos", new_ad_path %>
     </div>
@@ -49,7 +48,7 @@
     <div id="profile-menu">
       <%#= render partial: "users/tabnav", locals: {user: @user} %> 
       <% if user_signed_in? %>
-        <div class="btn btn-azul">
+        <div class="btn btn-azul col-md-12">
           <%#= link_to_unless_current t('nlt.messages'), messages_list_path %>  
           <% unread_messages_count = current_user.unread_messages_count %>
           <%= link_to messages_list_path, title: "#{unread_messages_count}" do %>
@@ -63,37 +62,41 @@
 
 <div class="col-md-9 col-sm-9 col-xs-12">
 
-  <p class="title-listados">Alimentos compartidos de <%= @user.username %></p>
-  <table id="table-alimentos" class="listados table table-responsive">
-      <% if @user.ads.count > 0 %>  
-        <% @user.ads.each do |anuncio| %>
-        <tr>
-        <td><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(anuncio) %></td>
+<p class="title-listados">Alimentos compartidos de <%= @user.username %></p>
+<table id="table-alimentos" class="listados table table-responsive">
+  <% if @user.ads.count > 0 %>  
+    <% @user.ads.each do |anuncio| %>
+
+      <tr>
+        <td><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(anuncio) %>
+          <p class="ad_status <%= anuncio.status_class %>"><%= anuncio.status_string %></p>
+        </td>
+
         <td>
-          <p class="grande"><%= link_to anuncio.title, ad_url(anuncio) %></p>
-          <p><%= truncate_html(markdown(anuncio.body).html_safe, length: 100, omission: ' ... ') %></p>
+          <p class="grande enrojo"><%= link_to anuncio.title, ad_url(anuncio) %></p>
+          <p class="enrojo"><%= grams_to_kg(anuncio.grams) %> kg</p>
+          <p><b>Fecha límite de entrega:</b> <%= formated_date(anuncio.pick_up_date) %></p>
+          <p><%= truncate_html(markdown(anuncio.body).html_safe, length: 150, omission: ' ... ') %></p>
         </td>
         <td>
-          <% if user_signed_in? and @user.id == current_user.id %>
-          <p class="btn btn-azul"><%= link_to 'Ver', ad_url(anuncio) %></p>
-            <% if can? :update, anuncio %>
-              <p class="btn btn-verde"><%= link_to ads_edit_path(anuncio.id) do %>
-                Editar
+          <div>
+            <% if user_signed_in? and @user.id == current_user.id %>
+              <p class="btn btn-azul col-md-12"><%= link_to 'Ver', ad_url(anuncio) %></p>
+              <% if can? :update, anuncio %>
+                <p class="btn btn-verde col-md-12"><%= link_to ads_edit_path(anuncio.id) do %>
+                  Editar
               <% end %></p>
             <% end %>
-          <!--<p class="btn btn-azul"><%#= link_to 'Previsualizar', my_idea_path(idea) %></p>
-          <p class="btn btn-rojo"><%#= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>-->
-          <% end %>
-        </td>
-        <td>
-          <span class="ad_status <%= anuncio.status_class %>"><%= anuncio.status_string %></span>
+            <!--<p class="btn btn-azul"><%#= link_to 'Previsualizar', my_idea_path(idea) %></p>
+            <p class="btn btn-rojo"><%#= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>-->
+            <% end %>
+          </div>
         </td>
         <% end %>
       <% else %>  
         <p> <%= t("nlt.no_results.on_user") %> </p>
         </tr>
       <% end %>      
-
   </table>
 
   <p class="title-listados">Ideas de <%= @user.username %></p>
@@ -107,10 +110,10 @@
       </td>
       <td>
         <% if user_signed_in? and @user.id == current_user.id %>
-          <p class="btn btn-azul"><%= link_to 'Ver', idea_url(idea) %></p>
-          <p class="btn btn-azul"><%= link_to 'Previsualizar', my_idea_path(idea) %></p>
-          <p class="btn btn-verde"><%= link_to 'Editar', edit_my_idea_path(idea) %></p>
-          <p class="btn btn-rojo"><%= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>
+          <p class="btn btn-azul col-md-12"><%= link_to 'Ver', idea_url(idea) %></p>
+          <!--<p class="btn btn-azul"><%#= link_to 'Previsualizar', my_idea_path(idea) %></p>-->
+          <p class="btn btn-verde col-md-12"><%= link_to 'Editar', edit_my_idea_path(idea) %></p>
+          <p class="btn btn-rojo col-md-12"><%= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>
         <% end %>
       </td>  
     </tr>
