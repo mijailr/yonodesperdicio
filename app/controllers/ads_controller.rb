@@ -91,6 +91,7 @@ class AdsController < ApplicationController
   def set_ad
     #@ad = Rails.cache.fetch("set_ad_#{params[:id]}") do
     @ad = Ad.includes(:user).find(params[:id])
+    #@ad = Ad.includes(:user).friendly.find(params[:id])
     #end
   end
 

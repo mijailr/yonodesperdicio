@@ -175,4 +175,7 @@ class Ad < ActiveRecord::Base
     where("title like ? OR body LIKE ? OR grams LIKE ?", "%#{query}%","%#{query}%","%#{query}%")
   end
 
+  #extend FriendlyId
+  #friendly_id :title, use: :slugged
+
 end
