@@ -9,7 +9,7 @@ class Idea < ActiveRecord::Base
 
   validates :title, length: {minimum: 5, maximum: 100}
   validates :introduction, length: {minimum: 10, maximum: 200}
-  validates :body, length: {minimum: 10, maximum: 500}
+  validates :body, length: {minimum: 10, maximum: 1000}
 
   before_validation(on: :create) do
     self.published_at = Time.now
