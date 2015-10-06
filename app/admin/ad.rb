@@ -17,6 +17,7 @@ ActiveAdmin.register Ad do
     selectable_column
     id_column
     column :status_string
+    column :user
     column "Image" do |ad|
       link_to image_tag(ad.image.url(:thumb)), content_admin_ad_path(ad)
     end
@@ -52,6 +53,8 @@ ActiveAdmin.register Ad do
   form do |f|
     f.inputs "Admin Details" do
       #f.input :status, :as => :select, collection: Ad.all.status_string, include_blank: false
+      f.input :user
+      f.input :status
       f.input :title
       f.input :body      
       f.input :grams
