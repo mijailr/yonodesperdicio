@@ -7,8 +7,8 @@ Yonodesperdicio::Application.initialize!
 ActionMailer::Base.smtp_settings = {
   :user_name => Rails.application.secrets.emails["smtp_username"],
   :password => Rails.application.secrets.emails["smtp_password"],
-  :address => 'smtp.sendgrid.net',
-  :port => 587,
+  :address => Rails.application.secrets.emails["smtp_address"],
+  :port => Rails.application.secrets.port["smtp_port"],
   :authentication => :plain,
   :enable_starttls_auto => true
 }
