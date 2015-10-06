@@ -3,10 +3,10 @@
 <% content_for :meta_description do %>
   <meta name="description" content='<%= @iniciativa.body %><%= image_tag @iniciativa.image.url(:medium) %>' />
   <meta property="og:title" content="<%= @iniciativa.body %>" />
-  <meta property="og:image" content='<%= image_tag @iniciativa.image.url %>' />
+  <meta property="og:image" content='<%= @iniciativa.image.url %>' />
   <meta property="og:title" content='<%= @iniciativa.title %>' />
   <meta itemprop="description" content="<%= @iniciativa.body %>" />
-  <meta itemprop="image" content='<%= image_tag @iniciativa.image.url %>' />
+  <meta itemprop="image" content='<%= @iniciativa.image.url %>' />
 <% end %>
 
 <div class="row">
