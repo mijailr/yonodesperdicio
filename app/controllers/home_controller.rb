@@ -155,11 +155,11 @@ class HomeController < ApplicationController
     #@alimentos = Ad.give.includes(:user).
     #                      where(status: [1,2]).
     #                      page(params[:page]).per(10)
-    if params[:search]
+    if params[:search] || params[:zipcode]
       @alimentos = Ad.give.includes(:user).
                            where(status: [1,2]).
-                           page(params[:page]).per(10).
-                           search(params[:search])
+                           search(params[:search], params[:zipcode]).
+                           page(params[:page]).per(10)
     else
       @alimentos = Ad.give.includes(:user).
                            where(status: [1,2]).

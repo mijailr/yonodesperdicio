@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
   include ApplicationHelper
 
-  before_action :set_ad, only: [:show, :edit, :update, :destroy]
+  before_action :set_ad, only: [:show, :update, :destroy]
   #caches_action :list, :show, layout: false, unless: :current_user, skip_digest: true
   #caches_action :index, :cache_path => Proc.new { |c| c.params }, unless: :current_user
   load_and_authorize_resource
@@ -35,6 +35,10 @@ class AdsController < ApplicationController
   # GET /ads/new
   def new
     @ad = Ad.new
+    @ad.zipcode = current_user.zipcode
+    @ad.city = current_user.city
+    @ad.province = current_user.province
+
     if current_user.woeid.nil?
       redirect_to location_ask_path
     end
@@ -42,6 +46,7 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
+    @ad = Ad.friendly.find(params[:id])
   end
 
   # POST /ads
@@ -99,7 +104,8 @@ class AdsController < ApplicationController
     params.require(:ad).
            permit(:title, :body, :type, :status, :woeid_code,
                   :grams, :expiration_date, :pick_up_date,
-                  :comments_enabled, :image, :user_owner, :ip)
+                  :comments_enabled, :image, :user_owner, :ip,
+                  :zipcode, :city, :province)
   end
 
 end

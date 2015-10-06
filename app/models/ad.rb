@@ -52,6 +52,12 @@ class Ad < ActiveRecord::Base
 
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
+  before_validation do
+    self.zipcode = user.zipcode unless self.zipcode.present?
+    self.city = user.city unless self.city.present?
+    self.province = user.province unless self.province.present?
+  end
+
   scope :give, -> { where(type: 1) }
   scope :want, -> { where(type: 2) }
 
@@ -170,8 +176,11 @@ class Ad < ActiveRecord::Base
     "#{I18n.t('nlt.keywords')} #{self.title} #{self.woeid_name}"
   end
 
-  def self.search(query)
-    where("title like ? OR body LIKE ? OR grams LIKE ?", "%#{query}%","%#{query}%","%#{query}%")
+  def self.search(query, zipcode)
+    r = Ad
+    r = r.where("title like ? OR body LIKE ? OR grams LIKE ?", "%#{query}%","%#{query}%","%#{query}%") if query.present?
+    r = r.where("zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
+    r
   end
 
 end

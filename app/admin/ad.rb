@@ -2,7 +2,7 @@ ActiveAdmin.register Ad do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :status, :title, :user, :body, 
+  permit_params :status, :title, :user, :body,
                 :grams, :expiration_date, :pick_up_date, :image
   #
   # or
@@ -12,6 +12,17 @@ ActiveAdmin.register Ad do
   #   permitted << :other if resource.something?
   #   permitted
   # end
+
+  controller do
+    def find_resource
+      begin
+        scoped_collection.where(slug: params[:id]).first!
+      rescue ActiveRecord::RecordNotFound
+        scoped_collection.find(params[:id])
+      end
+    end
+  end
+
 
   index do
     selectable_column
@@ -54,9 +65,9 @@ ActiveAdmin.register Ad do
     f.inputs "Admin Details" do
       #f.input :status, :as => :select, collection: Ad.all.status_string, include_blank: false
       f.input :user
-      f.input :status
+      f.input :status, :as => :select, collection: {"disponible" => 1, "reservado" => 2 , "entregado" => 3}
       f.input :title
-      f.input :body      
+      f.input :body
       f.input :grams
       f.input :pick_up_date
       f.input :expiration_date

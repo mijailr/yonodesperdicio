@@ -4,6 +4,7 @@
   Entre particulares
     <%= form_tag(particulares_path, :method => "get", id: "buscadorads") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Buscar alimentos" %>
+      <%= text_field_tag :zipcode, params[:zipcode], placeholder: "Codigo postal" %>
       <%= button_tag(type: "submit", class: " ") do %>
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
       <% end %>
@@ -18,7 +19,7 @@
 
     <%#= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
 
-  <% @alimentos.each_slice(4) do |alimentos| %>
+  <% @alimentos.includes(:user).each_slice(4) do |alimentos| %>
   <div id="gridalimentos" class="row">
 
     <% alimentos.each do |alimento| %>
@@ -32,7 +33,7 @@
 
           <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
           <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg</p>
-          <p>Código postal: <%= alimento.user.zipcode %></p>
+          <p>Código postal: <%= alimento.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
           <p>Fecha de caducidad: <%= formated_date(alimento.expiration_date) %></p>
           <hr>

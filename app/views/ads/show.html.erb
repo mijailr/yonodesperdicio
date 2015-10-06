@@ -20,10 +20,9 @@
   </div><!--/col-->
 
   <div class="col-md-4 col-sm-4 col-xs-12">
-    <%#= image_tag "http://maps.google.com/maps/api/staticmap?size=500x100&sensor=false&zoom=13&markers=#{@ad.user.zipcode},#{@ad.user.city}", :width => "100%", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
       <iframe width="100%" height="100" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZtag48hMPyRv9K0xppoqTstZmJ9DHS_Q
-       &q=<%= @ad.user.zipcode %>,<%= @ad.user.city %>&zoom=10" allowfullscreen>
+       &q=<%= @ad.zipcode %>,<%= @ad.city %>&zoom=10" allowfullscreen>
        </iframe>
     <div class="izda col-md-4">
       <%= link_to image_tag(@ad.user.image.url(:thumb), :alt => @ad.user.username), @ad.user.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large'), :class => "avatar, img-responsive" %>

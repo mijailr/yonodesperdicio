@@ -21,7 +21,7 @@
         <% end %>
 
         <dt id="photo-label">
-        <%= f.label :image,  t('nlt.ads.form.select_an_image'), :class => "optional" %> 
+        <%= f.label :image,  t('nlt.ads.form.select_an_image'), :class => "optional" %>
         </dt>
         <dd>
         <%= f.file_field :image %>
@@ -40,14 +40,14 @@
         <% end %>
 
         <dt id="type-label">
-        <%= f.label :type,  t('nlt.ads.form.type_ad'), :class => "required" %> 
+        <%= f.label :type,  t('nlt.ads.form.type_ad'), :class => "required" %>
         </dt>
         <dd id="type-element">
         <%= f.select(:type, options_for_select([["#{t('nlt.give')}...", 1], ["#{t('nlt.want')}...", 2]], selected: @ad.type ? @ad.type : params[:type]))  %>
         </dd>
 
         <dt id="title-label">
-        <%= f.label :title,  t('nlt.ads.form.title'), :class => "required" %> 
+        <%= f.label :title,  t('nlt.ads.form.title'), :class => "required" %>
         </dt>
         <dd id="title-element">
         <%= f.text_field :title, required: true, maxlength: 100, size: 45 %>
@@ -57,22 +57,18 @@
         </dd>
 
         <dt id="body-label">
-        <%= f.label :body,  t('nlt.ads.form.body'), :class => "required" %> 
+        <%= f.label :body,  t('nlt.ads.form.body'), :class => "required" %>
         </dt>
         <dd id="body-element">
-          <% if @ad.body %>
-            <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %><%= @ad.body %>
-          <% else %>
-            <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %>
-          <% end %>
+          <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %>
         <p class="description">
-          (Requerido)<%= t 'nlt.ads.form.body_max' %>
+          (Requerido) <%= t 'nlt.ads.form.body_max' %>
         </p>
         </dd>
 
 
         <dt id="grams-label">
-          <%= f.label :grams,  t('Cantidad'), :class => "required" %> 
+          <%= f.label :grams,  t('Cantidad'), :class => "required" %>
         </dt>
         <dd id="gram-element">
           <%= f.text_field :grams %>
@@ -82,7 +78,7 @@
         </dd>
 
         <dt id="expiration-label">
-          <%= f.label :expiration_date,  t('Fecha de caducidad') %> 
+          <%= f.label :expiration_date,  t('Fecha de caducidad') %>
         </dt>
         <dd id="expiraton-element">
           <%= f.date_select :expiration_date, :include_blank => true, :default => {:day => nil, :month => nil, :year => nil} %>
@@ -92,7 +88,7 @@
         </dd>
 
         <dt id="pick_up-label">
-          <%= f.label :pick_up_date,  t('Fecha límite de entrega') %> 
+          <%= f.label :pick_up_date,  t('Fecha límite de entrega') %>
         </dt>
         <dd id="gram-element">
           <%= f.date_select :pick_up_date, :include_blank => true, :default => {:day => nil, :month => nil, :year => nil} %>
@@ -101,8 +97,18 @@
         </p>
         </dd>
 
+        <dt id="zipcode-label">
+          <%= f.label :zipcode,  t('Código postal') %>
+        </dt>
+        <dd id="zipcode-element">
+          <%= f.text_field :zipcode %>
+        <p class="description">
+          <%= t 'Código postal' %>
+        </p>
+        </dd>
+
         <dt id="comments_enabled-label">
-        <%= f.label :comments_enabled,  t('nlt.ads.form.comments_enabled'), :class => "required" %> 
+        <%= f.label :comments_enabled,  t('nlt.ads.form.comments_enabled'), :class => "required" %>
         </dt>
         <span class="comments-element">
           <%= f.check_box :comments_enabled %>
