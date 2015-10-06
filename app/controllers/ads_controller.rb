@@ -28,6 +28,8 @@ class AdsController < ApplicationController
     @ad.increment_readed_count!
     set_menu('compartir')
     set_submenu('particulares')
+    @other_ads = @ad.user.ads - [@ad]
+    @ads_count = @other_ads.count
   end
 
   # GET /ads/new
@@ -89,17 +91,14 @@ class AdsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_ad
-    #@ad = Rails.cache.fetch("set_ad_#{params[:id]}") do
-    @ad = Ad.includes(:user).find(params[:id])
-    #@ad = Ad.includes(:user).friendly.find(params[:id])
-    #end
+    @ad = Ad.includes(:user).friendly.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def ad_params
     params.require(:ad).
-           permit(:title, :body, :type, :status, :woeid_code, 
-                  :grams, :expiration_date, :pick_up_date, 
+           permit(:title, :body, :type, :status, :woeid_code,
+                  :grams, :expiration_date, :pick_up_date,
                   :comments_enabled, :image, :user_owner, :ip)
   end
 

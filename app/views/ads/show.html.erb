@@ -21,13 +21,13 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <%#= image_tag "http://maps.google.com/maps/api/staticmap?size=500x100&sensor=false&zoom=13&markers=#{@ad.user.zipcode},#{@ad.user.city}", :width => "100%", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
-      <iframe width="100%" height="100" frameborder="0" style="border:0" 
+      <iframe width="100%" height="100" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZtag48hMPyRv9K0xppoqTstZmJ9DHS_Q
        &q=<%= @ad.user.zipcode %>,<%= @ad.user.city %>&zoom=10" allowfullscreen>
        </iframe>
     <div class="izda col-md-4">
       <%= link_to image_tag(@ad.user.image.url(:thumb), :alt => @ad.user.username), @ad.user.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large'), :class => "avatar, img-responsive" %>
-    </div><!--/izda--> 
+    </div><!--/izda-->
 
     <div class="dcha col-md-8">
       <p>Código postal: <%= @ad.user.zipcode %></p>
@@ -49,7 +49,7 @@
     <% end %>
 
   </div><!--/col-->
-  
+
   <div class="meta_info col-md-12 col-sm-12 col-xs-12">
     <% if @ad.is_give? %>
       <span class="ad_status <%= @ad.status_class %>"><%= @ad.status_string %></span>
@@ -74,17 +74,15 @@
 </div>
 
 <div id="otros-ads" class="col-md-12 col-sm-12 col-xs-12">
-  <h3><%= @ad.user.username %> también comparte:</h3>
-      <% if @ad.user.ads.count > 0 %> 
-        <% @ad.user.ads.each do |anuncio| %>
-          <div class="col-md-3 col-sm-3 col-xs-6">
-            <p><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(anuncio) %></p>
-            <p><%= link_to anuncio.title, ad_url(anuncio) %></p>
-          </div><!--/col-4-->
-        <% end %>
-      <% else %>  
-        <p> <%= t("nlt.no_results.on_user") %> </p> 
-      <% end %>      
+  <% if @ads_count > 0 %>
+    <h3><%= @ad.user.username %> también comparte:</h3>
+    <% @other_ads.each do |anuncio| %>
+      <div class="col-md-3 col-sm-3 col-xs-6">
+        <p><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(anuncio) %></p>
+        <p><%= link_to anuncio.title, ad_url(anuncio) %></p>
+      </div><!--/col-4-->
+    <% end %>
+  <% end %>
 </div><!--/otros-ads-->
 
 

@@ -3,6 +3,9 @@ class Ad < ActiveRecord::Base
 
   require 'ipaddress'
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :user, :counter_cache => true
 
   has_many :comments, as: :commentable
@@ -39,9 +42,9 @@ class Ad < ActiveRecord::Base
 
   has_attached_file :image,
                     styles: {thumb: "100x100>",
-                             medium: "300x225#", 
+                             medium: "300x225#",
                              fourthree: "400x300#",
-                             large: "600x337.5>"}, 
+                             large: "600x337.5>"},
                     :default_url => "propias/d_ads_:style.png",
                     process_in_background: :image
 
@@ -87,10 +90,6 @@ class Ad < ActiveRecord::Base
     # Is this premature optimization?
     # AdIncrementReadedCountWorker.new(self.id)
     Ad.increment_counter(:readed_count, self.id)
-  end
-
-  def slug
-    title.parameterize
   end
 
   def woeid_name
@@ -174,8 +173,5 @@ class Ad < ActiveRecord::Base
   def self.search(query)
     where("title like ? OR body LIKE ? OR grams LIKE ?", "%#{query}%","%#{query}%","%#{query}%")
   end
-
-  #extend FriendlyId
-  #friendly_id :title, use: :slugged
 
 end
