@@ -33,7 +33,7 @@
 
           <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
           <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg</p>
-          <p>Código postal: <%= alimento.zipcode %></p>
+          <p>Código postal del alimento: <%= alimento.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
           <p>Fecha de caducidad: <%= formated_date(alimento.expiration_date) %></p>
           <hr>

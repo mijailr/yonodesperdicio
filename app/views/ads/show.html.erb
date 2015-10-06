@@ -29,7 +29,7 @@
     </div><!--/izda-->
 
     <div class="dcha col-md-8">
-      <p>Código postal: <%= @ad.user.zipcode %></p>
+      <p>Código postal donde se comparte este alimento: <%= @ad.zipcode %></p>
       <p><b><%= link_to @ad.user, profile_path(@ad.user.username) %></b></p>
       <p>Comida entregada: <span id="comidaentregada"><%= grams_to_kg(@ad.user.total_quantity) %> kg</span></p>
       <!--<p>[Estrellitas]</p>-->
