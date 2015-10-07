@@ -37,28 +37,28 @@ a
     border-bottom: solid
     border-width: 3px
 
-h2
-  @include titulos
-h1, h1#title
+h1#title
   @include titulosotros
+h1.title
+  @include titulos
+  font-size: 4em
 h1.titulorojo
   @include titulosfondorojos
-
 h1.title-inside  
   @include titulosrojos
 h2
-  line-height: 1.2em
-  padding-left: 0px
+  @include titulos
   font-size: 3em
+h3
+  @include titulosotros
+  font-size: 28px  
 h3.titulospeque
   font-family: $font-gorda
   color: $c-azul
   font-size: 1.2em  
   text-transform: uppercase
   padding: 1em 0 0.5em 0
-h3
-  @include titulosotros
-  font-size: 28px
+
 h3.veinticinco
   font-size: 22px
   margin-top: 0
@@ -619,6 +619,12 @@ img#logo
     
 #otros-ads
   margin-top: 1em
+
+/**
+  * Páginas
+#sitemap li
+  font-size: 16px
+  line-height: 1.5em
 
 /**
   * Como funciona

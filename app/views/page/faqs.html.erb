@@ -1,8 +1,8 @@
 <% content_for (:meta_title) { @faq.try(:title) } %>
 
 <div id="faq" class="row">
-  <h2><%= @faq.try(:title) %></h2>
-  <div id="main" class="col-md-12">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <h1 class="title"><%= @faq.try(:title) %></h1>
     <%= text_for(:faq) %>
-  </div><!-- /main-->
+  </div><!-- /cols-->
 </div><!-- /row-->

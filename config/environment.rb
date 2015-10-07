@@ -10,5 +10,6 @@ ActionMailer::Base.smtp_settings = {
   :address => Rails.application.secrets.emails["smtp_address"],
   :port => Rails.application.secrets.emails["smtp_port"],
   :authentication => :plain,
-  :enable_starttls_auto => true
+  :enable_starttls_auto => true,
+  :openssl_verify_mode => "none"
 }
