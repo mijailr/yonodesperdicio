@@ -37,6 +37,7 @@ Yonodesperdicio::Application.routes.draw do
     get '/about', to: 'page#about', as: 'about'
     get '/privacy', to: 'page#privacy', as: 'privacy'
     get '/translate', to: 'page#translate', as: 'translate'
+    get '/sitemap', to: 'page#sitemap', as: 'sitemap'
   end
 
   scope '/api' do

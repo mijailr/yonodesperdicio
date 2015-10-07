@@ -24,4 +24,7 @@ class PageController < ApplicationController
   def translate
   end
 
+  def sitemap
+  end
+
 end
