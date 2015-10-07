@@ -88,12 +88,12 @@ class HomeController < ApplicationController
                     where("published_at < ?", Time.now).
                     order('published_at DESC').
                     includes(:user).
-                    page(params[:page]).per(10)
+                    page(params[:page]).per(6)
     else
       @ideas = Idea.order('created_at ASC').
                     where("published_at < ?", Time.now).
                     includes(:user).
-                    page(params[:page]).per(10)
+                    page(params[:page]).per(6)
     end
   end
 
@@ -104,7 +104,7 @@ class HomeController < ApplicationController
                   tagged_with(tag).
                   order('published_at DESC').
                   includes(:user).
-                  page(params[:page]).per(10)
+                  page(params[:page]).per(6)
     render :ideas
   end
 
@@ -159,11 +159,11 @@ class HomeController < ApplicationController
       @alimentos = Ad.give.includes(:user).
                            where(status: [1,2]).
                            search(params[:search], params[:zipcode]).
-                           page(params[:page]).per(10)
+                           page(params[:page]).per(8)
     else
       @alimentos = Ad.give.includes(:user).
                            where(status: [1,2]).
-                           page(params[:page]).per(10)
+                           page(params[:page]).per(8)
     end
 
   end
