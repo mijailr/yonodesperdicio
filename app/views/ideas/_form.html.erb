@@ -18,14 +18,14 @@
   </div>
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, required: true, maxlenght: 100 %>
-    <%= t "(Entre 5 y 100 caracteres)" %>
+    <%= f.text_field :title, required: true, maxlenght: 200 %>
+    <%= t "(Entre 5 y 200 caracteres)" %>
 
   </div>
   <div class="field">
     <%= f.label :introduction %><br>
-    <%= f.text_area :introduction, maxlenght: 200 %>
-    <%= t "(Entre 10 y 200 caracteres)" %>
+    <%= f.text_area :introduction, maxlenght: 500 %>
+    <%= t "(Entre 10 y 500 caracteres)" %>
   </div>
   <div class="field">
     <%= f.label :ingredients %><br>
@@ -33,8 +33,8 @@
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body, maxlenght: 500, :rows => 10 %>
-    <%= t "(Entre 30 y 500 caracteres)" %>
+    <%= f.text_area :body, :rows => 10 %>
+    <%= t "(Mínimo 10 caracteres)" %>
   </div>
 
   <div><%= f.label :image %><br />

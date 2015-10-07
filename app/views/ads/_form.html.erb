@@ -52,7 +52,7 @@
         <dd id="title-element">
         <%= f.text_field :title, required: true, maxlength: 100, size: 45 %>
         <p class="description">
-          (Requerido) <%= t 'nlt.ads.form.title_max' %>
+          (Requerido) <%= 'Entre 5 y 100 caracteres' %>
         </p>
         </dd>
 
@@ -62,7 +62,7 @@
         <dd id="body-element">
           <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500 %>
         <p class="description">
-          (Requerido) <%= t 'nlt.ads.form.body_max' %>
+          (Requerido) <%= 'Entre 10 y 500 caracteres' %>
         </p>
         </dd>
 
@@ -103,7 +103,7 @@
         <dd id="zipcode-element">
           <%= f.text_field :zipcode %>
         <p class="description">
-          <%= t 'Código postal' %>
+          <%= '(Cámbialo si desde donde ofertas el alimento no coincide con tu código postal)' %>
         </p>
         </dd>
 
