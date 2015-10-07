@@ -1,7 +1,7 @@
 <% content_for(:meta_title) {@iniciativa.title} %>
 <%# content_for(:meta_description) {@iniciativa.body} %>
 <% content_for :meta_description do %>
-  <meta name="description" content='<%= @iniciativa.body %><%= image_tag @iniciativa.image.url(:medium) %>' />
+  <meta name="description" content='<%= @iniciativa.body %>' />
   <meta property="og:title" content="<%= @iniciativa.body %>" />
   <meta property="og:image" content='<%= @iniciativa.image.url %>' />
   <meta property="og:title" content='<%= @iniciativa.title %>' />
