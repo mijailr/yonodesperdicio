@@ -505,10 +505,11 @@ img#logo
 /**
   * Recetas
 #submenu
-  margin: 1em 0 1em 1em
+  margin: 0px 30px 10px 30px
   li
     display: inline-block
     @include titulos
+    font-size: 40px
     padding: 0 0.5em 0 0
     margin: 0
 #gridrecetas
@@ -572,6 +573,18 @@ img#logo
     background: $c-rojo
     color: #FFF
 
+#unalimento
+  .izda img
+    padding: 0
+    -webkit-border-radius: 15px
+    -moz-border-radius: 15px
+    border-radius: 15px
+  iframe
+    padding-bottom: 1em
+  .izda, .dcha
+    padding: 0 0 1em 0
+  #acciones .submit
+    margin: 0
 
 /**
   * Organizaciones
@@ -600,6 +613,9 @@ img#logo
   font-family: $font-general
 #listadoorg 
   font-size: 15px
+  background: #FFF
+  #unaorg
+    padding: 1em
   a
     font-family: $font-gorda
 #bodegon

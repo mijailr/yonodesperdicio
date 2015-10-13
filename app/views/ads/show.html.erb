@@ -4,7 +4,7 @@
   <meta name="description" content="<%= t('nlt.meta_description_ad', title: @ad.title, woeid: @ad.woeid_name, body: @ad.body) %>" />
 <% end %>
 
-<div class="row fondoblanco">
+<div id="unalimento" class="row fondoblanco">
   <div class="col-md-4 col-sm-4 col-xs-12">
     <%# if @ad.image.exists? %>
       <%#= link_to image_tag(@ad.image.url(:thumb), :alt => @ad.title, :class => "img-responsive"), @ad.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large') %>
@@ -26,7 +26,7 @@
        &q=<%= @ad.zipcode %>,<%= @ad.city %>&zoom=10" allowfullscreen>
        </iframe>
     <div class="izda col-md-4">
-      <%= link_to image_tag(@ad.user.image.url(:thumb), :alt => @ad.user.username), @ad.user.image.url, :rel => 'superbox[image]', :alt => t('nlt.click_to_large'), :class => "avatar, img-responsive" %>
+      <%= link_to image_tag(@ad.user.image.url(:thumb), :alt => @ad.user.username), profile_path(@ad.user.username), :class => "avatar, img-responsive" %>
     </div><!--/izda-->
 
     <div class="dcha col-md-8">
@@ -35,22 +35,9 @@
       <p>Comida entregada: <span id="comidaentregada"><%= grams_to_kg(@ad.user.total_quantity) %> kg</span></p>
       <!--<p>[Estrellitas]</p>-->
     </div><!-- /dcha -->
-
-    <% unless current_user == @ad.user %>
-      <%= link_to message_new_path @ad.user.id, :class => "world_link" do %>
-        <div class="submit"><%= "Contacta con " %> <%= @ad.user.username %></div>
-      <% end %>
-    <% end %>
-
-    <% if can? :update, @ad %>
-        <%= link_to ads_edit_path(@ad.id) do %>
-          <div class="submit"><%= t('nlt.edit_this_ad') %></div>
-        <% end %>
-    <% end %>
-
   </div><!--/col-->
 
-  <div class="meta_info col-md-12 col-sm-12 col-xs-12">
+  <div class="meta_info col-md-8 col-sm-8 col-xs-8">
     <% if @ad.is_give? %>
       <span class="ad_status <%= @ad.status_class %>"><%= @ad.status_string %></span>
     <% end %>
@@ -65,6 +52,21 @@
                      }
         %></span>
   </div><!--/meta_info-->
+
+ <div id="acciones" class="col-md-4 col-sm-4 col-xs-4">
+    <% unless current_user == @ad.user %>
+      <%= link_to message_new_path @ad.user.id, :class => "world_link" do %>
+        <div class="submit"><%= "Contacta con " %> <%= @ad.user.username %></div>
+      <% end %>
+    <% end %>
+
+    <% if can? :update, @ad %>
+        <%= link_to ads_edit_path(@ad.id) do %>
+          <div class="submit"><%= t('nlt.edit_this_ad') %></div>
+        <% end %>
+    <% end %>
+  </div><!--/acciones-->
+
 </div><!--fondoblanco-->
 
 
