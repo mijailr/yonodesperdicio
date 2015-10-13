@@ -195,13 +195,14 @@ form.searchbox
 
 #menu-cabecera
   font-family: $font-gorda
+  font-size: 1.1em
   padding: 0.3em
   margin-bottom: 10px
   background: $c-azul
   color: #FFF
   font-weight: bold
   @media all and (max-width: $break-medium)
-    font-size: 0.7em
+    font-size: 0.8em
   a
     color: #FFF
   a:hover
@@ -385,17 +386,23 @@ img#logo
     padding: 0.6em
     float: left
     text-align: center
+.links-left
+  background: $c-azul
+  font-size: 1.1em
+  li
     border-right: 1px solid #FFF
   li.last  
     border-right: none
-.links-left
-  background: $c-azul
+  @media all and (max-width: $break-medium)
+    font-size: 0.8em
 
 .links-right
   background: $c-verde
+  border-left: 1.5px solid #FFF
   font-size: 0.8em
   padding: 0.4em
-  line-height: 1em
+  line-height: 1.1em
+  color: #FFF
   a
     font-weight: bold
     padding-left: 0.5em
@@ -450,7 +457,7 @@ img#logo
   #contador-texto
     float: left
     line-height: 1em
-    padding: 2.5em 0
+    padding: 2em 0
     @include texto-rojo
     text-align: left
     font-size: 1.5em
@@ -464,7 +471,7 @@ img#logo
   div
     padding: 0
   img
-    padding: 0
+    padding: 3px 0
     @media all and (max-width: $break-small)
       display: none
  
@@ -589,7 +596,6 @@ img#logo
 /**
   * Organizaciones
 #introduccion
-  margin: 0 0 2em 0
   @include introducciones
 
 #buscadororg
@@ -613,9 +619,10 @@ img#logo
   font-family: $font-general
 #listadoorg 
   font-size: 15px
-  background: #FFF
   #unaorg
     padding: 1em
+    p 
+      margin-bottom: 0.4em
   a
     font-family: $font-gorda
 #bodegon

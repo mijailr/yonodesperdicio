@@ -25,18 +25,17 @@ Hasta que todas las personas puedan tener acceso a una alimentación digna y suf
 
 
 <div id="listadoorg" class="row">
-  <div class="col-md-12">
 
     <% @organizations.each do |organization| %>
-      <div id="unaorg" class="col-md-4 col-sm-4 col-xs-12">
+      <div id="unaorg" class="col-md-4 col-sm-4 col-xs-6">
         <p><%= link_to organization.name, organization_url(organization) %></p>
-        <p><%= markdown(organization.address).html_safe %></p>
-        <p><%= markdown(organization.zipcode).html_safe %></p>
+        <%= markdown(organization.address).html_safe %>
+        <%= markdown(organization.zipcode).html_safe %>
       </div>  
     <% end %>
 
     <%= paginate(@organizations) %>
-  </div><!-- /col -->
+
 </div><!-- /row -->
 
 <center><%= image_tag "propias/Bodegon.png", :alt => "Imagen bodegón'", :id => "bodegon", :class => "img-responsive" %></center>
