@@ -19,6 +19,12 @@ GIT
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
 
+GIT
+  remote: git://github.com/wazery/ratyrate.git
+  revision: c42c52f1cf26e8b488367aa78a6b94d46229abd1
+  specs:
+    ratyrate (1.2.2.alpha)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -331,7 +337,6 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
-    ratyrate (1.2.2.alpha)
     rb-readline (0.5.3)
     rdoc (4.2.0)
     recaptcha (0.4.0)
@@ -497,7 +502,7 @@ DEPENDENCIES
   rails (~> 4.2.1)
   rails-assets-bootstrap!
   rails-footnotes (~> 4.0)
-  ratyrate
+  ratyrate!
   rb-readline
   recaptcha
   redcarpet
