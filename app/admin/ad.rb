@@ -3,7 +3,8 @@ ActiveAdmin.register Ad do
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   permit_params :status, :title, :user, :body,
-                :grams, :expiration_date, :pick_up_date, :image
+                :grams, :expiration_date, :pick_up_date,
+                :image, :food_category
   #
   # or
   #
@@ -66,6 +67,7 @@ ActiveAdmin.register Ad do
       #f.input :status, :as => :select, collection: Ad.all.status_string, include_blank: false
       f.input :user
       f.input :status, :as => :select, collection: {"disponible" => 1, "reservado" => 2 , "entregado" => 3}
+      f.input :food_category, :as => :select, collection: Ad::FOOD_CATEGORIES
       f.input :title
       f.input :body
       f.input :grams

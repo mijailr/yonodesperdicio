@@ -105,7 +105,9 @@ class AdsController < ApplicationController
            permit(:title, :body, :type, :status, :woeid_code,
                   :grams, :expiration_date, :pick_up_date,
                   :comments_enabled, :image, :user_owner, :ip,
-                  :zipcode, :city, :province)
+                  :zipcode, :city, :province,
+                  :food_category
+                 )
   end
 
 end

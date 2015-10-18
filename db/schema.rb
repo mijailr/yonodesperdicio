@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018093406) do
+ActiveRecord::Schema.define(version: 20151018124628) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151018093406) do
     t.string   "zipcode",            limit: 255
     t.string   "province",           limit: 255
     t.string   "city",               limit: 255
+    t.string   "food_category",      limit: 255
   end
 
   add_index "ads", ["deleted_at"], name: "index_ads_on_deleted_at", using: :btree

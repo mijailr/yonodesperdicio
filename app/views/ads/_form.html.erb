@@ -46,6 +46,13 @@
         <%= f.select(:type, options_for_select([["#{t('nlt.give')}...", 1], ["#{t('nlt.want')}...", 2]], selected: @ad.type ? @ad.type : params[:type]))  %>
         </dd>
 
+        <dt id="food_category-label">
+        <%= f.label :food_category,  t('nlt.ads.form.food_category'), :class => "required" %>
+        </dt>
+        <dd id="food_category-element">
+        <%= f.select(:food_category, Ad::FOOD_CATEGORIES, :required => true, :include_blank => true)  %>
+        </dd>
+
         <dt id="title-label">
         <%= f.label :title,  t('nlt.ads.form.title'), :class => "required" %>
         </dt>

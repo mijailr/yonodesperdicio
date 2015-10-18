@@ -4,6 +4,7 @@
   Entre particulares
     <%= form_tag(particulares_path, :method => "get", id: "buscadorads") do %>
       <%= text_field_tag :search, params[:search], placeholder: "Buscar alimentos" %>
+      <%= select_tag :food_category, options_for_select(Ad::FOOD_CATEGORIES, params[:food_category]), { prompt: "Categoría", include_blank: true } %>
       <%= text_field_tag :zipcode, params[:zipcode], placeholder: "Codigo postal" %>
       <%= button_tag(type: "submit", class: " ") do %>
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>

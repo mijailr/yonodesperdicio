@@ -36,7 +36,7 @@ es:
       contact:
         email: Correo electrónico
         message: Mensaje
-     
+
   activerecord:
     models:
       user:
@@ -53,7 +53,7 @@ es:
         other: "Comentarios"
       text:
         one: "Texto"
-        other: "Textos" 
+        other: "Textos"
       article:
         one: "Artículo"
         other: "Artículos"
@@ -62,7 +62,7 @@ es:
         other: "Ideas"
       organization:
         one: "Organización"
-        other: "Organizaciones" 
+        other: "Organizaciones"
     attributes:
       message:
         subject: Tema
@@ -441,14 +441,14 @@ es:
     want_to_leave: "¿Quieres borrar tu usuario?"
     update: Guardar
     readed_count: "%{count} lecturas"
-    comments_count: 
+    comments_count:
       zero: " "
       one: ", %{count} comentario"
       other: ", %{count} comentarios"
-    hello_to: Hola %{recipient},
+    hello_to: "Hola %{recipient},"
     about: acerca de
     about_page:
-      description_html: <b>¿Qué es Yonodesperdicio.org?</b><br> Es un sitio web donde poder compartir con otras personas la comida que te sobra. <br><br> <strong>Lee las <a href="/es/page/faqs">preguntas de uso frecuente</a> para saber mas detalles de la filosofia y objetivos del proyecto</strong> <br><br> <b>Ventajas de Yonodesperdicio.org:</b><br> La gran ventaja de Yonodesperdicio.org, es que, al estar organizado por zonas geográficas fomenta que las comida que quieras dar, se queda cerca, lo das tú mismo a alguien de tu misma ciudad, que va a buscarlo en persona a un lugar pactado. <br><br> <b>A tener en cuenta:</b><br> <b>Yonodesperdicio.org funciona  gracias al trabajo de muchas <a href="http://www.youtube.com/watch?v=KMU0tzLwhbE">personas</a> que han creado el siguiente software libre:</b> <a href="http://rubyonrails.org/">Ruby On Rails</a>, <a href="http://www.mysql.com/">MySQL</a>, <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo GeoPlanet API</a>, <a href="http://www.postfix.org/">Postfix</a>, <a href="http://www.ubuntu.org/">Ubuntu</a>, <a href="http://nginx.org/">Nginx</a>, <a href="http://sphinxsearch.com/">Sphinx</a> , y muchos mas, tantos que sería imposible nombrarlos todos aquí. <br><br> <b>El código fuente de Yonodesperdicio.org es código abierto</b> y está disponible para ser utilizado (bajo licencia Affero GPL 3), basado en el código de nolotiro.org.<br> Visita la <a href="https://github.com/alabs/nolotiro.org"> web para desarrolladores</a> para mas detalles (en inglés).<br> Los colaboradores son bienvenidos, ya sea para programar o para traducir la página a otras lenguas.
+      description_html: '<b>¿Qué es Yonodesperdicio.org?</b><br> Es un sitio web donde poder compartir con otras personas la comida que te sobra. <br><br> <strong>Lee las <a href="/es/page/faqs">preguntas de uso frecuente</a> para saber mas detalles de la filosofia y objetivos del proyecto</strong> <br><br> <b>Ventajas de Yonodesperdicio.org:</b><br> La gran ventaja de Yonodesperdicio.org, es que, al estar organizado por zonas geográficas fomenta que las comida que quieras dar, se queda cerca, lo das tú mismo a alguien de tu misma ciudad, que va a buscarlo en persona a un lugar pactado. <br><br> <b>A tener en cuenta:</b><br> <b>Yonodesperdicio.org funciona  gracias al trabajo de muchas <a href="http://www.youtube.com/watch?v=KMU0tzLwhbE">personas</a> que han creado el siguiente software libre:</b> <a href="http://rubyonrails.org/">Ruby On Rails</a>, <a href="http://www.mysql.com/">MySQL</a>, <a href="http://developer.yahoo.com/geo/geoplanet/">Yahoo GeoPlanet API</a>, <a href="http://www.postfix.org/">Postfix</a>, <a href="http://www.ubuntu.org/">Ubuntu</a>, <a href="http://nginx.org/">Nginx</a>, <a href="http://sphinxsearch.com/">Sphinx</a> , y muchos mas, tantos que sería imposible nombrarlos todos aquí. <br><br> <b>El código fuente de Yonodesperdicio.org es código abierto</b> y está disponible para ser utilizado (bajo licencia Affero GPL 3), basado en el código de nolotiro.org.<br> Visita la <a href="https://github.com/alabs/nolotiro.org"> web para desarrolladores</a> para mas detalles (en inglés).<br> Los colaboradores son bienvenidos, ya sea para programar o para traducir la página a otras lenguas.'
       title: Acerca de Yonodesperdicio.org
     access_here: accede aquí
     admin:
@@ -462,15 +462,16 @@ es:
         body: 'Explica un poco más...'
         comments_enabled: Permitir comentarios públicos
         image_permitted_formats: 'Formatos permitidos: gif, jpg, png. Max: 1Mb de tamaño.'
-        please_ad_type: por favor, selecciona el tipo de alimento
+        please_ad_type: "por favor, selecciona el tipo de alimento"
         prohibited: 'Hay un problema, revisa esto:'
         select_an_image: Selecciona una imagen para tu alimento (opcional).
         status: Estado
         title: 'Tu alimento'
         title_max: Máximo 100 caracteres
         body_max: Máximo 500 caracteres
-        to_publish: Para publicar tu alimento, por favor, introduce estos datos
+        to_publish: "Para publicar tu alimento, por favor, introduce estos datos"
         type_ad: 'Tipo de alimento'
+        food_category: Categoría de alimento
     ideas:
       title: "Título"
       category: "Tipo"
@@ -599,7 +600,7 @@ es:
     publish_ad_on: Publicar alimento en %{woeid}
     to_publish_ad: Publicar alimento
     published_ads: Alimentos publicados
-    published_at_by_html: Por <b>%{user}</b> hace %{time} 
+    published_at_by_html: Por <b>%{user}</b> hace %{time}
     published_on: Publicado hace %{date}
     published_on_html: Publicado <abbr class='js-moment' title='%{date}'>%{date}</abbr>
     reads: lecturas

@@ -14,6 +14,7 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <h3 class="enrojo"><%= @ad.title %></h3>
+    <p><%= @ad.food_category %></p>
     <p>Cantidad: <%= grams_to_kg(@ad.grams) %> kg</p>
     <p>Fecha límite de entrega: <%= formated_date(@ad.pick_up_date) %></p>
     <p>Fecha de caducidad: <%= formated_date(@ad.expiration_date) %></p>

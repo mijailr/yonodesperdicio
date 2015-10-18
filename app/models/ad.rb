@@ -3,6 +3,21 @@ class Ad < ActiveRecord::Base
 
   require 'ipaddress'
 
+  FOOD_CATEGORIES = [
+    'carne y aves',
+    'pescado y marisco',
+    'fruta',
+    'verduras y hortalizas',
+    'charcuteria',
+    'lacteos',
+    'legumbres',
+    'bebidas',
+    'condimentos',
+    'pan y bollería',
+    'conservas',
+    'platos preparados'
+  ]
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -16,6 +31,7 @@ class Ad < ActiveRecord::Base
   validates :woeid_code, presence: true
   validates :ip, presence: true
   validates :grams, presence: true
+  validates :food_category, presence: true
 
   validates :title, length: {minimum: 5, maximum: 100},
             presence: true
@@ -176,10 +192,11 @@ class Ad < ActiveRecord::Base
     "#{I18n.t('nlt.keywords')} #{self.title} #{self.woeid_name}"
   end
 
-  def self.search(query, zipcode)
+  def self.search(query, zipcode, food_category)
     r = Ad
-    r = r.where("title like ? OR body LIKE ? OR grams LIKE ?", "%#{query}%","%#{query}%","%#{query}%") if query.present?
+    r = r.where("title like ? OR body LIKE ? OR grams = ?", "%#{query}%","%#{query}%",query) if query.present?
     r = r.where("zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
+    r = r.where("food_category = ?", food_category) if food_category.present?
     r
   end
 
