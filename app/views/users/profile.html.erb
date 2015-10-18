@@ -17,16 +17,16 @@
     <div class="profile-body">
       <div class="izda col-md-4">
         <%= image_tag @user.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %>
-      </div><!--/izda--> 
+      </div><!--/izda-->
 
       <div class="dcha col-md-8">
         <p class="username"><%= @user.username %></p>
-        <!--[Estrellitas]-->
+        <%= rating_for @user, "rating" %>
       </div><!-- /dcha -->
 
       <div class="abajo col-md-12 col-sm-12 col-xs-12">
         <%#= image_tag "http://maps.google.com/maps/api/staticmap?size=300x100&sensor=false&zoom=13&markers=#{@user.zipcode}, #{@user.city}", :width => "100%", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
-       <iframe width="100%" height="100" frameborder="0" style="border:0" 
+       <iframe width="100%" height="100" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZtag48hMPyRv9K0xppoqTstZmJ9DHS_Q
        &q=<%= @user.zipcode %>,<%= @user.city %>&zoom=10" allowfullscreen>
        </iframe>
@@ -46,10 +46,10 @@
   <% end %>
 
     <div id="profile-menu">
-      <%#= render partial: "users/tabnav", locals: {user: @user} %> 
+      <%#= render partial: "users/tabnav", locals: {user: @user} %>
       <% if user_signed_in? %>
         <div class="btn btn-azul col-md-12">
-          <%#= link_to_unless_current t('nlt.messages'), messages_list_path %>  
+          <%#= link_to_unless_current t('nlt.messages'), messages_list_path %>
           <% unread_messages_count = current_user.unread_messages_count %>
           <%= link_to messages_list_path, title: "#{unread_messages_count}" do %>
             Tienes <%= unread_messages_count %> mensaje(s) sin leer
@@ -58,13 +58,13 @@
           <%#= link_to t('nlt.logout'), destroy_user_session_path, :method => :delete, :class => "btn btn-azul" %>
         <% end %>
     </div><!-- /profile-menu -->
-  </div><!-- /profile-block --> 
+  </div><!-- /profile-block -->
 
 <div class="col-md-9 col-sm-9 col-xs-12">
 
 <p class="title-listados">Alimentos compartidos de <%= @user.username %></p>
 <table id="table-alimentos" class="listados table table-responsive">
-  <% if @user.ads.count > 0 %>  
+  <% if @user.ads.count > 0 %>
     <% @user.ads.each do |anuncio| %>
 
       <tr>
@@ -93,10 +93,10 @@
           </div>
         </td>
         <% end %>
-      <% else %>  
+      <% else %>
         <p> <%= t("nlt.no_results.on_user") %> </p>
         </tr>
-      <% end %>      
+      <% end %>
   </table>
 
   <p class="title-listados">Ideas de <%= @user.username %></p>
@@ -115,14 +115,14 @@
           <p class="btn btn-verde col-md-12"><%= link_to 'Editar', edit_my_idea_path(idea) %></p>
           <p class="btn btn-rojo col-md-12"><%= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>
         <% end %>
-      </td>  
+      </td>
     </tr>
     <% end %>
 </table>
 
   <!--<h1 class="title-listados">Valoraciones pendientes <%= @user.username %></h1>
   <table id="listados">
-    <tr>  
+    <tr>
       <td>bla</td>
     </tr>
   </table>-->

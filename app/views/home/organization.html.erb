@@ -2,7 +2,7 @@
 <% content_for(:meta_title) {@organization.name} %>
 
 <div class="row fondoblanco">
-  
+
   <div class="col-md-4">
     <h3 id="title"><%= @organization.name %></h3>
     <p><%= markdown(@organization.address).html_safe %></p>
@@ -10,7 +10,7 @@
     <p><%= markdown(@organization.phone).html_safe %></p>
     <p><%= markdown(@organization.email).html_safe %></p>
     <p><%= markdown(@organization.website).html_safe %></p>
-    <p><%#= '[Estrellitas]' %></p>
+    <p><%= rating_for @organization, "rating" %></p>
   </div><!-- col-4 -->
 
   <div class="col-md-4">

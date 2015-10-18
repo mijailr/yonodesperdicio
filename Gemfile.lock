@@ -331,6 +331,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    ratyrate (1.2.2.alpha)
     rb-readline (0.5.3)
     rdoc (4.2.0)
     recaptcha (0.4.0)
@@ -496,6 +497,7 @@ DEPENDENCIES
   rails (~> 4.2.1)
   rails-assets-bootstrap!
   rails-footnotes (~> 4.0)
+  ratyrate
   rb-readline
   recaptcha
   redcarpet

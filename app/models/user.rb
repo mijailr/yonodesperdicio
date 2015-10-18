@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 
+  ratyrate_rater
+  ratyrate_rateable "rating"
+
   def to_s
     username
   end

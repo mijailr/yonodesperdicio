@@ -1,4 +1,7 @@
 class Organization < ActiveRecord::Base
+
+  ratyrate_rateable "rating"
+
   validates :name, :description, :zipcode, :address, presence: true
 
   #has_attached_file :image, styles: {thumb: "100x100>", medium: "400x230#", large: "530x300>"}
@@ -7,7 +10,7 @@ class Organization < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-     
+
   def self.search(query)
     where("zipcode like ?", "%#{query}%")
   end
