@@ -61,9 +61,13 @@
 <div id="subereceta" class="row col-md-12 col-sm-12 col-xs-12">
   <div class="col-md-10 col-sm-10 col-xs-10">
     <span class="btn btn-rojo"><%= link_to 'Comparte alimentos', new_ad_path %></span>
-    <span class="enrojo">  (Para compartir alimentos es necesario iniciar sesión)</span>
+    <% unless user_signed_in? %>
+      <span class="enrojo">  (Para compartir alimentos es necesario iniciar sesión)</span>
+    <% end %>
   </div>
+  <% unless user_signed_in? %>
   <div class="login col-md-2 col-sm-2 col-xs-2">
     <%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %>
   </div>
+  <% end %>
 </div><!-- /subereceta -->
