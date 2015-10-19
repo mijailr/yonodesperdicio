@@ -90,6 +90,7 @@ es:
         user: Usuario
         image: Imagen
         image_content_type: Tipo de contenido de imagen
+        food_category: Categoría de alimento
         image_file_size: Tamaño de imagen
         grams: Cantidad (en gramos)
         pick_up_date: Fecha de entrega
@@ -533,10 +534,10 @@ es:
       answer_4_html: 'Aunque las probabilidades de que traficantes de peluches de segunda mano ronden por esta web son bastante remotas, si así fuese ... no importaría lo mas mínimo si tu enfoque es el de deshacerte de cosas que tu no quieres (el egoista).<br> Como lo oyes: NO IMPORTA, es mas, aunque no lo creas sigues haciendo algo bueno.<br> Si regalaste objetos porque no usabas y no sabías que hacer con ellos, pero tampoco los querías tirar a la basura has hecho bien.<br> Te has hecho bien a ti, y has devuelto ese objeto al <a href="http://www.lapetiteclaudine.com/archives/009217.html">mundo de las cosas útiles,</a> ahorrando dinero a gente y energía, generando riqueza (aunque sea poca, es riqueza). Si por el contrario esta respuesta no te convence entonces no deberías regalar nada aquí y venderlo o donarlo a alguna ONG, donde hacen un seguimiento y selección de dicha gente necesitada (nosotros no podemos garantizar dicho proceso). '
       answer_5_html: 'Sólo hay 2 clases de anuncios: Los de Regalo, en los que ofreces objetos que te estorban o ya no quieres tener. Y los anuncios de Quiero, que sirven para dar pistas e inspirar a la gente sobre que clase de objetos quiere otra gente utilizar o poseer.<br> <strong>Los anuncios de cambio, venta , pidiendo dinero, comerciales, de empleo, medicamentos,etc no están permitidos.</strong> Y son borrados en cuanto un moderador los detecta, en caso de publicar repetidamente anuncios no deseados, se puede proceder al bloqueo de la cuenta del usuario.'
       answer_6_html: 'El trueque es un sistema que funciona muy bien en formato físico, esto es, dos personas cara a cara , viendo los objetos y hablando en vivo y en directo. Pero en internet el trueque es muy susceptible de terminar en engaños o insatisfacciones y discusiones eternas.<br> Además como has podido leer anteriormente , aquí se dan objetos sin condiciones y el trueque tiene el condicionamiento del quid pro quo, es decir: tu me das y yo te doy algo igual.'
-      answer_7_html: Sorprendentemente mucha gente lo hace, y no hay nada malo en que se hagan envíos, pero debes tener un mínimo de precaución con la seriedad del receptor, ha habido casos en que alguien de muy buena fe ha realizado un envío pagando los gastos y luego ha resultado que se le ha devuelto el paquete. Lo ideal es que no se hagan, se debe fomentar que los objetos circulen lo mas cerca posible, ahorrando energía, y puede servir para conocer mejor a la gente de tu misma ciudad.<br> Esperamos que en la nueva versión , que hemos enfocado a un concepto local, se consiga.<br> <a href="http://en.wikipedia.org/wiki/Think_Globally,_Act_Locally">Piensa globalmente, actúa localmente.</a>
+      answer_7_html: 'Sorprendentemente mucha gente lo hace, y no hay nada malo en que se hagan envíos, pero debes tener un mínimo de precaución con la seriedad del receptor, ha habido casos en que alguien de muy buena fe ha realizado un envío pagando los gastos y luego ha resultado que se le ha devuelto el paquete. Lo ideal es que no se hagan, se debe fomentar que los objetos circulen lo mas cerca posible, ahorrando energía, y puede servir para conocer mejor a la gente de tu misma ciudad.<br> Esperamos que en la nueva versión , que hemos enfocado a un concepto local, se consiga.<br> <a href="http://en.wikipedia.org/wiki/Think_Globally,_Act_Locally">Piensa globalmente, actúa localmente.</a>'
       question_1: "¿Cuál es el propósito de este proyecto?"
-      question_2: Entonces ...¿Esta web no es para ayudar a los demás?
-      question_3: Pero a mi me gustaría regalar mis cosas a alguien que realmente lo necesitj
+      question_2: 'Entonces ...¿Esta web no es para ayudar a los demás?'
+      question_3: 'Pero a mi me gustaría regalar mis cosas a alguien que realmente lo necesite'
       question_4: "¿Es verdad que hay gente que luego vende las cosas que regalan aquí?"
       question_5: "¿Qué clase de anuncios puedo publicar en Yonodesperdicio?"
       question_6: "¿No está permitido el intercambio de objetos? que raro"
@@ -602,7 +603,7 @@ es:
     published_ads: Alimentos publicados
     published_at_by_html: Por <b>%{user}</b> hace %{time}
     published_on: Publicado hace %{date}
-    published_on_html: Publicado <abbr class='js-moment' title='%{date}'>%{date}</abbr>
+    published_on_html: "Publicado <abbr class='js-moment' title='%{date}'>%{date}</abbr>"
     reads: lecturas
     register: Regístrate
     register_here: registrate aquí
@@ -627,7 +628,7 @@ es:
     to_publish_or_send_messages: Para publicar anuncios o enviar mensajes accede a tu cuenta
     tos: términos de uso
     translate:
-      description_html: Actualmente, Nolotiro.org está disponible en pocos idiomas, pero tú puedes ayudarnos a <a href="http://accounts.localeapp.com/projects/6872">traducirlo al tuyo</a>.
+      description_html: 'Actualmente, Nolotiro.org está disponible en pocos idiomas, pero tú puedes ayudarnos a <a href="http://accounts.localeapp.com/projects/6872">traducirlo al tuyo</a>.'
       title: Ayúdanos a traducir nolotiro.org a tu idioma
     updating: Estamos actualizando todo el sitio, por lo que en las próximas horas habrá retrasos con los mensajes entre los usuarios, las imágenes de un anuncio y la cantidad de anuncios de los usuarios. No te preocupes que "estamos trabajando en ellou".
     user_ads: alimentos

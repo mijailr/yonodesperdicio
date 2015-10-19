@@ -30,12 +30,12 @@ ActiveAdmin.register Ad do
     id_column
     column :status_string
     column :user
+    column :food_category
     column "Image" do |ad|
       link_to image_tag(ad.image.url(:thumb)), content_admin_ad_path(ad)
     end
     column :title
     column :grams
-    column :user
     column :pick_up_date
     column :expiration_date
     actions
@@ -43,6 +43,7 @@ ActiveAdmin.register Ad do
 
   filter :status
   filter :user
+  filter :food_category
   filter :pick_up_date
   filter :created_at
 
@@ -50,6 +51,7 @@ ActiveAdmin.register Ad do
     attributes_table do
       row :status_string
       row :user
+      row :food_category
       row :title
       row :body
       row :pick_up_date

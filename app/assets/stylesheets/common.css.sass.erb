@@ -579,17 +579,20 @@ img#logo
       margin-bottom: 0.3em
     p.cantidad
       @include texto-rojo
-    #usuario #izda
-      padding: 0
-      img
-        margin: 0
+    #usuario 
+      #izda
         padding: 0
-        -webkit-border-radius: 15px
-        -moz-border-radius: 15px
-        border-radius: 15px
-        width: 60px
-    #usuario #dcha
-      padding: 0 5px 
+        img
+          margin: 0
+          padding: 0
+          -webkit-border-radius: 15px
+          -moz-border-radius: 15px
+          border-radius: 15px
+          width: 60px
+      #dcha
+        padding: 0 5px
+      #editar
+        padding: 0.2em 0
   hr
     margin: 0.8em 0
   .ad_status
@@ -920,7 +923,7 @@ input#delete_multiple_button:hover
       margin: 0
   .dcha
     float: left
-    padding: 2em 0 0 2em
+    padding: 0 0 0 2em
   .abajo
     padding: 0
     margin: 1em 0 0 0
