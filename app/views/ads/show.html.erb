@@ -14,7 +14,7 @@
 
   <div class="col-md-4 col-sm-4 col-xs-12">
     <h3 class="enrojo"><%= @ad.title %></h3>
-    <p><%= @ad.food_category %></p>
+    <p>Categoría: <%= @ad.food_category %></p>
     <p>Cantidad: <%= grams_to_kg(@ad.grams) %> kg</p>
     <p>Fecha límite de entrega: <%= formated_date(@ad.pick_up_date) %></p>
     <p>Fecha de caducidad: <%= formated_date(@ad.expiration_date) %></p>
@@ -33,7 +33,7 @@
     <div class="dcha col-md-8">
       <p>Código postal donde se comparte este alimento: <%= @ad.zipcode %></p>
       <p><b><%= link_to @ad.user, profile_path(@ad.user.username) %></b></p>
-      <p>Comida entregada: <span id="comidaentregada"><%= grams_to_kg(@ad.user.total_quantity) %> kg</span></p>
+      <p>Comida entregada por <%= @ad.user %>: <span id="comidaentregada"><%= grams_to_kg(@ad.user.total_quantity) %> kg</span></p>
       <!--<p>[Estrellitas]</p>-->
     </div><!-- /dcha -->
   </div><!--/col-->

@@ -555,18 +555,8 @@ img#logo
 /**
  * Alimentos
 #titalimentos
-  height: 2.3em
-#gridalimentos
-  .alimento
-    background: #FFF
-    margin: 1em 0
-    padding: 1em
-    p
-      clear: both
-    p.cantidad
-      @include texto-rojo
-  .ad_status
-    float: right
+  @include titulosfondorojos
+
 #buscadorads
   float: right
   width: auto
@@ -579,6 +569,32 @@ img#logo
   button
     background: $c-rojo
     color: #FFF
+#gridalimentos
+  .alimento
+    background: #FFF
+    margin: 1em 0
+    padding: 1em
+    p
+      clear: both
+      margin-bottom: 0.3em
+    p.cantidad
+      @include texto-rojo
+    #usuario #izda
+      padding: 0
+      img
+        margin: 0
+        padding: 0
+        -webkit-border-radius: 15px
+        -moz-border-radius: 15px
+        border-radius: 15px
+        width: 60px
+    #usuario #dcha
+      padding: 0 5px 
+  hr
+    margin: 0.8em 0
+  .ad_status
+    float: right
+
 
 #unalimento
   .izda img
