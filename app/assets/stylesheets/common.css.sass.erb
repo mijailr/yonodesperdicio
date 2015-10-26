@@ -145,6 +145,60 @@ form.searchbox
     padding: 0.2em
 
 /**
+  * Formularios en general
+#newinside form input, 
+#newinside form textarea
+  width: 100%
+  border: none
+
+#newinside
+  padding: 1em
+  dt, label
+    color: $c-azul
+    text-transform: uppercase
+    margin: 1em 0 0 0
+  a
+    color: #FFF
+  a.world_link
+    color: $c-azul
+  #comments_enabled-label,    
+  input[type="checkbox"]
+    width: auto
+    float: left
+  .comments-element
+    float: left 
+    margin: 2em 0 0 1em 
+  #captcha-input-label
+    clear: both
+  .actions
+    float: left
+    clear: both
+    margin-top: 2em  
+
+#newinside 
+  #main
+    padding: 0
+  .edit_ad
+    padding: 0
+
+select#ad_food_category,
+select#ad_status,
+select#idea_category,
+select#ad_pick_up_date_3i,
+select#ad_pick_up_date_2i,
+select#ad_pick_up_date_1i
+  border: 1px solid $c-azul
+  color: $c-azul
+  font-family: $font-gorda
+  text-transform: uppercase
+  padding: 0.2em
+  background: $c-fondo
+input[type="file"]
+  background: $c-azul
+  color: #FFF
+
+
+/**
  * Layout.
 #header
   float: left
@@ -945,35 +999,6 @@ input#delete_multiple_button:hover
 #comidaentregada
   font-weight: bold
   font-size: 1.1em
-
-#newinside form input, 
-#newinside form textarea
-  width: 100%
-
-#newinside
-  padding: 1em
-  dt, label
-    color: $c-azul
-    text-transform: uppercase
-    margin: 1em 0 0 0
-  a
-    color: #FFF
-  a.world_link
-    color: $c-azul
-  #comments_enabled-label,    
-  input[type="checkbox"]
-    width: auto
-    float: left
-  .comments-element
-    float: left 
-    margin: 2em 0 0 1em 
-  #captcha-input-label
-    clear: both
-  .actions
-    float: left
-    clear: both
-    margin-top: 2em
-
 
 ul#insidenav
   li

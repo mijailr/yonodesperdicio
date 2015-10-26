@@ -37,7 +37,7 @@ ActiveAdmin.register Ad do
     column :title
     column :grams
     column :pick_up_date
-    column :expiration_date
+    #column :expiration_date
     actions
   end
 
@@ -55,7 +55,7 @@ ActiveAdmin.register Ad do
       row :title
       row :body
       row :pick_up_date
-      row :expiration_date
+      #row :expiration_date
       row :grams
       row :image do
         ad.image? ? image_tag(ad.image.url, height: '100') : content_tag(:span, "No image yet")
@@ -74,7 +74,7 @@ ActiveAdmin.register Ad do
       f.input :body
       f.input :grams
       f.input :pick_up_date
-      f.input :expiration_date
+      #f.input :expiration_date
       f.input :image, :as => :file, :hint => f.article.image_tag(f.object.image.url(:thumb))
       f.input :created_at
     end
