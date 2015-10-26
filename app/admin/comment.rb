@@ -12,7 +12,7 @@ ActiveAdmin.register Comment do
   #   permitted
   # end
 
-  permit_params :body, :user
+  permit_params :body, :user, :commentable, :created_at
 
   index do
     selectable_column
@@ -37,6 +37,7 @@ ActiveAdmin.register Comment do
       f.input :user
       #f.input :commentable
       f.input :body
+      f.input :created_at
     end
     f.actions
   end  

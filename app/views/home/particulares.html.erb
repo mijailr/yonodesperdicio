@@ -21,7 +21,7 @@
 
       <div class="col-md-3 col-sm-3 col-xs-12">
         <div class="alimento">
-          <%= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), ad_url(alimento) %>
+          <%= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), adslug_path(id: alimento.id, slug: alimento.slug) %>
           <% if alimento.is_give? %>
             <span class="ad_status <%= alimento.status_class %>"><%= alimento.status_string %></span>
           <% end %>
