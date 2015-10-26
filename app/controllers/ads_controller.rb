@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
   include ApplicationHelper
 
-  before_action :set_ad, only: [:show, :update, :destroy]
+  before_action :set_ad, only: [:update, :destroy]
   #caches_action :list, :show, layout: false, unless: :current_user, skip_digest: true
   #caches_action :index, :cache_path => Proc.new { |c| c.params }, unless: :current_user
   load_and_authorize_resource
@@ -24,6 +24,7 @@ class AdsController < ApplicationController
   # GET /ads/1
   # GET /ads/1.json
   def show
+    @ad = Ad.includes(:user, {:comments => :user}).friendly.find(params[:id])
     redirect_to ads_path unless @ad.user
     @ad.increment_readed_count!
     set_menu('compartir')

@@ -14,16 +14,16 @@ Yonodesperdicio::Application.routes.draw do
 
   get '/noticias/(:tag)', to: 'home#noticias', as: 'noticias'
   get '/noticia/:id', to: 'home#noticia', as: 'noticia'
-  post'/noticia/:id/comments', to: 'comments#create', as: 'noticia_comments', commentable_type: 'Article', article_category: 'noticia'
+  post '/noticia/:id/comments', to: 'comments#create', as: 'noticia_comments', commentable_type: 'Article', article_category: 'noticia'
 
   get '/iniciativas_sociales/(:tag)', to: 'home#iniciativas_sociales', as: 'iniciativas_sociales'
   get '/iniciativa_social/:id', to: 'home#iniciativa', as: 'iniciativa'
-  post'/iniciativa_social/:id/comments', to: 'comments#create', as: 'iniciativa_comments', commentable_type: 'Article', article_category: 'iniciativa'
+  post '/iniciativa_social/:id/comments', to: 'comments#create', as: 'iniciativa_comments', commentable_type: 'Article', article_category: 'iniciativa'
 
   get '/ideas/(:category)', to: 'home#ideas', as: 'ideas'
   get '/ideas/de/:tag', to: 'home#ideas_tag', as: 'ideas_tag'
   get '/idea/:id', to: 'home#idea', as: 'idea'
-  post'/idea/:id/comments', to: 'comments#create', as: 'idea_comments', commentable_type: 'Idea'
+  post '/idea/:id/comments', to: 'comments#create', as: 'idea_comments', commentable_type: 'Idea'
 
   get '/organizaciones', to: 'home#organizations', as: 'organizations'
   get '/organizacion/:id', to: 'home#organization', as: 'organization'
@@ -106,7 +106,7 @@ Yonodesperdicio::Application.routes.draw do
   get '/profile/:username', to: 'users#profile', as: 'profile'
 
   # comments
-  post '/comment/create/ad_id/:id', to: 'comments#create', as: 'create_comment'
+  post '/ad/:id/comments', to: 'comments#create', as: 'create_comment', commentable_type: 'Ad'
 
   # search
   get '/search', to: 'search#search', as: 'search'
