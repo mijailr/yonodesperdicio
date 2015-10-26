@@ -40,17 +40,6 @@
         <%= f.select(:food_category, Ad::FOOD_CATEGORIES, :required => true, :include_blank => true, prompt: "CATEGORÍA DE ALIMENTOS" )  %>
         </dd>        
 
-        <dt id="body-label">
-        <%= f.label :body,  t('nlt.ads.form.body'), :class => "required" %>
-        </dt>
-        <dd id="body-element">
-          <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500, placeholder: "Por ejemplo, puedes explicar porqué compartes este alimento." %>
-        <p class="description">
-          (Requerido) <%= 'Entre 10 y 500 caracteres.' %>
-        </p>
-        </dd>
-
-
         <dt id="grams-label">
           <%= f.label :grams,  t('Cantidad'), :class => "required" %>
         </dt>
@@ -60,6 +49,16 @@
           (Requerido) <%= 'Pon la cantidad en gramos.' %>
         </p>
         </dd>
+
+        <dt id="body-label">
+        <%= f.label :body,  t('nlt.ads.form.body'), :class => "required" %>
+        </dt>
+        <dd id="body-element">
+          <%= f.text_area :body, :rows => 10, :cols => 80, :required => true, :maxlength => 500, placeholder: "Por ejemplo, puedes explicar porqué compartes este alimento." %>
+        <p class="description">
+          (Requerido) <%= 'Entre 10 y 500 caracteres.' %>
+        </p>
+        </dd>        
 
         <dt id="pick_up-label">
           <%= f.label :pick_up_date,  t('Fecha límite de entrega') %>
@@ -111,9 +110,9 @@
         <dt id="comments_enabled-label">
         <%= f.label :comments_enabled,  t('nlt.ads.form.comments_enabled'), :class => "required" %>
         </dt>
-        <span class="comments-element">
+        <dd id="comments-element">
           <%= f.check_box :comments_enabled %>
-        </span>
+        </dd>
 
         <% unless params[:action] == "edit" %>
           <dt id="captcha-input-label">

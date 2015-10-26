@@ -78,9 +78,9 @@ textarea
 p.mayusc
   text-transform: uppercase
   font-weight: bold
-
-form textarea
-  resize: both
+p.small
+  line-height: 1em
+  font-size: 70%  
 
 .enrojo
   @include texto-rojo
@@ -104,23 +104,6 @@ form textarea
 
 .close_advice a
   color: #000
-
-input[type="text"], input[type="password"], input[type="email"], input[type="submit"]
-  border: 1px solid #666
-  font-size: 1.1em
-  padding: 4px
-
-form input[type="submit"], form input[type="button"], form button,
-.btn-default
-  -moz-border-radius: 0
-  -webkit-border-radius: 0
-  border-radius: 0
-  text-transform: uppercase
-  border: none
-
-a.btn-default
-  background: none
-  color: #FFF
 
 form.searchbox
   display: inline-block
@@ -146,6 +129,24 @@ form.searchbox
 
 /**
   * Formularios en general
+form input,
+form textarea
+  border: none
+  font-size: 1.1em
+  padding: 0.2em
+form textarea
+  resize: vertical
+form input[type="submit"], form input[type="button"], form button,
+.btn-default
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+  border-radius: 0
+  text-transform: uppercase
+  border: none
+a.btn-default
+  background: none
+  color: #FFF
+   
 #newinside form input, 
 #newinside form textarea
   width: 100%
@@ -153,28 +154,43 @@ form.searchbox
 
 #newinside
   padding: 1em
-  dt, label
+  dt
     color: $c-azul
     text-transform: uppercase
-    margin: 1em 0 0 0
+    margin: 1em 0 0.1em 0
   a
     color: #FFF
   a.world_link
     color: $c-azul
-  #comments_enabled-label,    
-  input[type="checkbox"]
+  #comments_enabled-label,
+  #comments-element input[type="checkbox"]
     width: auto
     float: left
-  .comments-element
-    float: left 
-    margin: 2em 0 0 1em 
+  #comments-element
+    input[type="checkbox"]
+      margin: 1em 0 0 1em
   #captcha-input-label
+    float: left
+    margin: 2em 0 0 0
+    clear: both
+  #captcha-element
     clear: both
   .actions
     float: left
     clear: both
-    margin-top: 2em  
-
+    margin-top: 2em
+    input[type="submit"]
+      background: $c-verde
+      border: 1px solid $c-verde
+      color: #FFF
+      a
+        color: #FFF
+    input[type="submit"]:hover
+      background: #FFF
+      color: $c-verde
+      border: 1px solid $c-verde
+      a
+        color: $c-verde
 #newinside 
   #main
     padding: 0
@@ -188,15 +204,12 @@ select#ad_pick_up_date_3i,
 select#ad_pick_up_date_2i,
 select#ad_pick_up_date_1i
   border: 1px solid $c-azul
+  background: #FFF
   color: $c-azul
   font-family: $font-gorda
   text-transform: uppercase
   padding: 0.2em
-  background: $c-fondo
 input[type="file"]
-  background: $c-azul
-  color: #FFF
-
 
 /**
  * Layout.
@@ -245,7 +258,6 @@ input[type="file"]
 #comida-dcha div img
   width: 80%
   float: right
-
 
 #menu-cabecera
   font-family: $font-gorda
@@ -384,8 +396,6 @@ img#logo
       a
         display: inline-block
         vertical-align: middle
-  
-
 
 /**
  ** Footer
@@ -618,9 +628,19 @@ img#logo
   color: #000
   font-size: 0.8em
   padding: 0
-  input#search
+  input#search,
+  input#zipcode,
+  select#food_category
+    font-size: 1.1em
     height: 100%
     border: none
+    color: #000
+  select#food_category
+    border: 1px solid #FFF
+    background: #FFF
+    text-transform: uppercase
+    color: #757575
+
   button
     background: $c-rojo
     color: #FFF
@@ -664,8 +684,9 @@ img#logo
     padding-bottom: 1em
   .izda, .dcha
     padding: 0 0 1em 0
-  #acciones .submit
-    margin: 0
+  #acciones 
+    .submit
+      margin: 0
 
 /**
   * Organizaciones

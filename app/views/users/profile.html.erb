@@ -15,20 +15,19 @@
     </div><!--/profile-header-->
 
     <div class="profile-body">
-      <div class="izda col-md-4">
+      <div class="izda col-md-4 col-sm-4 col-xs-4">
         <%= image_tag @user.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %>
       </div><!--/izda-->
 
-      <div class="dcha col-md-8">
+      <div class="dcha col-md-8 col-sm-8 col-xs-8">
         <p class="username"><%= @user.username %></p>
         <% if user_signed_in? and @user.id != current_user.id %>
         <p>Valora a este usuario: 
-          <%= rating_for @user, "rating", :cancel => true, cancel_place: 'right', cancel_hint: 'Cancela esta valoración!' %></p>
+          <%= rating_for @user, "rating", disable_after_rate: true, :cancel => true, cancel_place: 'right', cancel_hint: 'Cancela esta valoración!' %></p>
         <% else %>
-          <%= rating_for @user, "rating", disable_after_rate: true, imdb_avg: true %>
+          <%= rating_for @user, "rating" %>
+          <p class="small">Tu valoración sólo se guardará si has iniciado sesión</p>
         <% end %>
-
-
 
       </div><!-- /dcha -->
 
@@ -137,15 +136,12 @@
 
 <hr>
 
-    <ul>
-      <% unless current_user == @user %>
-        <li>
-          <%= link_to message_new_path @user.id, :class => "world_link" do %>
-           <%= t('nlt.send_a_message_to') %> <%= @user.username %>
-           <%= image_tag "email_send.png", :alt => "send a mesage" %>
-          <% end %>
-        </li>
-      <% end %>
+<% unless current_user == @user %>
+  <%= link_to message_new_path @user.id, :class => "world_link" do %>
+    <%= t('nlt.send_a_message_to') %> <%= @user.username %>
+    <%#= image_tag "email_send.png", :alt => "send a mesage" %>
+  <% end %>
+<% end %>
 
       <!--<%# if user_signed_in? %>
         <%# unless current_user == @user %>

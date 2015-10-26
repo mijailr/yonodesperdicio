@@ -19,22 +19,23 @@
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title, required: true, maxlenght: 200 %>
-    <%= t "(Entre 5 y 200 caracteres)" %>
+    <p class="descripcion">(Entre 5 y 200 caracteres)</p>
 
   </div>
   <div class="field">
     <%= f.label :introduction %><br>
-    <%= f.text_area :introduction, maxlenght: 500 %>
-    <%= t "(Entre 10 y 500 caracteres)" %>
+    <%= f.text_area :introduction, maxlenght: 500, placeholder: "Explica para qué es buena tu idea..." %>
+    <p class="descripcion">(Entre 10 y 500 caracteres)</p>
   </div>
   <div class="field">
     <%= f.label :ingredients %><br>
-    <%= f.text_area :ingredients %>
+    <%= f.text_area :ingredients, placeholder: "Ingredientes, utensilios, herramientas..." %>
+    <p class="descripcion">Si quieres poner tus elementos en forma de lista, pon (asterisco) y (espacio) delante de cada elemento. Pej: * Un ingrediente</p>
   </div>
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area :body, :rows => 10 %>
-    <%= t "(Mínimo 10 caracteres)" %>
+    <%= f.text_area :body, :rows => 10, placeholder: " " %>
+    <p class="descripcion">(Mínimo 10 caracteres)</p>
   </div>
 
   <div><%= f.label :image %><br />
@@ -46,8 +47,21 @@
 
   <div class="field">
     <%= f.label :tag_list %><br>
-    <%= f.text_area :tag_list %>
+    <%= f.text_area :tag_list, placeholder: "Escribe etiquetas separadas por comas" %>
   </div>
+
+  <% unless params[:action] == "edit" %>
+    <dt id="captcha-input-label">
+    <label for="captcha-input" class="required">
+      <%= t('nlt.please_introduce') %>
+    </label>
+    </dt>
+    <dd id="captcha-element">
+      <%= recaptcha_tags(:display => { :theme => "white" }, ajax: true)%>
+    </dd>
+  <% end %>
+
+
 
   <div class="actions">
     <%= f.submit %>
