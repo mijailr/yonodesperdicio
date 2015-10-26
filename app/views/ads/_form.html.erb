@@ -39,13 +39,6 @@
           </dd>
         <% end %>
 
-        <dt id="type-label">
-        <%= f.label :type,  t('nlt.ads.form.type_ad'), :class => "required" %>
-        </dt>
-        <dd id="type-element">
-        <%= f.select(:type, options_for_select([["#{t('nlt.give')}...", 1], ["#{t('nlt.want')}...", 2]], selected: @ad.type ? @ad.type : params[:type]))  %>
-        </dd>
-
         <dt id="food_category-label">
         <%= f.label :food_category,  t('nlt.ads.form.food_category'), :class => "required" %>
         </dt>

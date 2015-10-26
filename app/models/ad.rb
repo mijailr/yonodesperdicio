@@ -69,6 +69,8 @@ class Ad < ActiveRecord::Base
   validates_attachment_size :image, :in => 0.megabytes..1.megabytes
 
   before_validation do
+    self.type = 1 unless self.type.present?
+
     self.zipcode = user.zipcode unless self.zipcode.present?
     self.city = user.city unless self.city.present?
     self.province = user.province unless self.province.present?
