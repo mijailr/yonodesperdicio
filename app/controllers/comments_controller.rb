@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
+    commentable = params[:commentable_type].constantize.friendly.find(params[:id])
 
     @comment = Comment.new({
-      commentable_type: params[:commentable_type],
-      commentable_id: params[:id],
+      commentable: commentable,
       body: params[:body],
       user: current_user
     })
