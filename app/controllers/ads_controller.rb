@@ -60,7 +60,7 @@ class AdsController < ApplicationController
 
     respond_to do |format|
       if verify_recaptcha(:model => @ad, :message => t('nlt.captcha_error')) && @ad.save
-        format.html { redirect_to adslug_path(@ad, slug: @ad.slug), notice: t('nlt.ads.created') }
+        format.html { redirect_to adslug_path(@ad, id: @ad.id, slug: @ad.slug), notice: t('nlt.ads.created') }
         format.json { render action: 'show', status: :created, location: @ad }
       else
         format.html { render action: 'new' }
@@ -75,7 +75,7 @@ class AdsController < ApplicationController
     respond_to do |format|
       if @ad.update(ad_params)
         expire_fragment(  cache_key_for( "ad_#{I18n.locale}_" + @ad.id.to_s, current_user ) )
-        format.html { redirect_to @ad, notice: t('nlt.ads.updated') }
+        format.html { redirect_to adslug_path(@ad, id: @ad.id, slug: @ad.slug), notice: t('nlt.ads.updated') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit', alert: @ad.errors }

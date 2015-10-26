@@ -25,7 +25,7 @@
           <% if alimento.is_give? %>
             <span class="ad_status <%= alimento.status_class %>"><%= alimento.status_string %></span>
           <% end %>
-          <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento) %></h3>
+          <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento.id) %></h3>
           <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg - <span><%= alimento.food_category %></span></p>
           <p>Código postal del alimento: <%= alimento.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
@@ -41,7 +41,7 @@
               <%#= rating_for alimento.user, "rating" %>
               <p>Total comida entregada: <span id="comidaentregada"><%= grams_to_kg(alimento.user.total_quantity) %> kg</span></p>
             </div>
-            
+
             <div id="editar" class="col-md-12"><% if can? :update, alimento %>
               <%= link_to ads_edit_path(alimento.id) do %>
                 <div class="submit"><%= t('nlt.edit_this_ad') %></div>
