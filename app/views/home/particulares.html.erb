@@ -25,7 +25,7 @@
           <% if alimento.is_give? %>
             <span class="ad_status <%= alimento.status_class %>"><%= alimento.status_string %></span>
           <% end %>
-          <h3 class="veinticinco"><%= link_to alimento.title, ad_url(alimento.id) %></h3>
+          <h3 class="veinticinco"><%= link_to alimento.title, adslug_path(id: alimento.id, slug: alimento.slug) %></h3>
           <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg - <span><%= alimento.food_category %></span></p>
           <p>Código postal del alimento: <%= alimento.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
