@@ -8,7 +8,7 @@ body
   line-height: 1.3em
   @media all and (max-width: $break-medium)
     p
-      font-size: 0.7em
+      font-size: 0.8em
   @media all and (min-width: $break-large)
     max-width: 1180px
     margin: 0 auto     
@@ -82,6 +82,11 @@ p.small
   line-height: 1em
   font-size: 70%  
 
+blockquote
+  font-size: 14px  
+  border-left: 3px solid #eee
+  line-height: 1.2em
+
 .enrojo
   @include texto-rojo
 
@@ -123,6 +128,7 @@ form.searchbox
     margin: 0px !important
 
 #social-buttons
+  float: left
   i
     font-size: 1.5em
     padding: 0.2em
@@ -162,6 +168,12 @@ a.btn-default
     color: #FFF
   a.world_link
     color: $c-azul
+  form#new_idea
+    label
+      text-transform: uppercase
+      color: $c-azul
+    input
+      color: $c-texto
   #comments_enabled-label,
   #comments-element input[type="checkbox"]
     width: auto
@@ -358,9 +370,9 @@ img#logo
   border-bottom: $b-rayas
   padding: 0
   @media all and (min-width: $break-medium) and (max-width: $break-large)
-    font-size: 90%
+    font-size: 0.95em
   @media all and (max-width: $break-medium)
-    font-size: 80%    
+    font-size: 0.8em    
   li
     display: inline-block
     padding: 0.5em 1em 0.5em 0
@@ -673,13 +685,11 @@ img#logo
   .ad_status
     float: right
 
-
 #unalimento
   .izda img
-    padding: 0
-    -webkit-border-radius: 15px
-    -moz-border-radius: 15px
-    border-radius: 15px
+    @include avatares
+    margin: 0
+    width: 80px
   iframe
     padding-bottom: 1em
   .izda, .dcha
@@ -687,6 +697,10 @@ img#logo
   #acciones 
     .submit
       margin: 0
+      @media all and (max-width: $break-small)
+        font-size: 0.7em
+        padding: 0.2em
+
 
 /**
   * Organizaciones
@@ -732,8 +746,6 @@ img#logo
       float: left
       margin: 0 0.5em
       width: auto
-    #social-buttons
-      width: 15em
     
 #otros-ads
   margin-top: 1em
@@ -777,7 +789,6 @@ h1.funciona
  * Registrate
 #registrate
   text-align: center
-  color: $c-azul
   p.enrojo
     padding: 0 3em    
   a
@@ -791,6 +802,7 @@ h1.funciona
       float: left
       width: 50%
     dt
+      color: $c-azul
       text-transform: uppercase
       label
         float: right
@@ -823,6 +835,42 @@ h1.funciona
     background: #FFF
     opacity: 1
     color: $c-azul
+
+
+#editprofile
+  .reg-item
+    margin: 0 0 1em 0
+    padding: 0.5em 0
+    clear: both
+    width: 100%
+    p
+      float: right
+  label
+    text-transform: uppercase
+    color: $c-azul
+    padding: 0 1em 0 0
+    text-align: right
+    @media all and (max-width: $break-medium)
+      text-align: left
+  label, input
+    float: left
+    width: 50%
+    @media all and (max-width: $break-medium)
+      width: 100%
+  p#img
+    float: left
+    width: 100%
+    text-align: center
+  #pss
+    border-top: 1px solid #eee
+    padding: 1em 0 0 0
+
+
+
+  .actions input
+    width: auto
+
+
 
 /**
  * Login y contacto
@@ -1081,6 +1129,7 @@ table.listados
   right: -11px
   width: 12px
 
+
 /**
  * Faqs
 #faq h3
@@ -1113,6 +1162,7 @@ table.listados
   .izda 
     img
       @include avatares
+      width: 60px
 
 .ad_comments h5
   float: left
@@ -1560,9 +1610,6 @@ table.listados
     display: inline
     margin: 0
 
-dl, dd
-  margin: 1em 0 0 0 !important
-
 .ad_excerpt_home
   float: left
   padding-top: 14px
@@ -1856,9 +1903,9 @@ a#tab_active
       font-size: 3em
   .site-slogan
     h2
-      font-size: 1em
+      font-size: 2em
   h3
-    font-size: 1em
+    font-size: 2em
   #header .container
     font-size: 1em
 
@@ -1883,19 +1930,19 @@ a#tab_active
     top: 5px
     right: 25px
 
+  #redes
+    width: 100%
   #social-buttons
-    margin-left: -20px
+    width: 100%
+    margin-left: 0px
 
   #facebook-button
     padding: 0px
-    width: 30%
     margin: 0px
     display: inline
 
   #twitter-button
-    margin: 0px 30px 0px 10px
     padding: 0px
-    width: 30%
     display: inline
 
   .ad_excerpt

@@ -1,8 +1,8 @@
 <% content_for(:meta_title) {"particulares"} %>
 
 <div id="titalimentos" class="row">
-  <div class="col-md-4">Entre particulares</div>
-  <div class="col-md-8"><%= form_tag(particulares_path, :method => "get", id: "buscadorads") do %>
+  <div class="col-md-4 col-sm-4 col-xs-12">Entre particulares</div>
+  <div class="col-md-8 col-sm-8 col-xs-12"><%= form_tag(particulares_path, :method => "get", id: "buscadorads") do %>
       <%= text_field_tag :search, params[:search], placeholder: "BUSCAR ALIMENTOS" %>
       <%= select_tag :food_category, options_for_select(Ad::FOOD_CATEGORIES, params[:food_category]), { prompt: "Categoría", include_blank: true } %>
       <%= text_field_tag :zipcode, params[:zipcode], placeholder: "CÓDIGO POSTAL" %>

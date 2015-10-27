@@ -1,4 +1,4 @@
-<div id="profile" class="row">
+<div id="editprofile" class="row">
 
 <div id="profile-block" class="col-md-1 col-sm-1 col-xs-12">  
   <div id="profile-menu">
@@ -6,54 +6,76 @@
   </div><!-- /profile-menu -->
 </div>
 
-<div class="col-md-11 col-sm-11 col-xs-12">
+<div class="col-md-7 col-sm-7 col-xs-12 col-md-offset-1">
 
-  <h1 id="title"><%= t('nlt.user_profile') %> - <%= @user.username %></h1>
+  <center><h1 id="title"><%= t('nlt.user_profile') %> - <%= @user.username %></h1></center>
 
-    <div class="ad_excerpt">
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
         <fieldset>
-          <h3><%= t('nlt.profile_edit') %></h3>
+          <center><h3><%= t('nlt.profile_edit') %></h3></center>
           <%= devise_error_messages! %>
 
-          <div>Nombre y apellidos<%#= f.label :name %> <br />
-          <%= f.text_field :name %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
 
-          <div><%= f.label :email %><br />
-          <%= f.email_field :email %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+          </div>
 
-          <div><%= f.label :password %> <i><%= t('nlt.leave_blank') %></i><br />
-          <%= f.password_field :password, :autocomplete => "off" %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :password %>
+            <%= f.password_field :password, :autocomplete => "off", placeholder: t('nlt.leave_blank') %>
+          </div>
 
-          <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation %>
+          </div>
 
-          <div><%= f.label :city %> <br />
-          <%= f.text_field :city %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :city %>
+           <%= f.text_field :city %>
+          </div>
 
-          <div><%= f.label :province %> <br />
-          <%= f.text_field :province %></div> 
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :province %>
+            <%= f.text_field :province %>
+          </div> 
 
-          <div><%= f.label :zipcode %> <br />
-          <%= f.text_field :zipcode %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :zipcode %>
+            <%= f.text_field :zipcode %>
+          </div>
 
-          <div><%= f.label :current_password %> <i><%= t('nlt.we_need_your_password') %></i><br />
-          <%= f.password_field :current_password %></div>
+          <div class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+            <p id="img">Tu imagen actual: <%= image_tag @user.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %></p>
+          </div>
 
-          <div><%= f.label :image %> <i>(Imagen)</i><br />
-          Tu imagen actual: <%= image_tag @user.image.url(:thumb), :alt => "", :class => "avatar, img-responsive" %>
-          <%= f.file_field :image %></div>
+          <div id="pss" class="reg-item col-md-12 col-sm-12 col-xs-12">
+            <%= f.label :current_password %> 
+            <%= f.password_field :current_password %>
+            <p><%= t('nlt.we_need_your_password') %></p>
+          </div>
 
-          <div class="actions"><%= f.submit t('nlt.update') %></div>
+          <center><div class="actions"><%= f.submit t('nlt.update') %></div></center>
+
         </fieldset>
       <% end %>
-
+          
+      <hr>
+      
+      <center>
       <fieldset>
         <h3><%= t('nlt.cancel_my_account') %></h3>
 
         <p><%= t('nlt.want_to_leave') %> <%= link_to t('nlt.cancel_my_account'), registration_path(resource_name), :data => { :confirm => t('nlt.delete_sure') }, :method => :delete %>.</p>
       </fieldset>
-    </div><!--/ad_excerpt-->
+      </center>
 
 </div><!--/cols-->
-</div><!-- /profile -->
+</div><!-- /editprofile -->
