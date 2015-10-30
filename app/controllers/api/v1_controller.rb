@@ -4,6 +4,14 @@ class Api::V1Controller < ApplicationController
     @ad = Ad.find params[:id]
   end
 
+  def idea_show
+    @idea = Idea.find params[:id]
+  end
+
+  def user_show
+    @user = User.find params[:id]
+  end
+
   def woeid_show
     if params[:type] == 'give'
       ads = Ad.give
