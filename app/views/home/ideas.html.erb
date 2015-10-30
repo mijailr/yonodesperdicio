@@ -34,9 +34,9 @@
 
 <div id="subereceta" class="row col-md-12 col-sm-12 col-xs-12">
   <div class="col-md-10 col-sm-10 col-xs-10">
-    <span class="btn btn-rojo"><%= link_to 'Sube tu receta', new_my_idea_path %></span>
+    <span class="btn btn-rojo"><%= link_to 'Sube tu idea', new_my_idea_path %></span>
     <% unless user_signed_in? %>
-      <span class="enrojo">  (Para subir una receta es necesario iniciar sesión)</span>
+      <span class="enrojo">  (Para subir tu receta o truco tienes que iniciar sesión)</span>
     <% end %>
   </div>
   <% unless user_signed_in? %>
