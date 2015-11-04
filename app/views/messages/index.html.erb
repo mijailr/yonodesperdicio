@@ -39,9 +39,10 @@
                   </td>
                   <td class="timestamp">
                     <%= cache "moment-#{m.messages}" do %>
-                      <abbr class="js-moment" title="<%= m.messages.last.created_at %>">
-                        <%= m.messages.last.created_at %>
-                      </abbr>
+                      <!--<abbr class="js-moment" title="<%#= m.messages.last.created_at %>">
+                        <%#= m.messages.last.created_at %>
+                      </abbr>-->
+                      <%= m.messages.last.created_at.strftime("%d-%b-%Y  %T") %>
                     <% end %>
                   </td>
                 </tr>

@@ -14,7 +14,10 @@
       <div class="bubble bg-bubble-me">
         <%= message.body %>
         <div class="message-date"> 
-          <abbr class="js-moment" title="<%= message.created_at %>"><%= message.created_at %></abbr>
+          <!--<abbr class="js-moment" title="<%#= message.created_at %>">
+            <%#= message.created_at %>
+          </abbr>-->
+          <%= message.created_at.strftime("%d-%b-%Y  %T") %>
         </div>
       </div>
     </div>
@@ -36,7 +39,8 @@
       <div class="bubble bg-bubble-other">
         <%= message.body %>
         <div class="message-date">
-          <abbr class="js-moment" title="<%= message.created_at %>"><%= message.created_at %></abbr>
+          <!--<abbr class="js-moment" title="<%#= message.created_at %>"><%#= message.created_at %></abbr>-->
+          <%= message.created_at.strftime("%d-%b-%Y  %T") %>
         </div>
       </div>
     </div>

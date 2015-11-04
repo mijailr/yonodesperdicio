@@ -159,10 +159,12 @@ class HomeController < ApplicationController
       @alimentos = Ad.give.includes(:user).
                            search(params[:search], params[:zipcode], params[:food_category]).
                            where(status: [1,2]).
+                           #where("pick_up_date >= ?", Time.now).
                            page(params[:page]).per(12)
     else
       @alimentos = Ad.give.includes(:user).
                            where(status: [1,2]).
+                           #where(["pick_up_date >= ? or pick_up_date = ?", Time.now, nil]).
                            page(params[:page]).per(12)
     end
 
