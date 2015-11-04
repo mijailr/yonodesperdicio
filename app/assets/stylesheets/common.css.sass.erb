@@ -1131,7 +1131,27 @@ table.listados
     -moz-border-radius: 15px
     border-radius: 15px
     background: #FFF
-
+.message-excerpt
+  width: 100%
+  display: block
+  float: left
+  margin-bottom: 20px
+  position: relative
+.message-from-left
+  text-align: center
+  width: 120px
+  float: left
+  font-size: 0.8em
+  display: block
+.message-from-right
+  text-align: center
+  width: 120px
+  float: right
+  font-size: 0.8em
+.message-container-left
+  font-size: 0.9em
+  position: relative
+  margin-right: 120px    
 .triangle-me
   position: absolute
   background: image-url("pico-white-left.png") no-repeat 0 0
@@ -1146,7 +1166,34 @@ table.listados
   top: 40px
   right: -11px
   width: 12px
-
+.message-from-left img, .message-from-right img
+  margin-left: 30px
+  margin-right: 30px
+.message-container-right
+  font-size: 0.9em
+  position: relative
+  margin-left: 120px
+.bubble
+  min-height: 23px
+  border: 1px solid #CCC
+  -webkit-border-radius: 3px
+  padding: 10px 10px 30px 10px
+.bubble-reply
+  background: #FFF
+  border: 1px solid #CCC
+  padding: 10px
+  -webkit-border-radius: 15px
+  -moz-border-radius: 15px
+  border-radius: 15px
+.message-date
+  position: absolute
+  bottom: 10px
+  right: 10px
+  color: #666
+  font-size: 0.9em
+  font-weight: normal
+  float: right
+  text-align: right
 
 /**
  * Faqs
@@ -1353,61 +1400,6 @@ table.listados
   padding: 5px
   border: 1px solid #ddd
   background-color: #fff
-
-.message-excerpt
-  width: 100%
-  display: block
-  float: left
-  margin-bottom: 20px
-  position: relative
-
-.message-from-left
-  text-align: center
-  width: 120px
-  float: left
-  font-size: 0.8em
-  display: block
-
-.message-from-right
-  text-align: center
-  width: 120px
-  float: right
-  font-size: 0.8em
-
-.message-container-left
-  font-size: 0.9em
-  position: relative
-  margin-right: 120px
-
-.message-from-left img, .message-from-right img
-  margin-left: 30px
-  margin-right: 30px
-
-.message-container-right
-  font-size: 0.9em
-  position: relative
-  margin-left: 120px
-
-.bubble
-  min-height: 23px
-  border: 1px solid #CCC
-  -webkit-border-radius: 3px
-  padding: 10px 10px 30px 10px
-
-.bubble-reply
-  border: 1px solid #CCC
-  -webkit-border-radius: 3px
-  padding: 10px
-
-.message-date
-  position: absolute
-  bottom: 10px
-  right: 10px
-  color: #666
-  font-size: 0.9em
-  font-weight: normal
-  float: right
-  text-align: right
 
 .ad_meta_info
   position: relative
