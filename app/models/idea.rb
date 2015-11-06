@@ -29,4 +29,13 @@ class Idea < ActiveRecord::Base
     self.published_at = Time.now
   end
 
+  def self.api_search(params)
+    category = params[:category]
+    user_id = params[:user_id]
+
+    r = Idea.where("published_at < ?", Time.now)
+    r = r.where("category = ?", category) if category.present?
+    r = r.where("user_id = ?", user_id) if user_id.present?
+    r.order('published_at DESC')
+  end
 end

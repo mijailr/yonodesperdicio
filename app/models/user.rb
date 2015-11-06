@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships
 
   before_save :default_lang
+  before_create :generate_authentication_token!
 
   has_many :legacy_sent_messages, :class_name=> 'Legacy::Message', :foreign_key=>'user_from', :dependent=>:destroy
   has_many :legacy_recieved_messages, :class_name=> 'Legacy::Message', :foreign_key=>'user_to', :dependent=>:destroy
@@ -34,6 +35,12 @@ class User < ActiveRecord::Base
 
   def to_s
     username
+  end
+
+  def generate_authentication_token!
+    begin
+      self.auth_token = Devise.friendly_token
+    end while self.class.exists?(auth_token: auth_token)
   end
 
   def mailboxer_email(object)

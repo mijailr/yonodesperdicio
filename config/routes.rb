@@ -41,14 +41,11 @@ Yonodesperdicio::Application.routes.draw do
     get '/sitemap', to: 'page#sitemap', as: 'sitemap'
   end
 
-  scope '/api' do
-    scope '/v1' do
-      get '/ad/:id', format: 'json', to: 'api/v1#ad_show', as: 'apiv1_ad_show'
-      get '/woeid/:id/:type', format: 'json', to: 'api/v1#woeid_show', as: 'apiv1_woeid_show'
-      get '/woeid/list', format: 'json', to: 'api/v1#woeid_list', as: 'apiv1_woeid_list'
-      get '/idea/:id', format: 'json', to: 'api/v1#idea_show', as: 'apiv1_idea_show'
-      get '/user/:id', format: 'json', to: 'api/v1#user_show', as: 'apiv1_user_show'
-    end
+  namespace :api, defaults: { format: :json } do
+    resources :users, :only => [:show, :create, :update, :destroy]
+    resources :sessions, :only => [:create, :destroy]
+    resources :ideas
+    resources :ads
   end
 
   resources :ideas, path: 'mis_ideas', as: 'my_ideas'

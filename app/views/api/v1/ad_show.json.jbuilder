@@ -1,1 +1,0 @@
-json.extract! @ad, :id, :title, :slug, :user_id, :status, :status_string, :grams, :zipcode, :province, :city, :food_category, :pick_up_date, :image_file_name, :created_at, :updated_at, :comments_enabled, :comments, :readed_count, :comments_count, :body, :type, :type_string, :woeid_code
