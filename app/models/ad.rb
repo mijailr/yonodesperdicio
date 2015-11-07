@@ -28,8 +28,6 @@ class Ad < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
   validates :user_id, presence: true
-  validates :woeid_code, presence: true
-  validates :ip, presence: true
   validates :grams, presence: true
   validates :food_category, presence: true
 
