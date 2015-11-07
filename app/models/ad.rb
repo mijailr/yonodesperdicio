@@ -204,11 +204,15 @@ class Ad < ActiveRecord::Base
     query = params[:query]
     zipcode = params[:zipcode]
     food_category = params[:food_category]
+    user_id = params[:user_id]
+    status = params[:status]
 
     r = Ad
     r = r.where("title like ? OR body LIKE ? OR grams = ?", "%#{query}%","%#{query}%",query) if query.present?
     r = r.where("zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
     r = r.where("food_category = ?", food_category) if food_category.present?
+    r = r.where("user_id = ?", user_id) if user_id.present?
+    r = r.where("status = ?", status) if status.present?
     r
   end
 
