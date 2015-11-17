@@ -85,10 +85,10 @@
           <p><b>Fecha límite de entrega:</b> <%= formated_date(anuncio.pick_up_date) %></p>
           <p><%= truncate_html(markdown(anuncio.body).html_safe, length: 150, omission: ' ... ') %></p>
         </td>
-        <td>
+        <td class="botones">
           <div>
             <% if user_signed_in? and @user.id == current_user.id %>
-              <p class="btn btn-azul col-md-12"><%= link_to 'Ver', ad_url(anuncio) %></p>
+              <p class="btn btn-azul col-md-12"><%= link_to 'Ver', adslug_path(id: anuncio.id, slug: anuncio.slug) %></p>
               <% if can? :update, anuncio %>
                 <p class="btn btn-verde col-md-12"><%= link_to ads_edit_path(anuncio.id) do %>
                   Editar
@@ -115,7 +115,7 @@
         <p class="grande"><%= link_to idea.title, idea_url(idea) %></p>
         <p><%= truncate_html(markdown(idea.introduction).html_safe, length: 200, omission: ' ... ') %></p>
       </td>
-      <td>
+      <td class="botones">
         <% if user_signed_in? and @user.id == current_user.id %>
           <p class="btn btn-azul col-md-12"><%= link_to 'Ver', idea_url(idea) %></p>
           <!--<p class="btn btn-azul"><%#= link_to 'Previsualizar', my_idea_path(idea) %></p>-->

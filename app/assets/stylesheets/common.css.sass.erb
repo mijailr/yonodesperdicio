@@ -65,10 +65,9 @@ h3.veinticinco
   span
     font-size: 0.7em
     color: $c-azul
-ul
-  list-style-type: none
+ul, ol
   margin: 0
-  padding: 0
+  padding: 0 0 0.5em 1em
 p
   margin: 0 0 0.8em 0
 p.fecha
@@ -251,8 +250,10 @@ input[type="file"]
     padding: 0 5px 10px 5px
   width: 100%
   text-align: left
-  li
+  ul li
     list-style-type: disc
+    margin-left: 1em
+  ol li
     margin-left: 1em
 
 #sidebar-right
@@ -625,7 +626,7 @@ img#logo
   @include introducciones
 
 .ingredientes ul 
-  padding-left: 0
+  padding-left: 1em
   li
     margin-left: 0
     list-style-type: disc
@@ -1108,13 +1109,20 @@ table.listados
     padding: 5px
     background: #FFF
     vertical-align: middle
+  td.botones
+    width: 20%
   p
     margin: 0 0 0.5em 0
   p.grande  
     font-size: 1.3em
+  p.ad_status
+    display: block
+    clear: both    
   .btn  
     font-size: 0.8em
     padding: 0.5em
+    a
+      padding: 0 30%
 #mensajescabecera
   margin: 0 0 1em 0
   line-height: 1em
@@ -1334,7 +1342,7 @@ table.listados
   background-color: $c-verde
 
 .booked
-  background-color: #ff9933
+  background-color: $c-booked
 
 .delivered
   background-color: $c-rojo

@@ -647,6 +647,10 @@ es:
       friend:
         add: agregar %{username} a tu lista de amigos
         delete: eliminar %{username} de tu lista de amigos
+    change_your_password: Cambiar contraseña
+    new_password: Nueva contraseña
+    confirm_new_password: Repetir nueva contraseña
+    change_my_password: Cambiar mi contraseña
   number:
     currency:
       format:
