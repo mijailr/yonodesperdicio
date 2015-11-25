@@ -2,9 +2,9 @@ ActiveAdmin.register Ad do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :status, :title, :user, :body,
+  permit_params :status, :title, :user, :user_id, :body,
                 :grams, :expiration_date, :pick_up_date,
-                :image, :food_category
+                :image, :food_category, :zipcode, :city
   #
   # or
   #
@@ -46,11 +46,13 @@ ActiveAdmin.register Ad do
   filter :food_category
   filter :pick_up_date
   filter :created_at
+  filter :zipcode
 
   show do |ad|
     attributes_table do
       row :status_string
       row :user
+      row :zipcode
       row :food_category
       row :title
       row :body
@@ -67,7 +69,9 @@ ActiveAdmin.register Ad do
   form do |f|
     f.inputs "Admin Details" do
       #f.input :status, :as => :select, collection: Ad.all.status_string, include_blank: false
-      f.input :user
+      #f.input :user_id
+      f.input :user, :as => :select, :user_id => :username      
+      f.input :zipcode
       f.input :status, :as => :select, collection: {"disponible" => 1, "reservado" => 2 , "entregado" => 3}
       f.input :food_category, :as => :select, collection: Ad::FOOD_CATEGORIES
       f.input :title
