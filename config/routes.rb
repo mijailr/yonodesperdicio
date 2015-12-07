@@ -44,8 +44,12 @@ Yonodesperdicio::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, :only => [:show, :create, :update, :destroy]
     resources :sessions, :only => [:create, :destroy]
-    resources :ideas
-    resources :ads
+    resources :ideas do
+      resources :comments, :only => [:create]
+    end
+    resources :ads do
+      resources :comments, :only => [:create]
+    end
   end
 
   resources :ideas, path: 'mis_ideas', as: 'my_ideas'

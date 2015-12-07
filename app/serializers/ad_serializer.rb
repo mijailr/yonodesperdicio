@@ -4,7 +4,8 @@ class AdSerializer < ActiveModel::Serializer
       :grams, :expiration_date, :pick_up_date,
       :comments_enabled, :image,
       :zipcode, :city, :province,
-      :food_category
+      :food_category,
+      :created_at, :updated_at
   has_one :user
   has_many :comments
 end
