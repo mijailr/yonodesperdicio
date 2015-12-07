@@ -1,11 +1,14 @@
 class Api::UsersController < Api::BaseController
-  before_action :authenticate_with_token!, :except => [:show, :create]
+  before_action :authenticate_with_token!, :except => [:create]
   respond_to :json
 
   def show
     user = User.find(params[:id])
-    raise ActiveRecord::RecordNotFound unless user.id == current_user.id
-    respond_with user
+    if current_user && current_user.id == user.id
+      render json: user, serializer: SessionUserSerializer
+    else
+      render json: user
+    end
   end
 
   def create
