@@ -4,8 +4,8 @@ class Api::ConversationsController < Api::BaseController
 
   def index
     mailbox = set_mailbox
-    conversations = @mailbox.page(params[:page]).per(params[:per_page])
-    render json: conversations, meta: pagination(conversations, params[:per_page])
+    conversations = @mailbox
+    render json: conversations
   end
 
   def show
