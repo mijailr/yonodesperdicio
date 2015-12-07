@@ -5,6 +5,11 @@ class Api::BaseController < ActionController::Base
 
   skip_before_action :verify_authenticity_token
 
+  include AdHelper
+  def total_kg
+    render json: {"total_kg": great_total_quantity}
+  end
+
   # Devise methods overwrites
   def current_user
     @current_user ||= User.find_by(auth_token: request.headers['Authorization'])

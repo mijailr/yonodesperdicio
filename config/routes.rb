@@ -42,6 +42,7 @@ Yonodesperdicio::Application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json } do
+    get 'total_kg', to: 'base#total_kg'
     resources :users, :only => [:show, :create, :update, :destroy]
     resources :sessions, :only => [:create, :destroy]
     resources :ideas do
