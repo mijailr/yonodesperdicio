@@ -50,6 +50,11 @@ Yonodesperdicio::Application.routes.draw do
     resources :ads do
       resources :comments, :only => [:create]
     end
+    resources :mailboxes, :only => [:show] do
+      resources :conversations, :only => [:index, :show] do
+        resources :messages, :only => [:index, :create]
+      end
+    end
   end
 
   resources :ideas, path: 'mis_ideas', as: 'my_ideas'
