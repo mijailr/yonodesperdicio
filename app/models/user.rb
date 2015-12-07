@@ -80,4 +80,8 @@ class User < ActiveRecord::Base
     ads.give.delivered.sum(:grams)
   end
 
+  def rating
+    ratings = Rate.where(rateable: self).pluck('stars')
+    (ratings.reduce(:+).to_f / ratings.size).round(1) if ratings.any?
+  end
 end
