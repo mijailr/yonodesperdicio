@@ -194,9 +194,9 @@ class Ad < ActiveRecord::Base
 
   def self.search(query, zipcode, food_category)
     r = Ad
-    r = r.where("title like ? OR body LIKE ? OR grams = ?", "%#{query}%","%#{query}%",query) if query.present?
-    r = r.where("zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
-    r = r.where("food_category = ?", food_category) if food_category.present?
+    r = r.where("ads.title like ? OR ads.body LIKE ? OR ads.grams = ?", "%#{query}%","%#{query}%",query) if query.present?
+    r = r.where("ads.zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
+    r = r.where("ads.food_category = ?", food_category) if food_category.present?
     r
   end
 
@@ -208,11 +208,11 @@ class Ad < ActiveRecord::Base
     status = params[:status]
 
     r = Ad
-    r = r.where("title like ? OR body LIKE ? OR grams = ?", "%#{query}%","%#{query}%",query) if query.present?
-    r = r.where("zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
-    r = r.where("food_category = ?", food_category) if food_category.present?
-    r = r.where("user_id = ?", user_id) if user_id.present?
-    r = r.where("status = ?", status) if status.present?
+    r = r.where("ads.title like ? OR ads.body LIKE ? OR ads.grams = ?", "%#{query}%","%#{query}%",query) if query.present?
+    r = r.where("ads.zipcode LIKE ?", "%#{zipcode}%") if zipcode.present?
+    r = r.where("ads.food_category = ?", food_category) if food_category.present?
+    r = r.where("ads.user_id = ?", user_id) if user_id.present?
+    r = r.where("ads.status = ?", status) if status.present?
     r
   end
 
