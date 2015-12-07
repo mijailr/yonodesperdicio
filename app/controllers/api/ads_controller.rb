@@ -3,7 +3,7 @@ class Api::AdsController < Api::BaseController
   respond_to :json
 
   def index
-    ads = Ad.api_search(params).page(params[:page]).per(params[:per_page])
+    ads = Ad.joins(:comments).api_search(params).page(params[:page]).per(params[:per_page])
     render json: ads, meta: pagination(ads, params[:per_page])
   end
 
