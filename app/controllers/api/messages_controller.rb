@@ -4,26 +4,31 @@ class Api::MessagesController < Api::BaseController
 
   def index
     mailbox = set_mailbox
-    Rails.logger.info "========================= #{mailbox}"
     messages = mailbox.find(params[:conversation_id]).messages.page(params[:page]).per(params[:per_page])
     render json: messages, meta: pagination(messages, params[:per_page])
   end
 
   def show
     mailbox = set_mailbox
-    respond_with current_user.mailbox.conversations.find(params[:id])
+    respond_with current_user.mailbox.conversations.find(params[:conversation_id])
   end
 
   def create
-    recipient = User.find(params[:recipient_id])
-    message = Mailboxer::Message.new message_params
-    message.sender = current_user
-    message.recipient = recipient
+    conversation = current_user.mailbox.conversations.find(params[:conversation_id])
 
-    if message.save
-      render json: message, status: 201
+    if receipt = current_user.reply_to_conversation(conversation, params[:message][:body])
+      render json: receipt
     else
-      render json: { errors: message.errors }, status: 422
+      render json: { errors: receipt.errors }, status: 422
+    end
+  end
+
+  def new_message
+    recipient = User.find(params[:recipient_id])
+    if receipt = current_user.send_message(recipient, params[:message][:body], params[:message][:subject])
+      render json: receipt
+    else
+      render json: { errors: receipt.errors }, status: 422
     end
   end
 
@@ -31,7 +36,7 @@ class Api::MessagesController < Api::BaseController
 
   def message_params
     params.require(:message).
-    permit(:subject, :body, :recipient_id, :conversation_id)
+    permit(:subject, :body)
   end
 
   def set_mailbox

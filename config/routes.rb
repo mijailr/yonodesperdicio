@@ -55,6 +55,7 @@ Yonodesperdicio::Application.routes.draw do
         resources :messages, :only => [:index, :create]
       end
     end
+    post '/new_message/(:recipient_id)', to: 'messages#new_message'
   end
 
   resources :ideas, path: 'mis_ideas', as: 'my_ideas'
