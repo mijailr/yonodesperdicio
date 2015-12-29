@@ -4,7 +4,7 @@ class Api::ConversationsController < Api::BaseController
 
   def index
     mailbox = set_mailbox
-    conversations = @mailbox
+    conversations = mailbox
     render json: conversations
   end
 
