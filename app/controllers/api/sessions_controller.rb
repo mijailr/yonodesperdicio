@@ -12,7 +12,7 @@ class Api::SessionsController < Api::BaseController
       user.save
       render json: user, serializer: SessionUserSerializer, status: 200, location: [:api, user]
     else
-      render json: { errors: "Invalid email or password" }, status: 422
+      render json: { errors: "Invalid username or password" }, status: 422
     end
   end
 
