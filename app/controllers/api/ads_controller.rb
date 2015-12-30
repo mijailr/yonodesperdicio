@@ -12,12 +12,18 @@ class Api::AdsController < Api::BaseController
   end
 
   def create
-    ad = Ad.new(ad_params)
-    ad.user = current_user
-    if ad.save
-      render json: ad, status: 201, location: [:api, ad]
-    else
-      render json: { errors: ad.errors }, status: 422
+    begin
+      ad = Ad.new(ad_params)
+      ad.image = parse_image_data(params[:ad][:image]) if params[:ad][:image]
+      ad.user = current_user
+
+      if ad.save
+        render json: ad, status: 201, location: [:api, ad]
+      else
+        render json: { errors: ad.errors }, status: 422
+      end
+    ensure
+      clean_tempfile
     end
   end
 
@@ -49,4 +55,27 @@ class Api::AdsController < Api::BaseController
       )
   end
 
+  def parse_image_data(image_data)
+    filename = image_data[:filename]
+
+    @tempfile = Tempfile.new(filename)
+    @tempfile.binmode
+    @tempfile.write Base64.decode64(image_data[:content])
+    @tempfile.rewind
+
+    uploaded_file = ActionDispatch::Http::UploadedFile.new(
+      tempfile: @tempfile,
+      filename: filename
+    )
+
+    uploaded_file.content_type = image_data[:content_type]
+    uploaded_file
+  end
+
+  def clean_tempfile
+    # if @tempfile
+    #   @tempfile.close
+    #   @tempfile.unlink
+    # end
+  end
 end
