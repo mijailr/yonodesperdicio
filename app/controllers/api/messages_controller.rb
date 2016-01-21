@@ -26,7 +26,7 @@ class Api::MessagesController < Api::BaseController
   def new_message
     recipient = User.find(params[:recipient_id])
     if receipt = current_user.send_message(recipient, params[:message][:body], params[:message][:subject])
-      render json: receipt
+      render json: receipt.message
     else
       render json: { errors: receipt.errors }, status: 422
     end
@@ -41,7 +41,7 @@ class Api::MessagesController < Api::BaseController
 
   def set_mailbox
     if params[:mailbox_id] == 'sent'
-      current_user.mailbox.sent
+      current_user.mailbox.sentbox
     elsif params[:mailbox_id] == 'trash'
       current_user.mailbox.trash
     else

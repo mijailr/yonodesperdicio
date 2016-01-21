@@ -4,7 +4,7 @@ class Api::MailboxesController < Api::BaseController
 
   def show
     if params[:mailbox_id] == 'sent'
-      mailbox = current_user.mailbox.sent
+      mailbox = current_user.mailbox.sentbox
     elsif params[:mailbox_id] == 'trash'
       mailbox = current_user.mailbox.trash
     else
