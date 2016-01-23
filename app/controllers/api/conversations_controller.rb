@@ -18,7 +18,7 @@ class Api::ConversationsController < Api::BaseController
 
   def set_mailbox
     if params[:mailbox_id] == 'sent'
-      current_user.mailbox.sent
+      current_user.mailbox.sentbox
     elsif params[:mailbox_id] == 'trash'
       current_user.mailbox.trash
     else
