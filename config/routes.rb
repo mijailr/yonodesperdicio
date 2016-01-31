@@ -43,7 +43,10 @@ Yonodesperdicio::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get 'total_kg', to: 'base#total_kg'
-    resources :users, :only => [:show, :create, :update, :destroy]
+    get 'categories', to: 'base#categories'
+    resources :users, :only => [:show, :create, :update, :destroy] do
+      post 'rate', on: :member
+    end
     resources :sessions, :only => [:create, :destroy]
     resources :ideas do
       resources :comments, :only => [:create]

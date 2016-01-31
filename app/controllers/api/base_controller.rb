@@ -6,8 +6,13 @@ class Api::BaseController < ActionController::Base
   skip_before_action :verify_authenticity_token
 
   include AdHelper
+
   def total_kg
     render json: {"total_kg": great_total_quantity}
+  end
+
+  def categories
+    render json: {"categories": Ad::FOOD_CATEGORIES}
   end
 
   # Devise methods overwrites

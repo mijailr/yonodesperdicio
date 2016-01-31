@@ -28,12 +28,17 @@ class Api::AdsController < Api::BaseController
   end
 
   def update
-    ad = current_user.ads.find(params[:id])
+    begin
+      ad = current_user.ads.find(params[:id])
+      ad.image = parse_image_data(params[:ad].delete(:image)) if params[:ad][:image]
 
-    if ad.update(ad_params)
-      render json: ad, status: 200, location: [:api, ad]
-    else
-      render json: { errors: ad.errors }, status: 422
+      if ad.update(ad_params)
+        render json: ad, status: 200, location: [:api, ad]
+      else
+        render json: { errors: ad.errors }, status: 422
+      end
+    ensure
+      clean_tempfile
     end
   end
 
@@ -73,9 +78,9 @@ class Api::AdsController < Api::BaseController
   end
 
   def clean_tempfile
-    # if @tempfile
-    #   @tempfile.close
-    #   @tempfile.unlink
-    # end
+    if @tempfile
+      @tempfile.close
+      @tempfile.unlink
+    end
   end
 end
