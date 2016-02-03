@@ -6,7 +6,7 @@ class Api::SessionsController < Api::BaseController
     username = params[:username]
     user = User.find_by(username: username)
 
-    if user && user.valid_password? password
+    if user && user.valid_password?(password)
       sign_in user, store: false
       user.generate_authentication_token!
       user.save
