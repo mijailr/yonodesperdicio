@@ -22,7 +22,7 @@ class Api::ConversationsController < Api::BaseController
     elsif params[:mailbox_id] == 'trash'
       current_user.mailbox.trash
     else
-      current_user.mailbox.inbox
+      current_user.mailbox
     end
   end
 end

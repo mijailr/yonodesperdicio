@@ -7,6 +7,10 @@ class Api::BaseController < ActionController::Base
 
   include AdHelper
 
+  def index
+    render json: {}
+  end
+
   def total_kg
     render json: {"total_kg": great_total_quantity}
   end

@@ -8,7 +8,7 @@ class Api::MailboxesController < Api::BaseController
     elsif params[:mailbox_id] == 'trash'
       mailbox = current_user.mailbox.trash
     else
-      mailbox = current_user.mailbox.inbox
+      mailbox = current_user.mailbox
     end
     render json: mailbox
   end
