@@ -38,4 +38,12 @@ class Idea < ActiveRecord::Base
     r = r.where("user_id = ?", user_id) if user_id.present?
     r.order('published_at DESC')
   end
+
+  def self.search(query)
+    r = Idea
+    r = r.where("title LIKE ?", "%#{query}%")
+    r
+  end
+  
+
 end

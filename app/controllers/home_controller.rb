@@ -95,6 +95,19 @@ class HomeController < ApplicationController
                     includes(:user).
                     page(params[:page]).per(6)
     end
+
+    #Buscador de Ideas
+    if params[:search]
+      @ideas = Idea.search(params[:search]).
+                    where("published_at < ?", Time.now).
+                    includes(:user).
+                    page(params[:page]).per(6)
+    else
+      @ideas = Idea.order('created_at ASC').
+                    where("published_at < ?", Time.now).
+                    includes(:user).
+                    page(params[:page]).per(6)
+    end
   end
 
   def ideas_tag
