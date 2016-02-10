@@ -15,7 +15,9 @@ class Ad < ActiveRecord::Base
     'condimentos',
     'pan y bollería',
     'conservas',
-    'platos preparados'
+    'platos preparados',
+    'frutos secos',
+    'lote variado'
   ]
 
   extend FriendlyId
