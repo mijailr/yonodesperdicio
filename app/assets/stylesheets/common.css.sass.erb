@@ -673,16 +673,26 @@ img#logo
   button
     background: $c-rojo
     color: #FFF
-#buscadorideas
+#menudcha
   float: right
-  margin: 0 15px 15px 0
+  background: $c-rojo
+  width: 100%
+  margin: 10px 15px 0 0
+  text-align: right
+  @media all and (max-width: $break-medium)
+    float: left
+    margin: 0 15px 10px 15px
+    width: 100%
+#buscadorideas
+  padding: 5px 10px 5px 30px
+  width: 100%
+  input#search
+    width: 80%
   button
     background: $c-rojo
     color: #FFF
     font-size: 1em
     padding: 0.2em
-
-
 
 #gridalimentos
   .alimento

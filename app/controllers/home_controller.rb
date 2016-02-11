@@ -90,8 +90,8 @@ class HomeController < ApplicationController
                     includes(:user).
                     page(params[:page]).per(6)
     else
-      @ideas = Idea.order('created_at ASC').
-                    where("published_at < ?", Time.now).
+      @ideas = Idea.where("published_at < ?", Time.now).
+                    order('published_at DESC').
                     includes(:user).
                     page(params[:page]).per(6)
     end
@@ -100,11 +100,12 @@ class HomeController < ApplicationController
     if params[:search]
       @ideas = Idea.search(params[:search]).
                     where("published_at < ?", Time.now).
+                    order('published_at DESC').
                     includes(:user).
                     page(params[:page]).per(6)
     else
-      @ideas = Idea.order('created_at ASC').
-                    where("published_at < ?", Time.now).
+      @ideas = Idea.where("published_at < ?", Time.now).
+                    order('published_at DESC').
                     includes(:user).
                     page(params[:page]).per(6)
     end
