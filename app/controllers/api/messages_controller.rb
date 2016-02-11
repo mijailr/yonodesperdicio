@@ -44,8 +44,10 @@ class Api::MessagesController < Api::BaseController
       current_user.mailbox.sentbox
     elsif params[:mailbox_id] == 'trash'
       current_user.mailbox.trash
+    elsif params[:mailbox_id] == 'inbox'
+      current_user.mailbox.inbox
     else
-      current_user.mailbox
+      current_user.mailbox.conversations
     end
   end
 end
