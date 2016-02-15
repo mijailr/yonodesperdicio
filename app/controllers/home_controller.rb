@@ -104,7 +104,8 @@ class HomeController < ApplicationController
                     includes(:user).
                     page(params[:page]).per(6)
     else
-      @ideas = Idea.where("published_at < ?", Time.now).
+      @ideas = Idea.where(category: category).
+                    where("published_at < ?", Time.now).
                     order('published_at DESC').
                     includes(:user).
                     page(params[:page]).per(6)
