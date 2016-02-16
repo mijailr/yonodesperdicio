@@ -1,15 +1,10 @@
 # Yonodesperdicio.org (from nolotiro.org v3)
 
-[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
+//[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
 
 
 * Yonodesperdicio Ruby 2.2.2p95 (2015-04-13 revision 50295)
 * Yonodesperdicio Rails 4.2.3
-
-(This is the next revision of nolotiro.org, this time in Ruby On Rails.
-
-* Ruby: 2.2.2
-* Rails: 4.2.1)
 
 -----------------------------------------
 ## Installation
