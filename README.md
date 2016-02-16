@@ -30,10 +30,15 @@ Yonodesperdicio is a Ruby on Rails application to share food between users, avoi
     $ bundle exec cap production deploy
 
 
+## API 
 
+[API Documentation](https://docs.google.com/document/d/18bOZCttSLd19F-mWrGv1eCiIergH4HB858_CEO4nKfI/edit?pref=2&pli=1 "API Docs")
 
 
 -----------------------------------------
+
+(From Nolotiro)
+
 ## Installation
 
 ### Automatic
@@ -116,8 +121,6 @@ For the localization and translation interface we use [LocaleApp](http://account
 
 -----------------------------------------
 ## API 
-
-(ver https://docs.google.com/document/d/18bOZCttSLd19F-mWrGv1eCiIergH4HB858_CEO4nKfI/edit?pref=2&pli=1)
 
 ### v1
 
