@@ -2,9 +2,10 @@
 
 //[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
 
-Yonodesperdicio is an ruby on rails application to share food between users, avoiding the waste of food.
+Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
 
 ## Ruby and Rails version
+
 * Yonodesperdicio Ruby 2.2.2p95 (2015-04-13 revision 50295)
 * Yonodesperdicio Rails 4.2.3
 
@@ -24,6 +25,7 @@ Yonodesperdicio is an ruby on rails application to share food between users, avo
 
 ## Deployment instructions
 
+    $ bundle exec cap production deploy
 
 
 
@@ -112,6 +114,8 @@ For the localization and translation interface we use [LocaleApp](http://account
 
 -----------------------------------------
 ## API 
+
+(ver https://docs.google.com/document/d/18bOZCttSLd19F-mWrGv1eCiIergH4HB858_CEO4nKfI/edit?pref=2&pli=1)
 
 ### v1
 
