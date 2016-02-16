@@ -1,19 +1,38 @@
 # Yonodesperdicio.org (from nolotiro.org v3)
 
-[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
+//[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
 
+Yonodesperdicio is an ruby on rails application to share food between users, avoiding the waste of food.
 
+## Ruby and Rails version
 * Yonodesperdicio Ruby 2.2.2p95 (2015-04-13 revision 50295)
 * Yonodesperdicio Rails 4.2.3
+
+## System dependencies
+
+
+## Configuration
+
+
+## Database creation
+
+## Database initialization
+
+## How to run the test suite
+
+## Services (job queues, cache servers, search engines, etc.)
+
+## Deployment instructions
+
+
+
+
 
 
 -----------------------------------------
 ## Installation
 
 ### Automatic
-
-helloooooo
-helloo x2 con git
 
 Using Vagrant (VirtualBox or LXC), you need to install it:
 
@@ -90,6 +109,8 @@ Happy hacking!
 
 For the localization and translation interface we use [LocaleApp](http://accounts.localeapp.com/projects/6872).
 
+
+-----------------------------------------
 ## API 
 
 ### v1
