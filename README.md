@@ -1,18 +1,55 @@
 # Yonodesperdicio.org (from nolotiro.org v3)
 
-//[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
 
+//[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
+=======
+![Sin titulo](http://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
+
+Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
+
+
+## Ruby and Rails version
 
 * Yonodesperdicio Ruby 2.2.2p95 (2015-04-13 revision 50295)
 * Yonodesperdicio Rails 4.2.3
 
+
+=======
+## System dependencies
+
+
+## Configuration
+
+
+## Database creation
+
+## Database initialization
+
+    $rake db:setup
+
+## How to run the test suite
+
+## Services (job queues, cache servers, search engines, etc.)
+
+## Deployment instructions
+
+    $ bundle exec cap production deploy
+
+
+## API 
+
+[API Documentation](https://docs.google.com/document/d/18bOZCttSLd19F-mWrGv1eCiIergH4HB858_CEO4nKfI/edit?pref=2&pli=1 "API Docs")
+
+
 -----------------------------------------
+
+(From Nolotiro)
+
+[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
+
 ## Installation
 
 ### Automatic
-
-helloooooo
-helloo x2 con git
 
 Using Vagrant (VirtualBox or LXC), you need to install it:
 
@@ -89,6 +126,8 @@ Happy hacking!
 
 For the localization and translation interface we use [LocaleApp](http://accounts.localeapp.com/projects/6872).
 
+
+-----------------------------------------
 ## API 
 
 ### v1

@@ -82,8 +82,8 @@
     <h3><%= @ad.user.username %> también comparte:</h3>
     <% @other_ads.each do |anuncio| %>
       <div class="col-md-3 col-sm-3 col-xs-6">
-        <p><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), ad_url(anuncio) %></p>
-        <p><%= link_to anuncio.title, ad_url(anuncio) %></p>
+        <p><%= link_to image_tag(anuncio.image.url(:thumb), :alt => " ", :class => "img-responsive"), adslug_path(anuncio.id, anuncio.slug) %></p>
+        <p><%= link_to anuncio.title, adslug_path(anuncio.id, anuncio.slug) %></p>
       </div><!--/col-4-->
     <% end %>
   <% end %>
