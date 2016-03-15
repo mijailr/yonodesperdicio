@@ -1,7 +1,5 @@
 # Yonodesperdicio.org (from nolotiro.org v3)
 
-#[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
-
 ![Sin titulo](http://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
 
 Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
@@ -21,6 +19,8 @@ Yonodesperdicio is a Ruby on Rails application to share food between users, avoi
 
 ## Database initialization
 
+    $rake db:setup
+
 ## How to run the test suite
 
 ## Services (job queues, cache servers, search engines, etc.)
@@ -38,6 +38,8 @@ Yonodesperdicio is a Ruby on Rails application to share food between users, avoi
 -----------------------------------------
 
 (From Nolotiro)
+
+[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
 
 ## Installation
 
