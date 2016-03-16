@@ -12,8 +12,6 @@
   <% end %></div>
 </div>
 
-  <%#= link_to t('nlt.view_more_ads'), ads_listall_path(type: :give, page: 2) %>
-
   <% @alimentos.includes(:user).each_slice(4) do |alimentos| %>
   <div id="gridalimentos" class="row">
 
@@ -29,7 +27,6 @@
           <p class="cantidad"><%= grams_to_kg(alimento.grams) %> kg - <span><%= alimento.food_category %></span></p>
           <p>Código postal del alimento: <%= alimento.zipcode %></p>
           <p>Fecha límite de entrega: <%= formated_date(alimento.pick_up_date) %></p>
-          <!--<p>Fecha de caducidad: <%#= formated_date(alimento.expiration_date) %></p>-->
           <hr>
 
           <div id="usuario" class="row">
@@ -38,7 +35,6 @@
             </div>
             <div id="dcha" class="col-md-8">
               <p class="username"><b><%= link_to alimento.user.username, profile_path(alimento.user.username) %></b></p>
-              <%#= rating_for alimento.user, "rating" %>
               <p>Total comida entregada: <span id="comidaentregada"><%= grams_to_kg(alimento.user.total_quantity) %> kg</span></p>
             </div>
 

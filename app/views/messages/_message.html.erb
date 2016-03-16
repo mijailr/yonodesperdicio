@@ -2,9 +2,7 @@
   <div class="message-excerpt">
     <div class="message-from-left">
       <%= link_to profile_path message.sender do %>
-        <%#= image_tag "contact.png" %>
         <%= image_tag message.sender.image.url(:thumb), :alt => "", :class => "img-responsive, avatar" %>
-
         <%= message.sender.username %>
       <% end %>
     </div>
@@ -14,9 +12,6 @@
       <div class="bubble bg-bubble-me">
         <%= message.body %>
         <div class="message-date"> 
-          <!--<abbr class="js-moment" title="<%#= message.created_at %>">
-            <%#= message.created_at %>
-          </abbr>-->
           <%= message.created_at.strftime("%d-%b-%Y  %T") %>
         </div>
       </div>
@@ -26,10 +21,7 @@
   <div class="message-excerpt">
     <div class="message-from-right">
       <%= link_to profile_path message.sender do %>
-        <%#= image_tag "contact.png" %>
-
         <%= image_tag message.sender.image.url(:thumb), :alt => "", :class => "img-responsive, avatar" %>
-
         <%= message.sender.username %>
       <% end %>
     </div>
@@ -39,7 +31,6 @@
       <div class="bubble bg-bubble-other">
         <%= message.body %>
         <div class="message-date">
-          <!--<abbr class="js-moment" title="<%#= message.created_at %>"><%#= message.created_at %></abbr>-->
           <%= message.created_at.strftime("%d-%b-%Y  %T") %>
         </div>
       </div>

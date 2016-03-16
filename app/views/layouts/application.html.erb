@@ -19,11 +19,10 @@
 
     <meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />
 
-    <!-- Google Plus compartir: Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
+    <!-- Google Plus -->
     <script src="https://apis.google.com/js/platform.js" async defer>
       {lang: 'es'}
     </script>
-
 
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -38,29 +37,17 @@
   </head>
   <body>
 
-    <!-- TODO: facebook app id (original de aLabs)-->
-    <!--<div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3&appId=XXXXXXXXXXX";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>-->
-
-<!-- Compartir en FB -->
-<div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-
+    <!-- Compartir en FB -->
+    <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
 
     <%= render :partial => "partials/header", :locals => { :url => "http://yonodesperdicio.org" } %>
-
 
     <div id="main" class="container">
 

@@ -32,7 +32,6 @@
       </div><!-- /dcha -->
 
       <div class="abajo col-md-12 col-sm-12 col-xs-12">
-        <%#= image_tag "http://maps.google.com/maps/api/staticmap?size=300x100&sensor=false&zoom=13&markers=#{@user.zipcode}, #{@user.city}", :width => "100%", :alt => "Mapa'", :id => "mapa", :class => "img-responsive" %>
        <iframe width="100%" height="100" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCZtag48hMPyRv9K0xppoqTstZmJ9DHS_Q
        &q=<%= @user.zipcode %>,<%= @user.city %>&zoom=10" allowfullscreen>
@@ -47,22 +46,18 @@
   <% if user_signed_in? and @user.id == current_user.id %>
     <div class="btn btn-rojo col-md-12"><%= link_to 'Nueva idea', new_my_idea_path %></div>
     <div class="btn btn-rojo col-md-12">
-      <%#= link_to "+ #{t('nlt.to_publish_ad')}", @user.new_ad_path(type: type_n) %>
       <%= link_to "Comparte alimentos", new_ad_path %>
     </div>
   <% end %>
 
     <div id="profile-menu">
-      <%#= render partial: "users/tabnav", locals: {user: @user} %>
       <% if user_signed_in? and @user.id == current_user.id %>
         <div class="btn btn-azul col-md-12">
-          <%#= link_to_unless_current t('nlt.messages'), messages_list_path %>
           <% unread_messages_count = current_user.unread_messages_count %>
           <%= link_to messages_list_path, title: "#{unread_messages_count}" do %>
             Tienes <%= unread_messages_count %> mensaje(s) sin leer
           <% end %>
         </div>
-          <%#= link_to t('nlt.logout'), destroy_user_session_path, :method => :delete, :class => "btn btn-azul" %>
         <% end %>
     </div><!-- /profile-menu -->
   </div><!-- /profile-block -->
@@ -94,8 +89,6 @@
                   Editar
               <% end %></p>
             <% end %>
-            <!--<p class="btn btn-azul"><%#= link_to 'Previsualizar', my_idea_path(idea) %></p>
-            <p class="btn btn-rojo"><%#= link_to 'Eliminar', my_idea_path(idea), method: :delete, data: { confirm: 'Seguro que quieres eliminar?' } %></p>-->
             <% end %>
           </div>
         </td>
@@ -127,13 +120,6 @@
     <% end %>
 </table>
 
-  <!--<h1 class="title-listados">Valoraciones pendientes <%= @user.username %></h1>
-  <table id="listados">
-    <tr>
-      <td>bla</td>
-    </tr>
-  </table>-->
-
 <hr>
 
 <% unless current_user == @user %>
@@ -142,24 +128,6 @@
     <%#= image_tag "email_send.png", :alt => "send a mesage" %>
   <% end %>
 <% end %>
-
-      <!--<%# if user_signed_in? %>
-        <%# unless current_user == @user %>
-          <li>
-          <%# if current_user.is_friend? @user %>
-            <%#= link_to destroy_friend_path(@user.id), class: 'world_link', method: 'post' do %>
-              <%#= t('nlt.profile_actions.friend.delete', username: @user.username) %>
-              <%#= image_tag "friend_delete.png", alt: "Delete friend"%>
-            <%# end %>
-          <%# else %>
-            <%#= link_to add_friend_path(@user.id), class: 'world_link', method: 'post' do %>
-              <%#= t('nlt.profile_actions.friend.add', username: @user.username) %>
-              <%#= image_tag "friend_add.png", alt: "Add friend"%>
-            <%# end %>
-          <%# end %>
-            </li>
-          <%# end %>
-        <%# end %>-->
 
       <% if can? :lock, @user %>
         <li>
@@ -203,5 +171,3 @@
 
   </div><!-- /ofertas-->
 </div><!-- /profile -->
-
-

@@ -11,7 +11,6 @@
       <li id="comofunciona" class="col-md-2 col-sm-2 col-xs-2"><%= link_to 'Cómo funciona' , funciona_path %></li>
       <li id="login" class="col-md-2 col-sm-2 col-xs-2"><%= link_to t('nlt.login'), new_user_session_path, "data-no-turbolink" => true %></li>
       <li class="col-md-2 col-sm-2 col-xs-2"><%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %></li>
-      <!--<li id="buscador" class="col-md-2 col-sm-2 col-xs-2"><%#= text_field_tag :search, params[:search], :placeholder => "Buscar" %><%#= render :partial => "ads/search" %><span class="glyphicon glyphicon-search" aria-hidden="true"></span></li>-->
     </ul>
   </div><!--/menu-cabecera-->
   <div id="useractions" class="col-md-12 col-sm-12 col-xs-12">   
@@ -31,10 +30,6 @@
         <%=h yield(:title) %>
       <% end %>
     </div>
-
-    <!--<div class="site-slogan">
-      <h2><%#= t('nlt.slogan') %></h2>
-    </div>-->
   </div>
 
   <div class="col-md-2 col-sm-2 hidden-xs">

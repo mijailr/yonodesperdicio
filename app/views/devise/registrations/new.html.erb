@@ -9,8 +9,6 @@
   <p>(<%= t 'nlt.if_youre_already_an_user' %>&nbsp;
   <%= link_to t('nlt.access_here'), new_user_session_path, :title => "user login" %>)</p>
   <p>(En la web sólo serán visibles tu nombre de usuario, foto y el código postal)</p>
-  <%#= t 'nlt.please_fill_to_become_member' %>
-
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <fieldset>
@@ -125,14 +123,9 @@
     </fieldset>
   <% end %>
 
-
-    <p class="enrojo">Al hacer clic en “Confirmar” acepto la las condiciones de uso y política de protección
+  <p class="enrojo">Al hacer clic en “Confirmar” acepto la las condiciones de uso y política de protección
 de datos que figuran en la <%= link_to 'Información legal', legal_path %> de esta página y declaro tener más de
 18 años.</p>
-    <%#= t 'nlt.sending_this_form' %>
-    <%#= link_to t('nlt.tos'), tos_path %>
-    <%#= t 'nlt.and' %>
-    <%#= link_to t('nlt.privacy'), privacy_path %>
 
 </div><!--/registrate-->
 </div><!--/row-->

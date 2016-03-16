@@ -39,9 +39,6 @@
                   </td>
                   <td class="timestamp">
                     <%= cache "moment-#{m.messages}" do %>
-                      <!--<abbr class="js-moment" title="<%#= m.messages.last.created_at %>">
-                        <%#= m.messages.last.created_at %>
-                      </abbr>-->
                       <%= m.messages.last.created_at.strftime("%d-%b-%Y  %T") %>
                     <% end %>
                   </td>
@@ -54,7 +51,6 @@
           <%= submit_tag t('mailboxer.buttons.trash_selected'), id: 'delete_multiple_button' %>
         <% end %>
       <% end %>
-      <!--<%#= will_paginate @messages %>-->
     <% else %>
       <p>
         <div class="info">
