@@ -14,6 +14,7 @@ class Ability
     # if the user is a real user (non anon)
     unless user.username.nil?
       can :create, Ad
+      can :destroy, Ad
       #can :create, Comment
       can :create, Mailboxer::Message
       # FIXME: not working on messages_controller.rb
