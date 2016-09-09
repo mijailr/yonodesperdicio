@@ -117,11 +117,11 @@ class Ad < ActiveRecord::Base
   end
 
   def woeid_name
-    WoeidHelper.convert_woeid_name(self.woeid_code)[:full] if self.woeid_code
+    city
   end
 
   def woeid_name_short
-    WoeidHelper.convert_woeid_name(self.woeid_code)[:short] if self.woeid_code
+    city
   end
 
   def full_title
