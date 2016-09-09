@@ -89,7 +89,6 @@ class AdsController < ApplicationController
   def destroy
     @ad.destroy
     respond_to do |format|
-      #format.html { redirect_to ads_url }
       format.html { redirect_to profile_url(current_user)}
       format.json { head :no_content }
     end

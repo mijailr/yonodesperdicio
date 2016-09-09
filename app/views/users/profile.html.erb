@@ -89,11 +89,9 @@
                   Editar
               <% end %></p>
 
-<% if anuncio.status != 3 %>
-<% if can? :destroy, anuncio %>
-<p class="btn btn-rojo col-md-12"><%= link_to 'Eliminar', ad_path(id: anuncio.id), method: :delete, data: { confirm: '¿Seguro que quieres eliminar este alimento?' } %></p>
-<% end %>
-<% end %>
+              <% if anuncio.status != 3 && can?(:destroy, anuncio) %>
+                <p class="btn btn-rojo col-md-12"><%= link_to 'Eliminar', ad_path(id: anuncio.id), method: :delete, data: { confirm: '¿Seguro que quieres eliminar este alimento?' } %></p>
+              <% end %>
 
             <% end %>
             <% end %>
