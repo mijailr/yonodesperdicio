@@ -6,6 +6,10 @@ class HomeController < ApplicationController
                       order('published_at ASC').last
     @idea = Idea.where("published_at < ?", Time.now).
                  order('published_at ASC').last
+
+    @alimentospro = Ad.give.includes(:user).
+                        where(status: [1,2]).
+                        where("pick_up_date IS NULL OR pick_up_date >= ?", Date.today)             
   end
 
   # listado de noticias
