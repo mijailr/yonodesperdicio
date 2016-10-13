@@ -9,7 +9,9 @@ class HomeController < ApplicationController
 
     @alimentospro = Ad.give.includes(:user).
                         where(status: [1,2]).
-                        where("pick_up_date IS NULL OR pick_up_date >= ?", Date.today)             
+                        where("pick_up_date IS NULL OR pick_up_date >= ?", Date.today).
+                        order('created_at DESC').last(2)
+
   end
 
   # listado de noticias
