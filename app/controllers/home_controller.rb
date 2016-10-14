@@ -10,8 +10,8 @@ class HomeController < ApplicationController
     @alimentospro = Ad.give.includes(:user).
                         where(status: [1,2]).
                         where("pick_up_date IS NULL OR pick_up_date >= ?", Date.today).
-                        order('created_at ASC').last(2)
-
+                        where("created_at < ?", Time.now).
+                        order('created_at DESC').last(2)
   end
 
   # listado de noticias
@@ -170,12 +170,7 @@ class HomeController < ApplicationController
     set_menu('compartir')
     set_submenu('particulares')
 
-    #Poner los alimentos disponibles
-    #@alimentos = Ad.give.available.includes(:user).page(params[:page])
-    #Poner alimentos disponibles y reservados
-    #@alimentos = Ad.give.includes(:user).
-    #                      where(status: [1,2]).
-    #                      page(params[:page]).per(10)
+    #Alimentos disponibles y reservados y buscadores
     if params[:search] || params[:zipcode]
       @alimentos = Ad.give.includes(:user).
                            search(params[:search], params[:zipcode], params[:food_category]).
