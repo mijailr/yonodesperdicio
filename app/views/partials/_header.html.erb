@@ -37,6 +37,25 @@
   </div>
   </div><!--/container-->
 
+
+  <div class="row">
+    <div class="btn-ppales col-md-4 col-sm-4 col-xs-12">
+      <div id="googleplay" class="btn btn-azul"><%#= link_to (image_tag "propias/googleplay.png", :alt => "Google Play", :class => "img-responsive"), "https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion", :target => '_blank' %>
+        <%= link_to 'Descarga la app', 'https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion', :target => '_blank' %>
+      </div>
+    </div>
+    <div class="btn-ppales col-md-4 col-sm-4 col-xs-12">
+      <div class="btn btn-azul">
+        <%= link_to t('nlt.new_user'), new_user_registration_path, "data-no-turbolink" => true %>
+      </div>
+    </div>
+    <div class="btn-ppales col-md-4 col-sm-4 col-xs-12">
+      <div class="btn btn-azul">
+        <%= link_to 'Si te gusta, apóyanos!', 'http://www.redsys.es', :target => '_blank' %>
+      </div>
+    </div>
+  </div>  
+
   <nav id="main-menu" class="row col-md-12 col-xs-12">
     <ul>
       <li><%= link_to root_path, :title => "Inicio", :class => menu_class('inicio'), "data-no-turbolink" => true do %>Inicio

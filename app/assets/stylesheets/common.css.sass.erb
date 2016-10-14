@@ -506,15 +506,15 @@ img#logo
  * Home
 #header
 .homearriba
-.homeabajo
-.homemedio
+.homenotideas
+.homecontador
   clear: both
 .homearriba div,
-.homeabajo div
+.homenotideas div
   padding: 20px 20px 20px 0 
   text-align: center
 .homearriba div p,
-.homeabajo div p
+.homenotideas div p
   font-family: $font-gorda
   text-align: left  
 .homearriba div img
@@ -525,7 +525,7 @@ img#logo
   font-family: $font-gorda
   font-size: 15px
   line-height: 20px  
-.homemedio 
+.homecontador 
   @include rayas
   margin: 1em 0
   padding: 0
@@ -568,14 +568,14 @@ img#logo
     @media all and (max-width: $break-small)
       display: none
  
-.homeabajo h3
+.homenotideas h3
   text-align: left  
-.homeabajo div p
+.homenotideas div p
   font-size: 13px
   line-height: 1.3em
   float: left
   width: auto
-.homeabajo div.cuerpazo
+.homenotideas div.cuerpazo
   padding: 0 
   float: left 
   a
@@ -694,7 +694,8 @@ img#logo
     font-size: 1em
     padding: 0.2em
 
-#gridalimentos
+#gridalimentos,
+#alimentospro
   .alimento
     background: #FFF
     margin: 1em 0
@@ -959,6 +960,20 @@ h1.funciona
   @include btn-azul
 .btn-azul:hover  
   @include btn-azul-hover
+.btn-ppales
+  text-align: center
+  height: 40px
+  margin-bottom: 1em
+  .btn
+    width: 100%
+    height: inherit
+    padding: 10px
+  #googleplay
+    background: url("propias/googleplay.png") no-repeat 20% 50% $c-azul
+    @media all and (max-width: $break-large)
+      background-position: 10% 50%
+  #googleplay:hover
+    @include btn-azul-hover
 
 #contactblock,
 #loginblock
