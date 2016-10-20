@@ -47,7 +47,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
 
-    <%= render :partial => "partials/header", :locals => { :url => "http://yonodesperdicio.org" } %>
+    <%= render :partial => "partials/header", :locals => { :url => "https://yonodesperdicio.org" } %>
 
     <div id="main" class="container">
 
@@ -76,7 +76,7 @@
     </div><!--/container-->
 
       <% cache("footer") do %>
-        <%= render :partial => "partials/footer", :locals => { :url => "http://yonodesperdicio.org" } %>
+        <%= render :partial => "partials/footer", :locals => { :url => "https://yonodesperdicio.org" } %>
       <% end %>
 
     <%= javascript_include_tag "application" %>

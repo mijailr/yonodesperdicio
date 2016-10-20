@@ -4,13 +4,13 @@
 
 //[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
 =======
-![Sin titulo](http://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
+![Sin titulo](https://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
 
 Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
 
 
 =======
-![Sin titulo](http://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
+![Sin titulo](https://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
 
 Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
 
