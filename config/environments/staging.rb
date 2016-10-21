@@ -86,7 +86,7 @@ Yonodesperdicio::Application.configure do
   #config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025 }
 
   # for images on mailer
-  config.action_controller.asset_host = 'http://beta.yonodesperdicio.org'
+  config.action_controller.asset_host = 'https://beta.yonodesperdicio.org'
   config.action_mailer.asset_host = config.action_controller.asset_host
 
 end
