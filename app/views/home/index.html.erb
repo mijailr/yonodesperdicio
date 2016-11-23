@@ -3,7 +3,7 @@
   <% @alimentospro.each_slice(4) do |alimentos| %>
     <% alimentos.each do |alimento| %>
       
-      <div class="col-md-3 col-sm-3 col-xs-6">
+      <div class="col-md-3 col-sm-3 col-xs-12">
       <div class="alimento">
         <%= link_to image_tag(alimento.image.url(:medium), :alt => " ", :class => "img-responsive"), adslug_path(id: alimento.id, slug: alimento.slug) %>
         <% if alimento.is_give? %>
