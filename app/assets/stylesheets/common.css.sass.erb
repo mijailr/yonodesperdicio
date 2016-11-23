@@ -509,7 +509,9 @@ img#logo
 .homenotideas
 .homecontador
   clear: both
-.homearriba div,
+.homearriba div
+  padding: 0 20px 0 0
+  text-align: center
 .homenotideas div
   padding: 20px 20px 20px 0 
   text-align: center
@@ -519,6 +521,7 @@ img#logo
   text-align: left  
 .homearriba div img
   height: auto
+  width: 50%
 .homearriba h3
   @include titulos-home
 .homearriba div p
@@ -532,6 +535,7 @@ img#logo
   text-align: center
   #contador
     float: left
+    width: 100%
     line-height: 1em
     padding: 0.6em 0 0.4em 0
     font-family: $font-titulo

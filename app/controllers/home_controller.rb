@@ -11,7 +11,7 @@ class HomeController < ApplicationController
                         where(status: [1,2]).
                         where("pick_up_date IS NULL OR pick_up_date >= ?", Date.today).
                         where("created_at < ?", Time.now).
-                        reorder('created_at DESC').first(2)
+                        reorder('created_at DESC').first(4)
                         #order("created_at ASC").last(2)
   end
 
