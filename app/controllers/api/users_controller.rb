@@ -55,7 +55,7 @@ class Api::UsersController < Api::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :username, :name, :zipcode, :city, :province, :image, :accept_mailing)
+    params.require(:user).permit(:email, :password, :password_confirmation, :username, :name, :zipcode, :city, :province, :image, :accept_mailing, :fcm_registration_token)
   end
 
   def parse_image_data(image_data)

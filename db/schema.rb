@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127103610) do
+ActiveRecord::Schema.define(version: 20161127105456) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -345,6 +345,7 @@ ActiveRecord::Schema.define(version: 20161127103610) do
     t.integer  "image_file_size",        limit: 4
     t.datetime "image_updated_at"
     t.string   "auth_token",             limit: 255
+    t.string   "fcm_registration_token", limit: 255
   end
 
   add_index "users", ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree

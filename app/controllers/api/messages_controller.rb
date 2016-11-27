@@ -1,4 +1,6 @@
 class Api::MessagesController < Api::BaseController
+  include FCMPushNotifications
+
   before_action :authenticate_with_token!
   respond_to :json
 
@@ -17,6 +19,7 @@ class Api::MessagesController < Api::BaseController
     conversation = current_user.mailbox.conversations.find(params[:conversation_id])
 
     if receipt = current_user.reply_to_conversation(conversation, params[:message][:body])
+      FCMPushNotifications.message_sent(receipt)
       render json: receipt
     else
       render json: { errors: receipt.errors }, status: 422

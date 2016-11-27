@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  include FCMPushNotifications
+  
   before_filter :authenticate_user!
 
   def index
@@ -36,12 +38,14 @@ class MessagesController < ApplicationController
         return redirect_to root_path
       end
       receipt = current_user.reply_to_conversation(@conversation, @message.body, nil, true, true, @message.attachment)
+      FCMPushNotifications.message_sent(receipt)
     else
       @message.recipients = User.find(params[:mailboxer_message][:recipients])
       unless @message.valid?
         return render :new
       end
       receipt = current_user.send_message(@message.recipients, @message.body, @message.subject, true, @message.attachment)
+      FCMPushNotifications.message_sent(receipt)
     end
     flash.now[:notice] = I18n.t "mailboxer.notifications.sent"
     redirect_to mailboxer_message_path(receipt.conversation)
