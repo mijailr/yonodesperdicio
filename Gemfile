@@ -10,7 +10,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 #gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'rails-push-notifications', '~> 0.2.0'
 
 group :doc do
   gem 'sdoc', require: false
