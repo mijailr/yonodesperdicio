@@ -293,22 +293,23 @@ input[type="file"]
     font-size: 0.95em
   @media all and (max-width: $break-small)
     font-size: 0.75em
-  a
-    color: #FFF
-  a:hover
-    color: #CCC
   li
     display: inline
     padding: 0.7em
     float: left
     text-align: center
+    text-transform: capitalize
+    border-right: 1px solid #FFF
+  li:last-child
+    border-right: none
+  a
+    color: #FFF
+  a:hover
+    opacity: 0.8
   li#rrss
     padding: 0.2em
     img
       padding-bottom: 0
-  li#login
-    border-left: 1px solid #FFF
-    border-right: 1px solid #FFF  
   li#buscador 
     input#search
       width: 80%
@@ -468,16 +469,16 @@ img#logo
 .links-left,
 .links-right
   padding: 0.3em
-  a
-    color: #FFF
-  a:hover
-    color: #CCC
   li
     display: inline
     padding: 0.6em
     float: left
     text-align: center
     margin-left: 0
+  a
+    color: #FFF
+  a:hover
+    opacity: 0.8   
 .links-left
   float: left
   background: $c-azul
