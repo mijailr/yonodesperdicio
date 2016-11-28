@@ -1,7 +1,7 @@
 require 'fcm'
 
 module FCMPushNotifications
-  extend ActiveModel::Concern
+  extend ActiveSupport::Concern
 
   def self.message_sent(receipt)
   	fcm = FCM.new(Rails.application.secrets["fcm_api_key"])
@@ -16,8 +16,8 @@ module FCMPushNotifications
 		options = {
 			data: 
 			{
-				message_id: receipt.message_id, 
-				conversation: receipt.conversation_id, 
+				message_id: receipt.message.id, 
+				conversation: receipt.conversation.id, 
 				author_id: receipt.message.sender.id 
 			}
 		}
