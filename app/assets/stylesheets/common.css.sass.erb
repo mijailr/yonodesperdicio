@@ -520,17 +520,21 @@ img#logo
 .homenotideas div p
   font-family: $font-gorda
   text-align: left  
-.homearriba div img
-  height: auto
-  width: 50%
-  @media all and (max-width: $break-medium)
-    width: 100%
-.homearriba h3
-  @include titulos-home
-.homearriba div p
-  font-family: $font-gorda
-  font-size: 15px
-  line-height: 20px  
+.homearriba 
+  div img
+    height: auto
+    width: 50%
+    @media all and (max-width: $break-medium)
+      width: 100%
+  div a:hover
+    opacity: 1
+    color: none
+  h3
+    @include titulos-home
+  div p
+    font-family: $font-gorda
+    font-size: 15px
+    line-height: 20px  
 .homecontador 
   @include rayas
   margin: 1em 0
