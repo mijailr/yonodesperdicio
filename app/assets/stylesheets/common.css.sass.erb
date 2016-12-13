@@ -974,6 +974,8 @@ h1.funciona
   @include btn-azul
 .btn-azul:hover  
   @include btn-azul-hover
+#botones
+  padding: 0
 .btn-ppales
   text-align: center
   height: 40px
@@ -992,6 +994,12 @@ h1.funciona
       background-position: 10% 50%
   #googleplay:hover
     @include btn-azul-hover
+.btn-ppales:first-child
+  padding-left: 0
+  padding-right: 15px  
+.btn-ppales:last-child
+  padding-left: 15px
+  padding-right: 0
 
 #contactblock,
 #loginblock
