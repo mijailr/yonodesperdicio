@@ -1,5 +1,5 @@
 <div id="alimentospro" class="col-md-12 col-sm-12 col-xs-12">
-  <h2>Últimos alimentos compartidos</h2>
+  <h2>Alimentos para compartir</h2>
   <% @alimentospro.each_slice(4) do |alimentos| %>
     <% alimentos.each do |alimento| %>
       
@@ -34,7 +34,11 @@
       </div><!--/col-md-6-->
     <% end %>
   <% end %>
+<div id="masads" class="row">
+  <%= link_to 'Ver +' , particulares_url %>
+</div>
 </div><!--/alimentospro-->
+
 
 <div class="homenotideas col-sm-8 col-md-8 col-xs-12">
   <h2>Últimas noticias y recetas</h2>
