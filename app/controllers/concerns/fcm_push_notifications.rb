@@ -27,6 +27,9 @@ module FCMPushNotifications
     }
 
     response = fcm.send(fcm_registration_ids, options)
+    Rails.logger.info "FCMPushNotifications: response: #{response.inspect}"
+
+    response
   end
 end
 
