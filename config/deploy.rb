@@ -15,7 +15,7 @@ set :deploy_via, :remote_cache
 set :ssh_options, { :forward_agent => true }
 
 set :linked_files, %w{config/database.yml config/secrets.yml config/newrelic.yml vendor/geolite/GeoLiteCity.dat}
-set :linked_dirs, %w{db/sphinx log tmp/pids tmp/cache tmp/sockets tmp/cachedir vendor/bundle public/system public/legacy}
+set :linked_dirs, %w{db/sphinx log tmp/pids tmp/cache tmp/sockets tmp/cachedir vendor/bundle public/system public/legacy public/.well-known}
 
 set :keep_releases, 5
 
@@ -41,7 +41,7 @@ namespace :deploy do
   before :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
-        with rails_env: fetch(:rails_env) do 
+        with rails_env: fetch(:rails_env) do
           execute :rake, 'nolotiro:cache:clear'
         end
       end
