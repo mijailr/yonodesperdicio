@@ -1,12 +1,13 @@
 # Yonodesperdicio.org (from nolotiro.org v3)
 
-
-//[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
-
 ![Yonodesperdicio](https://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-316c77932e19fcc5b186349caf6164cc.png)
 
 
 Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
+
+## License
+
+[Affero GPL 3](http://www.gnu.org/licenses/agpl-3.0.html), based on [Nolotiro](http://nolotiro.org). 
 
 -----------------------------------------
 
@@ -26,26 +27,28 @@ To create things you have to make a POST request with a json with the data, if s
 
 Routes in general will then be something like, eg:
 
-At beta: http://beta.yonodesperdicio.org/api/users/1 
-At production: http://yonodesperdicio.org/api/users/1
+* At beta: http://beta.yonodesperdicio.org/api/users/1 
+* At production: http://yonodesperdicio.org/api/users/1
 
 ### Search:
 
 Ideas can be filtered by passing parameters in the url for category and / or user_id, for example:
 
-/api/ideas?user_id=5
-/api/ideas?category=trucos
+* /api/ideas?user_id=5
+* /api/ideas?category=trucos
 
 Ads can be filtered by user_id, food_category, zipcode and query (as in the web).
 
-/api/ads?food_category=bebidas
-/api/ads?user_id=1
-/api/ads?zipcode=28011
-/api/ads?query=avellanas
+* /api/ads?food_category=bebidas
+* /api/ads?user_id=1
+* /api/ads?zipcode=28011
+* /api/ads?query=avellanas
 
 ### Users
 
-View an user: http://beta.yonodesperdicio.org/api/users/1
+View an user: 
+
+http://beta.yonodesperdicio.org/api/users/1
 
 Create an user:
 
@@ -65,7 +68,7 @@ Example:
 
 curl -d "username=xyz&password=12345678"  -X POST http://beta.yonodesperdicio.org/api/sessions
 
-This returns a json with an auth_token to be used in the Authorization header in the following HTTP requests to create / update / delete things.
+This returns a json with an auth_token to be used in the Authorization header in the following HTTP requests to create / update / delete things:
 
 {"Session_user": {"id": 16, "username": "xyz", "email": "zxy@example.com", "auth_token": "aYByuB16ap-5VcNB9Xsf"}}
 
@@ -76,9 +79,13 @@ When creating a food, this takes by default the user's zipcode, but this zipcode
 
 ### Ads (alimentos=food)
 
-View all ads: http://beta.yonodesperdicio.org/api/ads
+View all ads: 
 
-Views the ad with id=1: http://beta.yonodesperdicio.org/api/ads/1
+http://beta.yonodesperdicio.org/api/ads
+
+Views the ad with id=1: 
+
+http://beta.yonodesperdicio.org/api/ads/1
 
 Create an ad:
 
@@ -158,15 +165,4 @@ The total amount of kilos delivered in: / api / total_kg
 
 # From Nolotiro:
 
-https://github.com/alabs/nolotiro.org
-
------------------------------------------
-## System dependencies
-## Configuration
-## Database creation
-## Database initialization
-    $rake db:setup
-## How to run the test suite
-## Services (job queues, cache servers, search engines, etc.)
-## Deployment instructions
-
+[Nolotiro documentation](https://github.com/alabs/nolotiro.org "Nolotiro")
