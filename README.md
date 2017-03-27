@@ -1,183 +1,168 @@
 # Yonodesperdicio.org (from nolotiro.org v3)
 
+![Yonodesperdicio](https://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-316c77932e19fcc5b186349caf6164cc.png)
 
-
-//[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
-=======
-![Sin titulo](https://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
 
 Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
 
+## License
 
-=======
-![Sin titulo](https://yonodesperdicio.org/assets/propias/cabecera-yonodesperdicio-909ce351ccb124ede2e17623806ca0b7.png)
+[Affero GPL 3](http://www.gnu.org/licenses/agpl-3.0.html), based on [Nolotiro](http://nolotiro.org). 
 
-Yonodesperdicio is a Ruby on Rails application to share food between users, avoiding the waste of food.
-
+-----------------------------------------
 
 ## Ruby and Rails version
 
 * Yonodesperdicio Ruby 2.2.2p95 (2015-04-13 revision 50295)
 * Yonodesperdicio Rails 4.2.3
-
-
-
-=======
-## System dependencies
-
-
-## Configuration
-
-
-## Database creation
-
-## Database initialization
-
-    $rake db:setup
-
-## How to run the test suite
-
-## Services (job queues, cache servers, search engines, etc.)
-
-## Deployment instructions
-
-    $ bundle exec cap production deploy
-
+-----------------------------------------
 
 ## API 
 
-[API Documentation](https://docs.google.com/document/d/18bOZCttSLd19F-mWrGv1eCiIergH4HB858_CEO4nKfI/edit?pref=2&pli=1 "API Docs")
+API REST Json.
+curl from command line.
 
-=======
-## System dependencies
-
-
-## Configuration
+To create things you have to make a POST request with a json with the data, if something is missing it will give an error and return a json with the error messages, if it goes well returns a json with the created record. To update it would have to make a PUT request with the modified json.
 
 
-## Database creation
+Routes in general will then be something like, eg:
 
-## Database initialization
+* At beta: http://beta.yonodesperdicio.org/api/users/1 
+* At production: http://yonodesperdicio.org/api/users/1
 
-    $rake db:setup
+### Search:
 
-## How to run the test suite
+Ideas can be filtered by passing parameters in the url for category and / or user_id, for example:
 
-## Services (job queues, cache servers, search engines, etc.)
+* /api/ideas?user_id=5
+* /api/ideas?category=trucos
 
-## Deployment instructions
+Ads can be filtered by user_id, food_category, zipcode and query (as in the web).
 
-    $ bundle exec cap production deploy
+* /api/ads?food_category=bebidas
+* /api/ads?user_id=1
+* /api/ads?zipcode=28011
+* /api/ads?query=avellanas
+
+### Users
+
+View an user: 
+
+http://beta.yonodesperdicio.org/api/users/1
+
+Create an user:
+
+POST to / api / users with json with user registration data (username, password, name, zipcode, email)
+
+Example:
+
+curl -H "Content-Type: application/json" -X POST -d '{"user": {"username":"xyz","password":"12345678","name":"XYZ", "zipcode":"123", "email":"zxy@example.com"}}'  -X POST http://beta.yonodesperdicio.org/api/users
+
+After creating the account must be confirmed by email.
+
+Authenticate user:
+
+POST to /api/sessions with username and password as parameters.
+
+Example:
+
+curl -d "username=xyz&password=12345678"  -X POST http://beta.yonodesperdicio.org/api/sessions
+
+This returns a json with an auth_token to be used in the Authorization header in the following HTTP requests to create / update / delete things:
+
+{"Session_user": {"id": 16, "username": "xyz", "email": "zxy@example.com", "auth_token": "aYByuB16ap-5VcNB9Xsf"}}
+
+On the web, the user and ad (food) location data go through a zipcode and city, simply so that the user does not have to give his exact address for privacy and LOPD issues and such.
+
+When creating a food, this takes by default the user's zipcode, but this zipcode can be changed for each ad later (eg in cases where the user moves from place to place and prefers to give his food elsewhere, or in a place on the way to work, or things like that).
 
 
-## API 
+### Ads (alimentos=food)
 
-[API Documentation](https://docs.google.com/document/d/18bOZCttSLd19F-mWrGv1eCiIergH4HB858_CEO4nKfI/edit?pref=2&pli=1 "API Docs")
+View all ads: 
 
+http://beta.yonodesperdicio.org/api/ads
 
+Views the ad with id=1: 
+
+http://beta.yonodesperdicio.org/api/ads/1
+
+Create an ad:
+
+POST to / api / ads with ad data and the Authorization header with the token that returned the login
+
+Example:
+
+curl -H "Content-Type: application/json"  -H "Authorization: TB1T2pDQuGYExhJQ5vYB" -X POST -d '{"ad": {"title":"probando desde api","body":"un alimento muy rico","grams":"120", "status":"1", "food_category":"bebidas"}}'  -X POST http://localhost:3000/api/ads
+
+Returns the saved ad, with the id assigned in the database:
+
+{"ad":{"id":5,"title":"probando desde api","body":"un alimento muy rico","status":1,"grams":120,"expiration_date":null,"pick_up_date":null,"comments_enabled":null,"image":"propias/d_ads_original.png","zipcode":"123","city":null,"province":null,"food_category":"bebidas","user_id":3}}
+
+### Ideas (recetas o trucos)
+
+Ideas: http://beta.yonodesperdicio.org/api/ideas
+
+An idea with id=1: http://beta.yonodesperdicio.org/api/ideas/1
+
+Create an idea:
+
+curl -H "Content-Type: application/json"  -H "Authorization: TB1T2pDQuGYExhJQ5vYB" -X POST -d '{"idea": {"category":"truco", "title":"una idea desde api", "body":"un idea genial", "introduction":"intro intro"}}'  -X POST http://localhost:3000/api/ideas
+
+Returns the saved idea:
+
+{"idea":{"id":9,"category":"truco","title":"una idea desde api","introduction":"intro intro","ingredients":null,"body":"un idea genial","image":"propias/d_brick_original.png","tag_list":[],"user_id":3}}
+
+### Comments on ads or ideas
+
+Create comments: 
+
+POST con json {"comment": {"body": "cuerpo del comentario"}} a /api/ads/AD_ID/comments para ads  o  /api/ideas/IDEA_ID/comments para ideas
+
+Examples:
+
+curl -H "Content-Type: application/json"  -H "Authorization: 8qqRb_KFdp9W2-CNVFKU" -X POST  -d '{"comment": {"body":"comentario desde api"}}' http://localhost:3000/api/ads/1/comments
+
+curl -H "Content-Type: application/json"  -H "Authorization: 8qqRb_KFdp9W2-CNVFKU" -X POST  -d '{"comment": {"body":"comentario desde api"}}' http://localhost:3000/api/ideas/1/comments
+
+Returns comment created json.
+
+### Messages
+
+View conversations of a mailbox (being logged in):
+
+/api/mailboxes/MAILBOX_ID/conversations
+
+curl -H "Content-Type: application/json"  -H "Authorization: 8qqRb_KFdp9W2-CNVFKU" http://localhost:3000/api/mailboxes/inbox/conversations
+
+Mailbox_id can be: “inbox”, “sent” o “trash”
+
+View messages from a conversation:
+
+/api/mailboxes/MAILBOX_ID/conversations/CONVERSATION_ID/messages
+curl -H "Content-Type: application/json"  -H "Authorization: 8qqRb_KFdp9W2-CNVFKU" http://localhost:3000/api/mailboxes/inbox/conversations/1/messages
+
+Respond to a conversation:
+
+POST to /api/mailboxes/invox/conversations/CONVERSATION_ID/messages
+with json {"message": {"body": "cuerpo del mensaje 3"}}
+
+curl -H "Content-Type: application/json"  -H "Authorization: 8qqRb_KFdp9W2-CNVFKU" -X POST -d '{"message": {"body": "cuerpo del mensaje 3"}}' http://localhost:3000/api/mailboxes/inbox/conversations/1/messages
+
+New message:
+
+POST to /api/new_message/RECIPIENT_ID
+with json {"message": {"subject": "test2", "body": "cuerpo del mensaje 3"}}
+
+curl -H "Content-Type: application/json"  -H "Authorization: 8qqRb_KFdp9W2-CNVFKU" -X POST -d '{"message": {"subject": "test2", "body": "cuerpo del mensaje 3"}}' http://localhost:3000/api/new_message/2
+
+### Delivered food (ads) counter:
+
+The total amount of kilos delivered in: / api / total_kg
+(The total amount of kilos delivered is the sum of each ad with status = delivered)
 
 -----------------------------------------
 
-(From Nolotiro)
+# From Nolotiro:
 
-[![Build Status](https://travis-ci.org/alabs/nolotiro.org.png?branch=master)](https://travis-ci.org/alabs/nolotiro.org)
-
-## Installation
-
-### Automatic
-
-Using Vagrant (VirtualBox or LXC), you need to install it:
-
-    $ gem install vagrant
-    $ vagrant box add precise32 http://files.vagrantup.com/precise32.box
-    $ vagrant up
-
-You can access with: 
-
-http://localhost:8080
-http://localhost:8081
-
-### Manual
-
-Check out the script in bin/bootstrap.sh - that's the same that vagrant uses. 
-
-We recommend using RVM or rbenv to set up the gems. 
-
-To install it you should do something like: 
-
-    $ bundle
-    $ cp config/app_config.yml.example config/app_config.yml
-    $ cp config/database.yml.example config/database.yml
-    $ rake db:schema:load
-    $ rails s
-
-The database we use is legacy, a MySQL with the schema of [v2](https://github.com/alabs/nolotiro)
-
-For the WOEID we use [Yahoo GeoPlanet](http://developer.yahoo.com/geo/geoplanet/),
-so you need to register, create a new app and configure it in the relevant environment in
-*config/app_config.yml* (key *geoplanet_app_id*)
-
-For the GeoLocation we use [GeoLiteCity](http://dev.maxmind.com/geoip/legacy/geolite/). 
-
-    $ cd vendor/geolite
-    $ wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
-    $ gunzip GeoLiteCity.dat.gz
-
-For the search we use Sphinx, so you'll need to install it: 
-
-    $ sudo apt-get install sphinxsearch
-    $ rake ts:index
-    $ rake ts:start
-
-For delayed tasks (like sending emails) we use Resque, that uses Redis. Also we use Redis to cache things. 
-
-    $ sudo apt-get install redis-server
-    $ rake resque:work QUEUE='*'
-
-For recaptcha you need to [signup](https://www.google.com/recaptcha/admin/create)
-and configure it in the relevant environment in *config/app_config.yml* (keys 
-*recaptcha_public_key* and *recaptcha_private_key*)
-
-## Development environment magic
-
-For the emails we recommend using mailcatcher. This doesn't send external emails during
-development, and you can see them in a nice web interface. The SMTP port is 
-already configured to it (1025).
-
-    $ mailcatcher
-    $ open http://localhost:1080
-
-We use a special task for the colors: 
-    $ rake color_routes
-
-We use better_errors when giving a 500 in development env. 
-
-We use rails_footnotes in development so below the footer you have
-some useful information (SQL queries executed and such). 
-
-Happy hacking!
-
-## i18n 
-
-For the localization and translation interface we use [LocaleApp](http://accounts.localeapp.com/projects/6872).
-
-
------------------------------------------
-## API 
-
-### v1
-
-Example URLs: 
-
-http://beta.nolotiro.org/api/v1/woeid/list 
-http://beta.nolotiro.org/api/v1/woeid/766273/give
-http://beta.nolotiro.org/api/v1/woeid/766273/give?page=2
-http://beta.nolotiro.org/api/v1/ad/153735
-
-## 3erd Party
-
-* Core based on [Ruby On Rail](http://rubyonrails.org/)
-* [Yahoo! Geo Planet API](http://developer.yahoo.com/geo/geoplanet/) - This project is strong WOEID integration centered.
-* [jQuery](http://jquery.com/) for Javascript.
-* [GeoLite data API by Maxmind](http://www.maxmind.com/app/geolitecity) to auto detect user location.
-* Logo by [Silvestre Herrera](http://www.silvestre.com.ar/) under GPL License.
+[Nolotiro documentation](https://github.com/alabs/nolotiro.org "Nolotiro")
