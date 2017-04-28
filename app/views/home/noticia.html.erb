@@ -4,7 +4,7 @@
   <meta property="og:title" content="<%= @noticia.body %>" />
   <meta property="og:image" content='<%= @noticia.image.url %>' />
   <meta property="og:title" content='<%= @noticia.title %>' />
-  <meta itemprop="description" content="<%= @noticia.body %>" />
+  <meta itemprop="description" content="<%= strip_tags @noticia.body %>" />
   <meta itemprop="image" content='<%= @noticia.image.url %>' />
 <% end %>
 
@@ -19,12 +19,10 @@
       <% end %>
     </p>
     <p>
-      <%= render :partial => "partials/social_buttons", 
-                 :locals => { 
-                   :url => noticia_url(@noticia), 
-                   :meta_title => @noticia.title, 
-                   :meta_description =>  truncate_html(markdown(@noticia.body).html_safe, length: 340, omission: ' +...'), 
-                   :text => truncate_html(@noticia.body.html_safe, length: 10, omission: ' +...') } %>
+      <%= render :partial => "partials/social_buttons",
+                 :locals => {
+                   :url => noticia_url(@noticia),
+                   :meta_title => @noticia.title } %>
     </p>
   </div><!-- /imagen -->
 
@@ -47,6 +45,6 @@
       <%= render :partial => "comments/form", :locals => {:path => noticia_comments_path(@noticia), :comment => Comment.new} %>
       <%= render :partial => "comments/list", :locals => {:comments => @noticia.comments} %>
   </div><!--/comentarios-->
-  
-  </div><!-- /cuerpo -->   
+
+  </div><!-- /cuerpo -->
 </div><!-- /row -->

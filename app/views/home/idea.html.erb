@@ -4,7 +4,7 @@
   <meta property="og:title" content="<%= @idea.introduction %>" />
   <meta property="og:image" content='<%= @idea.image.url %>' />
   <meta property="og:title" content='<%= @idea.title %>' />
-  <meta itemprop="description" content="<%= @idea.body %>" />
+  <meta itemprop="description" content="<%= strip_tags @idea.body %>" />
   <meta itemprop="image" content='<%= @idea.image.url %>' />
 <% end %>
 
@@ -21,9 +21,7 @@
       <%= render :partial => "partials/social_buttons",
                  :locals => {
                     :url => idea_url(@idea),
-                    :meta_title => @idea.title,
-                    :meta_description =>  truncate_html(markdown(@idea.body).html_safe, length: 340, omission: ' +...'),
-                    :text => truncate_html(@idea.body.html_safe, length: 10, omission: ' +...')} %>
+                    :meta_title => @idea.title } %>
     </p>
   </div><!-- /imagen -->
 
