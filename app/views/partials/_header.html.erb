@@ -55,9 +55,23 @@
 
 
   <div id="botones" class="row col-md-12 col-sm-12 col-xs-12">
-    <div class="btn-ppales col-md-4 col-sm-4 col-xs-12">
-      <div id="googleplay" class="btn btn-azul"><%#= link_to (image_tag "propias/googleplay.png", :alt => "Google Play", :class => "img-responsive"), "https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion", :target => '_blank' %>
-        <%= link_to 'Descarga la app', 'https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion', :target => '_blank' %>
+    <!--<div class="btn-ppales col-md-4 col-sm-4 col-xs-12">
+      <div id="ios" class="btn btn-azul"><%#= link_to (image_tag "propias/googleplay.png", :alt => "Google Play", :class => "img-responsive"), "https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion", :target => '_blank' #%>
+        <%#= link_to 'Descarga la app (iOS)', 'https://itunes.apple.com/us/app/yo-no-desperdicio/id1349176893?mt=8', :target => '_blank' #%>
+      </div>
+    </div>-->
+
+    <div class="btn-ppales col-md-2 col-sm-2 col-xs-6">
+      <div id="googleplay" class="btn btn-azul"><%#= link_to (image_tag "propias/btn-google-play-store.png", :alt => "Google Play", :class => "img-responsive"), "https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion", :target => '_blank' #%>
+        <i class="fa fa-android" aria-hidden="true"></i>
+        <%= link_to 'Google Play', 'https://play.google.com/store/apps/details?id=com.imaginabit.yonodesperdicion', :target => '_blank' %>
+      </div>
+    </div>
+
+    <div class="btn-ppales col-md-2 col-sm-2 col-xs-6">
+      <div id="ios" class="btn btn-azul col-md-6"><%#= link_to (image_tag "propias/btn-ios_app_store.png", :alt => "iOS Store", :class => "img-responsive"), "https://itunes.apple.com/us/app/yo-no-desperdicio/id1349176893?mt=8", :target => '_blank' #%>
+        <i class="fa fa-apple" aria-hidden="true"></i>
+        <%= link_to 'Apple Store', 'https://itunes.apple.com/us/app/yo-no-desperdicio/id1349176893?mt=8', :target => '_blank' %>
       </div>
     </div>
     <div class="btn-ppales col-md-4 col-sm-4 col-xs-12">
