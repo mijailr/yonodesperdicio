@@ -1003,11 +1003,15 @@ h1.funciona
     width: 100%
     height: inherit
     padding: 10px
-  #googleplay
-    background: url("propias/googleplay.png") no-repeat 20% 50% $c-azul
-    @media all and (max-width: $break-large)
-      background-position: 10% 50%
-  #googleplay:hover
+  #googleplay,
+  #ios
+    //background: url("propias/googleplay.png") no-repeat 20% 50% $c-azul
+    //@media all and (max-width: $break-large)
+    //  background-position: 10% 50%
+    img
+      height: 100%
+  #googleplay:hover,
+  #ios:hover
     @include btn-azul-hover
 .btn-ppales:first-child
   padding-left: 0
